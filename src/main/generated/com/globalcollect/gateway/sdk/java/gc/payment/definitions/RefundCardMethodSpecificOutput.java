@@ -1,0 +1,6 @@
+package com.globalcollect.gateway.sdk.java.gc.payment.definitions;
+
+import com.globalcollect.gateway.sdk.java.gc.payment.definitions.RefundMethodSpecificOutput;
+
+public class RefundCardMethodSpecificOutput extends RefundMethodSpecificOutput {
+}

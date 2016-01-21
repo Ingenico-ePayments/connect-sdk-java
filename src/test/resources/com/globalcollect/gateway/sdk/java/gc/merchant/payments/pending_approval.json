@@ -1,0 +1,39 @@
+{
+    "creationOutput": {
+        "additionalReference": "00000200002014254946",
+        "externalReference": "000002000020142549460000100001"
+    },
+    "payment": {
+        "id": "000002000020142549460000100001",
+        "paymentOutput": {
+            "amountOfMoney": {
+                "amount": 2345,
+                "currencyCode": "CAD"
+            },
+            "references": {
+                "paymentReference": "0"
+            },
+            "paymentMethod": "card",
+            "cardPaymentMethodSpecificOutput": {
+                "paymentProductId": 1,
+                "authorisationCode": "OK1131",
+                "card": {
+                    "cardNumber": "************9176",
+                    "expiryDate": "1220"
+                },
+                "fraudResults": {
+                    "fraudServiceResult": "error",
+                    "avsResult": "X",
+                    "cvvResult": "M"
+                }
+            }
+        },
+        "status": "PENDING_APPROVAL",
+        "statusOutput": {
+            "isCancellable": true,
+            "statusCode": 600,
+            "statusCodeChangeDateTime": "20150331120036",
+            "isAuthorized": true
+        }
+    }
+}

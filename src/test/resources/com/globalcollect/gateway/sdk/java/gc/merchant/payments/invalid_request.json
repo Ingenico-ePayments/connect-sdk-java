@@ -1,0 +1,11 @@
+{
+    "errorId": "2c164323-20d3-4e9e-8578-dc562cd7506c-00000058",
+    "errors": [
+        {
+            "code": "21000120",
+            "requestId": "2001803",
+            "propertyName": "cardPaymentMethodSpecificInput.card.expiryDate",
+            "message": "paymentMethodSpecificInput.card.expiryDate (1210) IS IN THE PAST OR NOT IN CORRECT MMYY FORMAT"
+        }
+    ]
+}

@@ -40,15 +40,15 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * @param paymentId String
 	 * @param body RefundRequest
 	 * @return RefundResponse
-	 * @throws GcDeclinedRefundException if GlobalCollect declined / rejected the refund. The refund result will be available from the exception.
+	 * @throws GcDeclinedRefundException if the GlobalCollect platform declined / rejected the refund. The refund result will be available from the exception.
 	 * @throws GcValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public RefundResponse refund(String paymentId, RefundRequest body) {
@@ -91,10 +91,10 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public PaymentResponse processchallenged(String paymentId) {
@@ -137,10 +137,10 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public PaymentResponse get(String paymentId) {
@@ -172,15 +172,15 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * 
 	 * @param body CreatePaymentRequest
 	 * @return CreatePaymentResponse
-	 * @throws GcDeclinedPaymentException if GlobalCollect declined / rejected the payment. The payment result will be available from the exception.
+	 * @throws GcDeclinedPaymentException if the GlobalCollect platform declined / rejected the payment. The payment result will be available from the exception.
 	 * @throws GcValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public CreatePaymentResponse create(CreatePaymentRequest body) {
@@ -231,10 +231,10 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public CreateTokenResponse tokenize(String paymentId, TokenizePaymentRequest body) {
@@ -274,10 +274,10 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public CancelPaymentResponse cancel(String paymentId) {
@@ -318,10 +318,10 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public PaymentApprovalResponse approve(String paymentId, ApprovePaymentRequest body) {
@@ -364,10 +364,10 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong on GlobalCollect's end,
-	 *            GlobalCollect was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws GcApiException if GlobalCollect returned any other error
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
 	@Override
 	public CancelApprovalPaymentResponse cancelapproval(String paymentId) {

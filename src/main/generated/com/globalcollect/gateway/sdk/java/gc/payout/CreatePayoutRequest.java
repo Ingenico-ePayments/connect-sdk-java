@@ -1,6 +1,7 @@
 package com.globalcollect.gateway.sdk.java.gc.payout;
 
 import com.globalcollect.gateway.sdk.java.gc.fei.definitions.AmountOfMoney;
+import com.globalcollect.gateway.sdk.java.gc.fei.definitions.BankAccountBban;
 import com.globalcollect.gateway.sdk.java.gc.fei.definitions.BankAccountIban;
 import com.globalcollect.gateway.sdk.java.gc.payout.definitions.PayoutCustomer;
 import com.globalcollect.gateway.sdk.java.gc.payout.definitions.PayoutReferences;
@@ -11,6 +12,8 @@ import com.globalcollect.gateway.sdk.java.gc.payout.definitions.PayoutReferences
 public class CreatePayoutRequest {
 
 	private AmountOfMoney amountOfMoney = null;
+
+	private BankAccountBban bankAccountBban = null;
 
 	private BankAccountIban bankAccountIban = null;
 
@@ -30,6 +33,14 @@ public class CreatePayoutRequest {
 
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
+	}
+
+	public BankAccountBban getBankAccountBban() {
+		return bankAccountBban;
+	}
+
+	public void setBankAccountBban(BankAccountBban value) {
+		this.bankAccountBban = value;
 	}
 
 	public BankAccountIban getBankAccountIban() {

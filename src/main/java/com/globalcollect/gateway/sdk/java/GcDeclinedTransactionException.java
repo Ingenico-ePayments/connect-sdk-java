@@ -17,5 +17,4 @@ public abstract class GcDeclinedTransactionException extends GcApiException {
 	public GcDeclinedTransactionException(String message, int statusCode, String responseBody, String errorId, List<APIError> errors) {
 		super(message, statusCode, responseBody, errorId, errors);
 	}
-
 }

@@ -8,13 +8,13 @@ import java.net.URI;
 public class GcProxyConfiguration {
 
 	private String scheme;
-	
+
 	private String host;
-	
+
 	private int port;
-	
+
 	private String username;
-	
+
 	private String password;
 
 	public GcProxyConfiguration(String host, int port) {
@@ -106,5 +106,4 @@ public class GcProxyConfiguration {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 }

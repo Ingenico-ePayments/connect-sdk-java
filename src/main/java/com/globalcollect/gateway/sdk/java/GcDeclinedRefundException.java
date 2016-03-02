@@ -10,26 +10,25 @@ import com.globalcollect.gateway.sdk.java.gc.refund.definitions.RefundResult;
 public class GcDeclinedRefundException extends GcDeclinedTransactionException {
 
 	private RefundErrorResponse errors;
-	
+
 	public GcDeclinedRefundException(int statusCode, String responseBody, RefundErrorResponse errors) {
 		super(buildMessage(errors), statusCode, responseBody, errors != null ? errors.getErrorId() : null, errors != null ? errors.getErrors() : null);
 		this.errors = errors;
 	}
-	
+
 	private static String buildMessage(RefundErrorResponse errors) {
 		RefundResult refund = errors != null ? errors.getRefundResult() : null;
 		if (refund != null) {
 			return "declined refund '" + refund.getId() + "' with status '" + refund.getStatus() + "'";
 		} else {
-			return "GlobalCollect returned a declined refund response";
+			return "the GlobalCollect platform returned a declined refund response";
 		}
 	}
-	
+
 	/**
 	 * Returns the result of creating a refund if available, otherwise returns <code>null</code>.
 	 */
 	public RefundResult getRefundResult() {
 		return errors == null ? null : errors.getRefundResult();
 	}
-
 }

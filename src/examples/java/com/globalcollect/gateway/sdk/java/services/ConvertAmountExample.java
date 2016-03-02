@@ -20,5 +20,4 @@ public class ConvertAmountExample extends ExampleBase {
 
 		ConvertAmount response = client.merchant("merchantId").services().convertAmount(queryParameters);
 	}
-
 }

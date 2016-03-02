@@ -3,12 +3,46 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.globalcollect.gateway</groupId>
-	<artifactId>globalcollect-sdk-java</artifactId>
-	<version>0.0.20</version>
+	<groupId>com.ingenico.connect.gateway</groupId>
+	<artifactId>connect-sdk-java</artifactId>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>globalcollect-sdk-java</name>
+	<name>connect-sdk-java</name>
+	<description>SDK to communicate with the GlobalCollect platform using the Ingenico Connect Server API</description>
+	<url>https://github.com/Ingenico-ePayments/connect-sdk-java</url>
+
+	<organization>
+	<name>Ingenico ePayments</name>
+		<url>http://www.globalcollect.com/</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>Ingenico ePayments License</name>
+			<url>https://github.com/Ingenico-ePayments/connect-sdk-java/blob/master/LICENSE.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Ingenico ePayments</name>
+			<email>github@epay.ingenico.com</email>
+			<organization>Ingenico ePayments</organization>
+			<organizationUrl>http://www.globalcollect.com/</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>git@github.com:Ingenico-ePayments/connect-sdk-java.git</connection>
+		<developerConnection>git@github.com:Ingenico-ePayments/connect-sdk-java.git</developerConnection>
+		<url>git@github.com:Ingenico-ePayments/connect-sdk-java.git</url>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/Ingenico-ePayments/connect-sdk-java/issues</url>
+	</issueManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,7 +85,7 @@
 							<Implementation-Vendor>GlobalCollect</Implementation-Vendor>
 
 							<!-- override default Built-By -->
-							<Built-By>GlobalCollect</Built-By>
+							<Built-By>Ingenico ePayments</Built-By>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -81,7 +115,7 @@
 							<Implementation-Vendor>GlobalCollect</Implementation-Vendor>
 
 							<!-- override default Built-By -->
-							<Built-By>GlobalCollect</Built-By>
+							<Built-By>Ingenico ePayments</Built-By>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -113,7 +147,7 @@
 							<Implementation-Vendor>GlobalCollect</Implementation-Vendor>
 
 							<!-- override default Built-By -->
-							<Built-By>GlobalCollect</Built-By>
+							<Built-By>Ingenico ePayments</Built-By>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -203,28 +237,26 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 
 	<dependencies>
-
 		<dependency>
-		  <groupId>com.google.code.gson</groupId>
-		  <artifactId>gson</artifactId>
-		  <version>2.2.4</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.4</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.3.4</version>
+			<version>4.5.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -234,7 +266,56 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<id>release</id>
+
+			<distributionManagement>
+				<repository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+				<snapshotRepository>
+					<id>ossrh</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+			</distributionManagement>
+
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.8.2</version>
+						<executions>
+							<execution>
+								<id>deploy</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>deploy</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>

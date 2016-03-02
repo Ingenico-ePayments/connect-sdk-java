@@ -10,13 +10,16 @@ import com.globalcollect.gateway.sdk.java.gc.payment.PaymentErrorResponse;
 import com.globalcollect.gateway.sdk.java.gc.payout.PayoutErrorResponse;
 import com.globalcollect.gateway.sdk.java.gc.refund.RefundErrorResponse;
 
+/**
+ * Base class of all GlobalCollect platform API resources.
+ */
 public abstract class GcApiResource {
-	
+
 	private final GcApiResource parent;
 	protected final GcCommunicator communicator;
 	private final Map<String, String> context;
 	protected final String clientMetaInfo;
-	
+
 	protected GcApiResource(GcApiResource parent, Map<String, String> context) {
 		if (parent == null) {
 			throw new IllegalArgumentException("parent is required");
@@ -39,11 +42,11 @@ public abstract class GcApiResource {
 
 	protected List<RequestHeader> getClientHeaders() {
 		if (clientMetaInfo != null) {
-			
+
 			List<RequestHeader> clientHeaders = new ArrayList<RequestHeader>();
 			clientHeaders.add(new RequestHeader("X-GCS-ClientMetaInfo", clientMetaInfo));
 			return clientHeaders;
-			
+
 		} else {
 			return null;
 		}

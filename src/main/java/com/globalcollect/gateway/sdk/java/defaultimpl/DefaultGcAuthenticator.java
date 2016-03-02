@@ -17,30 +17,33 @@ import org.apache.commons.codec.binary.Base64;
 import com.globalcollect.gateway.sdk.java.GcAuthenticator;
 import com.globalcollect.gateway.sdk.java.RequestHeader;
 
+/**
+ * Default {@link GcAuthenticator} implementation.
+ */
 public class DefaultGcAuthenticator implements GcAuthenticator {
 
 	private static final Charset CHARSET = Charset.forName("UTF-8");
-	
+
 	private static final String HMAC_ALGORITHM = "HmacSHA256";
-	
+
 	private static final Comparator<RequestHeader> REQUEST_HEADER_COMPARATOR = new Comparator<RequestHeader>() {
 		@Override
 		public int compare(RequestHeader header1, RequestHeader header2) {
 			return header1.getName().compareTo(header2.getName());
 		}
 	};
-	
+
 	private final AuthorizationType authorizationType;
-	
+
 	private final String apiKeyId;
-	
+
 	private final String secretApiKey;
 
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * @param authorizationType
-	 *            Based on this value both GlobalCollect and the merchant know
+	 *            Based on this value both the GlobalCollect platform and the merchant know
 	 *            which security implementation is used. A version number is
 	 *            used for backward compatibility in the future.
 	 * @param apiKeyId
@@ -69,31 +72,30 @@ public class DefaultGcAuthenticator implements GcAuthenticator {
 		this.apiKeyId = apiKeyId;
 		this.secretApiKey = secretApiKey;
 	}
-	
+
 	@Override
 	public String createSimpleAuthenticationSignature(String httpMethod, URI resourceUri, List<RequestHeader> httpHeaders) {
-		
+
 		if (httpMethod == null || httpMethod.trim().isEmpty()) {
 			throw new IllegalArgumentException("httpMethod is required");
 		}
 		if (resourceUri == null) {
 			throw new IllegalArgumentException("resourceUri is required");
 		}
-		
+
 		String dataToSign = toDataToSign(httpMethod, resourceUri, httpHeaders);
 		return "GCS " + authorizationType.getSignatureString() + ":" + apiKeyId + ":" + createAuthenticationSignature(dataToSign);
-		
 	}
-	
+
 	String toDataToSign(String httpMethod, URI resourceUri, List<RequestHeader> httpHeaders) {
-		
+
 		String contentType = null;
 		String date = null;
 		StringBuilder canonicalizedHeaders = new StringBuilder();
 		String canonicalizedResource = toCanonicalizedResource(resourceUri);
-		
-		List<RequestHeader> xgcsHttpHeaders = new ArrayList<RequestHeader>(); 
-		
+
+		List<RequestHeader> xgcsHttpHeaders = new ArrayList<RequestHeader>();
+
 		if (httpHeaders != null) {
 
 			for (RequestHeader httpHeader: httpHeaders) {
@@ -102,36 +104,33 @@ public class DefaultGcAuthenticator implements GcAuthenticator {
 				} else if ("Date".equalsIgnoreCase(httpHeader.getName())) {
 					date = httpHeader.getValue();
 				} if (httpHeader.getName().toUpperCase().startsWith("X-GCS")) {
-					
+
 					String name = toCanonicalizeHeaderName(httpHeader.getName());
 					String value =  toCanonicalizeHeaderValue(httpHeader.getValue());
-					RequestHeader xgcsHttpHeader = new RequestHeader(name, value); 
+					RequestHeader xgcsHttpHeader = new RequestHeader(name, value);
 					xgcsHttpHeaders.add(xgcsHttpHeader);
-					
 				}
 			}
-			
 		}
-		
+
 		Collections.sort(xgcsHttpHeaders, REQUEST_HEADER_COMPARATOR);
-		
+
 		for (RequestHeader xgcsHttpHeader: xgcsHttpHeaders) {
 			canonicalizedHeaders.append(xgcsHttpHeader.getName()).append(":").append(xgcsHttpHeader.getValue()).append("\n");
 		}
-		
+
 		StringBuilder sb = new StringBuilder();
 		sb.append(httpMethod.toUpperCase()).append("\n");
 		if (contentType != null) {
-			sb.append(contentType).append("\n");	
+			sb.append(contentType).append("\n");
 		} else {
 			sb.append("\n");
 		}
 		sb.append(date).append("\n");
 		sb.append(canonicalizedHeaders.toString());
 		sb.append(canonicalizedResource).append("\n");
-		
+
 		return sb.toString();
-		
 	}
 
 	/**
@@ -150,15 +149,15 @@ public class DefaultGcAuthenticator implements GcAuthenticator {
 	private String toCanonicalizeHeaderName(String originalName) {
 		return originalName == null ? null : originalName.toLowerCase();
 	}
-	
+
 	String toCanonicalizeHeaderValue(String originalValue) {
-		
+
 		if (originalValue == null) {
 			return "";
 		}
-		
+
 		String[] parts = originalValue.split("\n");
-		
+
 		StringBuilder sb = new StringBuilder();
 		for (int i=0; i<parts.length; i++) {
 			String part = parts[i];
@@ -168,30 +167,28 @@ public class DefaultGcAuthenticator implements GcAuthenticator {
 			}
 		}
 		return sb.toString();
-		
 	}
 
 	/*
 	 * For now V1HMAC is the only supported AuthorizationType so always use the same logic.
 	 */
 	String createAuthenticationSignature(String dataToSign) {
-		
+
 		Mac sha256Hmac;
 		try {
-			
+
 			sha256Hmac = Mac.getInstance(HMAC_ALGORITHM);
 			SecretKeySpec secretKey = new SecretKeySpec(secretApiKey.getBytes(CHARSET), HMAC_ALGORITHM);
 			sha256Hmac.init(secretKey);
 
 			byte[] unencodedResult = sha256Hmac.doFinal(dataToSign.getBytes(CHARSET));
 			return Base64.encodeBase64String(unencodedResult);
-			
+
 		} catch (NoSuchAlgorithmException e) {
 			// should not happen, this hardcoded MAC is included by default
 			throw new RuntimeException("No such HMAC algorithm " + HMAC_ALGORITHM, e);
 		} catch (InvalidKeyException e) {
 			throw new RuntimeException("Invalid HMAC key", e);
-		} 
+		}
 	}
-
 }

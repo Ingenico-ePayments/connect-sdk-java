@@ -1,5 +1,8 @@
 package com.globalcollect.gateway.sdk.java;
 
+/**
+ * A single request parameter.
+ */
 public class RequestHeader {
 
 	private String name;
@@ -12,7 +15,7 @@ public class RequestHeader {
 		this.name = name;
 		this.value = value;
 	}
-	
+
 	public String getName(){
 		return name;
 	};
@@ -24,8 +27,8 @@ public class RequestHeader {
 		return value;
 	}
 
+	@Override
 	public String toString() {
 		return getName() + ":" + getValue();
 	}
-	
 }

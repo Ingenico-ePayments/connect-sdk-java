@@ -23,5 +23,4 @@ public class GetPaymentProductsExample extends ExampleBase {
 
 		PaymentProducts response = client.merchant("merchantId").products().find(queryParameters);
 	}
-
 }

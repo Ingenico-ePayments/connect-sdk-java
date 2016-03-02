@@ -1,6 +1,5 @@
 package com.globalcollect.gateway.sdk.it;
 
-
 import java.lang.reflect.Field;
 import java.net.URISyntaxException;
 
@@ -90,5 +89,4 @@ public class SDKProxyTest extends ItTest {
 
 		return null;
 	}
-
 }

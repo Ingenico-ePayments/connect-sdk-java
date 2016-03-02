@@ -1,7 +1,7 @@
 package com.globalcollect.gateway.sdk.java;
 
 /**
- * Thrown when a response was received from GlobalCollect which indicates an error.
+ * Thrown when a response was received from the GlobalCollect platform which indicates an error.
  */
 @SuppressWarnings("serial")
 public class GcResponseException extends RuntimeException {
@@ -10,23 +10,22 @@ public class GcResponseException extends RuntimeException {
 	private final String body;
 
 	public GcResponseException(int statusCode, String body) {
-		super("GlobalCollect returned an error response");
+		super("the GlobalCollect platform returned an error response");
 		this.statusCode = statusCode;
 		this.body = body;
 	}
 
 	/**
-	 * @return The HTTP status code that was returned by GlobalCollect.
+	 * @return The HTTP status code that was returned by the GlobalCollect platform.
 	 */
 	public int getStatusCode() {
 		return statusCode;
 	}
 
 	/**
-	 * @return The raw response body that was returned by GlobalCollect.
+	 * @return The raw response body that was returned by the GlobalCollect platform.
 	 */
 	public String getBody() {
 		return body;
 	}
-
 }

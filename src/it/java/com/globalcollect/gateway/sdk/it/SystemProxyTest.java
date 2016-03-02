@@ -1,6 +1,5 @@
 package com.globalcollect.gateway.sdk.it;
 
-
 import java.net.Authenticator;
 import java.net.PasswordAuthentication;
 import java.net.URISyntaxException;
@@ -65,5 +64,4 @@ public class SystemProxyTest extends ItTest {
 			Assert.assertTrue("getPasswordAuthentication() should have been called", authenticationCalled[0]);
 		}
 	}
-
 }

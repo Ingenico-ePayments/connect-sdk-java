@@ -24,7 +24,5 @@ public class ConvertAmountTest extends ItTest {
 		ConvertAmount response = getGcClient().merchant("9991").services().convertAmount(request);
 
 		Assert.assertNotNull(response.getConvertedAmount());
-
 	}
-
 }

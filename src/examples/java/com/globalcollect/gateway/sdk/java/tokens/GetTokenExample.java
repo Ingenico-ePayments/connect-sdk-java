@@ -7,7 +7,7 @@ import com.globalcollect.gateway.sdk.java.gc.GcClient;
 import com.globalcollect.gateway.sdk.java.gc.token.TokenResponse;
 
 public class GetTokenExample extends ExampleBase {
-	
+
 	public void example() throws URISyntaxException {
 		GcClient client = getGcClient();
 

@@ -59,32 +59,32 @@ import com.globalcollect.gateway.sdk.java.RequestParam;
 public class DefaultGcConnection implements GcConnection {
 
 	private static final Charset CHARSET = Charset.forName("UTF-8");
-	
+
 	// CloseableHttpClient is marked to be thread safe
 	protected final CloseableHttpClient httpClient;
-	
+
 	private final URI baseUri;
-	
+
 	protected final RequestConfig requestConfig;
 
 	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout) {
 		this(scheme, host, port, basePath, connectTimeout, socketTimeout, null);
 	}
-	
+
 	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout, int maxConnections) {
 		this(scheme, host, port, basePath, connectTimeout, socketTimeout, maxConnections, null);
 	}
-	
+
 	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout, GcProxyConfiguration proxyConfiguration) {
 		this(scheme, host, port, basePath, connectTimeout, socketTimeout, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 	}
-	
+
 	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout, int maxConnections,
 			GcProxyConfiguration proxyConfiguration) {
 
 		this(createURI(scheme, host, port, basePath), connectTimeout, socketTimeout, maxConnections, proxyConfiguration);
 	}
-	
+
 	private static URI createURI(String scheme, String host, int port, String basePath) {
 		if (scheme == null || scheme.trim().isEmpty()) {
 			throw new IllegalArgumentException("scheme is required");
@@ -99,10 +99,10 @@ public class DefaultGcConnection implements GcConnection {
 			throw new IllegalArgumentException("port is invalid");
 		}
 		URIBuilder uriBuilder = new URIBuilder()
-		.setScheme(scheme.trim())
-		.setHost(host.trim())
-		.setPort(port)
-		.setPath(basePath.trim());
+				.setScheme(scheme.trim())
+				.setHost(host.trim())
+				.setPort(port)
+				.setPath(basePath.trim());
 		try {
 			return uriBuilder.build();
 		} catch (URISyntaxException e) {
@@ -113,15 +113,15 @@ public class DefaultGcConnection implements GcConnection {
 	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout) {
 		this(baseUri, connectTimeout, socketTimeout, null);
 	}
-	
+
 	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout, int maxConnections) {
 		this(baseUri, connectTimeout, socketTimeout, maxConnections, null);
 	}
-	
+
 	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout, GcProxyConfiguration proxyConfiguration) {
 		this(baseUri, connectTimeout, socketTimeout, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 	}
-	
+
 	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout, int maxConnections, GcProxyConfiguration proxyConfiguration) {
 		if (baseUri == null) {
 			throw new IllegalArgumentException("baseUri is required");
@@ -130,37 +130,37 @@ public class DefaultGcConnection implements GcConnection {
 		requestConfig = createRequestConfig(connectTimeout, socketTimeout);
 		httpClient = createHttpClient(maxConnections, proxyConfiguration);
 	}
-	
+
 	private RequestConfig createRequestConfig(int connectTimeout, int socketTimeout) {
 		return RequestConfig.custom()
 				.setSocketTimeout(socketTimeout)
 				.setConnectTimeout(connectTimeout)
 				.build();
 	}
-	
+
 	private CloseableHttpClient createHttpClient(int maxConnections, GcProxyConfiguration proxyConfiguration) {
-		
+
 		HttpClientBuilder builder = HttpClients.custom()
 				.setMaxConnPerRoute(maxConnections)
 				.setMaxConnTotal(maxConnections + 20);
-		
+
 		HttpRoutePlanner routePlanner;
 		CredentialsProvider credentialsProvider;
-		
+
 		if (proxyConfiguration != null) {
 			HttpHost proxy = new HttpHost(proxyConfiguration.getHost(), proxyConfiguration.getPort(), proxyConfiguration.getScheme());
 			routePlanner = new DefaultProxyRoutePlanner(proxy, DefaultSchemePortResolver.INSTANCE);
 			credentialsProvider = new BasicCredentialsProvider();
-			
+
 			if (proxyConfiguration.getUsername() != null) {
 				AuthScope authscope = new AuthScope(proxyConfiguration.getHost(), proxyConfiguration.getPort());
 				final Credentials credentials = new UsernamePasswordCredentials(proxyConfiguration.getUsername(), proxyConfiguration.getPassword());
-				
+
 				credentialsProvider.setCredentials(authscope, credentials);
 
 				// enable preemptive authentication
 				HttpRequestInterceptor proxyAuthenticationInterceptor = new HttpRequestInterceptor() {
-					
+
 					@Override
 					public void process(HttpRequest request, HttpContext context) throws HttpException, IOException {
 						Header header = request.getFirstHeader(AUTH.PROXY_AUTH_RESP);
@@ -175,13 +175,13 @@ public class DefaultGcConnection implements GcConnection {
 				};
 				builder = builder.addInterceptorLast(proxyAuthenticationInterceptor);
 			}
-			
+
 		} else {
 			// add support for system properties
 			routePlanner = new SystemDefaultRoutePlanner(DefaultSchemePortResolver.INSTANCE, ProxySelector.getDefault());
 			credentialsProvider = new SystemDefaultCredentialsProvider();
 		}
-		
+
 		return builder
 				.setRoutePlanner(routePlanner)
 				.setDefaultCredentialsProvider(credentialsProvider)
@@ -192,72 +192,68 @@ public class DefaultGcConnection implements GcConnection {
 	public void close() throws IOException {
 		httpClient.close();
 	}
-	
+
 	@Override
 	public URI toURI(String relativePath, List<RequestParam> requestParameters) {
-		
+
 		StringBuilder pathBuilder = new StringBuilder();
 		pathBuilder.append(baseUri.getPath());
 		if (!baseUri.getPath().endsWith("/") && !relativePath.startsWith("/") ) {
 			pathBuilder.append("/");
 		}
 		pathBuilder.append(relativePath);
-		
+
 		URIBuilder uriBuilder = new URIBuilder()
 				.setScheme(baseUri.getScheme())
 				.setHost(baseUri.getHost())
 				.setPort(baseUri.getPort())
 				.setPath(pathBuilder.toString());
-		
+
 		if (requestParameters != null) {
 			for (RequestParam nvp: requestParameters) {
 				uriBuilder.addParameter(nvp.getName(), nvp.getValue());
 			}
 		}
-		
+
 		try {
 			return uriBuilder.build();
 		} catch (URISyntaxException e) {
 			throw new IllegalArgumentException("Unable to construct URI", e);
 		}
-		
 	}
-	
+
 	@Override
 	public String get(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters) {
-		
+
 		URI uri = toURI(relativePath, requestParameters);
 		HttpGet httpGet = new HttpGet(uri);
 		httpGet.setConfig(requestConfig);
 		addHeaders(httpGet, requestHeaders);
 		return executeRequest(httpGet);
-		
 	}
-	
+
 	@Override
 	public String delete(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters) {
-		
+
 		URI uri = toURI(relativePath, requestParameters);
 		HttpDelete httpDelete = new HttpDelete(uri);
 		httpDelete.setConfig(requestConfig);
 		addHeaders(httpDelete, requestHeaders);
 		return executeRequest(httpDelete);
-		
 	}
 
 	@Override
 	public String post(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters, String body) {
-		
+
 		URI uri = toURI(relativePath, requestParameters);
 		HttpPost httpPost = new HttpPost(uri);
 		httpPost.setConfig(requestConfig);
 		addHeaders(httpPost, requestHeaders);
 		if (body != null) {
 			HttpEntity requestEntity = new StringEntity(body, CHARSET);
-			httpPost.setEntity(requestEntity);	
+			httpPost.setEntity(requestEntity);
 		}
 		return executeRequest(httpPost);
-		
 	}
 
 	@Override
@@ -269,23 +265,20 @@ public class DefaultGcConnection implements GcConnection {
 		addHeaders(httpPut, requestHeaders);
 		if (body != null) {
 			HttpEntity requestEntity = new StringEntity(body, CHARSET);
-			httpPut.setEntity(requestEntity);	
+			httpPut.setEntity(requestEntity);
 		}
 		return executeRequest(httpPut);
-		
 	}
-	
+
 	protected String executeRequest(HttpUriRequest request) {
-		
+
 		try {
-			
 			CloseableHttpResponse httpResponse = httpClient.execute(request);
 			HttpEntity entity = httpResponse.getEntity();
 			try {
-				
 				throwExceptionIfNecessary(httpResponse);
 				return entity == null ? null : EntityUtils.toString(entity, CHARSET);
-				
+
 			} finally {
 				/*
 				 * Ensure that the entity content is fully consumed and the
@@ -293,22 +286,20 @@ public class DefaultGcConnection implements GcConnection {
 				 * reused. Do not close the httpResponse because that will
 				 * prevent the connection from being reused.
 				 */
-		    	EntityUtils.consume(entity);	
-		    }
-			
+				EntityUtils.consume(entity);
+			}
 		} catch (ClientProtocolException e) {
 			throw new GcCommunicationException(e);
 		} catch (IOException e) {
 			throw new GcCommunicationException(e);
-		} 
-		
+		}
 	}
 
 	/**
-	 * Checks the {@link HttpResponse} for errors and throws an exception if necessary. 
+	 * Checks the {@link HttpResponse} for errors and throws an exception if necessary.
 	 */
 	protected void throwExceptionIfNecessary(HttpResponse httpResponse) throws GcResponseException, IOException {
-		
+
 		int statusCode = httpResponse.getStatusLine().getStatusCode();
 		if (statusCode >= 200 && statusCode < 300) { // status codes in the 300 range are not expected
 			return;
@@ -324,21 +315,19 @@ public class DefaultGcConnection implements GcConnection {
 				throw new GcResponseException(statusCode, body);
 			}
 		}
-		
 	}
-	
+
 	private boolean isJson(HttpResponse httpResponse) {
 		Header header = httpResponse.getFirstHeader("Content-Type");
 		String contentType = header != null ? header.getValue() : null;
 		return contentType == null || "application/json".equalsIgnoreCase(contentType) || contentType.toLowerCase().startsWith("application/json");
 	}
-	
+
 	protected void addHeaders(HttpRequestBase httpRequestBase, List<RequestHeader> requestHeaders) {
 		if (requestHeaders != null) {
 			for (RequestHeader requestHeader: requestHeaders) {
-				httpRequestBase.addHeader(new BasicHeader(requestHeader.getName(), requestHeader.getValue()));		
-			}	
+				httpRequestBase.addHeader(new BasicHeader(requestHeader.getName(), requestHeader.getValue()));
+			}
 		}
 	}
-
 }

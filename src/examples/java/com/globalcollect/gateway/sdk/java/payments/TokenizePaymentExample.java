@@ -17,5 +17,4 @@ public class TokenizePaymentExample extends ExampleBase {
 
 		CreateTokenResponse response = client.merchant("merchantId").payments().tokenize("paymentId", body);
 	}
-
 }

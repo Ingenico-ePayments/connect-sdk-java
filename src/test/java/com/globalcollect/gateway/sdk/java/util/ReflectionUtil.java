@@ -23,10 +23,10 @@ public final class ReflectionUtil {
 				// should no longer occur
 				throw new RuntimeException(e);
 			}
-			
+
 			clazz = clazz.getSuperclass();
 		}
-		
+
 		return null;
 	}
 }

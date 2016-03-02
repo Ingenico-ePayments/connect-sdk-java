@@ -15,12 +15,12 @@ import com.globalcollect.gateway.sdk.java.gc.GcClient;
 import com.globalcollect.gateway.sdk.java.gc.GcClientImpl;
 
 /**
- * GlobalCollect factory for several SDK components.
+ * GlobalCollect platform factory for several SDK components.
  */
 public final class GcFactory {
-	
+
 	private GcFactory() {}
-	
+
 	/**
 	 * Creates a {@link GcDefaultConfiguration} based on the configuration
 	 * values in {@code configurationFileUri} and {@code apiKeyId} and
@@ -43,21 +43,21 @@ public final class GcFactory {
 			throw new RuntimeException("Unable to load default properties", e);
 		}
 	}
-	
+
 	/**
 	 * Creates a {@link GcSessionBuilder} based on the configuration values in
-	 * {@code configurationFileUri} and {@code apiKeyId} and {@code secretApiKey}.
+	 * {@code configurationFileUri}, {@code apiKeyId} and {@code secretApiKey}.
 	 */
 	public static GcSessionBuilder createSessionBuilder(URI configurationFileUri, String apiKeyId, String secretApiKey) {
 		GcDefaultConfiguration defaultConfiguration = createDefaultConfiguration(configurationFileUri, apiKeyId, secretApiKey);
 		return createSessionBuilder(defaultConfiguration);
 	}
-	
+
 	/**
 	 * Creates a {@link GcSessionBuilder} based on the passed configuration.
 	 */
 	public static GcSessionBuilder createSessionBuilder(GcDefaultConfiguration defaultConfiguration) {
-		
+
 		GcSessionBuilder builder = new DefaultGcSessionBuilder();
 		builder.using(new DefaultGcConnection(
 				defaultConfiguration.getBaseUri(),
@@ -74,17 +74,16 @@ public final class GcFactory {
 		));
 		return builder;
 	}
-	
+
 	/**
 	 * Creates a {@link GcCommunicator} based on the configuration values in
-	 * {@code configurationFileUri} and {@code apiKeyId} and
-	 * {@code secretApiKey}.
+	 * {@code configurationFileUri}, {@code apiKeyId} and {@code secretApiKey}.
 	 */
 	public static GcCommunicator createCommunicator(URI configurationFileUri, String apiKeyId, String secretApiKey) {
 		GcDefaultConfiguration defaultConfiguration = createDefaultConfiguration(configurationFileUri, apiKeyId, secretApiKey);
 		return createCommunicator(defaultConfiguration);
 	}
-	
+
 	/**
 	 * Creates a {@link GcCommunicator} based on the passed configuration.
 	 */
@@ -99,35 +98,33 @@ public final class GcFactory {
 	public static GcCommunicator createCommunicator(GcSession session) {
 		return new DefaultGcCommunicator(session, DefaultGcMarshaller.INSTANCE);
 	}
-	
+
 	/**
 	 * Creates a {@link GcClient} based on the configuration values in
-	 * {@code configurationFileUri} and {@code apiKeyId} and
-	 * {@code secretApiKey}.
+	 * {@code configurationFileUri}, {@code apiKeyId} and {@code secretApiKey}.
 	 */
 	public static GcClient createClient(URI configurationFileUri, String apiKeyId, String secretApiKey) {
 		return createClient(createCommunicator(configurationFileUri, apiKeyId, secretApiKey));
 	}
-	
+
 	/**
 	 * Creates a {@link GcClient} based on the passed configuration.
 	 */
 	public static GcClient createClient(GcDefaultConfiguration defaultConfiguration) {
 		return createClient(createCommunicator(defaultConfiguration));
 	}
-	
+
 	/**
 	 * Creates a {@link GcClient} based on the passed {@link GcSession}.
 	 */
 	public static GcClient createClient(GcSession session) {
 		return createClient(createCommunicator(session));
 	}
-	
+
 	/**
 	 * Creates a {@link GcClient} based on the passed {@link GcCommunicator}.
 	 */
 	public static GcClient createClient(GcCommunicator communicator) {
 		return new GcClientImpl(communicator);
 	}
-	
 }

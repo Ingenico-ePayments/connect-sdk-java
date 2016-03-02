@@ -18,36 +18,36 @@ import com.globalcollect.gateway.sdk.java.gc.riskassessments.definitions.Custome
 import com.globalcollect.gateway.sdk.java.gc.riskassessments.definitions.OrderRiskAssessment;
 
 public class RiskAssessmentCardsExample extends ExampleBase {
-	
+
 	public void example() throws URISyntaxException {
 		GcClient client = getGcClient();
-		
+
 		RiskAssessmentCard body = new RiskAssessmentCard();
-		
+
 		Card card = new Card();
 		card.setExpiryDate("0820");
 		card.setCardNumber("4567350000427977");
 		card.setCvv("123");
 		body.setCard(card);
-		
+
 		OrderRiskAssessment order = new OrderRiskAssessment();
-		
+
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(100L);
 		amountOfMoney.setCurrencyCode("EUR");
 		order.setAmountOfMoney(amountOfMoney);
-		
+
 		CustomerRiskAssessment customer = new CustomerRiskAssessment();
 		customer.setLocale("en_GB");
-		
+
 		Address billingAddress = new Address();
 		billingAddress.setCountryCode("US");
 		customer.setBillingAddress(billingAddress);
-		
+
 		order.setCustomer(customer);
-		
+
 		AdditionalOrderInputAirlineData additionalInput = new AdditionalOrderInputAirlineData();
-		
+
 		AirlineData airlineData = new AirlineData();
 		airlineData.setCode("123");
 		airlineData.setName("Air France KLM");
@@ -67,9 +67,9 @@ public class RiskAssessmentCardsExample extends ExampleBase {
 		airlineData.setMerchantCustomerId("14");
 		airlineData.setIssueDate("20150101");
 		airlineData.setIsRestrictedTicket(true);
-		
+
 		List<AirlineFlightLeg> flightLegs = new ArrayList<AirlineFlightLeg>();
-		
+
 		AirlineFlightLeg flightLeg1 = new AirlineFlightLeg();
 		flightLeg1.setNumber(1);
 		flightLeg1.setDate("20150102");
@@ -82,9 +82,9 @@ public class RiskAssessmentCardsExample extends ExampleBase {
 		flightLeg1.setFlightNumber("KL791");
 		flightLeg1.setDepartureTime("17:59");
 		flightLeg1.setFare("fare");
-		
+
 		flightLegs.add(flightLeg1);
-		
+
 		AirlineFlightLeg flightLeg2 = new AirlineFlightLeg();
 		flightLeg2.setNumber(2);
 		flightLeg2.setDate("20150102");
@@ -97,15 +97,15 @@ public class RiskAssessmentCardsExample extends ExampleBase {
 		flightLeg2.setFlightNumber("KL792");
 		flightLeg2.setDepartureTime("23:59");
 		flightLeg2.setFare("fare");
-		
+
 		flightLegs.add(flightLeg2);
-		
+
 		airlineData.setFlightLegs(flightLegs);
-		
+
 		additionalInput.setAirlineData(airlineData);
-		
+
 		order.setAdditionalInput(additionalInput);
-		
+
 		body.setOrder(order);
 
 		RiskAssessmentResponse response = client.merchant("merchantId").riskassessments().cards(body);

@@ -1,6 +1,5 @@
 package com.globalcollect.gateway.sdk.it;
 
-
 import java.net.URISyntaxException;
 
 import org.junit.Assert;
@@ -20,31 +19,29 @@ public class RiskAssessmentsTest extends ItTest {
 	 */
 	@Test
 	public void test() throws URISyntaxException {
-		
+
 		RiskAssessmentBankAccount body = new RiskAssessmentBankAccount();
-		
+
 		BankAccountBban bankAccountBban = new BankAccountBban();
 		bankAccountBban.setCountryCode("DE");
 		bankAccountBban.setAccountNumber("0532013000");
 		bankAccountBban.setBankCode("37040044");
 		body.setBankAccountBban(bankAccountBban);
-		
+
 		OrderRiskAssessment order = new OrderRiskAssessment();
-		
+
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(100L);
 		amountOfMoney.setCurrencyCode("EUR");
 		order.setAmountOfMoney(amountOfMoney);
-		
+
 		CustomerRiskAssessment customer = new CustomerRiskAssessment();
 		customer.setLocale("en_GB");
 		order.setCustomer(customer);
-		
+
 		body.setOrder(order);
-		
+
 		RiskAssessmentResponse riskAssessmentResponse = getGcClient().merchant("8500").riskassessments().bankaccounts(body);
 		Assert.assertTrue(riskAssessmentResponse.getResults().size() > 0);
-		
 	}
-
 }

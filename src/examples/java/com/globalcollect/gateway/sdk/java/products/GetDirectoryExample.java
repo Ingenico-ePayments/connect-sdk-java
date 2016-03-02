@@ -19,5 +19,4 @@ public class GetDirectoryExample extends ExampleBase {
 
 		Directory response = client.merchant("merchantId").products().paymentProduct(809).directory(queryParameters);
 	}
-
 }

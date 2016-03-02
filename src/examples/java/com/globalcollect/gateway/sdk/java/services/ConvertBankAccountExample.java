@@ -9,12 +9,12 @@ import com.globalcollect.gateway.sdk.java.gc.services.BankDetailsRequest;
 import com.globalcollect.gateway.sdk.java.gc.services.BankDetailsResponse;
 
 public class ConvertBankAccountExample extends ExampleBase {
-	
+
 	public void example() throws URISyntaxException {
 		GcClient client = getGcClient();
-		
+
 		BankDetailsRequest body = new BankDetailsRequest();
-		
+
 		BankAccountBban bankAccountBban = new BankAccountBban();
 		bankAccountBban.setCountryCode("DE");
 		bankAccountBban.setAccountNumber("053201300");
@@ -23,5 +23,4 @@ public class ConvertBankAccountExample extends ExampleBase {
 
 		BankDetailsResponse response = client.merchant("merchantId").services().bankaccount(body);
 	}
-
 }

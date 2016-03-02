@@ -11,11 +11,11 @@ import com.globalcollect.gateway.sdk.java.GcSession;
 public class DefaultGcSession implements GcSession {
 
 	private final GcConnection connection;
-	
+
 	private final GcAuthenticator authenticator;
-	
+
 	private final GcMetaDataProvider metaDataProvider;
-	
+
 	public DefaultGcSession(GcConnection connection, GcAuthenticator authenticator, GcMetaDataProvider metaDataProvider) {
 		if (connection == null) {
 			throw new IllegalArgumentException("connection is required");
@@ -45,5 +45,4 @@ public class DefaultGcSession implements GcSession {
 	public GcAuthenticator getAuthenticator() {
 		return authenticator;
 	}
-
 }

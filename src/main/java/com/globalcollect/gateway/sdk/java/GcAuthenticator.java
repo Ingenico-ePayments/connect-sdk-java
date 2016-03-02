@@ -4,13 +4,13 @@ import java.net.URI;
 import java.util.List;
 
 /**
- * Used to sign requests to GlobalCollect. Thread-safe.
+ * Used to sign requests to the GlobalCollect platform. Thread-safe.
  */
 public interface GcAuthenticator {
 
 	/**
 	 * Creates a signature for the simple security model.
-	 * 
+	 *
 	 * @param httpMethod
 	 *            The HTTP method.
 	 * @param resourceUri
@@ -20,5 +20,4 @@ public interface GcAuthenticator {
 	 *            modified and may not contain headers with the same name.
 	 */
 	String createSimpleAuthenticationSignature(String httpMethod, URI resourceUri, List<RequestHeader> requestHeaders);
-	
 }

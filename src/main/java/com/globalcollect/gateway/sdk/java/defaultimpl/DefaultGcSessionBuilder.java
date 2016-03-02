@@ -6,12 +6,15 @@ import com.globalcollect.gateway.sdk.java.GcMetaDataProvider;
 import com.globalcollect.gateway.sdk.java.GcSession;
 import com.globalcollect.gateway.sdk.java.GcSessionBuilder;
 
+/**
+ * Default {@link GcSessionBuilder} implementation.
+ */
 public class DefaultGcSessionBuilder implements GcSessionBuilder {
 
 	private GcConnection connection;
-	
+
 	private GcMetaDataProvider metaDataProvider;
-	
+
 	private GcAuthenticator authenticator;
 
 	@Override
@@ -31,14 +34,13 @@ public class DefaultGcSessionBuilder implements GcSessionBuilder {
 		this.metaDataProvider = metaDataProvider;
 		return this;
 	}
-	
+
 	@Override
 	public GcSession build() {
 		return new DefaultGcSession(
-			connection, 
-			authenticator, 
+			connection,
+			authenticator,
 			metaDataProvider
 		);
 	}
-
 }

@@ -11,8 +11,11 @@ import com.globalcollect.gateway.sdk.java.GcMetaDataProvider;
 import com.globalcollect.gateway.sdk.java.RequestHeader;
 import com.google.gson.Gson;
 
+/**
+ * Default {@link GcMetaDataProvider} implementation.
+ */
 public class DefaultGcMetaDataProvider implements GcMetaDataProvider {
-	
+
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
 	@SuppressWarnings("unused")
@@ -22,13 +25,13 @@ public class DefaultGcMetaDataProvider implements GcMetaDataProvider {
 	}
 
 	private final Collection<RequestHeader> metaDataHeaders;
-	
+
 	public DefaultGcMetaDataProvider() {
 
 		ServerMetaInfo serverMetaInfo = new ServerMetaInfo();
 		serverMetaInfo.platformIdentifier = getPlatformIdentifier();
 		serverMetaInfo.sdkIdentifier = getSdkIdentifier();
-		
+
 		Gson gson = new Gson();
 		RequestHeader serverMetaInfoHeader = new RequestHeader("X-GCS-ServerMetaInfo", Base64.encodeBase64String(gson.toJson(serverMetaInfo).getBytes(CHARSET)));
 		metaDataHeaders = Collections.singletonList(serverMetaInfoHeader);
@@ -38,7 +41,7 @@ public class DefaultGcMetaDataProvider implements GcMetaDataProvider {
 	public Collection<RequestHeader> getServerMetaDataHeaders() {
 		return metaDataHeaders;
 	}
-	
+
 	protected String getPlatformIdentifier() {
 		Properties properties = System.getProperties();
 		StringBuilder sb = new StringBuilder();
@@ -59,9 +62,8 @@ public class DefaultGcMetaDataProvider implements GcMetaDataProvider {
 		sb.append(")");
 		return sb.toString();
 	}
-	
+
 	protected String getSdkIdentifier() {
 		return "1.0";
 	}
-
 }

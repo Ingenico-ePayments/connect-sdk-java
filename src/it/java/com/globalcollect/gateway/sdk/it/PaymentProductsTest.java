@@ -1,6 +1,5 @@
 package com.globalcollect.gateway.sdk.it;
 
-
 import java.net.URISyntaxException;
 
 import org.junit.Assert;
@@ -23,7 +22,5 @@ public class PaymentProductsTest extends ItTest {
 		Directory response = getGcClient().merchant("8500").products().paymentProduct(809).directory(params);
 
 		Assert.assertTrue(response.getEntries().size() > 0);
-
 	}
-
 }

@@ -8,5 +8,4 @@ import java.util.List;
 public interface GcParamRequest {
 
 	List<RequestParam> toRequestParameters();
-	
 }

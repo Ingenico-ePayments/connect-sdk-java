@@ -6,7 +6,7 @@ import java.io.Closeable;
 import java.io.IOException;
 
 /**
- * GlobalCollect client.
+ * GlobalCollect platform client.
  * <p>
  * This client and all its child clients are bound to one specific value for the <i>X-GCS-ClientMetaInfo</i> header.
  * To get a new client with a different header value, use {@link #withClientMetaInfo(String)}.

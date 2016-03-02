@@ -13,37 +13,36 @@ import com.globalcollect.gateway.sdk.java.gc.riskassessments.definitions.Custome
 import com.globalcollect.gateway.sdk.java.gc.riskassessments.definitions.OrderRiskAssessment;
 
 public class RiskAssessmentBankAccountExample extends ExampleBase {
-	
+
 	public void example() throws URISyntaxException {
 		GcClient client = getGcClient();
-		
+
 		RiskAssessmentBankAccount body = new RiskAssessmentBankAccount();
-		
+
 		BankAccountBban bankAccountBban = new BankAccountBban();
 		bankAccountBban.setCountryCode("DE");
 		bankAccountBban.setAccountNumber("0532013000");
 		bankAccountBban.setBankCode("37040044");
 		body.setBankAccountBban(bankAccountBban);
-		
+
 		OrderRiskAssessment order = new OrderRiskAssessment();
-		
+
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(100L);
 		amountOfMoney.setCurrencyCode("EUR");
 		order.setAmountOfMoney(amountOfMoney);
-		
+
 		CustomerRiskAssessment customer = new CustomerRiskAssessment();
 		customer.setLocale("en_GB");
-		
+
 		Address billingAddress = new Address();
 		billingAddress.setCountryCode("US");
 		customer.setBillingAddress(billingAddress);
-		
+
 		order.setCustomer(customer);
-		
+
 		body.setOrder(order);
 
 		RiskAssessmentResponse response = client.merchant("merchantId").riskassessments().bankaccounts(body);
 	}
-
 }

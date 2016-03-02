@@ -1,5 +1,8 @@
 package com.globalcollect.gateway.sdk.java;
 
+/**
+ * A single request parameter.
+ */
 public class RequestParam {
 
 	private String name;
@@ -12,7 +15,7 @@ public class RequestParam {
 		this.name = name;
 		this.value = value;
 	}
-	
+
 	public String getName(){
 		return name;
 	}
@@ -20,9 +23,9 @@ public class RequestParam {
 	public String getValue() {
 		return value;
 	}
-	
+
+	@Override
 	public String toString() {
 		return getName() + ":" + getValue();
 	}
-	
 }

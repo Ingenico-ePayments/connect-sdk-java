@@ -13,9 +13,9 @@ import com.google.gson.JsonSyntaxException;
  * {@link GcMarshaller} implementation based on {@link Gson}.
  */
 public class DefaultGcMarshaller implements GcMarshaller {
-	
+
 	public static final DefaultGcMarshaller INSTANCE = new DefaultGcMarshaller();
-	
+
 	protected DefaultGcMarshaller() {}
 
 	@Override
@@ -35,7 +35,7 @@ public class DefaultGcMarshaller implements GcMarshaller {
 			}
 		}
 	}
-	
+
 	@Override
 	public <T> T unmarshal(String responseJson, TypeWrapper<T> typeWrapper) {
 		try {

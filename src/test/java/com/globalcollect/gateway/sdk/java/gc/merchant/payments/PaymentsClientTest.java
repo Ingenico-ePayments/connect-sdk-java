@@ -44,13 +44,13 @@ import com.globalcollect.gateway.sdk.java.gc.payment.definitions.Order;
 public class PaymentsClientTest {
 
 	private GcSession session;
-	
+
 	@Mock private GcConnection connection;
-	
+
 	@Before
 	public void initializeSession() {
 		session = new DefaultGcSession(connection, new DefaultGcAuthenticator(AuthorizationType.V1HMAC, "test", "test"), new DefaultGcMetaDataProvider());
-		
+
 		Mockito.when(connection.toURI(Mockito.anyString(), Mockito.<List<RequestParam>>any())).then(new Answer<URI>() {
 			@Override
 			public URI answer(InvocationOnMock invocation) throws Throwable {
@@ -58,90 +58,90 @@ public class PaymentsClientTest {
 			}
 		});
 	}
-	
+
 	/**
 	 * Tests that a non-failure response will not throw an exception.
 	 */
 	@Test
 	public void testCreateSuccess() {
-		
+
 		GcClient client = GcFactory.createClient(session);
 		String responseBody = getResource("pending_approval.json");
 		Mockito.when(connection.post(Mockito.anyString(), Mockito.<List<RequestHeader>>any(), Mockito.<List<RequestParam>>any(), Mockito.anyString()))
 				.thenReturn(responseBody);
-		
+
 		CreatePaymentRequest body = new CreatePaymentRequest();
-		
+
 		Order order = new Order();
-		
+
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(2345L);
 		amountOfMoney.setCurrencyCode("CAD");
 		order.setAmountOfMoney(amountOfMoney);
-		
+
 		Customer customer = new Customer();
 
 		Address billingAddress = new Address();
 		billingAddress.setCountryCode("CA");
 		customer.setBillingAddress(billingAddress);
-		
+
 		order.setCustomer(customer);
-		
+
 		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 		cardPaymentMethodSpecificInput.setPaymentProductId(1);
-		
+
 		Card card = new Card();
 		card.setCvv("123");
 		card.setCardNumber("4567350000427977");
 		card.setExpiryDate("1220");
 		cardPaymentMethodSpecificInput.setCard(card);
-		
+
 		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
 
 		CreatePaymentResponse response = client.merchant("merchantId").payments().create(body);
 		Assert.assertEquals("000002000020142549460000100001", response.getPayment().getId());
 		Assert.assertEquals("PENDING_APPROVAL", response.getPayment().getStatus());
 	}
-	
+
 	/**
 	 * Tests that a failure response with a payment result will throw a {@link GcDeclinedPaymentException}.
 	 */
 	@Test
 	public void testCreateRejected() {
-		
+
 		GcClient client = GcFactory.createClient(session);
 		String responseBody = getResource("rejected.json");
 		Mockito.when(connection.post(Mockito.anyString(), Mockito.<List<RequestHeader>>any(), Mockito.<List<RequestParam>>any(), Mockito.anyString()))
 				.thenThrow(new GcResponseException(400, responseBody));
-		
+
 		CreatePaymentRequest body = new CreatePaymentRequest();
-		
+
 		Order order = new Order();
-		
+
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(2345L);
 		amountOfMoney.setCurrencyCode("CAD");
 		order.setAmountOfMoney(amountOfMoney);
-		
+
 		Customer customer = new Customer();
-	
+
 		Address billingAddress = new Address();
 		billingAddress.setCountryCode("CA");
 		customer.setBillingAddress(billingAddress);
-		
+
 		order.setCustomer(customer);
-		
+
 		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 		cardPaymentMethodSpecificInput.setPaymentProductId(1);
-		
+
 		Card card = new Card();
 		card.setCvv("123");
 		card.setCardNumber("4567350000427977");
 		card.setExpiryDate("1220");
 		cardPaymentMethodSpecificInput.setCard(card);
-		
+
 		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
-		
+
 		try {
 			client.merchant("merchantId").payments().create(body);
 			Assert.fail("Expected GcDeclinedPaymentException");
@@ -160,40 +160,40 @@ public class PaymentsClientTest {
 	 */
 	@Test
 	public void testCreateInvalidRequest() {
-		
+
 		GcClient client = GcFactory.createClient(session);
 		String responseBody = getResource("invalid_request.json");
 		Mockito.when(connection.post(Mockito.anyString(), Mockito.<List<RequestHeader>>any(), Mockito.<List<RequestParam>>any(), Mockito.anyString()))
 				.thenThrow(new GcResponseException(400, responseBody));
-		
+
 		CreatePaymentRequest body = new CreatePaymentRequest();
-		
+
 		Order order = new Order();
-		
+
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(2345L);
 		amountOfMoney.setCurrencyCode("CAD");
 		order.setAmountOfMoney(amountOfMoney);
-		
+
 		Customer customer = new Customer();
 
 		Address billingAddress = new Address();
 		billingAddress.setCountryCode("CA");
 		customer.setBillingAddress(billingAddress);
-		
+
 		order.setCustomer(customer);
-		
+
 		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 		cardPaymentMethodSpecificInput.setPaymentProductId(1);
-		
+
 		Card card = new Card();
 		card.setCvv("123");
 		card.setCardNumber("4567350000427977");
 		card.setExpiryDate("1210");
 		cardPaymentMethodSpecificInput.setCard(card);
-		
+
 		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
-		
+
 		try {
 			client.merchant("merchantId").payments().create(body);
 			Assert.fail("Expected GcValidationException");
@@ -207,40 +207,40 @@ public class PaymentsClientTest {
 	 */
 	@Test
 	public void testCreateInvalidAuthorization() {
-		
+
 		GcClient client = GcFactory.createClient(session);
 		String responseBody = getResource("invalid_authorization.json");
 		Mockito.when(connection.post(Mockito.anyString(), Mockito.<List<RequestHeader>>any(), Mockito.<List<RequestParam>>any(), Mockito.anyString()))
 				.thenThrow(new GcResponseException(401, responseBody));
-		
+
 		CreatePaymentRequest body = new CreatePaymentRequest();
-		
+
 		Order order = new Order();
-		
+
 		AmountOfMoney amountOfMoney = new AmountOfMoney();
 		amountOfMoney.setAmount(2345L);
 		amountOfMoney.setCurrencyCode("CAD");
 		order.setAmountOfMoney(amountOfMoney);
-		
+
 		Customer customer = new Customer();
 
 		Address billingAddress = new Address();
 		billingAddress.setCountryCode("CA");
 		customer.setBillingAddress(billingAddress);
-		
+
 		order.setCustomer(customer);
-		
+
 		CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 		cardPaymentMethodSpecificInput.setPaymentProductId(1);
-		
+
 		Card card = new Card();
 		card.setCvv("123");
 		card.setCardNumber("4567350000427977");
 		card.setExpiryDate("1210");
 		cardPaymentMethodSpecificInput.setCard(card);
-		
+
 		body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);
-		
+
 		try {
 			client.merchant("merchantId").payments().create(body);
 			Assert.fail("Expected GcApiException");
@@ -248,7 +248,7 @@ public class PaymentsClientTest {
 			Assert.assertTrue(e.toString().contains(responseBody));
 		}
 	}
-	
+
 	private String getResource(String resource) {
 		StringWriter sw = new StringWriter();
 		try {

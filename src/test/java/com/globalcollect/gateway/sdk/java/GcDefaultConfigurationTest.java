@@ -10,8 +10,6 @@ import com.globalcollect.gateway.sdk.java.defaultimpl.AuthorizationType;
 
 public class GcDefaultConfigurationTest {
 
-	GcDefaultConfiguration configuration;
-
 	@Test
 	public void testConstructFromPropertiesWithoutProxy() {
 

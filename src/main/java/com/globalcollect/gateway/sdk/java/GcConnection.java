@@ -16,8 +16,8 @@ public interface GcConnection extends Closeable {
 	URI toURI(String relativePath, List<RequestParam> requestParameters);
 
 	/**
-	 * Releases any system resources associated with this object. Should be
-	 * called when this object is about to go out of scope.
+	 * Releases any system resources associated with this object.
+	 * Should be called when this object is about to go out of scope.
 	 */
 	@Override
 	void close() throws IOException;
@@ -25,40 +25,38 @@ public interface GcConnection extends Closeable {
 	/**
 	 * Send a GET request to the GlobalCollect platform and return the response.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
+	 * @param uri The URI to call, including any necessary query parameters.
+	 * @param requestHeaders An optional list of request headers.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
 	 */
-	String get(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters);
+	GcResponse get(URI uri, List<RequestHeader> requestHeaders);
 
 	/**
 	 * Send a DELETE request to the GlobalCollect platform and return the response.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
+	 * @param uri The URI to call, including any necessary query parameters.
+	 * @param requestHeaders An optional list of request headers.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
 	 */
-	String delete(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters);
+	GcResponse delete(URI uri, List<RequestHeader> requestHeaders);
 
 	/**
 	 * Send a POST request to the GlobalCollect platform and return the response.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
+	 * @param uri The URI to call, including any necessary query parameters.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param body The optional body to send.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
 	 */
-	String post(String resourcePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters, String body);
+	GcResponse post(URI uri, List<RequestHeader> requestHeaders, String body);
 
 	/**
 	 * Send a PUT request to the GlobalCollect platform and return the response.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
+	 * @param uri The URI to call, including any necessary query parameters.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param body The optional body to send.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
 	 */
-	String put(String resourcePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters, String body);
+	GcResponse put(URI uri, List<RequestHeader> requestHeaders, String body);
 }

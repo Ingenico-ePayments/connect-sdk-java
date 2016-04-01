@@ -1,10 +1,12 @@
 package com.globalcollect.gateway.sdk.it;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.globalcollect.gateway.sdk.java.gc.GcClient;
 import com.globalcollect.gateway.sdk.java.gc.fei.definitions.AmountOfMoney;
 import com.globalcollect.gateway.sdk.java.gc.fei.definitions.BankAccountBban;
 import com.globalcollect.gateway.sdk.java.gc.riskassessments.RiskAssessmentBankAccount;
@@ -18,7 +20,7 @@ public class RiskAssessmentsTest extends ItTest {
 	 * Smoke test for risk assessments service.
 	 */
 	@Test
-	public void test() throws URISyntaxException {
+	public void test() throws URISyntaxException, IOException {
 
 		RiskAssessmentBankAccount body = new RiskAssessmentBankAccount();
 
@@ -41,7 +43,13 @@ public class RiskAssessmentsTest extends ItTest {
 
 		body.setOrder(order);
 
-		RiskAssessmentResponse riskAssessmentResponse = getGcClient().merchant("8500").riskassessments().bankaccounts(body);
-		Assert.assertTrue(riskAssessmentResponse.getResults().size() > 0);
+		GcClient client = getGcClient();
+		try {
+			RiskAssessmentResponse riskAssessmentResponse = client.merchant("8500").riskassessments().bankaccounts(body);
+			Assert.assertTrue(riskAssessmentResponse.getResults().size() > 0);
+
+		} finally {
+			client.close();
+		}
 	}
 }

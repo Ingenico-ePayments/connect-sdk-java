@@ -29,28 +29,28 @@ public class GcApiException extends RuntimeException {
 	}
 
 	/**
-	 * Returns the HTTP status code that was returned by the GlobalCollect platform.
+	 * @return The HTTP status code that was returned by the GlobalCollect platform.
 	 */
 	public int getStatusCode() {
 		return statusCode;
 	}
 
 	/**
-	 * Returns the raw response body that was returned by the GlobalCollect platform.
+	 * @return The raw response body that was returned by the GlobalCollect platform.
 	 */
 	public String getResponseBody() {
 		return responseBody;
 	}
 
 	/**
-	 * Returns the error ID received from the GlobalCollect platform if available.
+	 * @return The error ID received from the GlobalCollect platform if available.
 	 */
 	public String getErrorId() {
 		return errorId;
 	}
 
 	/**
-	 * Returns the error list received from the GlobalCollect platform if available. Never {@code null}.
+	 * @return The error list received from the GlobalCollect platform if available. Never {@code null}.
 	 */
 	public List<APIError> getErrors() {
 		return errors;

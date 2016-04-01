@@ -1,5 +1,6 @@
 package com.globalcollect.gateway.sdk.it;
 
+import java.io.IOException;
 import java.net.Authenticator;
 import java.net.PasswordAuthentication;
 import java.net.URISyntaxException;
@@ -9,6 +10,7 @@ import org.junit.Test;
 
 import com.globalcollect.gateway.sdk.java.GcDefaultConfiguration;
 import com.globalcollect.gateway.sdk.java.GcFactory;
+import com.globalcollect.gateway.sdk.java.gc.GcClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.services.ConvertAmountParams;
 import com.globalcollect.gateway.sdk.java.gc.services.ConvertAmount;
 
@@ -18,7 +20,7 @@ public class SystemProxyTest extends ItTest {
 	 * Smoke test for using a proxy configured through system properties.
 	 */
 	@Test
-	public void test() throws URISyntaxException {
+	public void test() throws URISyntaxException, IOException {
 
 		final boolean[] authenticationCalled = { false };
 
@@ -52,12 +54,18 @@ public class SystemProxyTest extends ItTest {
 		request.setSource("USD");
 		request.setTarget("EUR");
 
-		GcDefaultConfiguration defaultConfiguration = getDefaultConfiguration();
-		defaultConfiguration.setProxyConfiguration(null);
+		GcDefaultConfiguration defaultConfiguration = getDefaultConfiguration()
+				.withProxyConfiguration(null);
 
-		ConvertAmount response = GcFactory.createClient(defaultConfiguration).merchant("9991").services().convertAmount(request);
+		GcClient client = GcFactory.createClient(defaultConfiguration);
+		try {
+			ConvertAmount response = client.merchant("9991").services().convertAmount(request);
 
-		Assert.assertNotNull(response.getConvertedAmount());
+			Assert.assertNotNull(response.getConvertedAmount());
+
+		} finally {
+			client.close();
+		}
 
 		// for https, authentication may not be required
 		if ("http".equalsIgnoreCase(defaultConfiguration.getBaseUri().getScheme())) {

@@ -6,20 +6,17 @@ package com.globalcollect.gateway.sdk.java;
 public interface GcSession {
 
 	/**
-	 * @return The {@link GcConnection} object associated with this session.
-	 *         Never {@code null}.
+	 * @return The {@link GcConnection} object associated with this session. Never {@code null}.
 	 */
 	GcConnection getConnection();
 
 	/**
-	 * @return The {@link GcMetaDataProvider} object associated with this session.
-	 *         Never {@code null}.
+	 * @return The {@link GcMetaDataProvider} object associated with this session. Never {@code null}.
 	 */
 	GcMetaDataProvider getMetaDataProvider();
 
 	/**
-	 * @return The {@link GcAuthenticator} object associated with this session.
-	 *         Never {@code null}.
+	 * @return The {@link GcAuthenticator} object associated with this session. Never {@code null}.
 	 */
 	GcAuthenticator getAuthenticator();
 }

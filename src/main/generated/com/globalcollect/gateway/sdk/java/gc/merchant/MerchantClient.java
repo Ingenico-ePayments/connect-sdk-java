@@ -18,7 +18,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/payouts
 	 * Create, cancel and approve payouts
-	 * 
+	 *
 	 * @return Payouts
 	 */
 	PayoutsClient payouts();
@@ -26,7 +26,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/refunds
 	 * Create, cancel and approve refunds
-	 * 
+	 *
 	 * @return Refunds
 	 */
 	RefundsClient refunds();
@@ -34,7 +34,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/sessions
 	 * Create new Session for Client2Server API calls
-	 * 
+	 *
 	 * @return Sessions
 	 */
 	SessionsClient sessions();
@@ -42,7 +42,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/tokens
 	 * Create, delete and update tokens
-	 * 
+	 *
 	 * @return Tokens
 	 */
 	TokensClient tokens();
@@ -50,7 +50,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/hostedcheckouts
 	 * Create new hosted checkout
-	 * 
+	 *
 	 * @return Hostedcheckouts
 	 */
 	HostedcheckoutsClient hostedcheckouts();
@@ -58,7 +58,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/products
 	 * Get information about payment products
-	 * 
+	 *
 	 * @return Products
 	 */
 	ProductsClient products();
@@ -66,7 +66,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/payments
 	 * Create, cancel and approve payments
-	 * 
+	 *
 	 * @return Payments
 	 */
 	PaymentsClient payments();
@@ -74,7 +74,7 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/services
 	 * Several services to help you
-	 * 
+	 *
 	 * @return Services
 	 */
 	ServicesClient services();
@@ -82,9 +82,8 @@ public interface MerchantClient {
 	/**
 	 * Resource /{merchantId}/riskassessments
 	 * Perform risk assessments on your customer data
-	 * 
+	 *
 	 * @return Riskassessments
 	 */
 	RiskassessmentsClient riskassessments();
-
 }

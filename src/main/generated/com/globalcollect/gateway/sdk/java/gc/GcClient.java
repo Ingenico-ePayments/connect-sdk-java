@@ -34,10 +34,9 @@ public interface GcClient extends Closeable {
 
 	/**
 	 * Resource /{merchantId}
-	 * 
+	 *
 	 * @param merchantId String
 	 * @return Merchant
 	 */
 	MerchantClient merchant(String merchantId);
-
 }

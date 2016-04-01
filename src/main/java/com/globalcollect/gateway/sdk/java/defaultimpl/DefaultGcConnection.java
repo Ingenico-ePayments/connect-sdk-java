@@ -5,6 +5,7 @@ import java.net.ProxySelector;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.Header;
@@ -49,9 +50,10 @@ import com.globalcollect.gateway.sdk.java.GcCommunicationException;
 import com.globalcollect.gateway.sdk.java.GcConnection;
 import com.globalcollect.gateway.sdk.java.GcDefaultConfiguration;
 import com.globalcollect.gateway.sdk.java.GcProxyConfiguration;
-import com.globalcollect.gateway.sdk.java.GcResponseException;
+import com.globalcollect.gateway.sdk.java.GcResponse;
 import com.globalcollect.gateway.sdk.java.RequestHeader;
 import com.globalcollect.gateway.sdk.java.RequestParam;
+import com.globalcollect.gateway.sdk.java.ResponseHeader;
 
 /**
  * {@link GcConnection} implementation based on {@link HttpClient}.
@@ -223,9 +225,8 @@ public class DefaultGcConnection implements GcConnection {
 	}
 
 	@Override
-	public String get(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters) {
+	public GcResponse get(URI uri, List<RequestHeader> requestHeaders) {
 
-		URI uri = toURI(relativePath, requestParameters);
 		HttpGet httpGet = new HttpGet(uri);
 		httpGet.setConfig(requestConfig);
 		addHeaders(httpGet, requestHeaders);
@@ -233,9 +234,8 @@ public class DefaultGcConnection implements GcConnection {
 	}
 
 	@Override
-	public String delete(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters) {
+	public GcResponse delete(URI uri, List<RequestHeader> requestHeaders) {
 
-		URI uri = toURI(relativePath, requestParameters);
 		HttpDelete httpDelete = new HttpDelete(uri);
 		httpDelete.setConfig(requestConfig);
 		addHeaders(httpDelete, requestHeaders);
@@ -243,9 +243,8 @@ public class DefaultGcConnection implements GcConnection {
 	}
 
 	@Override
-	public String post(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters, String body) {
+	public GcResponse post(URI uri, List<RequestHeader> requestHeaders, String body) {
 
-		URI uri = toURI(relativePath, requestParameters);
 		HttpPost httpPost = new HttpPost(uri);
 		httpPost.setConfig(requestConfig);
 		addHeaders(httpPost, requestHeaders);
@@ -257,9 +256,8 @@ public class DefaultGcConnection implements GcConnection {
 	}
 
 	@Override
-	public String put(String relativePath, List<RequestHeader> requestHeaders, List<RequestParam> requestParameters, String body) {
+	public GcResponse put(URI uri, List<RequestHeader> requestHeaders, String body) {
 
-		URI uri = toURI(relativePath, requestParameters);
 		HttpPut httpPut = new HttpPut(uri);
 		httpPut.setConfig(requestConfig);
 		addHeaders(httpPut, requestHeaders);
@@ -270,14 +268,16 @@ public class DefaultGcConnection implements GcConnection {
 		return executeRequest(httpPut);
 	}
 
-	protected String executeRequest(HttpUriRequest request) {
+	protected GcResponse executeRequest(HttpUriRequest request) {
 
 		try {
 			CloseableHttpResponse httpResponse = httpClient.execute(request);
 			HttpEntity entity = httpResponse.getEntity();
 			try {
-				throwExceptionIfNecessary(httpResponse);
-				return entity == null ? null : EntityUtils.toString(entity, CHARSET);
+				int statusCode = httpResponse.getStatusLine().getStatusCode();
+				String body = entity == null ? null : EntityUtils.toString(entity, CHARSET);
+				List<ResponseHeader> headers = getHeaders(httpResponse);
+				return new GcResponse(statusCode, body, headers);
 
 			} finally {
 				/*
@@ -295,39 +295,20 @@ public class DefaultGcConnection implements GcConnection {
 		}
 	}
 
-	/**
-	 * Checks the {@link HttpResponse} for errors and throws an exception if necessary.
-	 */
-	protected void throwExceptionIfNecessary(HttpResponse httpResponse) throws GcResponseException, IOException {
-
-		int statusCode = httpResponse.getStatusLine().getStatusCode();
-		if (statusCode >= 200 && statusCode < 300) { // status codes in the 300 range are not expected
-			return;
-		} else {
-			String body = null;
-			HttpEntity entity = httpResponse.getEntity();
-			if (entity != null) {
-				body = EntityUtils.toString(entity, CHARSET);
-			}
-			if (body != null && !isJson(httpResponse)) {
-				throw new GcCommunicationException(new GcResponseException(statusCode, body));
-			} else {
-				throw new GcResponseException(statusCode, body);
-			}
-		}
-	}
-
-	private boolean isJson(HttpResponse httpResponse) {
-		Header header = httpResponse.getFirstHeader("Content-Type");
-		String contentType = header != null ? header.getValue() : null;
-		return contentType == null || "application/json".equalsIgnoreCase(contentType) || contentType.toLowerCase().startsWith("application/json");
-	}
-
 	protected void addHeaders(HttpRequestBase httpRequestBase, List<RequestHeader> requestHeaders) {
 		if (requestHeaders != null) {
 			for (RequestHeader requestHeader: requestHeaders) {
 				httpRequestBase.addHeader(new BasicHeader(requestHeader.getName(), requestHeader.getValue()));
 			}
 		}
+	}
+
+	protected List<ResponseHeader> getHeaders(HttpResponse httpResponse) {
+		Header[] headers = httpResponse.getAllHeaders();
+		List<ResponseHeader> result = new ArrayList<ResponseHeader>(headers.length);
+		for (Header header : headers) {
+			result.add(new ResponseHeader(header.getName(), header.getValue()));
+		}
+		return result;
 	}
 }

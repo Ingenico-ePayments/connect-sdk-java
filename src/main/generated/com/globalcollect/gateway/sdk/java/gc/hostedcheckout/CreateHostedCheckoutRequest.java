@@ -5,7 +5,6 @@ import com.globalcollect.gateway.sdk.java.gc.hostedcheckout.definitions.HostedCh
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.BankTransferPaymentMethodSpecificInputBase;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CardPaymentMethodSpecificInputBase;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CashPaymentMethodSpecificInputBase;
-import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CheckPaymentMethodSpecificInput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.Order;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.RedirectPaymentMethodSpecificInputBase;
 
@@ -19,8 +18,6 @@ public class CreateHostedCheckoutRequest {
 	private CardPaymentMethodSpecificInputBase cardPaymentMethodSpecificInput = null;
 
 	private CashPaymentMethodSpecificInputBase cashPaymentMethodSpecificInput = null;
-
-	private CheckPaymentMethodSpecificInput checkPaymentMethodSpecificInput = null;
 
 	private FraudFields fraudFields = null;
 
@@ -52,14 +49,6 @@ public class CreateHostedCheckoutRequest {
 
 	public void setCashPaymentMethodSpecificInput(CashPaymentMethodSpecificInputBase value) {
 		this.cashPaymentMethodSpecificInput = value;
-	}
-
-	public CheckPaymentMethodSpecificInput getCheckPaymentMethodSpecificInput() {
-		return checkPaymentMethodSpecificInput;
-	}
-
-	public void setCheckPaymentMethodSpecificInput(CheckPaymentMethodSpecificInput value) {
-		this.checkPaymentMethodSpecificInput = value;
 	}
 
 	public FraudFields getFraudFields() {

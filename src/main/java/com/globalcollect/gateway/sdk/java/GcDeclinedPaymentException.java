@@ -27,7 +27,7 @@ public class GcDeclinedPaymentException extends GcDeclinedTransactionException {
 	}
 
 	/**
-	 * Returns the result of creating a payment if available, otherwise returns <code>null</code>.
+	 * @return The result of creating a payment if available, otherwise returns {@code null}.
 	 */
 	public CreatePaymentResult getCreatePaymentResult() {
 		return errors == null ? null : errors.getPaymentResult();

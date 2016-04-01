@@ -1,5 +1,6 @@
 package com.globalcollect.gateway.sdk.it;
 
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 import org.junit.Assert;
@@ -21,9 +22,7 @@ public class TokenTest extends ItTest {
 	 * Smoke test for token calls.
 	 */
 	@Test
-	public void test() throws URISyntaxException {
-
-		GcClient gcClient = getGcClient();
+	public void test() throws URISyntaxException, IOException {
 
 		CreateTokenRequest createTokenRequest = new CreateTokenRequest();
 		createTokenRequest.setPaymentProductId(1);
@@ -43,12 +42,18 @@ public class TokenTest extends ItTest {
 		cardWithoutCvv.setCardNumber("4567350000427977");
 		cardWithoutCvv.setExpiryDate("0820");
 
-		CreateTokenResponse createTokenResponse = gcClient.merchant("9991").tokens().create(createTokenRequest);
+		GcClient client = getGcClient();
+		try {
+			CreateTokenResponse createTokenResponse = client.merchant("9991").tokens().create(createTokenRequest);
 
-		Assert.assertNotNull(createTokenResponse.getToken());
+			Assert.assertNotNull(createTokenResponse.getToken());
 
-		DeleteParams deleteTokenRequest = new DeleteParams();
+			DeleteParams deleteTokenRequest = new DeleteParams();
 
-		gcClient.merchant("9991").tokens().delete(createTokenResponse.getToken(), deleteTokenRequest);
+			client.merchant("9991").tokens().delete(createTokenResponse.getToken(), deleteTokenRequest);
+
+		} finally {
+			client.close();
+		}
 	}
 }

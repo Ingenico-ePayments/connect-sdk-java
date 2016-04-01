@@ -5,6 +5,8 @@ public class APIError {
 
 	private String code = null;
 
+	private Integer httpStatusCode = null;
+
 	private String message = null;
 
 	private String propertyName = null;
@@ -17,6 +19,14 @@ public class APIError {
 
 	public void setCode(String value) {
 		this.code = value;
+	}
+
+	public Integer getHttpStatusCode() {
+		return httpStatusCode;
+	}
+
+	public void setHttpStatusCode(Integer value) {
+		this.httpStatusCode = value;
 	}
 
 	public String getMessage() {

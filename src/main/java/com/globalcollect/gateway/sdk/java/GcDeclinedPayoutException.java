@@ -26,7 +26,7 @@ public class GcDeclinedPayoutException extends GcDeclinedTransactionException {
 	}
 
 	/**
-	 * Returns the result of creating a payout if available, otherwise returns <code>null</code>.
+	 * @return The result of creating a payout if available, otherwise returns {@code null}.
 	 */
 	public PayoutResult getPayoutResult() {
 		return errors == null ? null : errors.getPayoutResult();

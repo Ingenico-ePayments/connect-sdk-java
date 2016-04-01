@@ -37,8 +37,8 @@ public class ConnectionPoolingTest extends ItTest {
 		ExecutorService executorService = Executors.newFixedThreadPool(requestCount);
 		try {
 
-			GcDefaultConfiguration defaultConfiguration = getDefaultConfiguration();
-			defaultConfiguration.setMaxConnections(maxConnections);
+			GcDefaultConfiguration defaultConfiguration = getDefaultConfiguration()
+					.withMaxConnections(maxConnections);
 			GcCommunicator communicator = GcFactory.createCommunicator(defaultConfiguration);
 			try {
 

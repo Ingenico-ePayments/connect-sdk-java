@@ -40,8 +40,6 @@ public class DefaultGcAuthenticator implements GcAuthenticator {
 	private final String secretApiKey;
 
 	/**
-	 * Constructor.
-	 *
 	 * @param authorizationType
 	 *            Based on this value both the GlobalCollect platform and the merchant know
 	 *            which security implementation is used. A version number is

@@ -1,0 +1,46 @@
+{
+    "errorId": "2c164323-20d3-4e9e-8578-dc562cd7506c-0000003c",
+    "errors": [
+        {
+            "code": "21000020",
+            "requestId": "2001798",
+            "message": "VALUE **************** OF FIELD CREDITCARDNUMBER DID NOT PASS THE LUHNCHECK"
+        }
+    ],
+    "paymentResult": {
+        "creationOutput": {
+            "additionalReference": "00000200002014254436",
+            "externalReference": "000002000020142544360000100001"
+        },
+        "payment": {
+            "id": "000002000020142544360000100001",
+            "paymentOutput": {
+                "amountOfMoney": {
+                    "amount": 2345,
+                    "currencyCode": "CAD"
+                },
+                "references": {
+                    "paymentReference": "0"
+                },
+                "paymentMethod": "card",
+                "cardPaymentMethodSpecificOutput": {
+                    "paymentProductId": 1
+                }
+            },
+            "status": "REJECTED",
+            "statusOutput": {
+                "errors": [
+                    {
+                        "code": "21000020",
+                        "requestId": "2001798",
+                        "message": "VALUE **************** OF FIELD CREDITCARDNUMBER DID NOT PASS THE LUHNCHECK"
+                    }
+                ],
+                "isCancellable": false,
+                "statusCode": 100,
+                "statusCodeChangeDateTime": "20150330173151",
+                "isAuthorized": false
+            }
+        }
+    }
+}

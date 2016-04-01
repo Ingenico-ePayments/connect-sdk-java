@@ -23,8 +23,7 @@ public interface GcSessionBuilder {
 	/**
 	 * Creates a fully initialized {@link GcSession} object.
 	 *
-	 * @throws IllegalArgumentException
-	 *             if not all required components are set
+	 * @throws IllegalArgumentException if not all required components are set
 	 */
 	GcSession build();
 }

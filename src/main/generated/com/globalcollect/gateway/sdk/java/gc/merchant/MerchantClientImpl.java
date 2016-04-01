@@ -23,107 +23,52 @@ import java.util.Map;
 
 public class MerchantClientImpl extends GcApiResource implements MerchantClient {
 
-	public MerchantClientImpl(GcApiResource parent, Map<String, String> context) {
-		super(parent, context);
+	public MerchantClientImpl(GcApiResource parent, Map<String, String> pathContext) {
+		super(parent, pathContext);
 	}
 
-	/**
-	 * Resource /{merchantId}/payouts
-	 * Create, cancel and approve payouts
-	 * 
-	 * @return Payouts
-	 */
 	@Override
 	public PayoutsClient payouts() {
 		return new PayoutsClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/refunds
-	 * Create, cancel and approve refunds
-	 * 
-	 * @return Refunds
-	 */
 	@Override
 	public RefundsClient refunds() {
 		return new RefundsClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/sessions
-	 * Create new Session for Client2Server API calls
-	 * 
-	 * @return Sessions
-	 */
 	@Override
 	public SessionsClient sessions() {
 		return new SessionsClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/tokens
-	 * Create, delete and update tokens
-	 * 
-	 * @return Tokens
-	 */
 	@Override
 	public TokensClient tokens() {
 		return new TokensClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/hostedcheckouts
-	 * Create new hosted checkout
-	 * 
-	 * @return Hostedcheckouts
-	 */
 	@Override
 	public HostedcheckoutsClient hostedcheckouts() {
 		return new HostedcheckoutsClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/products
-	 * Get information about payment products
-	 * 
-	 * @return Products
-	 */
 	@Override
 	public ProductsClient products() {
 		return new ProductsClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/payments
-	 * Create, cancel and approve payments
-	 * 
-	 * @return Payments
-	 */
 	@Override
 	public PaymentsClient payments() {
 		return new PaymentsClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/services
-	 * Several services to help you
-	 * 
-	 * @return Services
-	 */
 	@Override
 	public ServicesClient services() {
 		return new ServicesClientImpl(this, null);
 	}
 
-	/**
-	 * Resource /{merchantId}/riskassessments
-	 * Perform risk assessments on your customer data
-	 * 
-	 * @return Riskassessments
-	 */
 	@Override
 	public RiskassessmentsClient riskassessments() {
 		return new RiskassessmentsClientImpl(this, null);
 	}
-
 }

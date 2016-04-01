@@ -26,7 +26,7 @@ public class GcDeclinedRefundException extends GcDeclinedTransactionException {
 	}
 
 	/**
-	 * Returns the result of creating a refund if available, otherwise returns <code>null</code>.
+	 * @return The result of creating a refund if available, otherwise returns {@code null}.
 	 */
 	public RefundResult getRefundResult() {
 		return errors == null ? null : errors.getRefundResult();

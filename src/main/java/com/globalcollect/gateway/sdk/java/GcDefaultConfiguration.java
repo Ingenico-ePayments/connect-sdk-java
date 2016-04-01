@@ -13,7 +13,6 @@ public class GcDefaultConfiguration {
 	/** The default number of maximum connections. */
 	public static final int DEFAULT_MAX_CONNECTIONS = 10;
 
-	/** GlobalCollect platform base URI. */
 	private URI baseUri;
 
 	private int connectTimeout;
@@ -24,20 +23,8 @@ public class GcDefaultConfiguration {
 
 	private AuthorizationType authorizationType;
 
-	/**
-	 * An identifier for the secret API key. The {@code apiKeyId} can be
-	 * retrieved from the Configuration Center. This identifier is visible in
-	 * the HTTP request and is also used to identify the correct account.
-	 */
 	private String apiKeyId;
 
-	/**
-	 * A shared secret. The shared secret can be retrieved from the
-	 * Configuration Center. An {@code apiKeyId} and {@code secretApiKey} always
-	 * go hand-in-hand, the difference is that {@code secretApiKey} is never
-	 * visible in the HTTP request. This secret is used as input for the HMAC
-	 * algorithm.
-	 */
 	private String secretApiKey;
 
 	private GcProxyConfiguration proxyConfiguration;
@@ -66,67 +53,106 @@ public class GcDefaultConfiguration {
 		return propertyValue != null ? Integer.parseInt(propertyValue) : defaultValue;
 	}
 
+	/**
+	 * Returns the GlobalCollect platform base URI.
+	 */
 	public URI getBaseUri() {
 		return baseUri;
 	}
-
 	public void setBaseUri(URI baseUri) {
 		this.baseUri = baseUri;
 	}
+	public GcDefaultConfiguration withBaseUri(URI baseUri) {
+		this.baseUri = baseUri;
+		return this;
+	}
 
+	/**
+	 * An identifier for the secret API key. The {@code apiKeyId} can be
+	 * retrieved from the Configuration Center. This identifier is visible in
+	 * the HTTP request and is also used to identify the correct account.
+	 */
 	public String getApiKeyId() {
 		return apiKeyId;
 	}
-
 	public void setApiKeyId(String apiKeyId) {
 		this.apiKeyId = apiKeyId;
 	}
+	public GcDefaultConfiguration withApiKeyId(String apiKeyId) {
+		this.apiKeyId = apiKeyId;
+		return this;
+	}
 
+	/**
+	 * A shared secret. The shared secret can be retrieved from the
+	 * Configuration Center. An {@code apiKeyId} and {@code secretApiKey} always
+	 * go hand-in-hand, the difference is that {@code secretApiKey} is never
+	 * visible in the HTTP request. This secret is used as input for the HMAC
+	 * algorithm.
+	 */
 	public String getSecretApiKey() {
 		return secretApiKey;
 	}
-
 	public void setSecretApiKey(String secretApiKey) {
 		this.secretApiKey = secretApiKey;
+	}
+	public GcDefaultConfiguration withSecretApiKey(String secretApiKey) {
+		this.secretApiKey = secretApiKey;
+		return this;
 	}
 
 	public AuthorizationType getAuthorizationType() {
 		return authorizationType;
 	}
-
 	public void setAuthorizationType(AuthorizationType authorizationType) {
 		this.authorizationType = authorizationType;
+	}
+	public GcDefaultConfiguration withAuthorizationType(AuthorizationType authorizationType) {
+		this.authorizationType = authorizationType;
+		return this;
 	}
 
 	public int getConnectTimeout() {
 		return connectTimeout;
 	}
-
 	public void setConnectTimeout(int connectTimeout) {
 		this.connectTimeout = connectTimeout;
+	}
+	public GcDefaultConfiguration withConnectTimeout(int connectTimeout) {
+		this.connectTimeout = connectTimeout;
+		return this;
 	}
 
 	public int getSocketTimeout() {
 		return socketTimeout;
 	}
-
 	public void setSocketTimeout(int socketTimeout) {
 		this.socketTimeout = socketTimeout;
+	}
+	public GcDefaultConfiguration withSocketTimeout(int socketTimeout) {
+		this.socketTimeout = socketTimeout;
+		return this;
 	}
 
 	public int getMaxConnections() {
 		return maxConnections;
 	}
-
 	public void setMaxConnections(int maxConnections) {
 		this.maxConnections = maxConnections;
+	}
+	public GcDefaultConfiguration withMaxConnections(int maxConnections) {
+		this.maxConnections = maxConnections;
+		return this;
 	}
 
 	public GcProxyConfiguration getProxyConfiguration() {
 		return proxyConfiguration;
 	}
-
 	public void setProxyConfiguration(GcProxyConfiguration proxyConfiguration) {
 		this.proxyConfiguration = proxyConfiguration;
+	}
+	public GcDefaultConfiguration withProxyConfiguration(GcProxyConfiguration proxyConfiguration) {
+		this.proxyConfiguration = proxyConfiguration;
+		return this;
 	}
 }

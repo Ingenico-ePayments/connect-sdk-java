@@ -5,7 +5,6 @@ import org.apache.http.HttpStatus;
 import com.globalcollect.gateway.sdk.java.GcMarshaller;
 import com.globalcollect.gateway.sdk.java.GcMarshallerSyntaxException;
 import com.globalcollect.gateway.sdk.java.GcNotFoundException;
-import com.globalcollect.gateway.sdk.java.TypeWrapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
@@ -14,19 +13,22 @@ import com.google.gson.JsonSyntaxException;
  */
 public class DefaultGcMarshaller implements GcMarshaller {
 
+	// Gson instances are thread-safe, so reuse one single instance
+	private static final Gson GSON = new Gson();
+
 	public static final DefaultGcMarshaller INSTANCE = new DefaultGcMarshaller();
 
 	protected DefaultGcMarshaller() {}
 
 	@Override
 	public String marshal(Object requestObject) {
-		return new Gson().toJson(requestObject);
+		return GSON.toJson(requestObject);
 	}
 
 	@Override
-	public <T> T unmarshal(String responseJson, int statusCode, String requestPath, TypeWrapper<T> typeWrapper) {
+	public <T> T unmarshal(String responseJson, int statusCode, String requestPath, Class<T> type) {
 		try {
-			return new Gson().fromJson(responseJson, typeWrapper.getType());
+			return GSON.fromJson(responseJson, type);
 		} catch (JsonSyntaxException e) {
 			if (statusCode == HttpStatus.SC_NOT_FOUND) {
 				throw new GcNotFoundException("The requested resource was not found; invalid path: " + requestPath, e);
@@ -37,9 +39,9 @@ public class DefaultGcMarshaller implements GcMarshaller {
 	}
 
 	@Override
-	public <T> T unmarshal(String responseJson, TypeWrapper<T> typeWrapper) {
+	public <T> T unmarshal(String responseJson, Class<T> type) {
 		try {
-			return new Gson().fromJson(responseJson, typeWrapper.getType());
+			return GSON.fromJson(responseJson, type);
 		} catch (JsonSyntaxException e) {
 			throw new GcMarshallerSyntaxException(e);
 		}

@@ -70,40 +70,55 @@ public class GcProxyConfiguration {
 	public String getScheme() {
 		return scheme;
 	}
-
 	public void setScheme(String scheme) {
 		this.scheme = scheme;
+	}
+	public GcProxyConfiguration withScheme(String scheme) {
+		this.scheme = scheme;
+		return this;
 	}
 
 	public String getHost() {
 		return host;
 	}
-
 	public void setHost(String host) {
 		this.host = host;
+	}
+	public GcProxyConfiguration withHost(String host) {
+		this.host = host;
+		return this;
 	}
 
 	public int getPort() {
 		return port;
 	}
-
 	public void setPort(int port) {
 		this.port = port;
+	}
+	public GcProxyConfiguration withPort(int port) {
+		this.port = port;
+		return this;
 	}
 
 	public String getUsername() {
 		return username;
 	}
-
 	public void setUsername(String username) {
 		this.username = username;
+	}
+	public GcProxyConfiguration withUsername(String username) {
+		this.username = username;
+		return this;
 	}
 
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public GcProxyConfiguration withPassword(String password) {
+		this.password = password;
+		return this;
 	}
 }

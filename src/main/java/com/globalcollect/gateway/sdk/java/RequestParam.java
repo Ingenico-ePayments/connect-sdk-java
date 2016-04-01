@@ -1,12 +1,12 @@
 package com.globalcollect.gateway.sdk.java;
 
 /**
- * A single request parameter.
+ * A single request parameter. Immutable.
  */
 public class RequestParam {
 
-	private String name;
-	private String value;
+	private final String name;
+	private final String value;
 
 	public RequestParam(String name, String value) {
 		if (name == null || name.trim().isEmpty()) {

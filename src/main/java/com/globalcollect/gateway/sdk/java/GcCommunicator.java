@@ -23,54 +23,67 @@ public interface GcCommunicator extends Closeable {
 	/**
 	 * Corresponds to the HTTP GET method.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
-	 * @throws GcApiException
-	 *             when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param responseType The type of response to return.
+	 * @param context The optional call context to use.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
+	 * @throws GcResponseException when an error response was received from the GlobalCollect platform
+	 * @throws GcApiException when an error response was received from the GlobalCollect platform which contained a list of errors
 	 */
-	<P extends GcParamRequest, O> O get(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, TypeWrapper<O> responseTypeWrapper);
+	<P extends GcParamRequest, O> O get(String relativePath, List<RequestHeader> requestHeaders, P requestParameters,
+			Class<O> responseType, CallContext context);
 
 	/**
 	 * Corresponds to the HTTP DELETE method.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
-	 * @throws GcApiException
-	 *             when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param responseType The type of response to return.
+	 * @param context The optional call context to use.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
+	 * @throws GcResponseException when an error response was received from the GlobalCollect platform
+	 * @throws GcApiException when an error response was received from the GlobalCollect platform which contained a list of errors
 	 */
-	<P extends GcParamRequest, O> O delete(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, TypeWrapper<O> responseTypeWrapper);
+	<P extends GcParamRequest, O> O delete(String relativePath, List<RequestHeader> requestHeaders, P requestParameters,
+			Class<O> responseType, CallContext context);
 
 	/**
 	 * Corresponds to the HTTP POST method.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
-	 * @throws GcApiException
-	 *             when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param requestBody The optional request body to send.
+	 * @param responseType The type of response to return.
+	 * @param context The optional call context to use.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
+	 * @throws GcResponseException when an error response was received from the GlobalCollect platform
+	 * @throws GcApiException when an error response was received from the GlobalCollect platform which contained a list of errors
 	 */
-	<P extends GcParamRequest, O> O post(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody, TypeWrapper<O> responseTypeWrapper);
+	<P extends GcParamRequest, O> O post(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody,
+			Class<O> responseType, CallContext context);
 
 	/**
 	 * Corresponds to the HTTP PUT method.
 	 *
-	 * @throws GcCommunicationException
-	 *             when an exception occurred communicating with the GlobalCollect platform
-	 * @throws GcResponseException
-	 *             when an error response was received from the GlobalCollect platform
-	 * @throws GcApiException
-	 *             when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param requestBody The optional request body to send.
+	 * @param responseType The type of response to return.
+	 * @param context The optional call context to use.
+	 * @throws GcCommunicationException when an exception occurred communicating with the GlobalCollect platform
+	 * @throws GcResponseException when an error response was received from the GlobalCollect platform
+	 * @throws GcApiException when an error response was received from the GlobalCollect platform which contained a list of errors
 	 */
-	<P extends GcParamRequest, O> O put(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody, TypeWrapper<O> responseTypeWrapper);
+	<P extends GcParamRequest, O> O put(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody,
+			Class<O> responseType, CallContext context);
 
 	/**
-	 * @return The {@link GcMarshaller} object associated with this communicator.
-	 *         Never {@code null}.
+	 * @return The {@link GcMarshaller} object associated with this communicator. Never {@code null}.
 	 */
 	GcMarshaller getMarshaller();
 }

@@ -3,7 +3,6 @@ package com.globalcollect.gateway.sdk.java.gc.payment.definitions;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.BankTransferPaymentMethodSpecificOutput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CardPaymentMethodSpecificOutput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CashPaymentMethodSpecificOutput;
-import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CheckPaymentMethodSpecificOutput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.InvoicePaymentMethodSpecificOutput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificOutput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.RedirectPaymentMethodSpecificOutput;
@@ -19,8 +18,6 @@ public class PaymentOutput extends OrderOutput {
 	private CardPaymentMethodSpecificOutput cardPaymentMethodSpecificOutput = null;
 
 	private CashPaymentMethodSpecificOutput cashPaymentMethodSpecificOutput = null;
-
-	private CheckPaymentMethodSpecificOutput checkPaymentMethodSpecificOutput = null;
 
 	private NonSepaDirectDebitPaymentMethodSpecificOutput directDebitPaymentMethodSpecificOutput = null;
 
@@ -62,14 +59,6 @@ public class PaymentOutput extends OrderOutput {
 
 	public void setCashPaymentMethodSpecificOutput(CashPaymentMethodSpecificOutput value) {
 		this.cashPaymentMethodSpecificOutput = value;
-	}
-
-	public CheckPaymentMethodSpecificOutput getCheckPaymentMethodSpecificOutput() {
-		return checkPaymentMethodSpecificOutput;
-	}
-
-	public void setCheckPaymentMethodSpecificOutput(CheckPaymentMethodSpecificOutput value) {
-		this.checkPaymentMethodSpecificOutput = value;
 	}
 
 	public NonSepaDirectDebitPaymentMethodSpecificOutput getDirectDebitPaymentMethodSpecificOutput() {

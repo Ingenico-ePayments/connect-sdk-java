@@ -28,17 +28,16 @@ public final class GcFactory {
 	 */
 	public static GcDefaultConfiguration createDefaultConfiguration(URI configurationFileUri, String apiKeyId, String secretApiKey) {
 		try {
-			InputStream configurationFileInputStream = configurationFileUri.toURL().openStream();
 			Properties defaultProperties = new Properties();
+			InputStream configurationFileInputStream = configurationFileUri.toURL().openStream();
 			try {
 				defaultProperties.load(configurationFileInputStream);
 			} finally {
 				configurationFileInputStream.close();
 			}
-			GcDefaultConfiguration defaultConfiguration = new GcDefaultConfiguration(defaultProperties);
-			defaultConfiguration.setApiKeyId(apiKeyId);
-			defaultConfiguration.setSecretApiKey(secretApiKey);
-			return defaultConfiguration;
+			return new GcDefaultConfiguration(defaultProperties)
+					.withApiKeyId(apiKeyId)
+					.withSecretApiKey(secretApiKey);
 		} catch (IOException e) {
 			throw new RuntimeException("Unable to load default properties", e);
 		}

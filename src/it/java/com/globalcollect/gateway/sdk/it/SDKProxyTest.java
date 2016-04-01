@@ -1,5 +1,6 @@
 package com.globalcollect.gateway.sdk.it;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URISyntaxException;
 
@@ -19,6 +20,7 @@ import com.globalcollect.gateway.sdk.java.GcProxyConfiguration;
 import com.globalcollect.gateway.sdk.java.defaultimpl.DefaultGcCommunicator;
 import com.globalcollect.gateway.sdk.java.defaultimpl.DefaultGcConnection;
 import com.globalcollect.gateway.sdk.java.defaultimpl.DefaultGcSession;
+import com.globalcollect.gateway.sdk.java.gc.GcClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.services.ConvertAmountParams;
 import com.globalcollect.gateway.sdk.java.gc.merchant.services.ServicesClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.services.ServicesClientImpl;
@@ -30,23 +32,29 @@ public class SDKProxyTest extends ItTest {
 	 * Smoke test for using a proxy configured through SDK properties.
 	 */
 	@Test
-	public void test() throws URISyntaxException {
+	public void test() throws URISyntaxException, IOException {
 
 		ConvertAmountParams request = new ConvertAmountParams();
 		request.setAmount(123L);
 		request.setSource("USD");
 		request.setTarget("EUR");
 
-		ServicesClient services = getGcClientWithProxy().merchant("9991").services();
+		GcClient client = getGcClientWithProxy();
+		try {
+			ServicesClient services = client.merchant("9991").services();
 
-		Assert.assertTrue(services instanceof ServicesClientImpl);
-		GcDefaultConfiguration configuration = getDefaultConfigurationWithProxy();
-		Assert.assertNotNull(configuration.getProxyConfiguration());
-		assertProxySet((ServicesClientImpl) services, configuration.getProxyConfiguration());
+			Assert.assertTrue(services instanceof ServicesClientImpl);
+			GcDefaultConfiguration configuration = getDefaultConfigurationWithProxy();
+			Assert.assertNotNull(configuration.getProxyConfiguration());
+			assertProxySet((ServicesClientImpl) services, configuration.getProxyConfiguration());
 
-		ConvertAmount response = services.convertAmount(request);
+			ConvertAmount response = services.convertAmount(request);
 
-		Assert.assertNotNull(response.getConvertedAmount());
+			Assert.assertNotNull(response.getConvertedAmount());
+
+		} finally {
+			client.close();
+		}
 	}
 
 	private void assertProxySet(GcApiResource resource, GcProxyConfiguration proxyConfiguration) {

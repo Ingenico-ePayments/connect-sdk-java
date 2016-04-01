@@ -1,5 +1,7 @@
 package com.globalcollect.gateway.sdk.java.defaultimpl;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Collection;
 import java.util.Collections;
@@ -9,7 +11,6 @@ import org.apache.commons.codec.binary.Base64;
 
 import com.globalcollect.gateway.sdk.java.GcMetaDataProvider;
 import com.globalcollect.gateway.sdk.java.RequestHeader;
-import com.google.gson.Gson;
 
 /**
  * Default {@link GcMetaDataProvider} implementation.
@@ -32,8 +33,8 @@ public class DefaultGcMetaDataProvider implements GcMetaDataProvider {
 		serverMetaInfo.platformIdentifier = getPlatformIdentifier();
 		serverMetaInfo.sdkIdentifier = getSdkIdentifier();
 
-		Gson gson = new Gson();
-		RequestHeader serverMetaInfoHeader = new RequestHeader("X-GCS-ServerMetaInfo", Base64.encodeBase64String(gson.toJson(serverMetaInfo).getBytes(CHARSET)));
+		String serverMetaInfoString = DefaultGcMarshaller.INSTANCE.marshal(serverMetaInfo);
+		RequestHeader serverMetaInfoHeader = new RequestHeader("X-GCS-ServerMetaInfo", Base64.encodeBase64String(serverMetaInfoString.getBytes(CHARSET)));
 		metaDataHeaders = Collections.singletonList(serverMetaInfoHeader);
 	}
 
@@ -64,6 +65,24 @@ public class DefaultGcMetaDataProvider implements GcMetaDataProvider {
 	}
 
 	protected String getSdkIdentifier() {
-		return "1.0";
+		String sdkIdentifier = "unknown";
+
+		// don't use getClass() because of possible overrides
+		InputStream pomProperties = DefaultGcMetaDataProvider.class.getResourceAsStream("/META-INF/maven/com.ingenico.connect.gateway/connect-sdk-java/pom.properties");
+		if (pomProperties != null) {
+			try {
+				try {
+					Properties properties = new Properties();
+					properties.load(pomProperties);
+					sdkIdentifier = properties.getProperty("version", sdkIdentifier);
+				} finally {
+					pomProperties.close();
+				}
+			} catch (IOException e) {
+				// ignore the exception
+			}
+		}
+
+		return sdkIdentifier;
 	}
 }

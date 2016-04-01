@@ -11,10 +11,8 @@ public interface GcAuthenticator {
 	/**
 	 * Creates a signature for the simple security model.
 	 *
-	 * @param httpMethod
-	 *            The HTTP method.
-	 * @param resourceUri
-	 *            resourceUri the {@link URI} of the resource.
+	 * @param httpMethod The HTTP method.
+	 * @param resourceUri The {@link URI} of the resource.
 	 * @param requestHeaders
 	 *            A list of {@link RequestHeader}s. This list may not be
 	 *            modified and may not contain headers with the same name.

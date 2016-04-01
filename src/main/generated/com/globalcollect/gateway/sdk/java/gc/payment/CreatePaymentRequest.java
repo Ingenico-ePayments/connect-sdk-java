@@ -4,7 +4,6 @@ import com.globalcollect.gateway.sdk.java.gc.fei.definitions.FraudFields;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.BankTransferPaymentMethodSpecificInput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CardPaymentMethodSpecificInput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CashPaymentMethodSpecificInput;
-import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CheckPaymentMethodSpecificInput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.InvoicePaymentMethodSpecificInput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificInput;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.Order;
@@ -21,8 +20,6 @@ public class CreatePaymentRequest {
 	private CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = null;
 
 	private CashPaymentMethodSpecificInput cashPaymentMethodSpecificInput = null;
-
-	private CheckPaymentMethodSpecificInput checkPaymentMethodSpecificInput = null;
 
 	private NonSepaDirectDebitPaymentMethodSpecificInput directDebitPaymentMethodSpecificInput = null;
 
@@ -60,14 +57,6 @@ public class CreatePaymentRequest {
 
 	public void setCashPaymentMethodSpecificInput(CashPaymentMethodSpecificInput value) {
 		this.cashPaymentMethodSpecificInput = value;
-	}
-
-	public CheckPaymentMethodSpecificInput getCheckPaymentMethodSpecificInput() {
-		return checkPaymentMethodSpecificInput;
-	}
-
-	public void setCheckPaymentMethodSpecificInput(CheckPaymentMethodSpecificInput value) {
-		this.checkPaymentMethodSpecificInput = value;
 	}
 
 	public NonSepaDirectDebitPaymentMethodSpecificInput getDirectDebitPaymentMethodSpecificInput() {

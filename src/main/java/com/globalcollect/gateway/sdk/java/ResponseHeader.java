@@ -1,15 +1,15 @@
 package com.globalcollect.gateway.sdk.java;
 
 /**
- * A single request header. Immutable.
+ * A single response header. Immutable.
  */
-public class RequestHeader {
+public class ResponseHeader {
 
 	private final String name;
 	private final String value;
 
-	public RequestHeader(String name, String value) {
-		if (name == null || name.trim().isEmpty()) {
+	public ResponseHeader(String name, String value) {
+		if (name == null) {
 			throw new IllegalArgumentException("name is required");
 		}
 		this.name = name;

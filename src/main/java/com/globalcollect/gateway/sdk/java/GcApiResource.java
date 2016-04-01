@@ -17,26 +17,26 @@ public abstract class GcApiResource {
 
 	private final GcApiResource parent;
 	protected final GcCommunicator communicator;
-	private final Map<String, String> context;
+	private final Map<String, String> pathContext;
 	protected final String clientMetaInfo;
 
-	protected GcApiResource(GcApiResource parent, Map<String, String> context) {
+	protected GcApiResource(GcApiResource parent, Map<String, String> pathContext) {
 		if (parent == null) {
 			throw new IllegalArgumentException("parent is required");
 		}
 		this.parent = parent;
 		this.communicator = parent.communicator;
-		this.context = context;
+		this.pathContext = pathContext;
 		this.clientMetaInfo = parent.clientMetaInfo;
 	}
 
-	protected GcApiResource(GcCommunicator communicator, String clientMetaInfo, Map<String, String> context) {
+	protected GcApiResource(GcCommunicator communicator, String clientMetaInfo, Map<String, String> pathContext) {
 		if (communicator == null) {
 			throw new IllegalArgumentException("communicator is required");
 		}
 		this.parent = null;
 		this.communicator = communicator;
-		this.context = context;
+		this.pathContext = pathContext;
 		this.clientMetaInfo = clientMetaInfo;
 	}
 
@@ -52,30 +52,30 @@ public abstract class GcApiResource {
 		}
 	}
 
-	protected String instantiateUri(String uri, Map<String, String> callContext) {
-		uri = replaceAll(uri, callContext);
+	protected String instantiateUri(String uri, Map<String, String> pathContext) {
+		uri = replaceAll(uri, pathContext);
 		uri = instantiateUri(uri);
 		return uri;
 	}
 
 	private String instantiateUri(String uri) {
-		uri = replaceAll(uri, context);
+		uri = replaceAll(uri, pathContext);
 		if (parent != null) {
 			uri = parent.instantiateUri(uri);
 		}
 		return uri;
 	}
 
-	private String replaceAll(String uri, Map<String, String> context) {
-		if (context != null) {
-			for (Map.Entry<String, String> entry : context.entrySet()) {
+	private String replaceAll(String uri, Map<String, String> pathContext) {
+		if (pathContext != null) {
+			for (Map.Entry<String, String> entry : pathContext.entrySet()) {
 				uri = uri.replace(String.format("{%s}", entry.getKey()), entry.getValue());
 			}
 		}
 		return uri;
 	}
 
-	protected RuntimeException createException(int statusCode, String responseBody, Object errorObject) {
+	protected RuntimeException createException(int statusCode, String responseBody, Object errorObject, CallContext context) {
 		if (errorObject instanceof PaymentErrorResponse && ((PaymentErrorResponse) errorObject).getPaymentResult() != null) {
 			return new GcDeclinedPaymentException(statusCode, responseBody, (PaymentErrorResponse) errorObject);
 		} else if (errorObject instanceof PayoutErrorResponse && ((PayoutErrorResponse) errorObject).getPayoutResult() != null) {
@@ -114,7 +114,13 @@ public abstract class GcApiResource {
 		case 404:
 			return new GcReferenceException(statusCode, responseBody, errorId, errors);
 		case 409:
-			return new GcReferenceException(statusCode, responseBody, errorId, errors);
+			if (isIdempotenceError(errors, context)) {
+				String idempotenceKey = context.getIdempotenceKey();
+				Long idempotenceRequestTimestamp = context.getIdempotenceRequestTimestamp();
+				return new GcIdempotenceException(idempotenceKey, idempotenceRequestTimestamp, statusCode, responseBody, errorId, errors);
+			} else {
+				return new GcReferenceException(statusCode, responseBody, errorId, errors);
+			}
 		case 410:
 			return new GcReferenceException(statusCode, responseBody, errorId, errors);
 		case 500:
@@ -126,5 +132,12 @@ public abstract class GcApiResource {
 		default:
 			return new GcApiException(statusCode, responseBody, errorId, errors);
 		}
+	}
+
+	private boolean isIdempotenceError(List<APIError> errors, CallContext context) {
+		return context != null
+				&& context.getIdempotenceKey() != null
+				&& errors.size() == 1
+				&& "1409".equals(errors.get(0).getCode());
 	}
 }

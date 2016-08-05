@@ -4,11 +4,11 @@ import com.globalcollect.gateway.sdk.java.CallContext;
 import com.globalcollect.gateway.sdk.java.GcApiResource;
 import com.globalcollect.gateway.sdk.java.GcResponseException;
 import com.globalcollect.gateway.sdk.java.gc.errors.ErrorResponse;
-import com.globalcollect.gateway.sdk.java.gc.services.BINLookupRequest;
-import com.globalcollect.gateway.sdk.java.gc.services.BINLookupResponse;
 import com.globalcollect.gateway.sdk.java.gc.services.BankDetailsRequest;
 import com.globalcollect.gateway.sdk.java.gc.services.BankDetailsResponse;
 import com.globalcollect.gateway.sdk.java.gc.services.ConvertAmount;
+import com.globalcollect.gateway.sdk.java.gc.services.GetIINDetailsRequest;
+import com.globalcollect.gateway.sdk.java.gc.services.GetIINDetailsResponse;
 import com.globalcollect.gateway.sdk.java.gc.services.TestConnection;
 import java.util.Map;
 
@@ -25,7 +25,7 @@ public class ServicesClientImpl extends GcApiResource implements ServicesClient 
 
 	@Override
 	public BankDetailsResponse bankaccount(BankDetailsRequest body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/services/convert/bankaccount", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/convert/bankaccount", null);
 		try {
 			return communicator.post(
 					uri,
@@ -53,7 +53,7 @@ public class ServicesClientImpl extends GcApiResource implements ServicesClient 
 
 	@Override
 	public TestConnection testconnection(CallContext context) {
-		String uri = instantiateUri("/{merchantId}/services/testconnection", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/testconnection", null);
 		try {
 			return communicator.get(
 					uri,
@@ -77,20 +77,20 @@ public class ServicesClientImpl extends GcApiResource implements ServicesClient 
 	}
 
 	@Override
-	public BINLookupResponse getIINdetails(BINLookupRequest body) {
+	public GetIINDetailsResponse getIINdetails(GetIINDetailsRequest body) {
 		return getIINdetails(body, null);
 	}
 
 	@Override
-	public BINLookupResponse getIINdetails(BINLookupRequest body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/services/getIINdetails", null);
+	public GetIINDetailsResponse getIINdetails(GetIINDetailsRequest body, CallContext context) {
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/getIINdetails", null);
 		try {
 			return communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
 					body,
-					BINLookupResponse.class,
+					GetIINDetailsResponse.class,
 					context);
 		} catch (GcResponseException e) {
 			final Class<?> errorType;
@@ -114,7 +114,7 @@ public class ServicesClientImpl extends GcApiResource implements ServicesClient 
 
 	@Override
 	public ConvertAmount convertAmount(ConvertAmountParams query, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/services/convert/amount", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/convert/amount", null);
 		try {
 			return communicator.get(
 					uri,

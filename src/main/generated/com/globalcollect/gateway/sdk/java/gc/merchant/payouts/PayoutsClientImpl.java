@@ -26,7 +26,7 @@ public class PayoutsClientImpl extends GcApiResource implements PayoutsClient {
 	public Void cancel(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{merchantId}/payouts/{payoutId}/cancel", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}/cancel", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -57,7 +57,7 @@ public class PayoutsClientImpl extends GcApiResource implements PayoutsClient {
 
 	@Override
 	public PayoutResponse create(CreatePayoutRequest body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/payouts", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts", null);
 		try {
 			return communicator.post(
 					uri,
@@ -90,7 +90,7 @@ public class PayoutsClientImpl extends GcApiResource implements PayoutsClient {
 	public PayoutResponse approve(String payoutId, ApprovePayoutRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{merchantId}/payouts/{payoutId}/approve", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}/approve", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -123,7 +123,7 @@ public class PayoutsClientImpl extends GcApiResource implements PayoutsClient {
 	public Void cancelapproval(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{merchantId}/payouts/{payoutId}/cancelapproval", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}/cancelapproval", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -156,7 +156,7 @@ public class PayoutsClientImpl extends GcApiResource implements PayoutsClient {
 	public PayoutResponse get(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{merchantId}/payouts/{payoutId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}", pathContext);
 		try {
 			return communicator.get(
 					uri,

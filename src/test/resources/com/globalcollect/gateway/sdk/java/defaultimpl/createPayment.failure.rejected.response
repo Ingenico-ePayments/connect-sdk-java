@@ -1,0 +1,52 @@
+\QIncoming response (requestId='\E([-a-zA-Z0-9]+)\Q', \E\d+\Q ms):
+  status-code:  '402'
+  headers:      'Content-Type="application/json", Dummy="", Date="\E[^"]+\Q"\E[^']*\Q'
+  content-type: 'application/json'
+  body:         '{
+    "errorId": "833dfd83-52ae-419c-b871-9df1278da93e",
+    "errors": [
+        {
+            "code": "430330",
+            "message": "Not authorised",
+            "httpStatusCode": 402
+        }
+    ],
+    "paymentResult": {
+        "creationOutput": {
+            "additionalReference": "00000200001000059614",
+            "externalReference": "000002000010000596140000100001"
+        },
+        "payment": {
+            "id": "000002000010000596140000100001",
+            "paymentOutput": {
+                "amountOfMoney": {
+                    "amount": 2345,
+                    "currencyCode": "CAD"
+                },
+                "references": {
+                    "paymentReference": "0"
+                },
+                "paymentMethod": "card",
+                "cardPaymentMethodSpecificOutput": {
+                    "paymentProductId": 1
+                }
+            },
+            "status": "REJECTED",
+            "statusOutput": {
+                "errors": [
+                    {
+                        "code": "430330",
+                        "requestId": "24162",
+                        "message": "Not authorised",
+                        "httpStatusCode": 402
+                    }
+                ],
+                "isCancellable": false,
+                "statusCategory": "UNSUCCESSFUL",
+                "statusCode": 100,
+                "statusCodeChangeDateTime": "20160310121151",
+                "isAuthorized": false
+            }
+        }
+    }
+}'\E

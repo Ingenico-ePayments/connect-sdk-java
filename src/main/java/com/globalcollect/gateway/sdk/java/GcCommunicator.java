@@ -4,6 +4,8 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.util.List;
 
+import com.globalcollect.gateway.sdk.java.logging.LoggingCapable;
+
 /**
  * Used to communicate with the GlobalCollect platform web services.
  * <p>
@@ -12,7 +14,7 @@ import java.util.List;
  * <p>
  * Thread-safe.
  */
-public interface GcCommunicator extends Closeable {
+public interface GcCommunicator extends Closeable, LoggingCapable {
 
 	/**
 	 * Releases any system resources associated with this object.

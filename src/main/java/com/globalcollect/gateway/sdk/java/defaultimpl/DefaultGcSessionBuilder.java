@@ -1,5 +1,7 @@
 package com.globalcollect.gateway.sdk.java.defaultimpl;
 
+import java.net.URI;
+
 import com.globalcollect.gateway.sdk.java.GcAuthenticator;
 import com.globalcollect.gateway.sdk.java.GcConnection;
 import com.globalcollect.gateway.sdk.java.GcMetaDataProvider;
@@ -11,11 +13,19 @@ import com.globalcollect.gateway.sdk.java.GcSessionBuilder;
  */
 public class DefaultGcSessionBuilder implements GcSessionBuilder {
 
+	private URI apiEndpoint;
+
 	private GcConnection connection;
 
 	private GcMetaDataProvider metaDataProvider;
 
 	private GcAuthenticator authenticator;
+
+	@Override
+	public GcSessionBuilder using(URI apiEndpoint) {
+		this.apiEndpoint = apiEndpoint;
+		return this;
+	}
 
 	@Override
 	public GcSessionBuilder using(GcConnection connection) {
@@ -38,9 +48,10 @@ public class DefaultGcSessionBuilder implements GcSessionBuilder {
 	@Override
 	public GcSession build() {
 		return new DefaultGcSession(
-			connection,
-			authenticator,
-			metaDataProvider
+				apiEndpoint,
+				connection,
+				authenticator,
+				metaDataProvider
 		);
 	}
 }

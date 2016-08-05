@@ -1,0 +1,14 @@
+\QIncoming response (requestId='\E([-a-zA-Z0-9]+)\Q', \E\d+\Q ms):
+  status-code:  '500'
+  headers:      'Content-Type="application/json", Dummy="", Date="\E[^"]+\Q"\E[^']*\Q'
+  content-type: 'application/json'
+  body:         '{
+    "errorId": "fbff1179-7ba4-4894-9021-d8a0011d23a7",
+    "errors": [
+        {
+            "code": "9999",
+            "message": "UNKNOWN_SERVER_ERROR",
+            "httpStatusCode": 500
+        }
+    ]
+}'\E

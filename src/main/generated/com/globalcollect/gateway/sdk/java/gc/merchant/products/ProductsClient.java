@@ -7,7 +7,7 @@ import com.globalcollect.gateway.sdk.java.GcIdempotenceException;
 import com.globalcollect.gateway.sdk.java.GcReferenceException;
 import com.globalcollect.gateway.sdk.java.GcValidationException;
 import com.globalcollect.gateway.sdk.java.GlobalCollectException;
-import com.globalcollect.gateway.sdk.java.gc.merchant.products.paymentproduct.PaymentProductClient;
+import com.globalcollect.gateway.sdk.java.gc.product.Directory;
 import com.globalcollect.gateway.sdk.java.gc.product.PaymentProductResponse;
 import com.globalcollect.gateway.sdk.java.gc.product.PaymentProducts;
 
@@ -17,16 +17,46 @@ import com.globalcollect.gateway.sdk.java.gc.product.PaymentProducts;
 public interface ProductsClient {
 
 	/**
-	 * Resource /{merchantId}/products/{paymentProductId}
+	 * Resource /{merchantId}/products/{paymentProductId}/directory
+	 * Get payment product directory
 	 *
 	 * @param paymentProductId Integer
-	 * @return PaymentProduct
+	 * @param query DirectoryParams
+	 * @return Directory
+	 * @throws GcValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
-	PaymentProductClient paymentProduct(Integer paymentProductId);
+	Directory directory(Integer paymentProductId, DirectoryParams query);
+
+	/**
+	 * Resource /{merchantId}/products/{paymentProductId}/directory
+	 * Get payment product directory
+	 *
+	 * @param paymentProductId Integer
+	 * @param query DirectoryParams
+	 * @param context CallContext
+	 * @return Directory
+	 * @throws GcValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws GcIdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws GcApiException if the GlobalCollect platform returned any other error
+	 */
+	Directory directory(Integer paymentProductId, DirectoryParams query, CallContext context);
 
 	/**
 	 * Resource /{merchantId}/products
-	 * Retrieve payment products
+	 * Get payment products
 	 *
 	 * @param query FindParams
 	 * @return PaymentProducts
@@ -43,7 +73,7 @@ public interface ProductsClient {
 
 	/**
 	 * Resource /{merchantId}/products
-	 * Retrieve payment products
+	 * Get payment products
 	 *
 	 * @param query FindParams
 	 * @param context CallContext
@@ -62,7 +92,7 @@ public interface ProductsClient {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}
-	 * Retrieve payment product fields
+	 * Get payment product
 	 *
 	 * @param paymentProductId Integer
 	 * @param query GetParams
@@ -80,7 +110,7 @@ public interface ProductsClient {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}
-	 * Retrieve payment product fields
+	 * Get payment product
 	 *
 	 * @param paymentProductId Integer
 	 * @param query GetParams

@@ -27,6 +27,10 @@ public class PaymentProduct {
 
 	private String mobileIntegrationLevel = null;
 
+	private String paymentMethod = null;
+
+	private String paymentProductGroup = null;
+
 	private Boolean usesRedirectionTo3rdParty = null;
 
 	public List<AccountOnFile> getAccountsOnFile() {
@@ -107,6 +111,22 @@ public class PaymentProduct {
 
 	public void setMobileIntegrationLevel(String value) {
 		this.mobileIntegrationLevel = value;
+	}
+
+	public String getPaymentMethod() {
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(String value) {
+		this.paymentMethod = value;
+	}
+
+	public String getPaymentProductGroup() {
+		return paymentProductGroup;
+	}
+
+	public void setPaymentProductGroup(String value) {
+		this.paymentProductGroup = value;
 	}
 
 	public Boolean getUsesRedirectionTo3rdParty() {

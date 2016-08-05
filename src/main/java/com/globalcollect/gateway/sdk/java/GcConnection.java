@@ -5,15 +5,12 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
+import com.globalcollect.gateway.sdk.java.logging.LoggingCapable;
+
 /**
  * Represents a connection to the GlobalCollect platform server. Thread-safe.
  */
-public interface GcConnection extends Closeable {
-
-	/**
-	 * Creates an URI from the passed parameters.
-	 */
-	URI toURI(String relativePath, List<RequestParam> requestParameters);
+public interface GcConnection extends Closeable, LoggingCapable {
 
 	/**
 	 * Releases any system resources associated with this object.

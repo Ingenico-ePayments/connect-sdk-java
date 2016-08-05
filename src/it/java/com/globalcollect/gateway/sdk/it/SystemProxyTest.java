@@ -68,7 +68,7 @@ public class SystemProxyTest extends ItTest {
 		}
 
 		// for https, authentication may not be required
-		if ("http".equalsIgnoreCase(defaultConfiguration.getBaseUri().getScheme())) {
+		if ("http".equalsIgnoreCase(defaultConfiguration.getApiEndpoint().getScheme())) {
 			Assert.assertTrue("getPasswordAuthentication() should have been called", authenticationCalled[0]);
 		}
 	}

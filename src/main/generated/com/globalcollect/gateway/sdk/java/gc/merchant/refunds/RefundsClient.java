@@ -127,7 +127,7 @@ public interface RefundsClient {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}
-	 * Retrieve refund
+	 * Get refund
 	 *
 	 * @param refundId String
 	 * @return RefundResponse
@@ -144,7 +144,7 @@ public interface RefundsClient {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}
-	 * Retrieve refund
+	 * Get refund
 	 *
 	 * @param refundId String
 	 * @param context CallContext

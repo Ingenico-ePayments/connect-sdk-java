@@ -21,7 +21,7 @@ public class SessionsClientImpl extends GcApiResource implements SessionsClient 
 
 	@Override
 	public SessionResponse create(SessionRequest body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/sessions", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/sessions", null);
 		try {
 			return communicator.post(
 					uri,

@@ -132,7 +132,7 @@ public interface TokensClient {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * Retrieve token
+	 * Get token
 	 *
 	 * @param tokenId String
 	 * @return TokenResponse
@@ -149,7 +149,7 @@ public interface TokensClient {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * Retrieve token
+	 * Get token
 	 *
 	 * @param tokenId String
 	 * @param context CallContext

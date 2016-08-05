@@ -1,0 +1,15 @@
+\QIncoming response (requestId='\E([-a-zA-Z0-9]+)\Q', \E\d+\Q ms):
+  status-code:  '400'
+  headers:      'Content-Type="application/json", Dummy="", Date="\E[^"]+\Q"\E[^']*\Q'
+  content-type: 'application/json'
+  body:         '{
+    "errorId": "0953f236-9e54-4f23-9556-d66bc757dda8",
+    "errors": [
+        {
+            "code": "21000020",
+            "requestId": "24146",
+            "message": "VALUE **************** OF FIELD CREDITCARDNUMBER DID NOT PASS THE LUHNCHECK",
+            "httpStatusCode": 400
+        }
+    ]
+}'\E

@@ -23,7 +23,7 @@ public class HostedcheckoutsClientImpl extends GcApiResource implements Hostedch
 
 	@Override
 	public CreateHostedCheckoutResponse create(CreateHostedCheckoutRequest body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/hostedcheckouts", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/hostedcheckouts", null);
 		try {
 			return communicator.post(
 					uri,
@@ -53,7 +53,7 @@ public class HostedcheckoutsClientImpl extends GcApiResource implements Hostedch
 	public GetHostedCheckoutResponse get(String hostedCheckoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("hostedCheckoutId", hostedCheckoutId);
-		String uri = instantiateUri("/{merchantId}/hostedcheckouts/{hostedCheckoutId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/hostedcheckouts/{hostedCheckoutId}", pathContext);
 		try {
 			return communicator.get(
 					uri,

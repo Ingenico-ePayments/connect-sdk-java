@@ -2,6 +2,7 @@ package com.globalcollect.gateway.sdk.java.gc;
 
 import com.globalcollect.gateway.sdk.java.GcMarshallerSyntaxException;
 import com.globalcollect.gateway.sdk.java.gc.merchant.MerchantClient;
+import com.globalcollect.gateway.sdk.java.logging.LoggingCapable;
 import java.io.Closeable;
 import java.io.IOException;
 
@@ -13,7 +14,9 @@ import java.io.IOException;
  * <p>
  * Thread-safe.
  */
-public interface GcClient extends Closeable {
+public interface GcClient extends Closeable, LoggingCapable {
+
+	public static final String API_VERSION = "v1";
 
 	/**
 	 * Returns a new {@link GcClient} which uses the passed meta data for the

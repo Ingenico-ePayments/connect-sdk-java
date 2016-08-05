@@ -58,7 +58,7 @@ public class DefaultGcAuthenticator implements GcAuthenticator {
 	 */
 	public DefaultGcAuthenticator(AuthorizationType authorizationType, String apiKeyId, String secretApiKey) {
 		if (authorizationType == null) {
-			throw new IllegalArgumentException("authorizationType");
+			throw new IllegalArgumentException("authorizationType is required");
 		}
 		if (secretApiKey == null || secretApiKey.trim().isEmpty()) {
 			throw new IllegalArgumentException("secretApiKey is required");
@@ -154,17 +154,7 @@ public class DefaultGcAuthenticator implements GcAuthenticator {
 			return "";
 		}
 
-		String[] parts = originalValue.split("\n");
-
-		StringBuilder sb = new StringBuilder();
-		for (int i=0; i<parts.length; i++) {
-			String part = parts[i];
-			sb.append(part.trim());
-			if (i < parts.length -1) {
-				sb.append(" ");
-			}
-		}
-		return sb.toString();
+		return originalValue.replaceAll("\r?\n[\\s&&[^\r\n]]*", " ").trim();
 	}
 
 	/*

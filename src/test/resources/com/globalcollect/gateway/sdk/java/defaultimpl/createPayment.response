@@ -1,0 +1,44 @@
+\QIncoming response (requestId='\E([-a-zA-Z0-9]+)\Q', \E\d+\Q ms):
+  status-code:  '201'
+  headers:      'Content-Type="application/json", Dummy="", Location="http://localhost/v1/1234/payments/000000123410000595980000100001", Date="\E[^"]+\Q"\E[^']*\Q'
+  content-type: 'application/json'
+  body:         '{
+    "creationOutput": {
+        "additionalReference": "00000012341000059598",
+        "externalReference": "000000123410000595980000100001"
+    },
+    "payment": {
+        "id": "000000123410000595980000100001",
+        "paymentOutput": {
+            "amountOfMoney": {
+                "amount": 2345,
+                "currencyCode": "CAD"
+            },
+            "references": {
+                "paymentReference": "0"
+            },
+            "paymentMethod": "card",
+            "cardPaymentMethodSpecificOutput": {
+                "paymentProductId": 1,
+                "authorisationCode": "OK1131",
+                "card": {
+                    "cardNumber": "************3456",
+                    "expiryDate": "**20"
+                },
+                "fraudResults": {
+                    "fraudServiceResult": "error",
+                    "avsResult": "X",
+                    "cvvResult": "M"
+                }
+            }
+        },
+        "status": "PENDING_APPROVAL",
+        "statusOutput": {
+            "isCancellable": true,
+            "statusCategory": "PENDING_MERCHANT",
+            "statusCode": 600,
+            "statusCodeChangeDateTime": "20160310094054",
+            "isAuthorized": true
+        }
+    }
+}'\E

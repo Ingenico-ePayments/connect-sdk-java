@@ -4,7 +4,7 @@ import java.net.URISyntaxException;
 
 import com.globalcollect.gateway.sdk.java.ExampleBase;
 import com.globalcollect.gateway.sdk.java.gc.GcClient;
-import com.globalcollect.gateway.sdk.java.gc.merchant.products.paymentproduct.DirectoryParams;
+import com.globalcollect.gateway.sdk.java.gc.merchant.products.DirectoryParams;
 import com.globalcollect.gateway.sdk.java.gc.product.Directory;
 
 public class GetDirectoryExample extends ExampleBase {
@@ -17,6 +17,6 @@ public class GetDirectoryExample extends ExampleBase {
 		queryParameters.setCurrencyCode("USD");
 		queryParameters.setCountryCode("US");
 
-		Directory response = client.merchant("merchantId").products().paymentProduct(809).directory(queryParameters);
+		Directory response = client.merchant("merchantId").products().directory(809, queryParameters);
 	}
 }

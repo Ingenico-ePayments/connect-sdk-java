@@ -35,7 +35,7 @@ public class GcFactoryTest {
 	@Test
 	public void testCreateDefaultConfiguration() {
 		GcDefaultConfiguration defaultConfiguration = GcFactory.createDefaultConfiguration(PROPERTIES_URI, API_KEY_ID, SECRET_API_KEY);
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1"), defaultConfiguration.getBaseUri());
+		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), defaultConfiguration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, defaultConfiguration.getAuthorizationType());
 		Assert.assertEquals(-1, defaultConfiguration.getConnectTimeout());
 		Assert.assertEquals(-1, defaultConfiguration.getSocketTimeout());
@@ -47,12 +47,14 @@ public class GcFactoryTest {
 
 	@Test
 	public void testCreateCommunicator() {
+		@SuppressWarnings("resource")
 		GcCommunicator communicator = GcFactory.createCommunicator(PROPERTIES_URI, API_KEY_ID, SECRET_API_KEY);
 
 		Assert.assertSame(DefaultGcMarshaller.INSTANCE, communicator.getMarshaller());
 
 		DefaultGcSession session = ReflectionUtil.getField(communicator, "session", DefaultGcSession.class);
 
+		@SuppressWarnings("resource")
 		GcConnection connection = session.getConnection();
 		Assert.assertTrue(connection instanceof DefaultGcConnection);
 		DefaultGcConnectionTest.assertConnection((DefaultGcConnection) connection, -1, -1, 100, null);

@@ -167,7 +167,7 @@ public interface PayoutsClient {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}
-	 * Retrieve payout
+	 * Get payout
 	 *
 	 * @param payoutId String
 	 * @return PayoutResponse
@@ -184,7 +184,7 @@ public interface PayoutsClient {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}
-	 * Retrieve payout
+	 * Get payout
 	 *
 	 * @param payoutId String
 	 * @param context CallContext

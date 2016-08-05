@@ -1,0 +1,17 @@
+{
+	"order": {
+		"amountOfMoney": {
+			"currencyCode": "EUR",
+			"amount": 1000
+		},
+		"customer": {
+			"locale": "nl_NL",
+			"billingAddress": {
+				"countryCode": "NL"
+			}
+		}
+	},
+	"bankTransferPaymentMethodSpecificInput": {
+		"paymentProductId": 11
+	}
+}

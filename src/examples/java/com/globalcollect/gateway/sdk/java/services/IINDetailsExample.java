@@ -4,18 +4,18 @@ import java.net.URISyntaxException;
 
 import com.globalcollect.gateway.sdk.java.ExampleBase;
 import com.globalcollect.gateway.sdk.java.gc.GcClient;
-import com.globalcollect.gateway.sdk.java.gc.services.BINLookupRequest;
-import com.globalcollect.gateway.sdk.java.gc.services.BINLookupResponse;
+import com.globalcollect.gateway.sdk.java.gc.services.GetIINDetailsRequest;
+import com.globalcollect.gateway.sdk.java.gc.services.GetIINDetailsResponse;
 
 public class IINDetailsExample extends ExampleBase {
 
 	public void example() throws URISyntaxException {
 		GcClient client = getGcClient();
 
-		BINLookupRequest body = new BINLookupRequest();
+		GetIINDetailsRequest body = new GetIINDetailsRequest();
 
 		body.setBin("4567350000427977");
 
-		BINLookupResponse response = client.merchant("merchantId").services().getIINdetails(body);
+		GetIINDetailsResponse response = client.merchant("merchantId").services().getIINdetails(body);
 	}
 }

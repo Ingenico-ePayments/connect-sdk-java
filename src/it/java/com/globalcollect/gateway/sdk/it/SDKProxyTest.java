@@ -57,6 +57,7 @@ public class SDKProxyTest extends ItTest {
 		}
 	}
 
+	@SuppressWarnings("resource")
 	private void assertProxySet(GcApiResource resource, GcProxyConfiguration proxyConfiguration) {
 		DefaultGcCommunicator communicator = getField(resource, "communicator", DefaultGcCommunicator.class);
 		DefaultGcSession session = getField(communicator, "session", DefaultGcSession.class);

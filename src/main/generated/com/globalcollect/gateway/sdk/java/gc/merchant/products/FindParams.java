@@ -9,7 +9,7 @@ public class FindParams implements GcParamRequest {
 
 	private Long amount;
 
-	private String hide;
+	private List<String> hide;
 
 	private Boolean isRecurring;
 
@@ -27,12 +27,30 @@ public class FindParams implements GcParamRequest {
 		this.amount = value;
 	}
 
-	public String getHide() {
+	public List<String> getHide() {
 		return hide;
 	}
 
-	public void setHide(String value) {
+	public void setHide(List<String> value) {
 		this.hide = value;
+	}
+
+	/**
+	 * @deprecated Use {@link #setHide(List)} or {@link #addHide(String)} instead.
+	 */
+	@Deprecated
+	public void setHide(String value) {
+		this.hide = null;
+		if (value != null) {
+			addHide(value);
+		}
+	}
+
+	public void addHide(String value) {
+		if (this.hide == null) {
+			this.hide = new LinkedList<String>();
+		}
+		this.hide.add(value);
 	}
 
 	public Boolean getIsRecurring() {
@@ -74,7 +92,11 @@ public class FindParams implements GcParamRequest {
 			result.add(new RequestParam("amount", amount.toString()));
 		}
 		if (hide != null) {
-			result.add(new RequestParam("hide", hide.toString()));
+			for (String value : hide) {
+				if (value != null) {
+					result.add(new RequestParam("hide", value.toString()));
+				}
+			}
 		}
 		if (isRecurring != null) {
 			result.add(new RequestParam("isRecurring", isRecurring.toString()));

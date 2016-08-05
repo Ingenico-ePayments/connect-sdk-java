@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -320,10 +321,10 @@ public class DefaultGcConnectionIdempotenceTest extends LocalServerTestBase {
 	@SuppressWarnings("resource")
 	private GcClient createClient(HttpHost host) {
 
-		GcConnection connection = new DefaultGcConnection(host.getSchemeName(), host.getHostName(), host.getPort(), "/v1", 500, 500);
+		GcConnection connection = new DefaultGcConnection(500, 500);
 		GcAuthenticator authenticator = new DefaultGcAuthenticator(AuthorizationType.V1HMAC, "apiKey", "secret");
 		GcMetaDataProvider metaDataProvider = new DefaultGcMetaDataProvider();
-		GcSession session = new DefaultGcSession(connection, authenticator, metaDataProvider);
+		GcSession session = new DefaultGcSession(URI.create(host.toURI()), connection, authenticator, metaDataProvider);
 		GcCommunicator communicator = GcFactory.createCommunicator(session);
 		GcClient client = GcFactory.createClient(communicator);
 		return client;

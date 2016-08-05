@@ -25,7 +25,7 @@ public class TokensClientImpl extends GcApiResource implements TokensClient {
 
 	@Override
 	public CreateTokenResponse create(CreateTokenRequest body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/tokens", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens", null);
 		try {
 			return communicator.post(
 					uri,
@@ -58,7 +58,7 @@ public class TokensClientImpl extends GcApiResource implements TokensClient {
 	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{merchantId}/tokens/{tokenId}/approvesepadirectdebit", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}/approvesepadirectdebit", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -88,7 +88,7 @@ public class TokensClientImpl extends GcApiResource implements TokensClient {
 	public Void update(String tokenId, UpdateTokenRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{merchantId}/tokens/{tokenId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
 			return communicator.put(
 					uri,
@@ -118,7 +118,7 @@ public class TokensClientImpl extends GcApiResource implements TokensClient {
 	public TokenResponse get(String tokenId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{merchantId}/tokens/{tokenId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -150,7 +150,7 @@ public class TokensClientImpl extends GcApiResource implements TokensClient {
 	public Void delete(String tokenId, DeleteParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{merchantId}/tokens/{tokenId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
 			return communicator.delete(
 					uri,

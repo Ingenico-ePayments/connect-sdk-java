@@ -1,9 +1,6 @@
 package com.globalcollect.gateway.sdk.java.defaultimpl;
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -22,90 +19,62 @@ import org.junit.Test;
 
 import com.globalcollect.gateway.sdk.java.GcDefaultConfiguration;
 import com.globalcollect.gateway.sdk.java.GcProxyConfiguration;
-import com.globalcollect.gateway.sdk.java.RequestParam;
 import com.globalcollect.gateway.sdk.java.util.ReflectionUtil;
 
 public class DefaultGcConnectionTest {
 
-	private static final URI BASE_URI			= URI.create("https://api-sandbox.globalcollect.com/v1");
 	private static final int CONNECT_TIMEOUT	= 10000;
 	private static final int SOCKET_TIMEOUT		= 20000;
 	private static final int MAX_CONNECTIONS	= 100;
 
 	@Test
-	public void testToURIWithoutRequestParams() {
-
-		@SuppressWarnings("resource")
-		DefaultGcConnection connection = new DefaultGcConnection(BASE_URI, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
-		URI uri = connection.toURI("merchant/20000/convertamount", Collections.<RequestParam>emptyList());
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount"), uri);
-
-		uri = connection.toURI("/merchant/20000/convertamount", Collections.<RequestParam>emptyList());
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount"), uri);
-	}
-
-	@Test
-	public void testToURIWithRequestParams() {
-
-		List<RequestParam> requestParams = Arrays.asList(
-				new RequestParam("amount", "123"),
-				new RequestParam("source", "USD"),
-				new RequestParam("target", "EUR"),
-				new RequestParam("dummy", "é&%=")
-		);
-
-		@SuppressWarnings("resource")
-		DefaultGcConnection connection = new DefaultGcConnection(BASE_URI, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
-		URI uri = connection.toURI("merchant/20000/convertamount", requestParams);
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount?amount=123&source=USD&target=EUR&dummy=%C3%A9%26%25%3D"), uri);
-
-		uri = connection.toURI("/merchant/20000/convertamount", requestParams);
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount?amount=123&source=USD&target=EUR&dummy=%C3%A9%26%25%3D"), uri);
-	}
-
-	@Test
+	@SuppressWarnings("resource")
 	public void testConstructWithoutProxy() {
 
-		DefaultGcConnection connection = new DefaultGcConnection(BASE_URI, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
+		DefaultGcConnection connection = new DefaultGcConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, null);
 		assertNoProxy(connection);
 	}
 
 	@Test
+	@SuppressWarnings("resource")
 	public void testConstructWithProxyWithoutAuthentication() {
 		GcProxyConfiguration proxyConfiguration = new GcProxyConfiguration(URI.create("http://test-proxy"));
 
-		DefaultGcConnection connection = new DefaultGcConnection(BASE_URI, CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
+		DefaultGcConnection connection = new DefaultGcConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
 		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 		assertProxy(connection, proxyConfiguration);
 	}
 
 	@Test
+	@SuppressWarnings("resource")
 	public void testConstructWithProxyWithAuthentication() {
 		GcProxyConfiguration proxyConfiguration = new GcProxyConfiguration(URI.create("http://test-proxy"), "test-username", "test-password");
 
-		DefaultGcConnection connection = new DefaultGcConnection(BASE_URI, CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
+		DefaultGcConnection connection = new DefaultGcConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, proxyConfiguration);
 		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 		assertProxy(connection, proxyConfiguration);
 	}
 
 	@Test
+	@SuppressWarnings("resource")
 	public void testConstructWithMaxConnectionsWithoutProxy() {
 
-		DefaultGcConnection connection = new DefaultGcConnection(BASE_URI, CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS);
+		DefaultGcConnection connection = new DefaultGcConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS);
 		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, MAX_CONNECTIONS, null);
 		assertNoProxy(connection);
 	}
 
 	@Test
+	@SuppressWarnings("resource")
 	public void testConstructWithMaxConnectionsWithProxy() {
 		GcProxyConfiguration proxyConfiguration = new GcProxyConfiguration(URI.create("http://test-proxy"));
 
-		DefaultGcConnection connection = new DefaultGcConnection(BASE_URI, CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, proxyConfiguration);
+		DefaultGcConnection connection = new DefaultGcConnection(CONNECT_TIMEOUT, SOCKET_TIMEOUT, MAX_CONNECTIONS, proxyConfiguration);
 		assertRequestConfig(connection, CONNECT_TIMEOUT, SOCKET_TIMEOUT);
 		assertMaxConnections(connection, MAX_CONNECTIONS, proxyConfiguration);
 		assertProxy(connection, proxyConfiguration);
@@ -128,18 +97,20 @@ public class DefaultGcConnectionTest {
 		Assert.assertEquals(socketTimeout, requestConfig.getSocketTimeout());
 	}
 
+	@SuppressWarnings("resource")
 	private static void assertMaxConnections(DefaultGcConnection connection, int maxConnections, GcProxyConfiguration proxyConfiguration) {
 		CloseableHttpClient httpClient = ReflectionUtil.getField(connection, "httpClient", CloseableHttpClient.class);
 		PoolingHttpClientConnectionManager connectionManager = ReflectionUtil.getField(httpClient, "connManager", PoolingHttpClientConnectionManager.class);
 		Assert.assertEquals(maxConnections, connectionManager.getDefaultMaxPerRoute());
 		Assert.assertTrue(maxConnections <= connectionManager.getMaxTotal());
 
-		HttpHost target = new HttpHost(BASE_URI.getHost(), BASE_URI.getPort(), BASE_URI.getScheme());
+		HttpHost target = new HttpHost("api-sandbox.globalcollect.com", -1, "https");
 		HttpHost proxy = proxyConfiguration != null ? new HttpHost(proxyConfiguration.getHost(), proxyConfiguration.getPort(), proxyConfiguration.getScheme()) : null;
 		HttpRoute route = proxy != null ? new HttpRoute(target, proxy) : new HttpRoute(target);
 		Assert.assertEquals(maxConnections, connectionManager.getMaxPerRoute(route));
 	}
 
+	@SuppressWarnings("resource")
 	private static void assertNoProxy(DefaultGcConnection connection) {
 		CloseableHttpClient httpClient = ReflectionUtil.getField(connection, "httpClient", CloseableHttpClient.class);
 		// don't inspect the route planner any further
@@ -148,6 +119,7 @@ public class DefaultGcConnectionTest {
 		ReflectionUtil.getField(httpClient, "credentialsProvider", SystemDefaultCredentialsProvider.class);
 	}
 
+	@SuppressWarnings("resource")
 	private static void assertProxy(DefaultGcConnection connection, GcProxyConfiguration proxyConfiguration) {
 		CloseableHttpClient httpClient = ReflectionUtil.getField(connection, "httpClient", CloseableHttpClient.class);
 		DefaultProxyRoutePlanner routePlanner = ReflectionUtil.getField(httpClient, "routePlanner", DefaultProxyRoutePlanner.class);

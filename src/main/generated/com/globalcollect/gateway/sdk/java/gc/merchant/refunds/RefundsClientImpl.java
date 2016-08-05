@@ -24,7 +24,7 @@ public class RefundsClientImpl extends GcApiResource implements RefundsClient {
 	public Void cancel(String refundId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{merchantId}/refunds/{refundId}/cancel", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/cancel", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -54,7 +54,7 @@ public class RefundsClientImpl extends GcApiResource implements RefundsClient {
 	public Void approve(String refundId, ApproveRefundRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{merchantId}/refunds/{refundId}/approve", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/approve", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -84,7 +84,7 @@ public class RefundsClientImpl extends GcApiResource implements RefundsClient {
 	public Void cancelapproval(String refundId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{merchantId}/refunds/{refundId}/cancelapproval", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/cancelapproval", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -114,7 +114,7 @@ public class RefundsClientImpl extends GcApiResource implements RefundsClient {
 	public RefundResponse get(String refundId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{merchantId}/refunds/{refundId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}", pathContext);
 		try {
 			return communicator.get(
 					uri,

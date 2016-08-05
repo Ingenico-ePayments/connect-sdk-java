@@ -1,4 +1,4 @@
-package com.globalcollect.gateway.sdk.java.gc.merchant.products.paymentproduct;
+package com.globalcollect.gateway.sdk.java.gc.merchant.products;
 
 import com.globalcollect.gateway.sdk.java.GcParamRequest;
 import com.globalcollect.gateway.sdk.java.RequestParam;

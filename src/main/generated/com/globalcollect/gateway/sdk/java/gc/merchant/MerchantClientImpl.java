@@ -7,6 +7,8 @@ import com.globalcollect.gateway.sdk.java.gc.merchant.payments.PaymentsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.payments.PaymentsClientImpl;
 import com.globalcollect.gateway.sdk.java.gc.merchant.payouts.PayoutsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.payouts.PayoutsClientImpl;
+import com.globalcollect.gateway.sdk.java.gc.merchant.productgroups.ProductgroupsClient;
+import com.globalcollect.gateway.sdk.java.gc.merchant.productgroups.ProductgroupsClientImpl;
 import com.globalcollect.gateway.sdk.java.gc.merchant.products.ProductsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.products.ProductsClientImpl;
 import com.globalcollect.gateway.sdk.java.gc.merchant.refunds.RefundsClient;
@@ -48,6 +50,11 @@ public class MerchantClientImpl extends GcApiResource implements MerchantClient 
 	}
 
 	@Override
+	public ServicesClient services() {
+		return new ServicesClientImpl(this, null);
+	}
+
+	@Override
 	public HostedcheckoutsClient hostedcheckouts() {
 		return new HostedcheckoutsClientImpl(this, null);
 	}
@@ -63,8 +70,8 @@ public class MerchantClientImpl extends GcApiResource implements MerchantClient 
 	}
 
 	@Override
-	public ServicesClient services() {
-		return new ServicesClientImpl(this, null);
+	public ProductgroupsClient productgroups() {
+		return new ProductgroupsClientImpl(this, null);
 	}
 
 	@Override

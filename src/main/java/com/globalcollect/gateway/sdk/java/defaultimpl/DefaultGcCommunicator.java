@@ -2,6 +2,7 @@ package com.globalcollect.gateway.sdk.java.defaultimpl;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -10,6 +11,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import org.apache.http.HttpStatus;
+import org.apache.http.client.utils.URIBuilder;
 
 import com.globalcollect.gateway.sdk.java.CallContext;
 import com.globalcollect.gateway.sdk.java.GcAuthenticator;
@@ -24,6 +26,7 @@ import com.globalcollect.gateway.sdk.java.GcResponseException;
 import com.globalcollect.gateway.sdk.java.GcSession;
 import com.globalcollect.gateway.sdk.java.RequestHeader;
 import com.globalcollect.gateway.sdk.java.RequestParam;
+import com.globalcollect.gateway.sdk.java.logging.GcCommunicatorLogger;
 
 /**
  * {@link GcCommunicator} implementation based on the components provided by {@link GcSession}.
@@ -51,13 +54,14 @@ public class DefaultGcCommunicator implements GcCommunicator {
 	}
 
 	@Override
+	@SuppressWarnings("resource")
 	public <P extends GcParamRequest, O> O get(String relativePath, List<RequestHeader> requestHeaders, P requestParametersObject,
 			Class<O> responseType, CallContext context) {
 
 		GcConnection connection = session.getConnection();
 
 		List<RequestParam> requestParameters = requestParametersObject == null ? null : requestParametersObject.toRequestParameters();
-		URI uri = connection.toURI(relativePath, requestParameters);
+		URI uri = toAbsoluteURI(relativePath, requestParameters);
 
 		if (requestHeaders == null) {
 			requestHeaders = new ArrayList<RequestHeader>();
@@ -70,13 +74,14 @@ public class DefaultGcCommunicator implements GcCommunicator {
 	}
 
 	@Override
+	@SuppressWarnings("resource")
 	public <P extends GcParamRequest, O> O delete(String relativePath, List<RequestHeader> requestHeaders, P requestrequestParameters,
 			Class<O> responseType, CallContext context) {
 
 		GcConnection connection = session.getConnection();
 
 		List<RequestParam> requestParameters = requestrequestParameters == null ? null : requestrequestParameters.toRequestParameters();
-		URI uri = connection.toURI(relativePath, requestParameters);
+		URI uri = toAbsoluteURI(relativePath, requestParameters);
 
 		if (requestHeaders == null) {
 			requestHeaders = new ArrayList<RequestHeader>();
@@ -89,18 +94,18 @@ public class DefaultGcCommunicator implements GcCommunicator {
 	}
 
 	@Override
+	@SuppressWarnings("resource")
 	public <P extends GcParamRequest, O> O post(String relativePath, List<RequestHeader> requestHeaders, P requestParamObject, Object requestBody,
 			Class<O> responseType, CallContext context) {
 
 		GcConnection connection = session.getConnection();
 
 		List<RequestParam> requestParameters = requestParamObject == null ? null : requestParamObject.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameters);
 
 		if (requestHeaders == null) {
 			requestHeaders = new ArrayList<RequestHeader>();
 		}
-
-		URI uri = connection.toURI(relativePath, requestParameters);
 
 		String requestJson = null;
 		if (requestBody != null) {
@@ -115,18 +120,19 @@ public class DefaultGcCommunicator implements GcCommunicator {
 	}
 
 	@Override
+	@SuppressWarnings("resource")
 	public <P extends GcParamRequest, O> O put(String relativePath, List<RequestHeader> requestHeaders, P requestParamObject, Object requestBody,
 			Class<O> responseType, CallContext context) {
 
 		GcConnection connection = session.getConnection();
 
 		List<RequestParam> requestParameters = requestParamObject == null ? null : requestParamObject.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameters);
+
 
 		if (requestHeaders == null) {
 			requestHeaders = new ArrayList<RequestHeader>();
 		}
-
-		URI uri = connection.toURI(relativePath, requestParameters);
 
 		String requestJson = null;
 		if (requestBody != null) {
@@ -143,6 +149,46 @@ public class DefaultGcCommunicator implements GcCommunicator {
 	@Override
 	public GcMarshaller getMarshaller() {
 		return marshaller;
+	}
+
+	protected URI toAbsoluteURI(String relativePath, List<RequestParam> requestParameters) {
+
+		URI apiEndpoint = session.getApiEndpoint();
+
+		if (apiEndpoint.getPath() != null && !apiEndpoint.getPath().isEmpty()) {
+			throw new IllegalStateException("apiEndpoint should not contain a path");
+		}
+		if (apiEndpoint.getUserInfo() != null
+				|| apiEndpoint.getQuery() != null
+				|| apiEndpoint.getFragment() != null) {
+
+			throw new IllegalStateException("apiEndpoint should not contain user info, query or fragment");
+		}
+
+		String absolutePath;
+		if (relativePath.startsWith("/")) {
+			absolutePath = relativePath;
+		} else {
+			absolutePath = "/" + relativePath;
+		}
+
+		URIBuilder uriBuilder = new URIBuilder()
+				.setScheme(apiEndpoint.getScheme())
+				.setHost(apiEndpoint.getHost())
+				.setPort(apiEndpoint.getPort())
+				.setPath(absolutePath);
+
+		if (requestParameters != null) {
+			for (RequestParam nvp: requestParameters) {
+				uriBuilder.addParameter(nvp.getName(), nvp.getValue());
+			}
+		}
+
+		try {
+			return uriBuilder.build();
+		} catch (URISyntaxException e) {
+			throw new IllegalArgumentException("Unable to construct URI", e);
+		}
 	}
 
 	protected void addGenericHeaders(String httpMethod, URI uri, List<RequestHeader> requestHeaders, CallContext context) {
@@ -173,7 +219,6 @@ public class DefaultGcCommunicator implements GcCommunicator {
 		dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 		return dateFormat.format(calendar.getTime());
 	}
-
 	protected <O> O processResponse(GcResponse response, Class<O> responseType, String requestPath, CallContext context) {
 
 		if (context != null) {
@@ -219,5 +264,17 @@ public class DefaultGcCommunicator implements GcCommunicator {
 	private boolean isJson(GcResponse response) {
 		String contentType = response.getHeaderValue("Content-Type");
 		return contentType == null || "application/json".equalsIgnoreCase(contentType) || contentType.toLowerCase().startsWith("application/json");
+	}
+
+	@Override
+	public void enableLogging(GcCommunicatorLogger communicatorLogger) {
+		// delegate to the connection
+		session.getConnection().enableLogging(communicatorLogger);
+	}
+
+	@Override
+	public void disableLogging() {
+		// delegate to the connection
+		session.getConnection().disableLogging();
 	}
 }

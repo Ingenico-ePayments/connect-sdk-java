@@ -1,0 +1,10 @@
+{
+    "errorId": "fbff1179-7ba4-4894-9021-d8a0011d23a7",
+    "errors": [
+        {
+            "code": "9999",
+            "message": "UNKNOWN_SERVER_ERROR",
+            "httpStatusCode": 500
+        }
+    ]
+}

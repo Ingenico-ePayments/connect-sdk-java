@@ -3,18 +3,22 @@ package com.globalcollect.gateway.sdk.java.defaultimpl;
 import java.io.IOException;
 import java.net.ProxySelector;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpException;
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 import org.apache.http.HttpResponse;
+import org.apache.http.HttpResponseInterceptor;
+import org.apache.http.RequestLine;
 import org.apache.http.auth.AUTH;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.Credentials;
@@ -30,9 +34,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.conn.routing.HttpRoutePlanner;
-import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -43,6 +46,7 @@ import org.apache.http.impl.conn.DefaultProxyRoutePlanner;
 import org.apache.http.impl.conn.DefaultSchemePortResolver;
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner;
 import org.apache.http.message.BasicHeader;
+import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
@@ -52,8 +56,11 @@ import com.globalcollect.gateway.sdk.java.GcDefaultConfiguration;
 import com.globalcollect.gateway.sdk.java.GcProxyConfiguration;
 import com.globalcollect.gateway.sdk.java.GcResponse;
 import com.globalcollect.gateway.sdk.java.RequestHeader;
-import com.globalcollect.gateway.sdk.java.RequestParam;
 import com.globalcollect.gateway.sdk.java.ResponseHeader;
+import com.globalcollect.gateway.sdk.java.logging.GcCommunicatorLogger;
+import com.globalcollect.gateway.sdk.java.logging.LogMessageBuilder;
+import com.globalcollect.gateway.sdk.java.logging.RequestLogMessageBuilder;
+import com.globalcollect.gateway.sdk.java.logging.ResponseLogMessageBuilder;
 
 /**
  * {@link GcConnection} implementation based on {@link HttpClient}.
@@ -62,73 +69,29 @@ public class DefaultGcConnection implements GcConnection {
 
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
+	private static final String REQUEST_ID_ATTRIBUTE = DefaultGcConnection.class.getName() + ".requestId";
+	private static final String START_TIMME_ATTRIBUTE = DefaultGcConnection.class.getName() + ".startTme";
+
 	// CloseableHttpClient is marked to be thread safe
 	protected final CloseableHttpClient httpClient;
 
-	private final URI baseUri;
-
 	protected final RequestConfig requestConfig;
 
-	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout) {
-		this(scheme, host, port, basePath, connectTimeout, socketTimeout, null);
+	private volatile GcCommunicatorLogger communicatorLogger;
+
+	public DefaultGcConnection(int connectTimeout, int socketTimeout) {
+		this(connectTimeout, socketTimeout, null);
 	}
 
-	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout, int maxConnections) {
-		this(scheme, host, port, basePath, connectTimeout, socketTimeout, maxConnections, null);
+	public DefaultGcConnection(int connectTimeout, int socketTimeout, int maxConnections) {
+		this(connectTimeout, socketTimeout, maxConnections, null);
 	}
 
-	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout, GcProxyConfiguration proxyConfiguration) {
-		this(scheme, host, port, basePath, connectTimeout, socketTimeout, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
+	public DefaultGcConnection(int connectTimeout, int socketTimeout, GcProxyConfiguration proxyConfiguration) {
+		this(connectTimeout, socketTimeout, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 	}
 
-	public DefaultGcConnection(String scheme, String host, int port, String basePath, int connectTimeout, int socketTimeout, int maxConnections,
-			GcProxyConfiguration proxyConfiguration) {
-
-		this(createURI(scheme, host, port, basePath), connectTimeout, socketTimeout, maxConnections, proxyConfiguration);
-	}
-
-	private static URI createURI(String scheme, String host, int port, String basePath) {
-		if (scheme == null || scheme.trim().isEmpty()) {
-			throw new IllegalArgumentException("scheme is required");
-		}
-		if (host == null || host.trim().isEmpty()) {
-			throw new IllegalArgumentException("host is required");
-		}
-		if (basePath == null || basePath.trim().isEmpty()) {
-			throw new IllegalArgumentException("basePath is required");
-		}
-		if (port <= 0 || port > 65535) {
-			throw new IllegalArgumentException("port is invalid");
-		}
-		URIBuilder uriBuilder = new URIBuilder()
-				.setScheme(scheme.trim())
-				.setHost(host.trim())
-				.setPort(port)
-				.setPath(basePath.trim());
-		try {
-			return uriBuilder.build();
-		} catch (URISyntaxException e) {
-			throw new IllegalArgumentException("Unable to construct base URI", e);
-		}
-	}
-
-	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout) {
-		this(baseUri, connectTimeout, socketTimeout, null);
-	}
-
-	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout, int maxConnections) {
-		this(baseUri, connectTimeout, socketTimeout, maxConnections, null);
-	}
-
-	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout, GcProxyConfiguration proxyConfiguration) {
-		this(baseUri, connectTimeout, socketTimeout, GcDefaultConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
-	}
-
-	public DefaultGcConnection(URI baseUri, int connectTimeout, int socketTimeout, int maxConnections, GcProxyConfiguration proxyConfiguration) {
-		if (baseUri == null) {
-			throw new IllegalArgumentException("baseUri is required");
-		}
-		this.baseUri = baseUri;
+	public DefaultGcConnection(int connectTimeout, int socketTimeout, int maxConnections, GcProxyConfiguration proxyConfiguration) {
 		requestConfig = createRequestConfig(connectTimeout, socketTimeout);
 		httpClient = createHttpClient(maxConnections, proxyConfiguration);
 	}
@@ -184,6 +147,11 @@ public class DefaultGcConnection implements GcConnection {
 			credentialsProvider = new SystemDefaultCredentialsProvider();
 		}
 
+		// add logging - last for requests, first for responses
+		LoggingInterceptor loggingInterceptor = new LoggingInterceptor();
+		builder = builder.addInterceptorLast((HttpRequestInterceptor) loggingInterceptor);
+		builder = builder.addInterceptorFirst((HttpResponseInterceptor) loggingInterceptor);
+
 		return builder
 				.setRoutePlanner(routePlanner)
 				.setDefaultCredentialsProvider(credentialsProvider)
@@ -193,35 +161,6 @@ public class DefaultGcConnection implements GcConnection {
 	@Override
 	public void close() throws IOException {
 		httpClient.close();
-	}
-
-	@Override
-	public URI toURI(String relativePath, List<RequestParam> requestParameters) {
-
-		StringBuilder pathBuilder = new StringBuilder();
-		pathBuilder.append(baseUri.getPath());
-		if (!baseUri.getPath().endsWith("/") && !relativePath.startsWith("/") ) {
-			pathBuilder.append("/");
-		}
-		pathBuilder.append(relativePath);
-
-		URIBuilder uriBuilder = new URIBuilder()
-				.setScheme(baseUri.getScheme())
-				.setHost(baseUri.getHost())
-				.setPort(baseUri.getPort())
-				.setPath(pathBuilder.toString());
-
-		if (requestParameters != null) {
-			for (RequestParam nvp: requestParameters) {
-				uriBuilder.addParameter(nvp.getName(), nvp.getValue());
-			}
-		}
-
-		try {
-			return uriBuilder.build();
-		} catch (URISyntaxException e) {
-			throw new IllegalArgumentException("Unable to construct URI", e);
-		}
 	}
 
 	@Override
@@ -249,7 +188,7 @@ public class DefaultGcConnection implements GcConnection {
 		httpPost.setConfig(requestConfig);
 		addHeaders(httpPost, requestHeaders);
 		if (body != null) {
-			HttpEntity requestEntity = new StringEntity(body, CHARSET);
+			HttpEntity requestEntity = new GcJsonEntity(body, CHARSET);
 			httpPost.setEntity(requestEntity);
 		}
 		return executeRequest(httpPost);
@@ -262,16 +201,24 @@ public class DefaultGcConnection implements GcConnection {
 		httpPut.setConfig(requestConfig);
 		addHeaders(httpPut, requestHeaders);
 		if (body != null) {
-			HttpEntity requestEntity = new StringEntity(body, CHARSET);
+			HttpEntity requestEntity = new GcJsonEntity(body, CHARSET);
 			httpPut.setEntity(requestEntity);
 		}
 		return executeRequest(httpPut);
 	}
 
+	@SuppressWarnings("resource")
 	protected GcResponse executeRequest(HttpUriRequest request) {
 
+		final String requestId = UUID.randomUUID().toString();
+		final long startTime = System.currentTimeMillis();
+
+		HttpContext context = new BasicHttpContext();
+		context.setAttribute(REQUEST_ID_ATTRIBUTE, requestId);
+		context.setAttribute(START_TIMME_ATTRIBUTE, startTime);
+
 		try {
-			CloseableHttpResponse httpResponse = httpClient.execute(request);
+			CloseableHttpResponse httpResponse = httpClient.execute(request, context);
 			HttpEntity entity = httpResponse.getEntity();
 			try {
 				int statusCode = httpResponse.getStatusLine().getStatusCode();
@@ -289,9 +236,14 @@ public class DefaultGcConnection implements GcConnection {
 				EntityUtils.consume(entity);
 			}
 		} catch (ClientProtocolException e) {
+			logError(requestId, e, startTime, communicatorLogger);
 			throw new GcCommunicationException(e);
 		} catch (IOException e) {
+			logError(requestId, e, startTime, communicatorLogger);
 			throw new GcCommunicationException(e);
+		} catch (RuntimeException e) {
+			logError(requestId, e, startTime, communicatorLogger);
+			throw e;
 		}
 	}
 
@@ -310,5 +262,159 @@ public class DefaultGcConnection implements GcConnection {
 			result.add(new ResponseHeader(header.getName(), header.getValue()));
 		}
 		return result;
+	}
+
+	@Override
+	public void enableLogging(GcCommunicatorLogger communicatorLogger) {
+		if (communicatorLogger == null) {
+			throw new IllegalArgumentException("communicatorLogger is required");
+		}
+		this.communicatorLogger = communicatorLogger;
+	}
+
+	@Override
+	public void disableLogging() {
+		this.communicatorLogger = null;
+	}
+
+	// logging code
+
+	private void logRequest(final HttpRequest request, final String requestId, final GcCommunicatorLogger logger) {
+
+		try {
+			RequestLine requestLine = request.getRequestLine();
+			String method = requestLine.getMethod();
+			String uri = requestLine.getUri();
+
+			final RequestLogMessageBuilder logMessageBuilder = new RequestLogMessageBuilder(requestId, method, uri);
+			addHeaders(logMessageBuilder, request.getAllHeaders());
+
+			if (request instanceof HttpEntityEnclosingRequest) {
+
+				final HttpEntityEnclosingRequest entityEnclosingRequest = (HttpEntityEnclosingRequest) request;
+
+				HttpEntity entity = entityEnclosingRequest.getEntity();
+				if (entity != null && !entity.isRepeatable()) {
+					entity = new BufferedHttpEntity(entity);
+					entityEnclosingRequest.setEntity(entity);
+				}
+
+				setBody(logMessageBuilder, entity, request.getFirstHeader(HttpHeaders.CONTENT_TYPE));
+			}
+
+			logger.log(logMessageBuilder.getMessage());
+
+		} catch (Exception e) {
+
+			logger.log(String.format("An error occurred trying to log request '%s'", requestId), e);
+			return;
+		}
+	}
+
+	private void logResponse(final HttpResponse response, final String requestId, final long startTime, final GcCommunicatorLogger logger) {
+
+		final long endTime = System.currentTimeMillis();
+		final long duration = endTime - startTime;
+
+		try {
+			final int statusCode = response.getStatusLine().getStatusCode();
+
+			final ResponseLogMessageBuilder logMessageBuilder = new ResponseLogMessageBuilder(requestId, statusCode, duration);
+			addHeaders(logMessageBuilder, response.getAllHeaders());
+
+			HttpEntity entity = response.getEntity();
+			if (entity != null && !entity.isRepeatable()) {
+				entity = new BufferedHttpEntity(entity);
+				response.setEntity(entity);
+			}
+
+			setBody(logMessageBuilder, entity, response.getFirstHeader(HttpHeaders.CONTENT_TYPE));
+
+			logger.log(logMessageBuilder.getMessage());
+
+		} catch (Exception e) {
+
+			logger.log(String.format("An error occurred trying to log request '%s'", requestId), e);
+			return;
+		}
+	}
+
+	private void addHeaders(LogMessageBuilder logMessageBuilder, Header[] headers) {
+
+		if (headers != null) {
+			for (Header header : headers) {
+				logMessageBuilder.addHeader(header.getName(), header.getValue());
+			}
+		}
+	}
+
+	private void setBody(LogMessageBuilder logMessageBuilder, HttpEntity entity, Header defaultHeader) throws IOException {
+
+		Header contentTypeHeader = entity != null ? entity.getContentType() : null;
+		if (contentTypeHeader == null) {
+			contentTypeHeader = defaultHeader;
+		}
+
+		String contentType = contentTypeHeader != null ? contentTypeHeader.getValue() : null;
+
+		if (entity == null) {
+			logMessageBuilder.setBody("", contentType);
+
+		} else if (entity instanceof GcJsonEntity) {
+
+			String body = ((GcJsonEntity) entity).getString();
+			logMessageBuilder.setBody(body, contentType);
+
+		} else {
+
+			logMessageBuilder.setBody(entity.getContent(), CHARSET, contentType);
+		}
+	}
+
+	private void logError(final String requestId, final Exception error, final long startTime, final GcCommunicatorLogger logger) {
+
+		if (logger != null) {
+
+			final String messageTemplate = "Error occurred for outgoing request (requestId='%s', %d ms)";
+
+			final long endTime = System.currentTimeMillis();
+			final long duration = endTime - startTime;
+
+			final String message = String.format(messageTemplate, requestId, duration);
+
+			logger.log(message, error);
+		}
+	}
+
+	private class LoggingInterceptor implements HttpRequestInterceptor, HttpResponseInterceptor {
+
+		@Override
+		public void process(HttpRequest request, HttpContext context) throws HttpException, IOException {
+
+			final GcCommunicatorLogger logger = communicatorLogger;
+			if (logger != null) {
+
+				final String requestId = (String) context.getAttribute(REQUEST_ID_ATTRIBUTE);
+				if (requestId != null) {
+					logRequest(request, requestId, logger);
+				}
+				// else the context was not sent through executeRequest
+			}
+		}
+
+		@Override
+		public void process(HttpResponse response, HttpContext context) throws HttpException, IOException {
+
+			final GcCommunicatorLogger logger = communicatorLogger;
+			if (logger != null) {
+
+				final String requestId = (String) context.getAttribute(REQUEST_ID_ATTRIBUTE);
+				final Long startTime = (Long) context.getAttribute(START_TIMME_ATTRIBUTE);
+				if (requestId != null && startTime != null) {
+					logResponse(response, requestId, startTime, logger);
+				}
+				// else the context was not sent through executeRequest
+			}
+		}
 	}
 }

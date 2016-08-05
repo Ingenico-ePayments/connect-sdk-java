@@ -22,7 +22,7 @@ public class RiskassessmentsClientImpl extends GcApiResource implements Riskasse
 
 	@Override
 	public RiskAssessmentResponse cards(RiskAssessmentCard body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/riskassessments/cards", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/riskassessments/cards", null);
 		try {
 			return communicator.post(
 					uri,
@@ -50,7 +50,7 @@ public class RiskassessmentsClientImpl extends GcApiResource implements Riskasse
 
 	@Override
 	public RiskAssessmentResponse bankaccounts(RiskAssessmentBankAccount body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/riskassessments/bankaccounts", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/riskassessments/bankaccounts", null);
 		try {
 			return communicator.post(
 					uri,

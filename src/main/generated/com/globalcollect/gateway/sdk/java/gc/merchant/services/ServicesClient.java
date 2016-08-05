@@ -7,11 +7,11 @@ import com.globalcollect.gateway.sdk.java.GcIdempotenceException;
 import com.globalcollect.gateway.sdk.java.GcReferenceException;
 import com.globalcollect.gateway.sdk.java.GcValidationException;
 import com.globalcollect.gateway.sdk.java.GlobalCollectException;
-import com.globalcollect.gateway.sdk.java.gc.services.BINLookupRequest;
-import com.globalcollect.gateway.sdk.java.gc.services.BINLookupResponse;
 import com.globalcollect.gateway.sdk.java.gc.services.BankDetailsRequest;
 import com.globalcollect.gateway.sdk.java.gc.services.BankDetailsResponse;
 import com.globalcollect.gateway.sdk.java.gc.services.ConvertAmount;
+import com.globalcollect.gateway.sdk.java.gc.services.GetIINDetailsRequest;
+import com.globalcollect.gateway.sdk.java.gc.services.GetIINDetailsResponse;
 import com.globalcollect.gateway.sdk.java.gc.services.TestConnection;
 
 /**
@@ -91,10 +91,10 @@ public interface ServicesClient {
 
 	/**
 	 * Resource /{merchantId}/services/getIINdetails
-	 * Retrieve IIN details
+	 * Get IIN details
 	 *
-	 * @param body BINLookupRequest
-	 * @return BINLookupResponse
+	 * @param body GetIINDetailsRequest
+	 * @return GetIINDetailsResponse
 	 * @throws GcValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -104,15 +104,15 @@ public interface ServicesClient {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
-	BINLookupResponse getIINdetails(BINLookupRequest body);
+	GetIINDetailsResponse getIINdetails(GetIINDetailsRequest body);
 
 	/**
 	 * Resource /{merchantId}/services/getIINdetails
-	 * Retrieve IIN details
+	 * Get IIN details
 	 *
-	 * @param body BINLookupRequest
+	 * @param body GetIINDetailsRequest
 	 * @param context CallContext
-	 * @return BINLookupResponse
+	 * @return GetIINDetailsResponse
 	 * @throws GcValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws GcAuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws GcIdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -123,7 +123,7 @@ public interface ServicesClient {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws GcApiException if the GlobalCollect platform returned any other error
 	 */
-	BINLookupResponse getIINdetails(BINLookupRequest body, CallContext context);
+	GetIINDetailsResponse getIINdetails(GetIINDetailsRequest body, CallContext context);
 
 	/**
 	 * Resource /{merchantId}/services/convert/amount

@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.globalcollect.gateway.sdk.java.gc.GcClient;
-import com.globalcollect.gateway.sdk.java.gc.merchant.products.paymentproduct.DirectoryParams;
+import com.globalcollect.gateway.sdk.java.gc.merchant.products.DirectoryParams;
 import com.globalcollect.gateway.sdk.java.gc.product.Directory;
 
 public class PaymentProductsTest extends ItTest {
@@ -24,7 +24,7 @@ public class PaymentProductsTest extends ItTest {
 
 		GcClient client = getGcClient();
 		try {
-			Directory response = client.merchant("8500").products().paymentProduct(809).directory(params);
+			Directory response = client.merchant("8500").products().directory(809, params);
 
 			Assert.assertTrue(response.getEntries().size() > 0);
 

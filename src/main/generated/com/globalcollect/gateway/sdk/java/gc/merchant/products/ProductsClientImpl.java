@@ -4,8 +4,7 @@ import com.globalcollect.gateway.sdk.java.CallContext;
 import com.globalcollect.gateway.sdk.java.GcApiResource;
 import com.globalcollect.gateway.sdk.java.GcResponseException;
 import com.globalcollect.gateway.sdk.java.gc.errors.ErrorResponse;
-import com.globalcollect.gateway.sdk.java.gc.merchant.products.paymentproduct.PaymentProductClient;
-import com.globalcollect.gateway.sdk.java.gc.merchant.products.paymentproduct.PaymentProductClientImpl;
+import com.globalcollect.gateway.sdk.java.gc.product.Directory;
 import com.globalcollect.gateway.sdk.java.gc.product.PaymentProductResponse;
 import com.globalcollect.gateway.sdk.java.gc.product.PaymentProducts;
 import java.util.Map;
@@ -18,10 +17,35 @@ public class ProductsClientImpl extends GcApiResource implements ProductsClient 
 	}
 
 	@Override
-	public PaymentProductClient paymentProduct(Integer paymentProductId) {
-		Map<String, String> subContext = new TreeMap<String, String>();
-		subContext.put("paymentProductId", paymentProductId.toString());
-		return new PaymentProductClientImpl(this, subContext);
+	public Directory directory(Integer paymentProductId, DirectoryParams query) {
+		return directory(paymentProductId, query, null);
+	}
+
+	@Override
+	public Directory directory(Integer paymentProductId, DirectoryParams query, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentProductId", paymentProductId.toString());
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/directory", pathContext);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					query,
+					Directory.class,
+					context);
+		} catch (GcResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
+			case 404 :
+				errorType = ErrorResponse.class;
+				break;
+			default:
+				errorType = ErrorResponse.class;
+				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), e.getStatusCode(), uri, errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
 	}
 
 	@Override
@@ -31,7 +55,7 @@ public class ProductsClientImpl extends GcApiResource implements ProductsClient 
 
 	@Override
 	public PaymentProducts find(FindParams query, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/products", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/products", null);
 		try {
 			return communicator.get(
 					uri,
@@ -60,7 +84,7 @@ public class ProductsClientImpl extends GcApiResource implements ProductsClient 
 	public PaymentProductResponse get(Integer paymentProductId, GetParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{merchantId}/products/{paymentProductId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}", pathContext);
 		try {
 			return communicator.get(
 					uri,

@@ -1,0 +1,6 @@
+\QOutgoing request (requestId='\E([-a-zA-Z0-9]+)\Q'):
+  method:       'POST'
+  uri:          '/v1/1234/payments'
+  headers:      'Content-Type="application/json", X-GCS-ServerMetaInfo="\E[^"]*\Q", Date="\E[^"]+\Q", Authorization="********"\E[^']*\Q'
+  content-type: 'application/json; charset=UTF-8'
+  body:         '{"cardPaymentMethodSpecificInput":{"card":{"cvv":"***","cardNumber":"************3456","expiryDate":"**20"},"paymentProductId":1},"order":{"amountOfMoney":{"amount":2345,"currencyCode":"CAD"},"customer":{"billingAddress":{"countryCode":"CA"}}}}'\E

@@ -55,11 +55,12 @@ public final class GcFactory {
 	/**
 	 * Creates a {@link GcSessionBuilder} based on the passed configuration.
 	 */
+	@SuppressWarnings("resource")
 	public static GcSessionBuilder createSessionBuilder(GcDefaultConfiguration defaultConfiguration) {
 
 		GcSessionBuilder builder = new DefaultGcSessionBuilder();
+		builder.using(defaultConfiguration.getApiEndpoint());
 		builder.using(new DefaultGcConnection(
-				defaultConfiguration.getBaseUri(),
 				defaultConfiguration.getConnectTimeout(),
 				defaultConfiguration.getSocketTimeout(),
 				defaultConfiguration.getMaxConnections(),

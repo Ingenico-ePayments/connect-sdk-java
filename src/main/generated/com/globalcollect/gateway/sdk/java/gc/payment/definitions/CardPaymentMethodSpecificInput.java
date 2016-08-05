@@ -1,11 +1,14 @@
 package com.globalcollect.gateway.sdk.java.gc.payment.definitions;
 
 import com.globalcollect.gateway.sdk.java.gc.fei.definitions.Card;
+import com.globalcollect.gateway.sdk.java.gc.payment.definitions.ExternalCardholderAuthenticationData;
 import com.globalcollect.gateway.sdk.java.gc.payment.definitions.CardPaymentMethodSpecificInputBase;
 
 public class CardPaymentMethodSpecificInput extends CardPaymentMethodSpecificInputBase {
 
 	private Card card = null;
+
+	private ExternalCardholderAuthenticationData externalCardholderAuthenticationData = null;
 
 	private Boolean isRecurring = null;
 
@@ -17,6 +20,14 @@ public class CardPaymentMethodSpecificInput extends CardPaymentMethodSpecificInp
 
 	public void setCard(Card value) {
 		this.card = value;
+	}
+
+	public ExternalCardholderAuthenticationData getExternalCardholderAuthenticationData() {
+		return externalCardholderAuthenticationData;
+	}
+
+	public void setExternalCardholderAuthenticationData(ExternalCardholderAuthenticationData value) {
+		this.externalCardholderAuthenticationData = value;
 	}
 
 	public Boolean getIsRecurring() {

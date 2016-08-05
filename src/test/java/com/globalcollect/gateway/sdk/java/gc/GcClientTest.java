@@ -12,6 +12,7 @@ import com.globalcollect.gateway.sdk.java.defaultimpl.DefaultGcMarshaller;
 public class GcClientTest {
 
 	@Test
+	@SuppressWarnings("resource")
 	public void testWithClientMetaInfo() {
 
 		GcClient client1 = GcFactory.createClient(GcFactoryTest.PROPERTIES_URI, GcFactoryTest.API_KEY_ID, GcFactoryTest.SECRET_API_KEY);

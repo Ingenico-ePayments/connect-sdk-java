@@ -35,7 +35,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	public RefundResponse refund(String paymentId, RefundRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{merchantId}/payments/{paymentId}/refund", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/refund", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -71,7 +71,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	public PaymentResponse processchallenged(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{merchantId}/payments/{paymentId}/processchallenged", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/processchallenged", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -107,7 +107,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	public PaymentResponse get(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{merchantId}/payments/{paymentId}", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -134,7 +134,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 
 	@Override
 	public CreatePaymentResponse create(CreatePaymentRequest body, CallContext context) {
-		String uri = instantiateUri("/{merchantId}/payments", null);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments", null);
 		try {
 			return communicator.post(
 					uri,
@@ -179,7 +179,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	public CreateTokenResponse tokenize(String paymentId, TokenizePaymentRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{merchantId}/payments/{paymentId}/tokenize", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/tokenize", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -212,7 +212,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	public CancelPaymentResponse cancel(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{merchantId}/payments/{paymentId}/cancel", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/cancel", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -245,7 +245,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	public PaymentApprovalResponse approve(String paymentId, ApprovePaymentRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{merchantId}/payments/{paymentId}/approve", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/approve", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -281,7 +281,7 @@ public class PaymentsClientImpl extends GcApiResource implements PaymentsClient 
 	public CancelApprovalPaymentResponse cancelapproval(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{merchantId}/payments/{paymentId}/cancelapproval", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/cancelapproval", pathContext);
 		try {
 			return communicator.post(
 					uri,

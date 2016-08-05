@@ -1,9 +1,16 @@
 package com.globalcollect.gateway.sdk.java;
 
+import java.net.URI;
+
 /**
  * Builder for a {@link GcSession} object.
  */
 public interface GcSessionBuilder {
+
+	/**
+	 * Sets the GlobalCollect platform API endpoint URI to use.
+	 */
+	GcSessionBuilder using(URI apiEndpoint);
 
 	/**
 	 * Sets the {@link GcConnection} to use.

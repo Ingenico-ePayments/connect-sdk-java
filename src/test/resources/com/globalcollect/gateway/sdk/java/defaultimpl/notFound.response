@@ -1,0 +1,5 @@
+\QIncoming response (requestId='\E([-a-zA-Z0-9]+)\Q', \E\d+\Q ms):
+  status-code:  '404'
+  headers:      'Content-Type="text/html", Dummy="", Date="\E[^"]+\Q"\E[^']*\Q'
+  content-type: 'text/html'
+  body:         'Not Found'\E

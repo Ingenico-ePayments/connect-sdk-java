@@ -1,0 +1,21 @@
+{
+	"order": {
+		"amountOfMoney": {
+			"currencyCode": "CAD",
+			"amount": 2345
+		},
+		"customer": {
+			"billingAddress": {
+				"countryCode": "CA"
+			}
+		}
+	},
+	"cardPaymentMethodSpecificInput": {
+		"paymentProductId": 1,
+		"card": {
+			"cvv": "***",
+			"cardNumber": "************3456",
+			"expiryDate": "**20"
+		}
+	}
+}

@@ -3,6 +3,7 @@ package com.globalcollect.gateway.sdk.java.gc.merchant;
 import com.globalcollect.gateway.sdk.java.gc.merchant.hostedcheckouts.HostedcheckoutsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.payments.PaymentsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.payouts.PayoutsClient;
+import com.globalcollect.gateway.sdk.java.gc.merchant.productgroups.ProductgroupsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.products.ProductsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.refunds.RefundsClient;
 import com.globalcollect.gateway.sdk.java.gc.merchant.riskassessments.RiskassessmentsClient;
@@ -48,6 +49,14 @@ public interface MerchantClient {
 	TokensClient tokens();
 
 	/**
+	 * Resource /{merchantId}/services
+	 * Several services to help you
+	 *
+	 * @return Services
+	 */
+	ServicesClient services();
+
+	/**
 	 * Resource /{merchantId}/hostedcheckouts
 	 * Create new hosted checkout
 	 *
@@ -72,12 +81,12 @@ public interface MerchantClient {
 	PaymentsClient payments();
 
 	/**
-	 * Resource /{merchantId}/services
-	 * Several services to help you
+	 * Resource /{merchantId}/productgroups
+	 * Get information about payment product groups
 	 *
-	 * @return Services
+	 * @return Productgroups
 	 */
-	ServicesClient services();
+	ProductgroupsClient productgroups();
 
 	/**
 	 * Resource /{merchantId}/riskassessments

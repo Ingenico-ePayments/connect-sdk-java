@@ -1,0 +1,7 @@
+\QIncoming response (requestId='\E([-a-zA-Z0-9]+)\Q', \E\d+\Q ms):
+  status-code:  '200'
+  headers:      'Content-Type="application/json", Dummy="", Date="\E[^"]+\Q"\E[^']*\Q'
+  content-type: 'application/json'
+  body:         '{
+    "result": "OK"
+}'\E

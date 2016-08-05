@@ -14,9 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
 import org.mockito.stubbing.OngoingStubbing;
 
 import com.globalcollect.gateway.sdk.java.CallContext;
@@ -33,7 +31,6 @@ import com.globalcollect.gateway.sdk.java.GcResponseException;
 import com.globalcollect.gateway.sdk.java.GcSession;
 import com.globalcollect.gateway.sdk.java.GcValidationException;
 import com.globalcollect.gateway.sdk.java.RequestHeader;
-import com.globalcollect.gateway.sdk.java.RequestParam;
 import com.globalcollect.gateway.sdk.java.ResponseHeader;
 import com.globalcollect.gateway.sdk.java.defaultimpl.AuthorizationType;
 import com.globalcollect.gateway.sdk.java.defaultimpl.DefaultGcAuthenticator;
@@ -58,20 +55,15 @@ public class PaymentsClientTest {
 
 	@Before
 	public void initializeSession() {
-		session = new DefaultGcSession(connection, new DefaultGcAuthenticator(AuthorizationType.V1HMAC, "test", "test"), new DefaultGcMetaDataProvider());
-
-		Mockito.when(connection.toURI(Mockito.anyString(), Mockito.<List<RequestParam>>any())).then(new Answer<URI>() {
-			@Override
-			public URI answer(InvocationOnMock invocation) throws Throwable {
-				return URI.create("http://localhost" + invocation.getArgumentAt(0, String.class));
-			}
-		});
+		URI apiEndpoint = URI.create("http://localhost");
+		session = new DefaultGcSession(apiEndpoint, connection, new DefaultGcAuthenticator(AuthorizationType.V1HMAC, "test", "test"), new DefaultGcMetaDataProvider());
 	}
 
 	/**
 	 * Tests that a non-failure response will not throw an exception.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateSuccess() {
 
 		GcClient client = GcFactory.createClient(session);
@@ -89,6 +81,7 @@ public class PaymentsClientTest {
 	 * Tests that a failure response with a payment result will throw a {@link GcDeclinedPaymentException}.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateRejected() {
 
 		GcClient client = GcFactory.createClient(session);
@@ -114,6 +107,7 @@ public class PaymentsClientTest {
 	 * Tests that a 400 failure response without a payment result will throw a {@link GcValidationException}.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateInvalidRequest() {
 
 		GcClient client = GcFactory.createClient(session);
@@ -134,6 +128,7 @@ public class PaymentsClientTest {
 	 * Tests that a 401 failure response without a payment result will throw a {@link GcApiException}.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateInvalidAuthorization() {
 
 		GcClient client = GcFactory.createClient(session);
@@ -155,6 +150,7 @@ public class PaymentsClientTest {
 	 * {@link GcReferenceException}.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateReferenceError() {
 
 		GcClient client = GcFactory.createClient(session);
@@ -175,6 +171,7 @@ public class PaymentsClientTest {
 	 * Tests that a 409 failure response with a duplicate request code and an idempotence key will throw a {@link GcReferenceException}.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateIdempotenceError() {
 
 		GcClient client = GcFactory.createClient(session);
@@ -198,6 +195,7 @@ public class PaymentsClientTest {
 	 * Tests that a 404 response with a non-JSON response will throw a {@link GcNotFoundException}.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateNotFound() {
 
 		GcClient client = GcFactory.createClient(session);
@@ -222,6 +220,7 @@ public class PaymentsClientTest {
 	 * Tests that a 405 response with a non-JSON response will throw a {@link GcCommunicationException}.
 	 */
 	@Test
+	@SuppressWarnings("resource")
 	public void testCreateMethodNotAllowed() {
 
 		GcClient client = GcFactory.createClient(session);

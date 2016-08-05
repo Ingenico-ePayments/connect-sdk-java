@@ -9,6 +9,8 @@ public class OrderStatusOutput {
 
 	private Boolean isCancellable = null;
 
+	private String statusCategory = null;
+
 	private Integer statusCode = null;
 
 	private String statusCodeChangeDateTime = null;
@@ -27,6 +29,14 @@ public class OrderStatusOutput {
 
 	public void setIsCancellable(Boolean value) {
 		this.isCancellable = value;
+	}
+
+	public String getStatusCategory() {
+		return statusCategory;
+	}
+
+	public void setStatusCategory(String value) {
+		this.statusCategory = value;
 	}
 
 	public Integer getStatusCode() {

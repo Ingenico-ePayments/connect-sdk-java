@@ -104,7 +104,7 @@ public interface PaymentsClient {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}
-	 * Retrieve payment
+	 * Get payment
 	 *
 	 * @param paymentId String
 	 * @return PaymentResponse
@@ -121,7 +121,7 @@ public interface PaymentsClient {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}
-	 * Retrieve payment
+	 * Get payment
 	 *
 	 * @param paymentId String
 	 * @param context CallContext

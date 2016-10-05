@@ -1,0 +1,344 @@
+/*
+ * This class was auto-generated from the API references found at
+ * https://developer.globalcollect.com/documentation/api/server/
+ */
+package com.ingenico.connect.gateway.sdk.java.merchant.tokens;
+
+import com.ingenico.connect.gateway.sdk.java.ApiException;
+import com.ingenico.connect.gateway.sdk.java.ApiResource;
+import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
+import com.ingenico.connect.gateway.sdk.java.CallContext;
+import com.ingenico.connect.gateway.sdk.java.GlobalCollectException;
+import com.ingenico.connect.gateway.sdk.java.IdempotenceException;
+import com.ingenico.connect.gateway.sdk.java.ReferenceException;
+import com.ingenico.connect.gateway.sdk.java.ResponseException;
+import com.ingenico.connect.gateway.sdk.java.ValidationException;
+import com.ingenico.connect.gateway.sdk.java.domain.errors.ErrorResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.token.ApproveTokenRequest;
+import com.ingenico.connect.gateway.sdk.java.domain.token.CreateTokenRequest;
+import com.ingenico.connect.gateway.sdk.java.domain.token.CreateTokenResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.token.TokenResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.token.UpdateTokenRequest;
+import java.util.Map;
+import java.util.TreeMap;
+
+/**
+ * Tokens client. Thread-safe.
+ */
+public class TokensClient extends ApiResource {
+
+	public TokensClient(ApiResource parent, Map<String, String> pathContext) {
+		super(parent, pathContext);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens_post">Create token</a>
+	 *
+	 * @param body CreateTokenRequest
+	 * @return CreateTokenResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CreateTokenResponse create(CreateTokenRequest body) {
+		return create(body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens_post">Create token</a>
+	 *
+	 * @param body CreateTokenRequest
+	 * @param context CallContext
+	 * @return CreateTokenResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CreateTokenResponse create(CreateTokenRequest body, CallContext context) {
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens", null);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					CreateTokenResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
+			case 403 :
+				errorType = ErrorResponse.class;
+				break;
+			default:
+				errorType = ErrorResponse.class;
+				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 *
+	 * @param tokenId String
+	 * @param body ApproveTokenRequest
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body) {
+		return approvesepadirectdebit(tokenId, body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 *
+	 * @param tokenId String
+	 * @param body ApproveTokenRequest
+	 * @param context CallContext
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("tokenId", tokenId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}/approvesepadirectdebit", pathContext);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					Void.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
+			default:
+				errorType = ErrorResponse.class;
+				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
+	 *
+	 * @param tokenId String
+	 * @param body UpdateTokenRequest
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void update(String tokenId, UpdateTokenRequest body) {
+		return update(tokenId, body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
+	 *
+	 * @param tokenId String
+	 * @param body UpdateTokenRequest
+	 * @param context CallContext
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void update(String tokenId, UpdateTokenRequest body, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("tokenId", tokenId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
+		try {
+			return communicator.put(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					Void.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
+			default:
+				errorType = ErrorResponse.class;
+				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__get">Get token</a>
+	 *
+	 * @param tokenId String
+	 * @return TokenResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public TokenResponse get(String tokenId) {
+		return get(tokenId, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__get">Get token</a>
+	 *
+	 * @param tokenId String
+	 * @param context CallContext
+	 * @return TokenResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public TokenResponse get(String tokenId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("tokenId", tokenId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					null,
+					TokenResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
+			case 404 :
+				errorType = ErrorResponse.class;
+				break;
+			default:
+				errorType = ErrorResponse.class;
+				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 *
+	 * @param tokenId String
+	 * @param query DeleteTokenParams
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void delete(String tokenId, DeleteTokenParams query) {
+		return delete(tokenId, query, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 *
+	 * @param tokenId String
+	 * @param query DeleteTokenParams
+	 * @param context CallContext
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void delete(String tokenId, DeleteTokenParams query, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("tokenId", tokenId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
+		try {
+			return communicator.delete(
+					uri,
+					getClientHeaders(),
+					query,
+					Void.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
+			case 404 :
+				errorType = ErrorResponse.class;
+				break;
+			default:
+				errorType = ErrorResponse.class;
+				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+}

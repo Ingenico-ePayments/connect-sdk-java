@@ -5,7 +5,7 @@
 
 	<groupId>com.ingenico.connect.gateway</groupId>
 	<artifactId>connect-sdk-java</artifactId>
-	<version>3.0.0</version>
+	<version>4.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>connect-sdk-java</name>
@@ -14,7 +14,7 @@
 
 	<organization>
 		<name>Ingenico ePayments</name>
-		<url>http://www.globalcollect.com/</url>
+		<url>http://http://www.ingenico.com/epayments/</url>
 	</organization>
 
 	<licenses>
@@ -29,7 +29,7 @@
 			<name>Ingenico ePayments</name>
 			<email>github@epay.ingenico.com</email>
 			<organization>Ingenico ePayments</organization>
-			<organizationUrl>http://www.globalcollect.com/</organizationUrl>
+			<organizationUrl>http://http://www.ingenico.com/epayments/</organizationUrl>
 		</developer>
 	</developers>
 
@@ -235,7 +235,7 @@
 				<version>2.19.1</version>
 				<configuration>
 					<excludes>
-						<exclude>/com/globalcollect/gateway/sdk/it/**/*</exclude>
+						<exclude>/com/ingenico/connect/gateway/sdk/it/**/*</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -267,6 +267,13 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<version>1.3</version>
 			<scope>test</scope>
 		</dependency>
 

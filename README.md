@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Java SDK helps you to communicate with the [Ingenico Connect](http://www.globalcollect.com/) Server API. It's primary features are:
+The Java SDK helps you to communicate with the [Ingenico Connect](http://www.ingenico.com/epayments) Server API. It's primary features are:
 
 * convenient Java wrapper around the API calls and responses
     * marshalls Java request objects to HTTP requests

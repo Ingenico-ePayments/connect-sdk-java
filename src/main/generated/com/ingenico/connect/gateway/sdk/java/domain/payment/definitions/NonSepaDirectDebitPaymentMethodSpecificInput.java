@@ -5,7 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentProduct705SpecificInput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentProduct707SpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractPaymentMethodSpecificInput;
 
 /**
@@ -20,8 +19,6 @@ public class NonSepaDirectDebitPaymentMethodSpecificInput extends AbstractPaymen
 	private Boolean isRecurring = null;
 
 	private NonSepaDirectDebitPaymentProduct705SpecificInput paymentProduct705SpecificInput = null;
-
-	private NonSepaDirectDebitPaymentProduct707SpecificInput paymentProduct707SpecificInput = null;
 
 	private String recurringPaymentSequenceIndicator = null;
 
@@ -57,14 +54,6 @@ public class NonSepaDirectDebitPaymentMethodSpecificInput extends AbstractPaymen
 
 	public void setPaymentProduct705SpecificInput(NonSepaDirectDebitPaymentProduct705SpecificInput value) {
 		this.paymentProduct705SpecificInput = value;
-	}
-
-	public NonSepaDirectDebitPaymentProduct707SpecificInput getPaymentProduct707SpecificInput() {
-		return paymentProduct707SpecificInput;
-	}
-
-	public void setPaymentProduct707SpecificInput(NonSepaDirectDebitPaymentProduct707SpecificInput value) {
-		this.paymentProduct707SpecificInput = value;
 	}
 
 	public String getRecurringPaymentSequenceIndicator() {

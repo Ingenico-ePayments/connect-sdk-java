@@ -9,7 +9,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.RefundRes
 @SuppressWarnings("serial")
 public class DeclinedRefundException extends DeclinedTransactionException {
 
-	private RefundErrorResponse errors;
+	private final RefundErrorResponse errors;
 
 	public DeclinedRefundException(int statusCode, String responseBody, RefundErrorResponse errors) {
 		super(buildMessage(errors), statusCode, responseBody, errors != null ? errors.getErrorId() : null, errors != null ? errors.getErrors() : null);

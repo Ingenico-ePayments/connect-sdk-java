@@ -7,6 +7,7 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundBankMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundCardMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundEWalletMethodSpecificOutput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundMobileMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderOutput;
 
 /**
@@ -21,6 +22,8 @@ public class RefundOutput extends OrderOutput {
 	private RefundCardMethodSpecificOutput cardRefundMethodSpecificOutput = null;
 
 	private RefundEWalletMethodSpecificOutput eWalletRefundMethodSpecificOutput = null;
+
+	private RefundMobileMethodSpecificOutput mobileRefundMethodSpecificOutput = null;
 
 	private String paymentMethod = null;
 
@@ -54,6 +57,14 @@ public class RefundOutput extends OrderOutput {
 
 	public void setEWalletRefundMethodSpecificOutput(RefundEWalletMethodSpecificOutput value) {
 		this.eWalletRefundMethodSpecificOutput = value;
+	}
+
+	public RefundMobileMethodSpecificOutput getMobileRefundMethodSpecificOutput() {
+		return mobileRefundMethodSpecificOutput;
+	}
+
+	public void setMobileRefundMethodSpecificOutput(RefundMobileMethodSpecificOutput value) {
+		this.mobileRefundMethodSpecificOutput = value;
 	}
 
 	public String getPaymentMethod() {

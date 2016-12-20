@@ -11,15 +11,27 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractPaymentM
  */
 public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpecificInput {
 
+	private String authorizationMode = null;
+
 	private String customerReference = null;
 
 	private String recurringPaymentSequenceIndicator = null;
+
+	private Boolean requiresApproval = null;
 
 	private Boolean skipAuthentication = null;
 
 	private Boolean skipFraudService = null;
 
 	private String token = null;
+
+	public String getAuthorizationMode() {
+		return authorizationMode;
+	}
+
+	public void setAuthorizationMode(String value) {
+		this.authorizationMode = value;
+	}
 
 	public String getCustomerReference() {
 		return customerReference;
@@ -35,6 +47,14 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 
 	public void setRecurringPaymentSequenceIndicator(String value) {
 		this.recurringPaymentSequenceIndicator = value;
+	}
+
+	public Boolean getRequiresApproval() {
+		return requiresApproval;
+	}
+
+	public void setRequiresApproval(Boolean value) {
+		this.requiresApproval = value;
 	}
 
 	public Boolean getSkipAuthentication() {

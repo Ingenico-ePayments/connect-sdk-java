@@ -8,6 +8,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTran
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.InvoicePaymentMethodSpecificOutput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MobilePaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.SepaDirectDebitPaymentMethodSpecificOutput;
@@ -29,6 +30,8 @@ public class PaymentOutput extends OrderOutput {
 	private NonSepaDirectDebitPaymentMethodSpecificOutput directDebitPaymentMethodSpecificOutput = null;
 
 	private InvoicePaymentMethodSpecificOutput invoicePaymentMethodSpecificOutput = null;
+
+	private MobilePaymentMethodSpecificOutput mobilePaymentMethodSpecificOutput = null;
 
 	private String paymentMethod = null;
 
@@ -82,6 +85,14 @@ public class PaymentOutput extends OrderOutput {
 
 	public void setInvoicePaymentMethodSpecificOutput(InvoicePaymentMethodSpecificOutput value) {
 		this.invoicePaymentMethodSpecificOutput = value;
+	}
+
+	public MobilePaymentMethodSpecificOutput getMobilePaymentMethodSpecificOutput() {
+		return mobilePaymentMethodSpecificOutput;
+	}
+
+	public void setMobilePaymentMethodSpecificOutput(MobilePaymentMethodSpecificOutput value) {
+		this.mobilePaymentMethodSpecificOutput = value;
 	}
 
 	public String getPaymentMethod() {

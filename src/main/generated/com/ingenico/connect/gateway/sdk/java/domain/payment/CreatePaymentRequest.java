@@ -9,6 +9,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTran
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.InvoicePaymentMethodSpecificInput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MobilePaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificInput;
@@ -32,6 +33,8 @@ public class CreatePaymentRequest {
 	private FraudFields fraudFields = null;
 
 	private InvoicePaymentMethodSpecificInput invoicePaymentMethodSpecificInput = null;
+
+	private MobilePaymentMethodSpecificInput mobilePaymentMethodSpecificInput = null;
 
 	private Order order = null;
 
@@ -93,6 +96,14 @@ public class CreatePaymentRequest {
 
 	public void setInvoicePaymentMethodSpecificInput(InvoicePaymentMethodSpecificInput value) {
 		this.invoicePaymentMethodSpecificInput = value;
+	}
+
+	public MobilePaymentMethodSpecificInput getMobilePaymentMethodSpecificInput() {
+		return mobilePaymentMethodSpecificInput;
+	}
+
+	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInput value) {
+		this.mobilePaymentMethodSpecificInput = value;
 	}
 
 	public Order getOrder() {

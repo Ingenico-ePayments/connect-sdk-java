@@ -93,11 +93,11 @@ public class TokensClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
 	 *
 	 * @param tokenId String
-	 * @param body ApproveTokenRequest
+	 * @param query DeleteTokenParams
 	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -108,16 +108,16 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the GlobalCollect platform returned any other error
 	 */
-	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body) {
-		return approvesepadirectdebit(tokenId, body, null);
+	public Void delete(String tokenId, DeleteTokenParams query) {
+		return delete(tokenId, query, null);
 	}
 
 	/**
-	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
 	 *
 	 * @param tokenId String
-	 * @param body ApproveTokenRequest
+	 * @param query DeleteTokenParams
 	 * @param context CallContext
 	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -130,83 +130,23 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the GlobalCollect platform returned any other error
 	 */
-	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body, CallContext context) {
-		Map<String, String> pathContext = new TreeMap<String, String>();
-		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}/approvesepadirectdebit", pathContext);
-		try {
-			return communicator.post(
-					uri,
-					getClientHeaders(),
-					null,
-					body,
-					Void.class,
-					context);
-		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
-			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
-		}
-	}
-
-	/**
-	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
-	 *
-	 * @param tokenId String
-	 * @param body UpdateTokenRequest
-	 * @return Void
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
-	 */
-	public Void update(String tokenId, UpdateTokenRequest body) {
-		return update(tokenId, body, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
-	 *
-	 * @param tokenId String
-	 * @param body UpdateTokenRequest
-	 * @param context CallContext
-	 * @return Void
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
-	 */
-	public Void update(String tokenId, UpdateTokenRequest body, CallContext context) {
+	public Void delete(String tokenId, DeleteTokenParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
 		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
-			return communicator.put(
+			return communicator.delete(
 					uri,
 					getClientHeaders(),
-					null,
-					body,
+					query,
 					Void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
+			case 404 :
+				errorType = ErrorResponse.class;
+				break;
 			default:
 				errorType = ErrorResponse.class;
 				break;
@@ -280,10 +220,10 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
 	 *
 	 * @param tokenId String
-	 * @param query DeleteTokenParams
+	 * @param body UpdateTokenRequest
 	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
@@ -294,16 +234,16 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the GlobalCollect platform returned any other error
 	 */
-	public Void delete(String tokenId, DeleteTokenParams query) {
-		return delete(tokenId, query, null);
+	public Void update(String tokenId, UpdateTokenRequest body) {
+		return update(tokenId, body, null);
 	}
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
 	 *
 	 * @param tokenId String
-	 * @param query DeleteTokenParams
+	 * @param body UpdateTokenRequest
 	 * @param context CallContext
 	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -316,23 +256,83 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the GlobalCollect platform returned any other error
 	 */
-	public Void delete(String tokenId, DeleteTokenParams query, CallContext context) {
+	public Void update(String tokenId, UpdateTokenRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
 		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
-			return communicator.delete(
+			return communicator.put(
 					uri,
 					getClientHeaders(),
-					query,
+					null,
+					body,
 					Void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			default:
 				errorType = ErrorResponse.class;
 				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 *
+	 * @param tokenId String
+	 * @param body ApproveTokenRequest
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body) {
+		return approvesepadirectdebit(tokenId, body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 *
+	 * @param tokenId String
+	 * @param body ApproveTokenRequest
+	 * @param context CallContext
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("tokenId", tokenId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}/approvesepadirectdebit", pathContext);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					Void.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
 			default:
 				errorType = ErrorResponse.class;
 				break;

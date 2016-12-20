@@ -5,6 +5,7 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment;
 
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CancelPaymentCardPaymentMethodSpecificOutput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CancelPaymentMobilePaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Payment;
 
 /**
@@ -14,6 +15,8 @@ public class CancelPaymentResponse {
 
 	private CancelPaymentCardPaymentMethodSpecificOutput cardPaymentMethodSpecificOutput = null;
 
+	private CancelPaymentMobilePaymentMethodSpecificOutput mobilePaymentMethodSpecificOutput = null;
+
 	private Payment payment = null;
 
 	public CancelPaymentCardPaymentMethodSpecificOutput getCardPaymentMethodSpecificOutput() {
@@ -22,6 +25,14 @@ public class CancelPaymentResponse {
 
 	public void setCardPaymentMethodSpecificOutput(CancelPaymentCardPaymentMethodSpecificOutput value) {
 		this.cardPaymentMethodSpecificOutput = value;
+	}
+
+	public CancelPaymentMobilePaymentMethodSpecificOutput getMobilePaymentMethodSpecificOutput() {
+		return mobilePaymentMethodSpecificOutput;
+	}
+
+	public void setMobilePaymentMethodSpecificOutput(CancelPaymentMobilePaymentMethodSpecificOutput value) {
+		this.mobilePaymentMethodSpecificOutput = value;
 	}
 
 	public Payment getPayment() {

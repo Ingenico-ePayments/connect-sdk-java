@@ -27,6 +27,26 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/hostedcheckouts
+	 * Create new hosted checkout
+	 *
+	 * @return HostedcheckoutsClient
+	 */
+	public HostedcheckoutsClient hostedcheckouts() {
+		return new HostedcheckoutsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/payments
+	 * Create, cancel and approve payments
+	 *
+	 * @return PaymentsClient
+	 */
+	public PaymentsClient payments() {
+		return new PaymentsClient(this, null);
+	}
+
+	/**
 	 * Resource /{merchantId}/payouts
 	 * Create, cancel and approve payouts
 	 *
@@ -37,6 +57,26 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/productgroups
+	 * Get information about payment product groups
+	 *
+	 * @return ProductgroupsClient
+	 */
+	public ProductgroupsClient productgroups() {
+		return new ProductgroupsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/products
+	 * Get information about payment products
+	 *
+	 * @return ProductsClient
+	 */
+	public ProductsClient products() {
+		return new ProductsClient(this, null);
+	}
+
+	/**
 	 * Resource /{merchantId}/refunds
 	 * Create, cancel and approve refunds
 	 *
@@ -44,6 +84,26 @@ public class MerchantClient extends ApiResource {
 	 */
 	public RefundsClient refunds() {
 		return new RefundsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/riskassessments
+	 * Perform risk assessments on your customer data
+	 *
+	 * @return RiskassessmentsClient
+	 */
+	public RiskassessmentsClient riskassessments() {
+		return new RiskassessmentsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/services
+	 * Several services to help you
+	 *
+	 * @return ServicesClient
+	 */
+	public ServicesClient services() {
+		return new ServicesClient(this, null);
 	}
 
 	/**
@@ -64,65 +124,5 @@ public class MerchantClient extends ApiResource {
 	 */
 	public TokensClient tokens() {
 		return new TokensClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/services
-	 * Several services to help you
-	 *
-	 * @return ServicesClient
-	 */
-	public ServicesClient services() {
-		return new ServicesClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/hostedcheckouts
-	 * Create new hosted checkout
-	 *
-	 * @return HostedcheckoutsClient
-	 */
-	public HostedcheckoutsClient hostedcheckouts() {
-		return new HostedcheckoutsClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/products
-	 * Get information about payment products
-	 *
-	 * @return ProductsClient
-	 */
-	public ProductsClient products() {
-		return new ProductsClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/payments
-	 * Create, cancel and approve payments
-	 *
-	 * @return PaymentsClient
-	 */
-	public PaymentsClient payments() {
-		return new PaymentsClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/productgroups
-	 * Get information about payment product groups
-	 *
-	 * @return ProductgroupsClient
-	 */
-	public ProductgroupsClient productgroups() {
-		return new ProductgroupsClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/riskassessments
-	 * Perform risk assessments on your customer data
-	 *
-	 * @return RiskassessmentsClient
-	 */
-	public RiskassessmentsClient riskassessments() {
-		return new RiskassessmentsClient(this, null);
 	}
 }

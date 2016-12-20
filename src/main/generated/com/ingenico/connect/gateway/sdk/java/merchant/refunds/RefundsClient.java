@@ -29,11 +29,11 @@ public class RefundsClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/refunds/{refundId}/cancel
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancel_post">Cancel refund</a>
+	 * Resource /{merchantId}/refunds/{refundId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__get">Get refund</a>
 	 *
 	 * @param refundId String
-	 * @return Void
+	 * @return RefundResponse
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -43,17 +43,17 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the GlobalCollect platform returned any other error
 	 */
-	public Void cancel(String refundId) {
-		return cancel(refundId, null);
+	public RefundResponse get(String refundId) {
+		return get(refundId, null);
 	}
 
 	/**
-	 * Resource /{merchantId}/refunds/{refundId}/cancel
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancel_post">Cancel refund</a>
+	 * Resource /{merchantId}/refunds/{refundId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__get">Get refund</a>
 	 *
 	 * @param refundId String
 	 * @param context CallContext
-	 * @return Void
+	 * @return RefundResponse
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -64,17 +64,16 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the GlobalCollect platform returned any other error
 	 */
-	public Void cancel(String refundId, CallContext context) {
+	public RefundResponse get(String refundId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/cancel", pathContext);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}", pathContext);
 		try {
-			return communicator.post(
+			return communicator.get(
 					uri,
 					getClientHeaders(),
 					null,
-					null,
-					Void.class,
+					RefundResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType;
@@ -151,6 +150,66 @@ public class RefundsClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/refunds/{refundId}/cancel
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancel_post">Cancel refund</a>
+	 *
+	 * @param refundId String
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void cancel(String refundId) {
+		return cancel(refundId, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/refunds/{refundId}/cancel
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancel_post">Cancel refund</a>
+	 *
+	 * @param refundId String
+	 * @param context CallContext
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void cancel(String refundId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("refundId", refundId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/cancel", pathContext);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					null,
+					Void.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType;
+			switch (e.getStatusCode()) {
+			default:
+				errorType = ErrorResponse.class;
+				break;
+			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancelapproval
 	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancelapproval_post">Undo approve refund</a>
 	 *
@@ -197,65 +256,6 @@ public class RefundsClient extends ApiResource {
 					null,
 					null,
 					Void.class,
-					context);
-		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
-			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
-		}
-	}
-
-	/**
-	 * Resource /{merchantId}/refunds/{refundId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__get">Get refund</a>
-	 *
-	 * @param refundId String
-	 * @return RefundResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
-	 */
-	public RefundResponse get(String refundId) {
-		return get(refundId, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/refunds/{refundId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__get">Get refund</a>
-	 *
-	 * @param refundId String
-	 * @param context CallContext
-	 * @return RefundResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
-	 */
-	public RefundResponse get(String refundId, CallContext context) {
-		Map<String, String> pathContext = new TreeMap<String, String>();
-		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}", pathContext);
-		try {
-			return communicator.get(
-					uri,
-					getClientHeaders(),
-					null,
-					RefundResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType;

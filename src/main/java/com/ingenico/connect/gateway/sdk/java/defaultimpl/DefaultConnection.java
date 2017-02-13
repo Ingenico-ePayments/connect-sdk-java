@@ -54,8 +54,8 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
 
 import com.ingenico.connect.gateway.sdk.java.CommunicationException;
-import com.ingenico.connect.gateway.sdk.java.Connection;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
+import com.ingenico.connect.gateway.sdk.java.Connection;
 import com.ingenico.connect.gateway.sdk.java.PooledConnection;
 import com.ingenico.connect.gateway.sdk.java.ProxyConfiguration;
 import com.ingenico.connect.gateway.sdk.java.RequestHeader;
@@ -360,7 +360,7 @@ public class DefaultConnection implements PooledConnection {
 
 		} catch (Exception e) {
 
-			logger.log(String.format("An error occurred trying to log request '%s'", requestId), e);
+			logger.log(String.format("An error occurred trying to log response '%s'", requestId), e);
 			return;
 		}
 	}

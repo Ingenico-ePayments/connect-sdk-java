@@ -22,6 +22,8 @@ public class PaymentProduct {
 
 	private Boolean autoTokenized = null;
 
+	private Boolean canBeIframed = null;
+
 	private PaymentProductDisplayHints displayHints = null;
 
 	private List<PaymentProductField> fields = null;
@@ -70,6 +72,14 @@ public class PaymentProduct {
 
 	public void setAutoTokenized(Boolean value) {
 		this.autoTokenized = value;
+	}
+
+	public Boolean getCanBeIframed() {
+		return canBeIframed;
+	}
+
+	public void setCanBeIframed(Boolean value) {
+		this.canBeIframed = value;
 	}
 
 	public PaymentProductDisplayHints getDisplayHints() {

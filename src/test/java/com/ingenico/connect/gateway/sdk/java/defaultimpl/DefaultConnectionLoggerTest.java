@@ -633,9 +633,9 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 		final String requestResource = resourcePrefix + ".request";
 
-		Pattern requestPattern = Pattern.compile(readResource(requestResource), Pattern.DOTALL);
+		Pattern requestPattern = Pattern.compile(normalizeLineBreaks(readResource(requestResource)), Pattern.DOTALL);
 
-		Matcher requestMatcher = requestPattern.matcher(requestMessage);
+		Matcher requestMatcher = requestPattern.matcher(normalizeLineBreaks(requestMessage));
 		Assert.assertTrue("request message '" + requestMessage + "' does not match pattern " + requestPattern, requestMatcher.matches());
 
 		String requestId = requestMatcher.group(1);
@@ -650,9 +650,9 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	private String assertResponse(String responseMessage, String resourcePrefix, String requestId) throws IOException {
 
 		final String responseResource = resourcePrefix + ".response";
-		Pattern responsePattern = Pattern.compile(readResource(responseResource), Pattern.DOTALL);
+		Pattern responsePattern = Pattern.compile(normalizeLineBreaks(readResource(responseResource)), Pattern.DOTALL);
 
-		Matcher responseMatcher = responsePattern.matcher(responseMessage);
+		Matcher responseMatcher = responsePattern.matcher(normalizeLineBreaks(responseMessage));
 		Assert.assertTrue("response message '" + responseMessage + "' does not match pattern " + responsePattern, responseMatcher.matches());
 
 		String responseRequestId = responseMatcher.group(1);
@@ -673,9 +673,9 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	private String assertError(String errorMessage, String requestId) throws IOException {
 
 		final String errorResource = "generic.error";
-		Pattern errorPattern = Pattern.compile(readResource(errorResource), Pattern.DOTALL);
+		Pattern errorPattern = Pattern.compile(normalizeLineBreaks(readResource(errorResource)), Pattern.DOTALL);
 
-		Matcher errorMatcher = errorPattern.matcher(errorMessage);
+		Matcher errorMatcher = errorPattern.matcher(normalizeLineBreaks(errorMessage));
 		Assert.assertTrue("error message '" + errorMessage + "' does not match pattern " + errorPattern, errorMatcher.matches());
 
 		String errorRequestId = errorMatcher.group(1);
@@ -687,7 +687,6 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		}
 
 		return requestId;
-
 	}
 
 	// Mockito answer utility methods
@@ -844,6 +843,12 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 			reader.close();
 		}
 		return result.toString();
+	}
+
+	private String normalizeLineBreaks(String value) {
+		// Normalize line breaks to always use the same, regardless of the operating system
+		// See https://github.com/Ingenico-ePayments/connect-sdk-java/issues/3
+		return value.replace("\r", "");
 	}
 
 	private static final class TestLogger implements CommunicatorLogger {

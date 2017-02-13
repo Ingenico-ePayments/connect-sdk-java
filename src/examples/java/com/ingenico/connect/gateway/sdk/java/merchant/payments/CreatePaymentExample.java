@@ -131,7 +131,7 @@ public class CreatePaymentExample {
 			item2AmountOfMoney.setCurrencyCode("EUR");
 
 			LineItemInvoiceData item2InvoiceData = new LineItemInvoiceData();
-			item2InvoiceData.setDescription("Asperin");
+			item2InvoiceData.setDescription("Aspirin");
 			item2InvoiceData.setNrOfItems("12");
 			item2InvoiceData.setPricePerItem(40L);
 

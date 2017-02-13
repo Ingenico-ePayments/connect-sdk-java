@@ -5,7 +5,7 @@
 
 	<groupId>com.ingenico.connect.gateway</groupId>
 	<artifactId>connect-sdk-java</artifactId>
-	<version>5.1.0</version>
+	<version>5.2.0</version>
 	<packaging>jar</packaging>
 
 	<name>connect-sdk-java</name>
@@ -14,12 +14,12 @@
 
 	<organization>
 		<name>Ingenico ePayments</name>
-		<url>http://http://www.ingenico.com/epayments/</url>
+		<url>https://www.ingenico.com/epayments/</url>
 	</organization>
 
 	<licenses>
 		<license>
-			<name>Ingenico ePayments License</name>
+			<name>MIT</name>
 			<url>https://github.com/Ingenico-ePayments/connect-sdk-java/blob/master/LICENSE.txt</url>
 		</license>
 	</licenses>
@@ -29,14 +29,14 @@
 			<name>Ingenico ePayments</name>
 			<email>github@epay.ingenico.com</email>
 			<organization>Ingenico ePayments</organization>
-			<organizationUrl>http://http://www.ingenico.com/epayments/</organizationUrl>
+			<organizationUrl>https://www.ingenico.com/epayments/</organizationUrl>
 		</developer>
 	</developers>
 
 	<scm>
-		<connection>git@github.com:Ingenico-ePayments/connect-sdk-java.git</connection>
-		<developerConnection>git@github.com:Ingenico-ePayments/connect-sdk-java.git</developerConnection>
-		<url>git@github.com:Ingenico-ePayments/connect-sdk-java.git</url>
+		<connection>scm:git:git@github.com:Ingenico-ePayments/connect-sdk-java.git</connection>
+		<developerConnection>scm:git:git@github.com:Ingenico-ePayments/connect-sdk-java.git</developerConnection>
+		<url>https://github.com/Ingenico-ePayments/connect-sdk-java</url>
 	</scm>
 
 	<issueManagement>
@@ -56,15 +56,49 @@
 	<build>
 		<resources>
 			<resource>
-				<!-- add LICENSE.txt from the root as a resource, so it ends up in the JAR file's root -->
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<!-- add LICENSE.txt to META-INF -->
 				<directory>${basedir}</directory>
 				<filtering>false</filtering>
+				<targetPath>META-INF</targetPath>
 				<includes>
 					<include>LICENSE.txt</include>
 				</includes>
 			</resource>
 		</resources>
-	
+
+		<pluginManagement>
+			<plugins>
+				<!-- this plugin is required to make Eclipse lifecycle errors disappear -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-antrun-plugin</artifactId>
+										<versionRange>[1.0,)</versionRange>
+										<goals>
+											<goal>run</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -139,6 +173,10 @@
 				<configuration>
 					<docencoding>UTF-8</docencoding>
 					<splitindex>true</splitindex>
+					<links>
+						<!-- Use an HTTPS URL to the JSE docs -->
+						<link>https://docs.oracle.com/javase/7/docs/api/</link>
+					</links>
 					<archive>
 						<manifestEntries>
 							<Specification-Title>${project.name}</Specification-Title>
@@ -153,6 +191,29 @@
 						</manifestEntries>
 					</archive>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<copy todir="${project.build.directory}/apidocs/META-INF">
+									<fileset dir="${basedir}">
+										<include name="LICENSE.txt" />
+									</fileset>
+								</copy>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>

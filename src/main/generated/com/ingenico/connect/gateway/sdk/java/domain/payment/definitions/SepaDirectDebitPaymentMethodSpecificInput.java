@@ -21,6 +21,8 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractPaymentMe
 
 	private String token = null;
 
+	private Boolean tokenize = null;
+
 	public String getDateCollect() {
 		return dateCollect;
 	}
@@ -59,5 +61,13 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractPaymentMe
 
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	public Boolean getTokenize() {
+		return tokenize;
+	}
+
+	public void setTokenize(Boolean value) {
+		this.tokenize = value;
 	}
 }

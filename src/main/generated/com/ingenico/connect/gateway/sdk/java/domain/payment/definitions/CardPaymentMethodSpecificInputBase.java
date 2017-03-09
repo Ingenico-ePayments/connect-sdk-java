@@ -25,6 +25,8 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 
 	private String token = null;
 
+	private Boolean tokenize = null;
+
 	public String getAuthorizationMode() {
 		return authorizationMode;
 	}
@@ -79,5 +81,13 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	public Boolean getTokenize() {
+		return tokenize;
+	}
+
+	public void setTokenize(Boolean value) {
+		this.tokenize = value;
 	}
 }

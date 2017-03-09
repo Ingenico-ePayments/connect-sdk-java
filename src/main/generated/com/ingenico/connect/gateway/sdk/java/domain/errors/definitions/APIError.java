@@ -10,15 +10,27 @@ package com.ingenico.connect.gateway.sdk.java.domain.errors.definitions;
  */
 public class APIError {
 
+	private String category = null;
+
 	private String code = null;
 
 	private Integer httpStatusCode = null;
+
+	private String id = null;
 
 	private String message = null;
 
 	private String propertyName = null;
 
 	private String requestId = null;
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String value) {
+		this.category = value;
+	}
 
 	public String getCode() {
 		return code;
@@ -34,6 +46,14 @@ public class APIError {
 
 	public void setHttpStatusCode(Integer value) {
 		this.httpStatusCode = value;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String value) {
+		this.id = value;
 	}
 
 	public String getMessage() {

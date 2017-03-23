@@ -4,6 +4,7 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
+import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.BoletoBancarioRequirednessValidator;
 import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.EmptyValidator;
 import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.FixedListValidator;
 import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.LengthValidator;
@@ -14,6 +15,8 @@ import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.RegularE
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentProductFieldValidators">PaymentProductFieldValidators</a>
  */
 public class PaymentProductFieldValidators {
+
+	private BoletoBancarioRequirednessValidator boletoBancarioRequiredness = null;
 
 	private EmptyValidator emailAddress = null;
 
@@ -28,6 +31,14 @@ public class PaymentProductFieldValidators {
 	private RangeValidator range = null;
 
 	private RegularExpressionValidator regularExpression = null;
+
+	public BoletoBancarioRequirednessValidator getBoletoBancarioRequiredness() {
+		return boletoBancarioRequiredness;
+	}
+
+	public void setBoletoBancarioRequiredness(BoletoBancarioRequirednessValidator value) {
+		this.boletoBancarioRequiredness = value;
+	}
 
 	public EmptyValidator getEmailAddress() {
 		return emailAddress;

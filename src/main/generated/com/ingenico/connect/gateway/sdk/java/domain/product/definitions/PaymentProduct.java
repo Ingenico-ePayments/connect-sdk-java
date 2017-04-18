@@ -4,9 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.AccountOnFile;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.PaymentProductDisplayHints;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.PaymentProductField;
 import java.util.List;
 
 /**

@@ -4,14 +4,15 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.TokenizePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.token.CreateTokenResponse;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class TokenizePaymentExample {
 

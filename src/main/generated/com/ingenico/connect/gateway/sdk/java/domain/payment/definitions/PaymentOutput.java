@@ -4,16 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTransferPaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.InvoicePaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MobilePaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.SepaDirectDebitPaymentMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderOutput;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentOutput">PaymentOutput</a>
  */

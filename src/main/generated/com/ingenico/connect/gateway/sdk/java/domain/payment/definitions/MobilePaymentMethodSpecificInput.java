@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.DecryptedPaymentData;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MobilePaymentProduct320SpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractPaymentMethodSpecificInput;
 
 /**

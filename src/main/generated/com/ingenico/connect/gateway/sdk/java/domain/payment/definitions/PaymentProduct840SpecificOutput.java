@@ -5,7 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Address;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentProduct840CustomerAccount;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentProduct840SpecificOutput">PaymentProduct840SpecificOutput</a>

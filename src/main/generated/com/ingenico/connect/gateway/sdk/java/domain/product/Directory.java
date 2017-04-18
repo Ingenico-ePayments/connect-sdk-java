@@ -4,8 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product;
 
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.DirectoryEntry;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.DirectoryEntry;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_Directory">Directory</a>

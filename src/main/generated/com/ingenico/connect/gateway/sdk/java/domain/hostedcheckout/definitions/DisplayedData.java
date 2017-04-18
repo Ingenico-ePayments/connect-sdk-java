@@ -4,8 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.KeyValuePair;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.KeyValuePair;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_DisplayedData">DisplayedData</a>

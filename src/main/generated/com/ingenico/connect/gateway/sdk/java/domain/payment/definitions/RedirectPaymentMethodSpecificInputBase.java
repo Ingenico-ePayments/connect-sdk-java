@@ -11,9 +11,19 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractPaymentM
  */
 public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpecificInput {
 
+	private Integer expirationPeriod = null;
+
 	private String recurringPaymentSequenceIndicator = null;
 
 	private String token = null;
+
+	public Integer getExpirationPeriod() {
+		return expirationPeriod;
+	}
+
+	public void setExpirationPeriod(Integer value) {
+		this.expirationPeriod = value;
+	}
 
 	public String getRecurringPaymentSequenceIndicator() {
 		return recurringPaymentSequenceIndicator;

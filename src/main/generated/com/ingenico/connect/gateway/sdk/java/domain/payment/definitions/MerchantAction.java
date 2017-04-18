@@ -4,9 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.KeyValuePair;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectData;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.KeyValuePair;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_MerchantAction">MerchantAction</a>

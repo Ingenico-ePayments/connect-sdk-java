@@ -4,12 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.AdditionalOrderInput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Customer;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.LineItem;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderReferences;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_Order">Order</a>
@@ -25,6 +22,8 @@ public class Order {
 	private List<LineItem> items = null;
 
 	private OrderReferences references = null;
+
+	private ShoppingCart shoppingCart = null;
 
 	public AdditionalOrderInput getAdditionalInput() {
 		return additionalInput;
@@ -64,5 +63,13 @@ public class Order {
 
 	public void setReferences(OrderReferences value) {
 		this.references = value;
+	}
+
+	public ShoppingCart getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(ShoppingCart value) {
+		this.shoppingCart = value;
 	}
 }

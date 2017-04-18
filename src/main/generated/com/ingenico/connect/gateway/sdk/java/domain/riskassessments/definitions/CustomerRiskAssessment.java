@@ -6,7 +6,6 @@ package com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Address;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.AddressPersonal;
-import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions.PersonalInformationRiskAssessment;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CustomerRiskAssessment">CustomerRiskAssessment</a>

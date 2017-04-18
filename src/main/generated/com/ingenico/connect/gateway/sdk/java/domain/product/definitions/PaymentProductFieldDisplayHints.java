@@ -4,9 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.PaymentProductFieldFormElement;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.PaymentProductFieldTooltip;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentProductFieldDisplayHints">PaymentProductFieldDisplayHints</a>
  */

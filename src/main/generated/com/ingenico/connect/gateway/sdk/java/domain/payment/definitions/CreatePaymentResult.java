@@ -4,10 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MerchantAction;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Payment;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentCreationOutput;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CreatePaymentResult">CreatePaymentResult</a>
  */

@@ -4,6 +4,10 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.riskassessments;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
@@ -14,9 +18,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessme
 import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessmentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions.CustomerRiskAssessment;
 import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions.OrderRiskAssessment;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class RiskAssessmentBankAccountExample {
 

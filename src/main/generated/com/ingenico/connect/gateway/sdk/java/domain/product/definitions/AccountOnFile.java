@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.AccountOnFileAttribute;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.AccountOnFileDisplayHints;
 import java.util.List;
 
 /**

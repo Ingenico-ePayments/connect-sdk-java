@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions.DisplayedData;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Payment;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentCreationReferences;
 

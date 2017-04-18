@@ -4,6 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -29,8 +32,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.refund.RefundErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.RefundRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.RefundResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.token.CreateTokenResponse;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Payments client. Thread-safe.
@@ -92,19 +93,19 @@ public class PaymentsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 400 :
+			case 400:
 				errorType = PaymentErrorResponse.class;
 				break;
-			case 402 :
+			case 402:
 				errorType = PaymentErrorResponse.class;
 				break;
-			case 403 :
+			case 403:
 				errorType = PaymentErrorResponse.class;
 				break;
-			case 502 :
+			case 502:
 				errorType = PaymentErrorResponse.class;
 				break;
-			case 503 :
+			case 503:
 				errorType = PaymentErrorResponse.class;
 				break;
 			default:
@@ -228,10 +229,10 @@ public class PaymentsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 402 :
+			case 402:
 				errorType = ErrorResponse.class;
 				break;
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -294,7 +295,7 @@ public class PaymentsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 402 :
+			case 402:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -357,7 +358,7 @@ public class PaymentsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -420,10 +421,10 @@ public class PaymentsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
-			case 405 :
+			case 405:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -490,10 +491,10 @@ public class PaymentsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 400 :
+			case 400:
 				errorType = RefundErrorResponse.class;
 				break;
-			case 404 :
+			case 404:
 				errorType = RefundErrorResponse.class;
 				break;
 			default:
@@ -558,7 +559,7 @@ public class PaymentsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:

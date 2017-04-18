@@ -4,13 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java;
 
-import com.ingenico.connect.gateway.sdk.java.ApiResource;
-import com.ingenico.connect.gateway.sdk.java.Communicator;
-import com.ingenico.connect.gateway.sdk.java.MarshallerSyntaxException;
-import com.ingenico.connect.gateway.sdk.java.PooledConnection;
-import com.ingenico.connect.gateway.sdk.java.logging.CommunicatorLogger;
-import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
-import com.ingenico.connect.gateway.sdk.java.merchant.MerchantClient;
 import java.io.Closeable;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -18,7 +11,12 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.codec.binary.Base64;
+
+import com.ingenico.connect.gateway.sdk.java.logging.CommunicatorLogger;
+import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
+import com.ingenico.connect.gateway.sdk.java.merchant.MerchantClient;
 
 /**
  * GlobalCollect platform client.

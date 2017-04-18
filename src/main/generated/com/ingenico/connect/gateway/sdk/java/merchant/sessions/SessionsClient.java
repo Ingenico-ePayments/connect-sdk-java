@@ -4,6 +4,8 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.sessions;
 
+import java.util.Map;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -16,7 +18,6 @@ import com.ingenico.connect.gateway.sdk.java.ValidationException;
 import com.ingenico.connect.gateway.sdk.java.domain.errors.ErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.sessions.SessionRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.sessions.SessionResponse;
-import java.util.Map;
 
 /**
  * Sessions client. Thread-safe.

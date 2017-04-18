@@ -5,7 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.refund.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountIban;
-import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.BankAccountBbanRefund;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_BankRefundMethodSpecificInput">BankRefundMethodSpecificInput</a>

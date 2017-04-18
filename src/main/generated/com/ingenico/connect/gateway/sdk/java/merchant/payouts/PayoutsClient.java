@@ -4,6 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payouts;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -19,8 +22,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.payout.ApprovePayoutRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.CreatePayoutRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.PayoutErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.PayoutResponse;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Payouts client. Thread-safe.
@@ -82,7 +83,7 @@ public class PayoutsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 400 :
+			case 400:
 				errorType = PayoutErrorResponse.class;
 				break;
 			default:
@@ -144,7 +145,7 @@ public class PayoutsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -209,7 +210,7 @@ public class PayoutsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 402 :
+			case 402:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -272,7 +273,7 @@ public class PayoutsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 402 :
+			case 402:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -335,7 +336,7 @@ public class PayoutsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 405 :
+			case 405:
 				errorType = ErrorResponse.class;
 				break;
 			default:

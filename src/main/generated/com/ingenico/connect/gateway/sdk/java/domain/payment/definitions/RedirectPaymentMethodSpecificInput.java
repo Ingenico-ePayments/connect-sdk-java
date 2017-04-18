@@ -4,11 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentProduct809SpecificInput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentProduct816SpecificInput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentProduct882SpecificInput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificInputBase;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RedirectPaymentMethodSpecificInput">RedirectPaymentMethodSpecificInput</a>
  */

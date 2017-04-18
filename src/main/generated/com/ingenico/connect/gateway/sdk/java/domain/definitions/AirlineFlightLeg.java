@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_AirlineFlightLeg">AirlineFlightLeg</a>
  */

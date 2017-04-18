@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.services;
 
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_TestConnection">TestConnection</a>
  */

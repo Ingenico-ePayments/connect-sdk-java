@@ -6,8 +6,6 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.CardEssentials;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.CardFraudResults;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ThreeDSecureResults;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.AbstractPaymentMethodSpecificOutput;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CardPaymentMethodSpecificOutput">CardPaymentMethodSpecificOutput</a>

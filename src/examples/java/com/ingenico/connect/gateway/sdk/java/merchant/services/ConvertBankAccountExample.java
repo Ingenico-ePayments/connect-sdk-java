@@ -4,15 +4,16 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.services;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountBban;
 import com.ingenico.connect.gateway.sdk.java.domain.services.BankDetailsRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.services.BankDetailsResponse;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class ConvertBankAccountExample {
 

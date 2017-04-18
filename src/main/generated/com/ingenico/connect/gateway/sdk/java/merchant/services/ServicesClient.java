@@ -4,6 +4,8 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.services;
 
+import java.util.Map;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -20,7 +22,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.services.ConvertAmount;
 import com.ingenico.connect.gateway.sdk.java.domain.services.GetIINDetailsRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.services.GetIINDetailsResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.services.TestConnection;
-import java.util.Map;
 
 /**
  * Services client. Thread-safe.
@@ -195,7 +196,7 @@ public class ServicesClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -253,7 +254,7 @@ public class ServicesClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 403 :
+			case 403:
 				errorType = ErrorResponse.class;
 				break;
 			default:

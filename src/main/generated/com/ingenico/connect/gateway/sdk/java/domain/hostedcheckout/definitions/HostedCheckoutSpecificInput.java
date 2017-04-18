@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions.PaymentProductFiltersHostedCheckout;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_HostedCheckoutSpecificInput">HostedCheckoutSpecificInput</a>
  */

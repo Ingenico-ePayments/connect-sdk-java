@@ -4,9 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.refund.definitions;
 
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractOrderStatus;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.OrderStatusOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractOrderStatus;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RefundResult">RefundResult</a>

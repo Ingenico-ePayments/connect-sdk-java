@@ -4,8 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.sessions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.sessions.definitions.PaymentProductFiltersClientSession;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.sessions.definitions.PaymentProductFiltersClientSession;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_SessionRequest">SessionRequest</a>

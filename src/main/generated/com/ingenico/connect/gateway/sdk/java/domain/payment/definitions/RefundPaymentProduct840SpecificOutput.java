@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundPaymentProduct840CustomerAccount;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RefundPaymentProduct840SpecificOutput">RefundPaymentProduct840SpecificOutput</a>
  */

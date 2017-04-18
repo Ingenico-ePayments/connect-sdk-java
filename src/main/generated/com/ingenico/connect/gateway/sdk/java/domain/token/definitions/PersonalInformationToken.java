@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.PersonalNameToken;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PersonalInformationToken">PersonalInformationToken</a>
  */

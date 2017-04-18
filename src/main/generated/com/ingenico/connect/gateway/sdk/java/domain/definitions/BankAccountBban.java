@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccount;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_BankAccountBban">BankAccountBban</a>
  */

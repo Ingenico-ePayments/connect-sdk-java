@@ -5,9 +5,9 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 /**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_LineItemLevel3InterchangeInformation">LineItemLevel3InterchangeInformation</a>
+ * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_OrderLineDetails">OrderLineDetails</a>
  */
-public class LineItemLevel3InterchangeInformation {
+public class OrderLineDetails {
 
 	private Long discountAmount = null;
 

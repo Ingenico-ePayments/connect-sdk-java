@@ -4,6 +4,10 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.tokens;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
@@ -18,9 +22,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.PersonalIn
 import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.PersonalNameToken;
 import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.TokenNonSepaDirectDebit;
 import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.TokenNonSepaDirectDebitPaymentProduct705SpecificData;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class CreateTokenExample {
 

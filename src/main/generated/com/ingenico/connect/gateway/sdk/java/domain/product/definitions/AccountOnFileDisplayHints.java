@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.LabelTemplateElement;
 import java.util.List;
 
 /**

@@ -4,14 +4,14 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.services;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
 import com.ingenico.connect.gateway.sdk.java.domain.services.ConvertAmount;
-import com.ingenico.connect.gateway.sdk.java.merchant.services.ConvertAmountParams;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class ConvertAmountExample {
 

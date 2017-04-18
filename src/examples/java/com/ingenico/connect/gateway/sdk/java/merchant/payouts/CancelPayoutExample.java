@@ -4,12 +4,13 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payouts;
 
-import com.ingenico.connect.gateway.sdk.java.Client;
-import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
-import com.ingenico.connect.gateway.sdk.java.Factory;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+
+import com.ingenico.connect.gateway.sdk.java.Client;
+import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
+import com.ingenico.connect.gateway.sdk.java.Factory;
 
 public class CancelPayoutExample {
 

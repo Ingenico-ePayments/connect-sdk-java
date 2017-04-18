@@ -5,8 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Card;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ExternalCardholderAuthenticationData;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificInputBase;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CardPaymentMethodSpecificInput">CardPaymentMethodSpecificInput</a>

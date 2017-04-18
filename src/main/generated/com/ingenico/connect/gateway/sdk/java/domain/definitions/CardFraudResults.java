@@ -4,9 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.FraudResultsRetailDecisions;
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.FraudResults;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CardFraudResults">CardFraudResults</a>
  */

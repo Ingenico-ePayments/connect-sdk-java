@@ -4,14 +4,14 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.productgroups;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductGroupResponse;
-import com.ingenico.connect.gateway.sdk.java.merchant.productgroups.GetProductgroupParams;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class GetPaymentProductGroupExample {
 

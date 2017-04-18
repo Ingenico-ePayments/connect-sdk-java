@@ -4,9 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.RetailDecisionsCCFraudCheckOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.ValidationBankAccountOutput;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_ResultDoRiskAssessment">ResultDoRiskAssessment</a>
  */

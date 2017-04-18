@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.ValidationBankAccountCheck;
 import java.util.List;
 
 /**

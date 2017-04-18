@@ -4,9 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payout.definitions;
 
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractOrderStatus;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.OrderStatusOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractOrderStatus;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PayoutResult">PayoutResult</a>

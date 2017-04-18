@@ -5,9 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountIban;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentProduct836SpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentProduct840SpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.AbstractPaymentMethodSpecificOutput;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RedirectPaymentMethodSpecificOutput">RedirectPaymentMethodSpecificOutput</a>

@@ -4,6 +4,10 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
@@ -12,9 +16,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentApprovalRespo
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ApprovePaymentNonSepaDirectDebitPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderApprovePayment;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderReferencesApprovePayment;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 public class ApprovePaymentExample {
 

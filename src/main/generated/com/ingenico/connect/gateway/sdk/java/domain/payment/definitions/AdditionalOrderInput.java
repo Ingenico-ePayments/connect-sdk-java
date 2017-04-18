@@ -5,8 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AirlineData;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Level3SummaryData;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderTypeInformation;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_AdditionalOrderInput">AdditionalOrderInput</a>
@@ -31,10 +29,18 @@ public class AdditionalOrderInput {
 		this.airlineData = value;
 	}
 
+	/**
+	 * @deprecated Use Order.shoppingCart instead
+	 */
+	@Deprecated
 	public Level3SummaryData getLevel3SummaryData() {
 		return level3SummaryData;
 	}
 
+	/**
+	 * @deprecated Use Order.shoppingCart instead
+	 */
+	@Deprecated
 	public void setLevel3SummaryData(Level3SummaryData value) {
 		this.level3SummaryData = value;
 	}

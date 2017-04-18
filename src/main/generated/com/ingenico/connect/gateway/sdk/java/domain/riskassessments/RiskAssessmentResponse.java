@@ -4,8 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.riskassessments;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.ResultDoRiskAssessment;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.ResultDoRiskAssessment;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RiskAssessmentResponse">RiskAssessmentResponse</a>

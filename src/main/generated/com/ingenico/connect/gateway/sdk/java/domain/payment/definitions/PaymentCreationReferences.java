@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentCreationReferences">PaymentCreationReferences</a>
  */

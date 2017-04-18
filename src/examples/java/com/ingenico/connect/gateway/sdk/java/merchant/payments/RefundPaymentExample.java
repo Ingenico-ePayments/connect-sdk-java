@@ -4,6 +4,11 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.List;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
@@ -21,10 +26,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.BankRefun
 import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.RefundCustomer;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.RefundReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.RefundResult;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.List;
 
 public class RefundPaymentExample {
 

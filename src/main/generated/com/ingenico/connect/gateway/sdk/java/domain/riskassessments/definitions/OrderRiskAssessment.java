@@ -6,7 +6,6 @@ package com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AdditionalOrderInputAirlineData;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
-import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions.CustomerRiskAssessment;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_OrderRiskAssessment">OrderRiskAssessment</a>

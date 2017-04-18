@@ -4,13 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.BoletoBancarioRequirednessValidator;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.EmptyValidator;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.FixedListValidator;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.LengthValidator;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.RangeValidator;
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.RegularExpressionValidator;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentProductFieldValidators">PaymentProductFieldValidators</a>
  */

@@ -4,6 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.products;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -19,8 +22,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductNetwor
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProducts;
 import com.ingenico.connect.gateway.sdk.java.domain.publickey.PublicKey;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Products client. Thread-safe.
@@ -201,7 +202,7 @@ public class ProductsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -265,7 +266,7 @@ public class ProductsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -327,7 +328,7 @@ public class ProductsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:

@@ -4,6 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.tokens;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -19,8 +22,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.token.CreateTokenRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.token.CreateTokenResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.token.TokenResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.token.UpdateTokenRequest;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Tokens client. Thread-safe.
@@ -80,7 +81,7 @@ public class TokensClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 403 :
+			case 403:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -144,7 +145,7 @@ public class TokensClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:
@@ -206,7 +207,7 @@ public class TokensClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:

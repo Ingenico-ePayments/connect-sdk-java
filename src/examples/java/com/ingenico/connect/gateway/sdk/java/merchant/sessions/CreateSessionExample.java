@@ -4,16 +4,17 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.sessions;
 
-import com.ingenico.connect.gateway.sdk.java.Client;
-import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
-import com.ingenico.connect.gateway.sdk.java.Factory;
-import com.ingenico.connect.gateway.sdk.java.domain.sessions.SessionRequest;
-import com.ingenico.connect.gateway.sdk.java.domain.sessions.SessionResponse;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.Client;
+import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
+import com.ingenico.connect.gateway.sdk.java.Factory;
+import com.ingenico.connect.gateway.sdk.java.domain.sessions.SessionRequest;
+import com.ingenico.connect.gateway.sdk.java.domain.sessions.SessionResponse;
 
 public class CreateSessionExample {
 

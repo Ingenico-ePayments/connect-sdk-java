@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.publickey;
 
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PublicKey">PublicKey</a>
  */

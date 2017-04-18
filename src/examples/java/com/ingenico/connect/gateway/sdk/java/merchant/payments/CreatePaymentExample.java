@@ -4,6 +4,12 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
@@ -28,11 +34,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderInv
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalInformation;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalName;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CreatePaymentExample {
 

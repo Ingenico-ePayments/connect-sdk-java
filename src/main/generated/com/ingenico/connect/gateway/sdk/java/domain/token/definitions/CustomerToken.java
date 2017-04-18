@@ -5,7 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Address;
-import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.PersonalInformationToken;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.CustomerBase;
 
 /**

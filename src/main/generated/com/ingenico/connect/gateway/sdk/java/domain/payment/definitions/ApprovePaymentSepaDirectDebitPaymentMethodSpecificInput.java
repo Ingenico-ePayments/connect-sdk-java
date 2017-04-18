@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ApprovePaymentPaymentMethodSpecificInput;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_ApprovePaymentSepaDirectDebitPaymentMethodSpecificInput">ApprovePaymentSepaDirectDebitPaymentMethodSpecificInput</a>
  */

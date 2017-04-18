@@ -5,9 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Address;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.AddressPersonal;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ContactDetails;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalInformation;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.CustomerBase;
 
 /**

@@ -4,8 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product;
 
-import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.PaymentProduct;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.PaymentProduct;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentProducts">PaymentProducts</a>

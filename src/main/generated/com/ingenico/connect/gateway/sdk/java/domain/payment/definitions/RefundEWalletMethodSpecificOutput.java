@@ -4,9 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundPaymentProduct840SpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundMethodSpecificOutput;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RefundEWalletMethodSpecificOutput">RefundEWalletMethodSpecificOutput</a>
  */

@@ -5,7 +5,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentReferences;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_OrderOutput">OrderOutput</a>

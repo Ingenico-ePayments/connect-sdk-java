@@ -4,10 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentProduct1503SpecificInput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentProduct1504SpecificInput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificInputBase;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CashPaymentMethodSpecificInput">CashPaymentMethodSpecificInput</a>
  */

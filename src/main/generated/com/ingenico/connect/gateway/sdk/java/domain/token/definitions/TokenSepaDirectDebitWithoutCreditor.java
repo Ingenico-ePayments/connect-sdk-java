@@ -4,10 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.CustomerTokenWithContactDetails;
-import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.MandateSepaDirectDebitWithoutCreditor;
-import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.AbstractToken;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_TokenSepaDirectDebitWithoutCreditor">TokenSepaDirectDebitWithoutCreditor</a>
  */

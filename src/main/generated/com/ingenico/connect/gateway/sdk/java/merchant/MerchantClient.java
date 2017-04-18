@@ -4,6 +4,8 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant;
 
+import java.util.Map;
+
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.merchant.hostedcheckouts.HostedcheckoutsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.payments.PaymentsClient;
@@ -15,7 +17,6 @@ import com.ingenico.connect.gateway.sdk.java.merchant.riskassessments.Riskassess
 import com.ingenico.connect.gateway.sdk.java.merchant.services.ServicesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.sessions.SessionsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.tokens.TokensClient;
-import java.util.Map;
 
 /**
  * Merchant client. Thread-safe.

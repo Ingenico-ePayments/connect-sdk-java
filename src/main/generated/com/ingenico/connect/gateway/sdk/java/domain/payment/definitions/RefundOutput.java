@@ -4,12 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundBankMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundCardMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundEWalletMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RefundMobileMethodSpecificOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderOutput;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RefundOutput">RefundOutput</a>
  */

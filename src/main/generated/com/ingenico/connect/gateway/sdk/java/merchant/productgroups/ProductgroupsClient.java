@@ -4,6 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.productgroups;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -16,8 +19,6 @@ import com.ingenico.connect.gateway.sdk.java.ValidationException;
 import com.ingenico.connect.gateway.sdk.java.domain.errors.ErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductGroupResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductGroups;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Productgroups client. Thread-safe.
@@ -137,7 +138,7 @@ public class ProductgroupsClient extends ApiResource {
 		} catch (ResponseException e) {
 			final Class<?> errorType;
 			switch (e.getStatusCode()) {
-			case 404 :
+			case 404:
 				errorType = ErrorResponse.class;
 				break;
 			default:

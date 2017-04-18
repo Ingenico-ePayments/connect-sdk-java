@@ -4,7 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RedirectPaymentProduct809SpecificInput">RedirectPaymentProduct809SpecificInput</a>
  */
@@ -14,10 +13,18 @@ public class RedirectPaymentProduct809SpecificInput {
 
 	private String issuerId = null;
 
+	/**
+	 * @deprecated Use RedirectPaymentMethodSpecificInput.expirationPeriod instead
+	 */
+	@Deprecated
 	public String getExpirationPeriod() {
 		return expirationPeriod;
 	}
 
+	/**
+	 * @deprecated Use RedirectPaymentMethodSpecificInput.expirationPeriod instead
+	 */
+	@Deprecated
 	public void setExpirationPeriod(String value) {
 		this.expirationPeriod = value;
 	}

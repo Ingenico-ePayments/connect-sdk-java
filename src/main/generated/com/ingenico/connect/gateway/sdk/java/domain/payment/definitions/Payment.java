@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentOutput;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PaymentStatusOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractOrderStatus;
 
 /**

@@ -4,9 +4,10 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payout;
 
+import java.util.List;
+
 import com.ingenico.connect.gateway.sdk.java.domain.errors.definitions.APIError;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutResult;
-import java.util.List;
 
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PayoutErrorResponse">PayoutErrorResponse</a>

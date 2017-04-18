@@ -4,6 +4,8 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.riskassessments;
 
+import java.util.Map;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.AuthorizationException;
@@ -17,7 +19,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.errors.ErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessmentBankAccount;
 import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessmentCard;
 import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessmentResponse;
-import java.util.Map;
 
 /**
  * Riskassessments client. Thread-safe.

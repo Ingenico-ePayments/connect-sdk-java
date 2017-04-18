@@ -4,8 +4,6 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.token.definitions.TokenNonSepaDirectDebitPaymentProduct705SpecificData;
-
 /**
  * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_MandateNonSepaDirectDebit">MandateNonSepaDirectDebit</a>
  */

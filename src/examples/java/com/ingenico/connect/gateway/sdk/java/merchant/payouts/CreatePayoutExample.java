@@ -4,6 +4,11 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payouts;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.List;
+
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
@@ -21,10 +26,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.payout.PayoutResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutCustomer;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutResult;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.List;
 
 public class CreatePayoutExample {
 

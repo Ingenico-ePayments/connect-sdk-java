@@ -4,10 +4,11 @@
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.tokens;
 
-import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
-import com.ingenico.connect.gateway.sdk.java.RequestParam;
 import java.util.LinkedList;
 import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
+import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for

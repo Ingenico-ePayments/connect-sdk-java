@@ -75,12 +75,7 @@ public class ProductgroupsClient extends ApiResource {
 					PaymentProductGroups.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -136,15 +131,7 @@ public class ProductgroupsClient extends ApiResource {
 					PaymentProductGroupResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 404:
-				errorType = ErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}

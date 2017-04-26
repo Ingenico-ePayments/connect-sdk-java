@@ -21,8 +21,8 @@ public class ConvertAmountExample {
 		try {
 			ConvertAmountParams query = new ConvertAmountParams();
 			query.setSource("EUR");
-			query.setAmount(100L);
 			query.setTarget("USD");
+			query.setAmount(100L);
 
 			ConvertAmount response = client.merchant("merchantId").services().convertAmount(query);
 		} finally {

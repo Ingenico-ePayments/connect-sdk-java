@@ -16,17 +16,9 @@ import com.ingenico.connect.gateway.sdk.java.RequestParam;
  */
 public class DirectoryParams extends AbstractParamRequest {
 
-	private String currencyCode;
-
 	private String countryCode;
 
-	public String getCurrencyCode() {
-		return currencyCode;
-	}
-
-	public void setCurrencyCode(String value) {
-		this.currencyCode = value;
-	}
+	private String currencyCode;
 
 	public String getCountryCode() {
 		return countryCode;
@@ -36,11 +28,19 @@ public class DirectoryParams extends AbstractParamRequest {
 		this.countryCode = value;
 	}
 
+	public String getCurrencyCode() {
+		return currencyCode;
+	}
+
+	public void setCurrencyCode(String value) {
+		this.currencyCode = value;
+	}
+
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "currencyCode", currencyCode);
 		addParameter(result, "countryCode", countryCode);
+		addParameter(result, "currencyCode", currencyCode);
 		return result;
 	}
 }

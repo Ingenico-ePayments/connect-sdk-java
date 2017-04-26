@@ -79,79 +79,7 @@ public class TokensClient extends ApiResource {
 					CreateTokenResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 403:
-				errorType = ErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
-			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
-		}
-	}
-
-	/**
-	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
-	 *
-	 * @param tokenId String
-	 * @param query DeleteTokenParams
-	 * @return Void
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
-	 */
-	public Void delete(String tokenId, DeleteTokenParams query) {
-		return delete(tokenId, query, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
-	 *
-	 * @param tokenId String
-	 * @param query DeleteTokenParams
-	 * @param context CallContext
-	 * @return Void
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
-	 */
-	public Void delete(String tokenId, DeleteTokenParams query, CallContext context) {
-		Map<String, String> pathContext = new TreeMap<String, String>();
-		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
-		try {
-			return communicator.delete(
-					uri,
-					getClientHeaders(),
-					query,
-					Void.class,
-					context);
-		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 404:
-				errorType = ErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -205,15 +133,7 @@ public class TokensClient extends ApiResource {
 					TokenResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 404:
-				errorType = ErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -270,12 +190,63 @@ public class TokensClient extends ApiResource {
 					Void.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 *
+	 * @param tokenId String
+	 * @param query DeleteTokenParams
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void delete(String tokenId, DeleteTokenParams query) {
+		return delete(tokenId, query, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/tokens/{tokenId}
+	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 *
+	 * @param tokenId String
+	 * @param query DeleteTokenParams
+	 * @param context CallContext
+	 * @return Void
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public Void delete(String tokenId, DeleteTokenParams query, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("tokenId", tokenId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
+		try {
+			return communicator.delete(
+					uri,
+					getClientHeaders(),
+					query,
+					Void.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -332,12 +303,7 @@ public class TokensClient extends ApiResource {
 					Void.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}

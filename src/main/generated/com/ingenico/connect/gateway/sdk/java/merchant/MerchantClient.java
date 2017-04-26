@@ -28,16 +28,6 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/hostedcheckouts
-	 * Create new hosted checkout
-	 *
-	 * @return HostedcheckoutsClient
-	 */
-	public HostedcheckoutsClient hostedcheckouts() {
-		return new HostedcheckoutsClient(this, null);
-	}
-
-	/**
 	 * Resource /{merchantId}/payments
 	 * Create, cancel and approve payments
 	 *
@@ -58,16 +48,6 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/productgroups
-	 * Get information about payment product groups
-	 *
-	 * @return ProductgroupsClient
-	 */
-	public ProductgroupsClient productgroups() {
-		return new ProductgroupsClient(this, null);
-	}
-
-	/**
 	 * Resource /{merchantId}/products
 	 * Get information about payment products
 	 *
@@ -75,6 +55,16 @@ public class MerchantClient extends ApiResource {
 	 */
 	public ProductsClient products() {
 		return new ProductsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/productgroups
+	 * Get information about payment product groups
+	 *
+	 * @return ProductgroupsClient
+	 */
+	public ProductgroupsClient productgroups() {
+		return new ProductgroupsClient(this, null);
 	}
 
 	/**
@@ -125,5 +115,15 @@ public class MerchantClient extends ApiResource {
 	 */
 	public TokensClient tokens() {
 		return new TokensClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/hostedcheckouts
+	 * Create new hosted checkout
+	 *
+	 * @return HostedcheckoutsClient
+	 */
+	public HostedcheckoutsClient hostedcheckouts() {
+		return new HostedcheckoutsClient(this, null);
 	}
 }

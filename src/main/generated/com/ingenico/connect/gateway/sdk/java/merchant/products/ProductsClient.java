@@ -78,12 +78,7 @@ public class ProductsClient extends ApiResource {
 					PaymentProducts.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -139,12 +134,7 @@ public class ProductsClient extends ApiResource {
 					PaymentProductResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -200,15 +190,7 @@ public class ProductsClient extends ApiResource {
 					Directory.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 404:
-				errorType = ErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -264,15 +246,7 @@ public class ProductsClient extends ApiResource {
 					PaymentProductNetworksResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 404:
-				errorType = ErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -326,15 +300,7 @@ public class ProductsClient extends ApiResource {
 					PublicKey.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 404:
-				errorType = ErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}

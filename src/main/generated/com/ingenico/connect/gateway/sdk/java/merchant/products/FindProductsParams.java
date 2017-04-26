@@ -16,17 +16,41 @@ import com.ingenico.connect.gateway.sdk.java.RequestParam;
  */
 public class FindProductsParams extends AbstractParamRequest {
 
-	private Long amount;
-
-	private List<String> hide;
-
-	private Boolean isRecurring;
-
 	private String countryCode;
+
+	private String currencyCode;
 
 	private String locale;
 
-	private String currencyCode;
+	private Long amount;
+
+	private Boolean isRecurring;
+
+	private List<String> hide;
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public void setCountryCode(String value) {
+		this.countryCode = value;
+	}
+
+	public String getCurrencyCode() {
+		return currencyCode;
+	}
+
+	public void setCurrencyCode(String value) {
+		this.currencyCode = value;
+	}
+
+	public String getLocale() {
+		return locale;
+	}
+
+	public void setLocale(String value) {
+		this.locale = value;
+	}
 
 	public Long getAmount() {
 		return amount;
@@ -34,6 +58,14 @@ public class FindProductsParams extends AbstractParamRequest {
 
 	public void setAmount(Long value) {
 		this.amount = value;
+	}
+
+	public Boolean getIsRecurring() {
+		return isRecurring;
+	}
+
+	public void setIsRecurring(Boolean value) {
+		this.isRecurring = value;
 	}
 
 	public List<String> getHide() {
@@ -62,47 +94,15 @@ public class FindProductsParams extends AbstractParamRequest {
 		this.hide.add(value);
 	}
 
-	public Boolean getIsRecurring() {
-		return isRecurring;
-	}
-
-	public void setIsRecurring(Boolean value) {
-		this.isRecurring = value;
-	}
-
-	public String getCountryCode() {
-		return countryCode;
-	}
-
-	public void setCountryCode(String value) {
-		this.countryCode = value;
-	}
-
-	public String getLocale() {
-		return locale;
-	}
-
-	public void setLocale(String value) {
-		this.locale = value;
-	}
-
-	public String getCurrencyCode() {
-		return currencyCode;
-	}
-
-	public void setCurrencyCode(String value) {
-		this.currencyCode = value;
-	}
-
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "amount", amount);
-		addParameter(result, "hide", hide);
-		addParameter(result, "isRecurring", isRecurring);
 		addParameter(result, "countryCode", countryCode);
-		addParameter(result, "locale", locale);
 		addParameter(result, "currencyCode", currencyCode);
+		addParameter(result, "locale", locale);
+		addParameter(result, "amount", amount);
+		addParameter(result, "isRecurring", isRecurring);
+		addParameter(result, "hide", hide);
 		return result;
 	}
 }

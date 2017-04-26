@@ -20,11 +20,11 @@ public class GetPaymentProductsExample {
 		Client client = getClient();
 		try {
 			FindProductsParams query = new FindProductsParams();
+			query.setCountryCode("US");
+			query.setCurrencyCode("USD");
+			query.setLocale("en_US");
 			query.setAmount(1000L);
 			query.setIsRecurring(true);
-			query.setCountryCode("US");
-			query.setLocale("en_US");
-			query.setCurrencyCode("USD");
 			query.addHide("fields");
 
 			PaymentProducts response = client.merchant("merchantId").products().find(query);

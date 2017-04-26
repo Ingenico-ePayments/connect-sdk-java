@@ -1,4 +1,4 @@
 \QOutgoing request (requestId='\E([-a-zA-Z0-9]+)\Q'):
   method:       'GET'
-  uri:          '/v1/1234/services/convert/amount?source=EUR&amount=1000&target=USD'
+  uri:          '/v1/1234/services/convert/amount?source=EUR&target=USD&amount=1000'
   headers:      'X-GCS-ServerMetaInfo="\E[^"]*\Q", Date="\E[^"]+\Q", Authorization="********"\E[^']*\Q'\E

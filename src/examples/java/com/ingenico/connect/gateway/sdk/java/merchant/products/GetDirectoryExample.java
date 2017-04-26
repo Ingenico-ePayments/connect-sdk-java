@@ -20,8 +20,8 @@ public class GetDirectoryExample {
 		Client client = getClient();
 		try {
 			DirectoryParams query = new DirectoryParams();
-			query.setCurrencyCode("EUR");
 			query.setCountryCode("NL");
+			query.setCurrencyCode("EUR");
 
 			Directory response = client.merchant("merchantId").products().directory(809, query);
 		} finally {

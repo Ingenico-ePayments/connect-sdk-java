@@ -20,11 +20,11 @@ public class GetPaymentProductGroupExample {
 		Client client = getClient();
 		try {
 			GetProductgroupParams query = new GetProductgroupParams();
+			query.setCountryCode("NL");
+			query.setCurrencyCode("EUR");
+			query.setLocale("en_US");
 			query.setAmount(1000L);
 			query.setIsRecurring(true);
-			query.setCountryCode("NL");
-			query.setLocale("en_US");
-			query.setCurrencyCode("EUR");
 			query.addHide("fields");
 
 			PaymentProductGroupResponse response = client.merchant("merchantId").productgroups().get("cards", query);

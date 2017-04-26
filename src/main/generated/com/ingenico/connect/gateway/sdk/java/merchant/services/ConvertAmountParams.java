@@ -18,9 +18,9 @@ public class ConvertAmountParams extends AbstractParamRequest {
 
 	private String source;
 
-	private Long amount;
-
 	private String target;
+
+	private Long amount;
 
 	public String getSource() {
 		return source;
@@ -28,14 +28,6 @@ public class ConvertAmountParams extends AbstractParamRequest {
 
 	public void setSource(String value) {
 		this.source = value;
-	}
-
-	public Long getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Long value) {
-		this.amount = value;
 	}
 
 	public String getTarget() {
@@ -46,12 +38,20 @@ public class ConvertAmountParams extends AbstractParamRequest {
 		this.target = value;
 	}
 
+	public Long getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Long value) {
+		this.amount = value;
+	}
+
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
 		addParameter(result, "source", source);
-		addParameter(result, "amount", amount);
 		addParameter(result, "target", target);
+		addParameter(result, "amount", amount);
 		return result;
 	}
 }

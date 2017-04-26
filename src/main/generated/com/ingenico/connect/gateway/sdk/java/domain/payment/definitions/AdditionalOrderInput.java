@@ -13,6 +13,7 @@ public class AdditionalOrderInput {
 
 	private AirlineData airlineData = null;
 
+	@SuppressWarnings("deprecation")
 	private Level3SummaryData level3SummaryData = null;
 
 	private Long numberOfInstallments = null;

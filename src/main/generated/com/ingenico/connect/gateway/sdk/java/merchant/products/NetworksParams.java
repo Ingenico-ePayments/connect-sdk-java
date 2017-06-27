@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.products;
 
@@ -12,7 +12,7 @@ import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
- * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__networks_get">Get payment product networks</a>
+ * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
  */
 public class NetworksParams extends AbstractParamRequest {
 
@@ -24,34 +24,64 @@ public class NetworksParams extends AbstractParamRequest {
 
 	private Boolean isRecurring;
 
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
+	/**
+	 * ISO 3166-1 alpha-2 country code
+	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
 	public String getCurrencyCode() {
 		return currencyCode;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the currency for the amount
+	 */
 	public void setCurrencyCode(String value) {
 		this.currencyCode = value;
 	}
 
+	/**
+	 * Amount in cents and always having 2 decimals
+	 */
 	public Long getAmount() {
 		return amount;
 	}
 
+	/**
+	 * Amount in cents and always having 2 decimals
+	 */
 	public void setAmount(Long value) {
 		this.amount = value;
 	}
 
+	/**
+	 * This allows you to filter networks based on their support for recurring or not
+	 * <ul><li>true
+	 * <li>false
+	 * </ul>
+	 */
 	public Boolean getIsRecurring() {
 		return isRecurring;
 	}
 
+	/**
+	 * This allows you to filter networks based on their support for recurring or not
+	 * <ul><li>true
+	 * <li>false
+	 * </ul>
+	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
 	}

@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.productgroups;
 
@@ -31,7 +31,7 @@ public class ProductgroupsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/productgroups
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__productgroups_get">Get payment product groups</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/productgroups/find.html">Get payment product groups</a>
 	 *
 	 * @param query FindProductgroupsParams
 	 * @return PaymentProductGroups
@@ -50,7 +50,7 @@ public class ProductgroupsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/productgroups
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__productgroups_get">Get payment product groups</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/productgroups/find.html">Get payment product groups</a>
 	 *
 	 * @param query FindProductgroupsParams
 	 * @param context CallContext
@@ -83,7 +83,7 @@ public class ProductgroupsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/productgroups/{paymentProductGroupId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__productgroups__paymentProductGroupId__get">Get payment product group</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/productgroups/get.html">Get payment product group</a>
 	 *
 	 * @param paymentProductGroupId String
 	 * @param query GetProductgroupParams
@@ -103,7 +103,7 @@ public class ProductgroupsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/productgroups/{paymentProductGroupId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__productgroups__paymentProductGroupId__get">Get payment product group</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/productgroups/get.html">Get payment product group</a>
 	 *
 	 * @param paymentProductGroupId String
 	 * @param query GetProductgroupParams

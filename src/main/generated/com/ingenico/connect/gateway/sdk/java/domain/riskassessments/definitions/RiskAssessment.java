@@ -1,14 +1,11 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.FraudFields;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RiskAssessment">RiskAssessment</a>
- */
 public class RiskAssessment {
 
 	private FraudFields fraudFields = null;
@@ -17,10 +14,16 @@ public class RiskAssessment {
 
 	private Integer paymentProductId = null;
 
+	/**
+	 * Object containing additional data that will be used to assess the risk of fraud
+	 */
 	public FraudFields getFraudFields() {
 		return fraudFields;
 	}
 
+	/**
+	 * Object containing additional data that will be used to assess the risk of fraud
+	 */
 	public void setFraudFields(FraudFields value) {
 		this.fraudFields = value;
 	}
@@ -33,10 +36,18 @@ public class RiskAssessment {
 		this.order = value;
 	}
 
+	/**
+	 * Payment product identifier<br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/paymentproducts.html">payment products</a> for a full overview of possible values.
+	 */
 	public Integer getPaymentProductId() {
 		return paymentProductId;
 	}
 
+	/**
+	 * Payment product identifier<br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/paymentproducts.html">payment products</a> for a full overview of possible values.
+	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
 	}

@@ -1,22 +1,27 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product;
 
 import java.util.List;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentProductNetworksResponse">PaymentProductNetworksResponse</a>
- */
 public class PaymentProductNetworksResponse {
 
 	private List<String> networks = null;
 
+	/**
+	 * Array containing network entries for a payment product. The strings that represent the networks in the array are identical to the strings that the payment product vendors use in their documentation.
+	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/InstrumentInfo#getInstrumentType()" target="_blank">Android Pay</a>.
+	 */
 	public List<String> getNetworks() {
 		return networks;
 	}
 
+	/**
+	 * Array containing network entries for a payment product. The strings that represent the networks in the array are identical to the strings that the payment product vendors use in their documentation.
+	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/InstrumentInfo#getInstrumentType()" target="_blank">Android Pay</a>.
+	 */
 	public void setNetworks(List<String> value) {
 		this.networks = value;
 	}

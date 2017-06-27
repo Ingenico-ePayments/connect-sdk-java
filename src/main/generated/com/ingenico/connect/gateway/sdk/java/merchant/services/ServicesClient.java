@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.services;
 
@@ -34,7 +34,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/convert/amount
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_convert_amount_get">Convert amount</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/convertAmount.html">Convert amount</a>
 	 *
 	 * @param query ConvertAmountParams
 	 * @return ConvertAmount
@@ -53,7 +53,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/convert/amount
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_convert_amount_get">Convert amount</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/convertAmount.html">Convert amount</a>
 	 *
 	 * @param query ConvertAmountParams
 	 * @param context CallContext
@@ -86,7 +86,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/convert/bankaccount
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_convert_bankaccount_post">Convert Bankaccount</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/bankaccount.html">Convert bankaccount</a>
 	 *
 	 * @param body BankDetailsRequest
 	 * @return BankDetailsResponse
@@ -105,7 +105,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/convert/bankaccount
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_convert_bankaccount_post">Convert Bankaccount</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/bankaccount.html">Convert bankaccount</a>
 	 *
 	 * @param body BankDetailsRequest
 	 * @param context CallContext
@@ -139,7 +139,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/getIINdetails
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_getIINdetails_post">Get IIN details</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/getIINdetails.html">Get IIN details</a>
 	 *
 	 * @param body GetIINDetailsRequest
 	 * @return GetIINDetailsResponse
@@ -158,7 +158,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/getIINdetails
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_getIINdetails_post">Get IIN details</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/getIINdetails.html">Get IIN details</a>
 	 *
 	 * @param body GetIINDetailsRequest
 	 * @param context CallContext
@@ -192,7 +192,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/testconnection
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_testconnection_get">Test connection</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/testconnection.html">Test connection</a>
 	 *
 	 * @return TestConnection
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
@@ -210,7 +210,7 @@ public class ServicesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services/testconnection
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_testconnection_get">Test connection</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/testconnection.html">Test connection</a>
 	 *
 	 * @param context CallContext
 	 * @return TestConnection

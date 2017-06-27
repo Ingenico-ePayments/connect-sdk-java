@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment;
 
@@ -9,7 +9,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CancelPa
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Payment;
 
 /**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CancelPaymentResponse">CancelPaymentResponse</a>
+ * Response to the cancelation of a payment
  */
 public class CancelPaymentResponse {
 
@@ -19,26 +19,44 @@ public class CancelPaymentResponse {
 
 	private Payment payment = null;
 
+	/**
+	 * Object that holds specific information on cancelled card payments
+	 */
 	public CancelPaymentCardPaymentMethodSpecificOutput getCardPaymentMethodSpecificOutput() {
 		return cardPaymentMethodSpecificOutput;
 	}
 
+	/**
+	 * Object that holds specific information on cancelled card payments
+	 */
 	public void setCardPaymentMethodSpecificOutput(CancelPaymentCardPaymentMethodSpecificOutput value) {
 		this.cardPaymentMethodSpecificOutput = value;
 	}
 
+	/**
+	 * Object that holds specific information on cancelled mobile payments
+	 */
 	public CancelPaymentMobilePaymentMethodSpecificOutput getMobilePaymentMethodSpecificOutput() {
 		return mobilePaymentMethodSpecificOutput;
 	}
 
+	/**
+	 * Object that holds specific information on cancelled mobile payments
+	 */
 	public void setMobilePaymentMethodSpecificOutput(CancelPaymentMobilePaymentMethodSpecificOutput value) {
 		this.mobilePaymentMethodSpecificOutput = value;
 	}
 
+	/**
+	 * Object that holds the payment related fields
+	 */
 	public Payment getPayment() {
 		return payment;
 	}
 
+	/**
+	 * Object that holds the payment related fields
+	 */
 	public void setPayment(Payment value) {
 		this.payment = value;
 	}

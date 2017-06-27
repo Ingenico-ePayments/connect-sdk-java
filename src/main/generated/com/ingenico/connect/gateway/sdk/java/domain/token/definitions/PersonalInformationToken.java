@@ -1,20 +1,23 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PersonalInformationToken">PersonalInformationToken</a>
- */
 public class PersonalInformationToken {
 
 	private PersonalNameToken name = null;
 
+	/**
+	 * Given name(s) or first name(s) of the consumer
+	 */
 	public PersonalNameToken getName() {
 		return name;
 	}
 
+	/**
+	 * Given name(s) or first name(s) of the consumer
+	 */
 	public void setName(PersonalNameToken value) {
 		this.name = value;
 	}

@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.products;
 
@@ -34,7 +34,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products_get">Get payment products</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/find.html">Get payment products</a>
 	 *
 	 * @param query FindProductsParams
 	 * @return PaymentProducts
@@ -53,7 +53,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products_get">Get payment products</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/find.html">Get payment products</a>
 	 *
 	 * @param query FindProductsParams
 	 * @param context CallContext
@@ -86,7 +86,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__get">Get payment product</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query GetProductParams
@@ -106,7 +106,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__get">Get payment product</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query GetProductParams
@@ -142,7 +142,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/directory
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__directory_get">Get payment product directory</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/directory.html">Get payment product directory</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query DirectoryParams
@@ -162,7 +162,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/directory
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__directory_get">Get payment product directory</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/directory.html">Get payment product directory</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query DirectoryParams
@@ -198,7 +198,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/networks
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__networks_get">Get payment product networks</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query NetworksParams
@@ -218,7 +218,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/networks
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__networks_get">Get payment product networks</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query NetworksParams
@@ -254,7 +254,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/publicKey
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__publicKey_get">Get payment product specific public key</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @return PublicKey
@@ -273,7 +273,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/publicKey
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__products__paymentProductId__publicKey_get">Get payment product specific public key</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param context CallContext

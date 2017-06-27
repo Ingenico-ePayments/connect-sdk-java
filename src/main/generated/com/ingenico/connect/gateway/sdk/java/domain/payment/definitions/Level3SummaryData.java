@@ -1,13 +1,11 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 /**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_Level3SummaryData">Level3SummaryData</a>
- *
- * @deprecated Use ShoppingCart instead
+ * @deprecated Use Order.shoppingCart instead
  */
 @Deprecated
 public class Level3SummaryData {
@@ -19,7 +17,9 @@ public class Level3SummaryData {
 	private Long shippingAmount = null;
 
 	/**
-	 * @deprecated Use ShoppingCart.discountAmount instead
+	 * Discount on the entire transaction, with the last 2 digits are implied decimal places
+	 *
+	 * @deprecated Use ShoppingCart.amountbreakdown with type DISCOUNT instead
 	 */
 	@Deprecated
 	public Long getDiscountAmount() {
@@ -27,7 +27,9 @@ public class Level3SummaryData {
 	}
 
 	/**
-	 * @deprecated Use ShoppingCart.discountAmount instead
+	 * Discount on the entire transaction, with the last 2 digits are implied decimal places
+	 *
+	 * @deprecated Use ShoppingCart.amountbreakdown with type DISCOUNT instead
 	 */
 	@Deprecated
 	public void setDiscountAmount(Long value) {
@@ -35,7 +37,9 @@ public class Level3SummaryData {
 	}
 
 	/**
-	 * @deprecated Use ShoppingCart.dutyAmount instead
+	 * Duty on the entire transaction, with the last 2 digits are implied decimal places
+	 *
+	 * @deprecated Use ShoppingCart.amountbreakdown with type DUTY instead
 	 */
 	@Deprecated
 	public Long getDutyAmount() {
@@ -43,7 +47,9 @@ public class Level3SummaryData {
 	}
 
 	/**
-	 * @deprecated Use ShoppingCart.dutyAmount instead
+	 * Duty on the entire transaction, with the last 2 digits are implied decimal places
+	 *
+	 * @deprecated Use ShoppingCart.amountbreakdown with type DUTY instead
 	 */
 	@Deprecated
 	public void setDutyAmount(Long value) {
@@ -51,7 +57,9 @@ public class Level3SummaryData {
 	}
 
 	/**
-	 * @deprecated Use ShoppingCart.shippingAmount instead
+	 * Shippingcost on the entire transaction, with the last 2 digits are implied decimal places
+	 *
+	 * @deprecated Use ShoppingCart.amountbreakdown with type SHIPPING instead
 	 */
 	@Deprecated
 	public Long getShippingAmount() {
@@ -59,7 +67,9 @@ public class Level3SummaryData {
 	}
 
 	/**
-	 * @deprecated Use ShoppingCart.shippingAmount instead
+	 * Shippingcost on the entire transaction, with the last 2 digits are implied decimal places
+	 *
+	 * @deprecated Use ShoppingCart.amountbreakdown with type SHIPPING instead
 	 */
 	@Deprecated
 	public void setShippingAmount(Long value) {

@@ -1,13 +1,13 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
 import java.util.List;
 
 /**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_AccountOnFile">AccountOnFile</a>
+ * Elements from the AccountsOnFile array
  */
 public class AccountOnFile {
 
@@ -19,34 +19,60 @@ public class AccountOnFile {
 
 	private Integer paymentProductId = null;
 
+	/**
+	 * Array containing the details of the stored token
+	 */
 	public List<AccountOnFileAttribute> getAttributes() {
 		return attributes;
 	}
 
+	/**
+	 * Array containing the details of the stored token
+	 */
 	public void setAttributes(List<AccountOnFileAttribute> value) {
 		this.attributes = value;
 	}
 
+	/**
+	 * Object containing information for the client on how best to display this field
+	 */
 	public AccountOnFileDisplayHints getDisplayHints() {
 		return displayHints;
 	}
 
+	/**
+	 * Object containing information for the client on how best to display this field
+	 */
 	public void setDisplayHints(AccountOnFileDisplayHints value) {
 		this.displayHints = value;
 	}
 
+	/**
+	 * ID of the account on file record
+	 */
 	public Integer getId() {
 		return id;
 	}
 
+	/**
+	 * ID of the account on file record
+	 */
 	public void setId(Integer value) {
 		this.id = value;
 	}
 
+	/**
+	 * Payment product identifier<br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/paymentproducts.html">payment products</a> for a full overview of possible values.
+	 */
 	public Integer getPaymentProductId() {
 		return paymentProductId;
 	}
 
+	/**
+	 * Payment product identifier<br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/paymentproducts.html">payment products</a> for a full overview of possible values.
+	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
 	}

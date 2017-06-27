@@ -1,23 +1,26 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.riskassessments;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Card;
 import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions.RiskAssessment;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RiskAssessmentCard">RiskAssessmentCard</a>
- */
 public class RiskAssessmentCard extends RiskAssessment {
 
 	private Card card = null;
 
+	/**
+	 * Object containing Card object
+	 */
 	public Card getCard() {
 		return card;
 	}
 
+	/**
+	 * Object containing Card object
+	 */
 	public void setCard(Card value) {
 		this.card = value;
 	}

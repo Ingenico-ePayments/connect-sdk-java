@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.productgroups;
 
@@ -20,8 +20,8 @@ public class GetPaymentProductGroupExample {
 		Client client = getClient();
 		try {
 			GetProductgroupParams query = new GetProductgroupParams();
-			query.setCountryCode("NL");
-			query.setCurrencyCode("EUR");
+			query.setCountryCode("US");
+			query.setCurrencyCode("USD");
 			query.setLocale("en_US");
 			query.setAmount(1000L);
 			query.setIsRecurring(true);

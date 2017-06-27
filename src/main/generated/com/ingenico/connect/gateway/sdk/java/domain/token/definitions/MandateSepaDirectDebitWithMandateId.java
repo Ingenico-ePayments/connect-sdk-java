@@ -1,20 +1,23 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_MandateSepaDirectDebitWithMandateId">MandateSepaDirectDebitWithMandateId</a>
- */
 public class MandateSepaDirectDebitWithMandateId extends MandateSepaDirectDebitWithoutCreditor {
 
 	private String mandateId = null;
 
+	/**
+	 * Unique mandate identifier
+	 */
 	public String getMandateId() {
 		return mandateId;
 	}
 
+	/**
+	 * Unique mandate identifier
+	 */
 	public void setMandateId(String value) {
 		this.mandateId = value;
 	}

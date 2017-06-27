@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.services;
 
@@ -12,7 +12,7 @@ import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
- * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__services_convert_amount_get">Convert amount</a>
+ * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/convertAmount.html">Convert amount</a>
  */
 public class ConvertAmountParams extends AbstractParamRequest {
 
@@ -22,26 +22,44 @@ public class ConvertAmountParams extends AbstractParamRequest {
 
 	private Long amount;
 
+	/**
+	 * Three-letter ISO currency code representing the source currency
+	 */
 	public String getSource() {
 		return source;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the source currency
+	 */
 	public void setSource(String value) {
 		this.source = value;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the target currency
+	 */
 	public String getTarget() {
 		return target;
 	}
 
+	/**
+	 * Three-letter ISO currency code representing the target currency
+	 */
 	public void setTarget(String value) {
 		this.target = value;
 	}
 
+	/**
+	 * Amount to be converted in cents and always having 2 decimals
+	 */
 	public Long getAmount() {
 		return amount;
 	}
 
+	/**
+	 * Amount to be converted in cents and always having 2 decimals
+	 */
 	public void setAmount(Long value) {
 		this.amount = value;
 	}

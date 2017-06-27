@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.riskassessments;
 
@@ -31,7 +31,7 @@ public class RiskassessmentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/riskassessments/bankaccounts
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__riskassessments_bankaccounts_post">Risk-assess bank account</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/bankaccounts.html">Risk-assess bankaccount</a>
 	 *
 	 * @param body RiskAssessmentBankAccount
 	 * @return RiskAssessmentResponse
@@ -50,7 +50,7 @@ public class RiskassessmentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/riskassessments/bankaccounts
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__riskassessments_bankaccounts_post">Risk-assess bank account</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/bankaccounts.html">Risk-assess bankaccount</a>
 	 *
 	 * @param body RiskAssessmentBankAccount
 	 * @param context CallContext
@@ -84,7 +84,7 @@ public class RiskassessmentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/riskassessments/cards
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__riskassessments_cards_post">Risk-assess card</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/cards.html">Risk-assess card</a>
 	 *
 	 * @param body RiskAssessmentCard
 	 * @return RiskAssessmentResponse
@@ -103,7 +103,7 @@ public class RiskassessmentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/riskassessments/cards
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__riskassessments_cards_post">Risk-assess card</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/cards.html">Risk-assess card</a>
 	 *
 	 * @param body RiskAssessmentCard
 	 * @param context CallContext

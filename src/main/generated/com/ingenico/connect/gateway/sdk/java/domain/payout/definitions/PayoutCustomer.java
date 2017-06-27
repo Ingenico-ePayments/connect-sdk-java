@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payout.definitions;
 
@@ -9,9 +9,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.CompanyInformati
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.ContactDetailsBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalName;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PayoutCustomer">PayoutCustomer</a>
- */
 public class PayoutCustomer {
 
 	private Address address = null;
@@ -24,42 +21,72 @@ public class PayoutCustomer {
 
 	private PersonalName name = null;
 
+	/**
+	 * Object containing address details
+	 */
 	public Address getAddress() {
 		return address;
 	}
 
+	/**
+	 * Object containing address details
+	 */
 	public void setAddress(Address value) {
 		this.address = value;
 	}
 
+	/**
+	 * Object containing company information
+	 */
 	public CompanyInformation getCompanyInformation() {
 		return companyInformation;
 	}
 
+	/**
+	 * Object containing company information
+	 */
 	public void setCompanyInformation(CompanyInformation value) {
 		this.companyInformation = value;
 	}
 
+	/**
+	 * Object containing contact details like email address and phone number
+	 */
 	public ContactDetailsBase getContactDetails() {
 		return contactDetails;
 	}
 
+	/**
+	 * Object containing contact details like email address and phone number
+	 */
 	public void setContactDetails(ContactDetailsBase value) {
 		this.contactDetails = value;
 	}
 
+	/**
+	 * Your identifier for the consumer that can be used as a search criteria in the Global Collect Payment Console and is also included in the Global Collect report files. For Ingenco's Ogone Payment Platform this field is used in the fraud-screening process.
+	 */
 	public String getMerchantCustomerId() {
 		return merchantCustomerId;
 	}
 
+	/**
+	 * Your identifier for the consumer that can be used as a search criteria in the Global Collect Payment Console and is also included in the Global Collect report files. For Ingenco's Ogone Payment Platform this field is used in the fraud-screening process.
+	 */
 	public void setMerchantCustomerId(String value) {
 		this.merchantCustomerId = value;
 	}
 
+	/**
+	 * Object containing PersonalName object
+	 */
 	public PersonalName getName() {
 		return name;
 	}
 
+	/**
+	 * Object containing PersonalName object
+	 */
 	public void setName(PersonalName value) {
 		this.name = value;
 	}

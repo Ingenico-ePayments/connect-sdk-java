@@ -1,14 +1,11 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountIban;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RedirectPaymentMethodSpecificOutput">RedirectPaymentMethodSpecificOutput</a>
- */
 public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecificOutput {
 
 	private BankAccountIban bankAccountIban = null;
@@ -17,26 +14,44 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 
 	private PaymentProduct840SpecificOutput paymentProduct840SpecificOutput = null;
 
+	/**
+	 * Object containing account holder name and IBAN information
+	 */
 	public BankAccountIban getBankAccountIban() {
 		return bankAccountIban;
 	}
 
+	/**
+	 * Object containing account holder name and IBAN information
+	 */
 	public void setBankAccountIban(BankAccountIban value) {
 		this.bankAccountIban = value;
 	}
 
+	/**
+	 * SofortBanking (payment product 836) specific details
+	 */
 	public PaymentProduct836SpecificOutput getPaymentProduct836SpecificOutput() {
 		return paymentProduct836SpecificOutput;
 	}
 
+	/**
+	 * SofortBanking (payment product 836) specific details
+	 */
 	public void setPaymentProduct836SpecificOutput(PaymentProduct836SpecificOutput value) {
 		this.paymentProduct836SpecificOutput = value;
 	}
 
+	/**
+	 * PayPal (payment product 840) specific details
+	 */
 	public PaymentProduct840SpecificOutput getPaymentProduct840SpecificOutput() {
 		return paymentProduct840SpecificOutput;
 	}
 
+	/**
+	 * PayPal (payment product 840) specific details
+	 */
 	public void setPaymentProduct840SpecificOutput(PaymentProduct840SpecificOutput value) {
 		this.paymentProduct840SpecificOutput = value;
 	}

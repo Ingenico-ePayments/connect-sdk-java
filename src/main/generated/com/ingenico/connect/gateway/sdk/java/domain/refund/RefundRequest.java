@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.refund;
 
@@ -9,9 +9,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.BankRefun
 import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.RefundCustomer;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.definitions.RefundReferences;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RefundRequest">RefundRequest</a>
- */
 public class RefundRequest {
 
 	private AmountOfMoney amountOfMoney = null;
@@ -24,42 +21,74 @@ public class RefundRequest {
 
 	private RefundReferences refundReferences = null;
 
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
 	public AmountOfMoney getAmountOfMoney() {
 		return amountOfMoney;
 	}
 
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
 	}
 
+	/**
+	 * Object containing the specific input details for a bank refund
+	 */
 	public BankRefundMethodSpecificInput getBankRefundMethodSpecificInput() {
 		return bankRefundMethodSpecificInput;
 	}
 
+	/**
+	 * Object containing the specific input details for a bank refund
+	 */
 	public void setBankRefundMethodSpecificInput(BankRefundMethodSpecificInput value) {
 		this.bankRefundMethodSpecificInput = value;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public RefundCustomer getCustomer() {
 		return customer;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public void setCustomer(RefundCustomer value) {
 		this.customer = value;
 	}
 
+	/**
+	 * Refund date<br>
+	 * Format: YYYYMMDD
+	 */
 	public String getRefundDate() {
 		return refundDate;
 	}
 
+	/**
+	 * Refund date<br>
+	 * Format: YYYYMMDD
+	 */
 	public void setRefundDate(String value) {
 		this.refundDate = value;
 	}
 
+	/**
+	 * Object that holds all reference fields that are linked to this refund
+	 */
 	public RefundReferences getRefundReferences() {
 		return refundReferences;
 	}
 
+	/**
+	 * Object that holds all reference fields that are linked to this refund
+	 */
 	public void setRefundReferences(RefundReferences value) {
 		this.refundReferences = value;
 	}

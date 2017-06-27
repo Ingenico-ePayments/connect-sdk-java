@@ -1,15 +1,12 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Address;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.AddressPersonal;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_CustomerRiskAssessment">CustomerRiskAssessment</a>
- */
 public class CustomerRiskAssessment {
 
 	private Address billingAddress = null;
@@ -20,34 +17,58 @@ public class CustomerRiskAssessment {
 
 	private AddressPersonal shippingAddress = null;
 
+	/**
+	 * Object containing billing address details
+	 */
 	public Address getBillingAddress() {
 		return billingAddress;
 	}
 
+	/**
+	 * Object containing billing address details
+	 */
 	public void setBillingAddress(Address value) {
 		this.billingAddress = value;
 	}
 
+	/**
+	 * The locale that the consumer should be addressed in (for 3rd parties). Note that some 3rd party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
+	 */
 	public String getLocale() {
 		return locale;
 	}
 
+	/**
+	 * The locale that the consumer should be addressed in (for 3rd parties). Note that some 3rd party providers only support the languageCode part of the locale, in those cases we will only use part of the locale provided.
+	 */
 	public void setLocale(String value) {
 		this.locale = value;
 	}
 
+	/**
+	 * Object containing personal information like name, date of birth and gender
+	 */
 	public PersonalInformationRiskAssessment getPersonalInformation() {
 		return personalInformation;
 	}
 
+	/**
+	 * Object containing personal information like name, date of birth and gender
+	 */
 	public void setPersonalInformation(PersonalInformationRiskAssessment value) {
 		this.personalInformation = value;
 	}
 
+	/**
+	 * Object containing shipping address details
+	 */
 	public AddressPersonal getShippingAddress() {
 		return shippingAddress;
 	}
 
+	/**
+	 * Object containing shipping address details
+	 */
 	public void setShippingAddress(AddressPersonal value) {
 		this.shippingAddress = value;
 	}

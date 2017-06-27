@@ -1,12 +1,13 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant;
 
 import java.util.Map;
 
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
+import com.ingenico.connect.gateway.sdk.java.merchant.captures.CapturesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.hostedcheckouts.HostedcheckoutsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.payments.PaymentsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.payouts.PayoutsClient;
@@ -35,6 +36,16 @@ public class MerchantClient extends ApiResource {
 	 */
 	public PaymentsClient payments() {
 		return new PaymentsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/captures
+	 * Get capture
+	 *
+	 * @return CapturesClient
+	 */
+	public CapturesClient captures() {
+		return new CapturesClient(this, null);
 	}
 
 	/**

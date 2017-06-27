@@ -1,30 +1,39 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_TokenNonSepaDirectDebit">TokenNonSepaDirectDebit</a>
- */
 public class TokenNonSepaDirectDebit extends AbstractToken {
 
 	private CustomerToken customer = null;
 
 	private MandateNonSepaDirectDebit mandate = null;
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public CustomerToken getCustomer() {
 		return customer;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public void setCustomer(CustomerToken value) {
 		this.customer = value;
 	}
 
+	/**
+	 * Object containing the mandate details
+	 */
 	public MandateNonSepaDirectDebit getMandate() {
 		return mandate;
 	}
 
+	/**
+	 * Object containing the mandate details
+	 */
 	public void setMandate(MandateNonSepaDirectDebit value) {
 		this.mandate = value;
 	}

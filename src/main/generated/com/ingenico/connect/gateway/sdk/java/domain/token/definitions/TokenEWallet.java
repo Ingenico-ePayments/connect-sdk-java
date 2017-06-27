@@ -1,30 +1,39 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_TokenEWallet">TokenEWallet</a>
- */
 public class TokenEWallet extends AbstractToken {
 
 	private CustomerToken customer = null;
 
 	private TokenEWalletData data = null;
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public CustomerToken getCustomer() {
 		return customer;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public void setCustomer(CustomerToken value) {
 		this.customer = value;
 	}
 
+	/**
+	 * Object containing the eWallet tokenizable data
+	 */
 	public TokenEWalletData getData() {
 		return data;
 	}
 
+	/**
+	 * Object containing the eWallet tokenizable data
+	 */
 	public void setData(TokenEWalletData value) {
 		this.data = value;
 	}

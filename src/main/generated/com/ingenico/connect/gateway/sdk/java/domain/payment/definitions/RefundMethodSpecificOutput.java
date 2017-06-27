@@ -1,22 +1,25 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RefundMethodSpecificOutput">RefundMethodSpecificOutput</a>
- */
 public class RefundMethodSpecificOutput {
 
 	private Long totalAmountPaid = null;
 
 	private Long totalAmountRefunded = null;
 
+	/**
+	 * Total paid amount (in cents and always with 2 decimals)
+	 */
 	public Long getTotalAmountPaid() {
 		return totalAmountPaid;
 	}
 
+	/**
+	 * Total paid amount (in cents and always with 2 decimals)
+	 */
 	public void setTotalAmountPaid(Long value) {
 		this.totalAmountPaid = value;
 	}

@@ -1,14 +1,11 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractOrderStatus;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_Payment">Payment</a>
- */
 public class Payment extends AbstractOrderStatus {
 
 	private PaymentOutput paymentOutput = null;
@@ -17,26 +14,84 @@ public class Payment extends AbstractOrderStatus {
 
 	private PaymentStatusOutput statusOutput = null;
 
+	/**
+	 * Object containing payment details
+	 */
 	public PaymentOutput getPaymentOutput() {
 		return paymentOutput;
 	}
 
+	/**
+	 * Object containing payment details
+	 */
 	public void setPaymentOutput(PaymentOutput value) {
 		this.paymentOutput = value;
 	}
 
+	/**
+	 * Current high-level status of the payment in a human-readable form. Possible values are :
+	 * <ul>
+	 * <li>ACCOUNT_VERIFIED - The account has been verified using a validation services like 0$ auth
+	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment is created.
+	 * <li>REDIRECTED - The consumer has been redirected to a 3rd party to complete the authentication/payment
+	 * <li>PENDING_PAYMENT - Instructions have been provided and we are now waiting for the money to come in
+	 * <li>PENDING_FRAUD_APPROVAL - The transaction has been marked for manual review after an automatic fraud screening
+	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the capturing of the funds
+	 * <li>REJECTED - The transaction has been rejected
+	 * <li>AUTHORIZATION_REQUESTED - we have requested an authorization against an asynchronous system and is awaiting its response
+	 * <li>CAPTURE_REQUESTED - The transaction is in the queue to be captured
+	 * <li>CAPTURED - The transaction has been captured and we have received online confirmation
+	 * <li>PAID - We have matched the incoming funds to the transaction
+	 * <li>CANCELLED - You have cancelled the transaction
+	 * <li>REJECTED_CAPTURE - We or one of our downstream acquirers/providers have rejected the capture request
+	 * <li>REVERSED - The transaction has been reversed
+	 * <li>CHARGEBACKED - The transaction has been chargebacked
+	 * <li>REFUNDED - The transaction has been refunded
+	 * </ul><br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
+	 */
 	public String getStatus() {
 		return status;
 	}
 
+	/**
+	 * Current high-level status of the payment in a human-readable form. Possible values are :
+	 * <ul>
+	 * <li>ACCOUNT_VERIFIED - The account has been verified using a validation services like 0$ auth
+	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment is created.
+	 * <li>REDIRECTED - The consumer has been redirected to a 3rd party to complete the authentication/payment
+	 * <li>PENDING_PAYMENT - Instructions have been provided and we are now waiting for the money to come in
+	 * <li>PENDING_FRAUD_APPROVAL - The transaction has been marked for manual review after an automatic fraud screening
+	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the capturing of the funds
+	 * <li>REJECTED - The transaction has been rejected
+	 * <li>AUTHORIZATION_REQUESTED - we have requested an authorization against an asynchronous system and is awaiting its response
+	 * <li>CAPTURE_REQUESTED - The transaction is in the queue to be captured
+	 * <li>CAPTURED - The transaction has been captured and we have received online confirmation
+	 * <li>PAID - We have matched the incoming funds to the transaction
+	 * <li>CANCELLED - You have cancelled the transaction
+	 * <li>REJECTED_CAPTURE - We or one of our downstream acquirers/providers have rejected the capture request
+	 * <li>REVERSED - The transaction has been reversed
+	 * <li>CHARGEBACKED - The transaction has been chargebacked
+	 * <li>REFUNDED - The transaction has been refunded
+	 * </ul><br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
+	 */
 	public void setStatus(String value) {
 		this.status = value;
 	}
 
+	/**
+	 * This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource.
+	 * In case of failed payments and negative scenarios, detailed error information is listed.
+	 */
 	public PaymentStatusOutput getStatusOutput() {
 		return statusOutput;
 	}
 
+	/**
+	 * This object has the numeric representation of the current payment status, timestamp of last status change and performable action on the current payment resource.
+	 * In case of failed payments and negative scenarios, detailed error information is listed.
+	 */
 	public void setStatusOutput(PaymentStatusOutput value) {
 		this.statusOutput = value;
 	}

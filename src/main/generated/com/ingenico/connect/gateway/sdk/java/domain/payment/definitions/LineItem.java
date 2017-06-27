@@ -1,14 +1,11 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_LineItem">LineItem</a>
- */
 public class LineItem {
 
 	private AmountOfMoney amountOfMoney = null;
@@ -19,23 +16,39 @@ public class LineItem {
 
 	private OrderLineDetails orderLineDetails = null;
 
+	/**
+	 * Object containing amount and ISO currency code attributes<br>
+	 * Note: make sure you submit the amount and currency code for each line item
+	 */
 	public AmountOfMoney getAmountOfMoney() {
 		return amountOfMoney;
 	}
 
+	/**
+	 * Object containing amount and ISO currency code attributes<br>
+	 * Note: make sure you submit the amount and currency code for each line item
+	 */
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
 	}
 
+	/**
+	 * Object containing the line items of the invoice or shopping cart
+	 */
 	public LineItemInvoiceData getInvoiceData() {
 		return invoiceData;
 	}
 
+	/**
+	 * Object containing the line items of the invoice or shopping cart
+	 */
 	public void setInvoiceData(LineItemInvoiceData value) {
 		this.invoiceData = value;
 	}
 
 	/**
+	 * Object containing additional informationthat when supplied can have a beneficial effect on the discountrates
+	 *
 	 * @deprecated Use orderLineDetails instead
 	 */
 	@Deprecated
@@ -44,6 +57,8 @@ public class LineItem {
 	}
 
 	/**
+	 * Object containing additional informationthat when supplied can have a beneficial effect on the discountrates
+	 *
 	 * @deprecated Use orderLineDetails instead
 	 */
 	@Deprecated
@@ -51,10 +66,16 @@ public class LineItem {
 		this.level3InterchangeInformation = value;
 	}
 
+	/**
+	 * Object containing additional information that when supplied can have a beneficial effect on the discountrates
+	 */
 	public OrderLineDetails getOrderLineDetails() {
 		return orderLineDetails;
 	}
 
+	/**
+	 * Object containing additional information that when supplied can have a beneficial effect on the discountrates
+	 */
 	public void setOrderLineDetails(OrderLineDetails value) {
 		this.orderLineDetails = value;
 	}

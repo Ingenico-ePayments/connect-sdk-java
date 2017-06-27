@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.sessions;
 
@@ -30,7 +30,7 @@ public class SessionsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/sessions
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__sessions_post">Create Session</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/sessions/create.html">Create session</a>
 	 *
 	 * @param body SessionRequest
 	 * @return SessionResponse
@@ -49,7 +49,7 @@ public class SessionsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/sessions
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__sessions_post">Create Session</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/sessions/create.html">Create session</a>
 	 *
 	 * @param body SessionRequest
 	 * @param context CallContext

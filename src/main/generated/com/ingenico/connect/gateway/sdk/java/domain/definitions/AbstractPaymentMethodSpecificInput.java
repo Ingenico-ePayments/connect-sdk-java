@@ -1,20 +1,25 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_AbstractPaymentMethodSpecificInput">AbstractPaymentMethodSpecificInput</a>
- */
 public class AbstractPaymentMethodSpecificInput {
 
 	private Integer paymentProductId = null;
 
+	/**
+	 * Payment product identifier<br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/paymentproducts.html">payment products</a> for a full overview of possible values.
+	 */
 	public Integer getPaymentProductId() {
 		return paymentProductId;
 	}
 
+	/**
+	 * Payment product identifier<br>
+	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/paymentproducts.html">payment products</a> for a full overview of possible values.
+	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
 	}

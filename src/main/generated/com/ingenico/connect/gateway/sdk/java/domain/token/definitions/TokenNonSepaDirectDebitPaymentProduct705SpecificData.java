@@ -1,32 +1,41 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.token.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountBban;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_TokenNonSepaDirectDebitPaymentProduct705SpecificData">TokenNonSepaDirectDebitPaymentProduct705SpecificData</a>
- */
 public class TokenNonSepaDirectDebitPaymentProduct705SpecificData {
 
 	private String authorisationId = null;
 
 	private BankAccountBban bankAccountBban = null;
 
+	/**
+	 * Core reference number for the direct debit instruction in UK
+	 */
 	public String getAuthorisationId() {
 		return authorisationId;
 	}
 
+	/**
+	 * Core reference number for the direct debit instruction in UK
+	 */
 	public void setAuthorisationId(String value) {
 		this.authorisationId = value;
 	}
 
+	/**
+	 * Object containing account holder name and bank account information
+	 */
 	public BankAccountBban getBankAccountBban() {
 		return bankAccountBban;
 	}
 
+	/**
+	 * Object containing account holder name and bank account information
+	 */
 	public void setBankAccountBban(BankAccountBban value) {
 		this.bankAccountBban = value;
 	}

@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.refunds;
 
@@ -31,7 +31,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__get">Get refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/get.html">Get refund</a>
 	 *
 	 * @param refundId String
 	 * @return RefundResponse
@@ -50,7 +50,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__get">Get refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/get.html">Get refund</a>
 	 *
 	 * @param refundId String
 	 * @param context CallContext
@@ -85,7 +85,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/approve
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__approve_post">Approve refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/approve.html">Approve refund</a>
 	 *
 	 * @param refundId String
 	 * @param body ApproveRefundRequest
@@ -105,7 +105,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/approve
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__approve_post">Approve refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/approve.html">Approve refund</a>
 	 *
 	 * @param refundId String
 	 * @param body ApproveRefundRequest
@@ -142,7 +142,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancel
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancel_post">Cancel refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancel.html">Cancel refund</a>
 	 *
 	 * @param refundId String
 	 * @return Void
@@ -161,7 +161,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancel
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancel_post">Cancel refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancel.html">Cancel refund</a>
 	 *
 	 * @param refundId String
 	 * @param context CallContext
@@ -197,7 +197,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancelapproval
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancelapproval_post">Undo approve refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancelapproval.html">Undo approve refund</a>
 	 *
 	 * @param refundId String
 	 * @return Void
@@ -216,7 +216,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancelapproval
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__refunds__refundId__cancelapproval_post">Undo approve refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancelapproval.html">Undo approve refund</a>
 	 *
 	 * @param refundId String
 	 * @param context CallContext

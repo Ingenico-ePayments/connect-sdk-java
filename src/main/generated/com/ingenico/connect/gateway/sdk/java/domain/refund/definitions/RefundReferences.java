@@ -1,20 +1,23 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.refund.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RefundReferences">RefundReferences</a>
- */
 public class RefundReferences {
 
 	private String merchantReference = null;
 
+	/**
+	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 */
 	public String getMerchantReference() {
 		return merchantReference;
 	}
 
+	/**
+	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 */
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;
 	}

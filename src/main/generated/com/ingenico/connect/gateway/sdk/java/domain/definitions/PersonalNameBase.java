@@ -1,12 +1,9 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PersonalNameBase">PersonalNameBase</a>
- */
 public class PersonalNameBase {
 
 	private String firstName = null;
@@ -15,10 +12,16 @@ public class PersonalNameBase {
 
 	private String surnamePrefix = null;
 
+	/**
+	 * Given name(s) or first name(s) of the consumer
+	 */
 	public String getFirstName() {
 		return firstName;
 	}
 
+	/**
+	 * Given name(s) or first name(s) of the consumer
+	 */
 	public void setFirstName(String value) {
 		this.firstName = value;
 	}
@@ -31,10 +34,16 @@ public class PersonalNameBase {
 		this.surname = value;
 	}
 
+	/**
+	 * Middle name - In between first name and surname - of the consumer
+	 */
 	public String getSurnamePrefix() {
 		return surnamePrefix;
 	}
 
+	/**
+	 * Middle name - In between first name and surname - of the consumer
+	 */
 	public void setSurnamePrefix(String value) {
 		this.surnamePrefix = value;
 	}

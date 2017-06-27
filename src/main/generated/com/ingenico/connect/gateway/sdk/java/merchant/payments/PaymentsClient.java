@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
@@ -18,10 +18,13 @@ import com.ingenico.connect.gateway.sdk.java.IdempotenceException;
 import com.ingenico.connect.gateway.sdk.java.ReferenceException;
 import com.ingenico.connect.gateway.sdk.java.ResponseException;
 import com.ingenico.connect.gateway.sdk.java.ValidationException;
+import com.ingenico.connect.gateway.sdk.java.domain.capture.CaptureResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.capture.CapturesResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.errors.ErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.ApprovePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CancelApprovalPaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CancelPaymentResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.CapturePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentApprovalResponse;
@@ -44,7 +47,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments_post">Create payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/create.html">Create payment</a>
 	 *
 	 * @param body CreatePaymentRequest
 	 * @return CreatePaymentResponse
@@ -64,7 +67,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments_post">Create payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/create.html">Create payment</a>
 	 *
 	 * @param body CreatePaymentRequest
 	 * @param context CallContext
@@ -119,7 +122,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__get">Get payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/get.html">Get payment</a>
 	 *
 	 * @param paymentId String
 	 * @return PaymentResponse
@@ -138,7 +141,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__get">Get payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/get.html">Get payment</a>
 	 *
 	 * @param paymentId String
 	 * @param context CallContext
@@ -173,7 +176,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/approve
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__approve_post">Capture payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html">Approve payment</a>
 	 *
 	 * @param paymentId String
 	 * @param body ApprovePaymentRequest
@@ -193,7 +196,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/approve
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__approve_post">Capture payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html">Approve payment</a>
 	 *
 	 * @param paymentId String
 	 * @param body ApprovePaymentRequest
@@ -229,8 +232,119 @@ public class PaymentsClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/payments/{paymentId}/capture
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/capture.html">Capture payment</a>
+	 *
+	 * @param paymentId String
+	 * @param body CapturePaymentRequest
+	 * @return CaptureResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CaptureResponse capture(String paymentId, CapturePaymentRequest body) {
+		return capture(paymentId, body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/capture
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/capture.html">Capture payment</a>
+	 *
+	 * @param paymentId String
+	 * @param body CapturePaymentRequest
+	 * @param context CallContext
+	 * @return CaptureResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CaptureResponse capture(String paymentId, CapturePaymentRequest body, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentId", paymentId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/capture", pathContext);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					CaptureResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/captures
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/captures.html">Get captures of payment</a>
+	 *
+	 * @param paymentId String
+	 * @return CapturesResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CapturesResponse captures(String paymentId) {
+		return captures(paymentId, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/captures
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/captures.html">Get captures of payment</a>
+	 *
+	 * @param paymentId String
+	 * @param context CallContext
+	 * @return CapturesResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CapturesResponse captures(String paymentId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentId", paymentId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/captures", pathContext);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					null,
+					CapturesResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
 	 * Resource /{merchantId}/payments/{paymentId}/cancel
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__cancel_post">Cancel payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancel.html">Cancel payment</a>
 	 *
 	 * @param paymentId String
 	 * @return CancelPaymentResponse
@@ -249,7 +363,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/cancel
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__cancel_post">Cancel payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancel.html">Cancel payment</a>
 	 *
 	 * @param paymentId String
 	 * @param context CallContext
@@ -285,7 +399,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/cancelapproval
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__cancelapproval_post">Undo capture payment request</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancelapproval.html">Undo capture payment request</a>
 	 *
 	 * @param paymentId String
 	 * @return CancelApprovalPaymentResponse
@@ -304,7 +418,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/cancelapproval
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__cancelapproval_post">Undo capture payment request</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancelapproval.html">Undo capture payment request</a>
 	 *
 	 * @param paymentId String
 	 * @param context CallContext
@@ -340,7 +454,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/processchallenged
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__processchallenged_post">Approves challenged payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/processchallenged.html">Approves challenged payment</a>
 	 *
 	 * @param paymentId String
 	 * @return PaymentResponse
@@ -359,7 +473,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/processchallenged
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__processchallenged_post">Approves challenged payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/processchallenged.html">Approves challenged payment</a>
 	 *
 	 * @param paymentId String
 	 * @param context CallContext
@@ -395,7 +509,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/refund
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__refund_post">Create refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/refund.html">Create refund</a>
 	 *
 	 * @param paymentId String
 	 * @param body RefundRequest
@@ -416,7 +530,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/refund
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__refund_post">Create refund</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/refund.html">Create refund</a>
 	 *
 	 * @param paymentId String
 	 * @param body RefundRequest
@@ -465,7 +579,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/tokenize
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__tokenize_post">Create a token from payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/tokenize.html">Create a token from payment</a>
 	 *
 	 * @param paymentId String
 	 * @param body TokenizePaymentRequest
@@ -485,7 +599,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/tokenize
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__payments__paymentId__tokenize_post">Create a token from payment</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/tokenize.html">Create a token from payment</a>
 	 *
 	 * @param paymentId String
 	 * @param body TokenizePaymentRequest

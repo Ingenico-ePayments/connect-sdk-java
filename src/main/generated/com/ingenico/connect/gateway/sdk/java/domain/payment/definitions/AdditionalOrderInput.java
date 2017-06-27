@@ -1,14 +1,11 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AirlineData;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_AdditionalOrderInput">AdditionalOrderInput</a>
- */
 public class AdditionalOrderInput {
 
 	private AirlineData airlineData = null;
@@ -22,15 +19,23 @@ public class AdditionalOrderInput {
 
 	private OrderTypeInformation typeInformation = null;
 
+	/**
+	 * Object that holds airline specific data
+	 */
 	public AirlineData getAirlineData() {
 		return airlineData;
 	}
 
+	/**
+	 * Object that holds airline specific data
+	 */
 	public void setAirlineData(AirlineData value) {
 		this.airlineData = value;
 	}
 
 	/**
+	 * Object that holds Level3 summary data
+	 *
 	 * @deprecated Use Order.shoppingCart instead
 	 */
 	@Deprecated
@@ -39,6 +44,8 @@ public class AdditionalOrderInput {
 	}
 
 	/**
+	 * Object that holds Level3 summary data
+	 *
 	 * @deprecated Use Order.shoppingCart instead
 	 */
 	@Deprecated
@@ -46,26 +53,46 @@ public class AdditionalOrderInput {
 		this.level3SummaryData = value;
 	}
 
+	/**
+	 * The number of installments
+	 */
 	public Long getNumberOfInstallments() {
 		return numberOfInstallments;
 	}
 
+	/**
+	 * The number of installments
+	 */
 	public void setNumberOfInstallments(Long value) {
 		this.numberOfInstallments = value;
 	}
 
+	/**
+	 * Date and time of order<br>
+	 * Format: YYYYMMDDHH24MISS
+	 */
 	public String getOrderDate() {
 		return orderDate;
 	}
 
+	/**
+	 * Date and time of order<br>
+	 * Format: YYYYMMDDHH24MISS
+	 */
 	public void setOrderDate(String value) {
 		this.orderDate = value;
 	}
 
+	/**
+	 * Object that holds the purchase and usage type indicators
+	 */
 	public OrderTypeInformation getTypeInformation() {
 		return typeInformation;
 	}
 
+	/**
+	 * Object that holds the purchase and usage type indicators
+	 */
 	public void setTypeInformation(OrderTypeInformation value) {
 		this.typeInformation = value;
 	}

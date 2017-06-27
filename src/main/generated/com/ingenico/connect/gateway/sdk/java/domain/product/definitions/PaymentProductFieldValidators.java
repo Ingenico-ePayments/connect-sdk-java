@@ -1,12 +1,9 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_PaymentProductFieldValidators">PaymentProductFieldValidators</a>
- */
 public class PaymentProductFieldValidators {
 
 	private BoletoBancarioRequirednessValidator boletoBancarioRequiredness = null;
@@ -25,66 +22,114 @@ public class PaymentProductFieldValidators {
 
 	private RegularExpressionValidator regularExpression = null;
 
+	/**
+	 * Indicates the requiredness of the field based on the fiscalnumber for Boleto Bancario
+	 */
 	public BoletoBancarioRequirednessValidator getBoletoBancarioRequiredness() {
 		return boletoBancarioRequiredness;
 	}
 
+	/**
+	 * Indicates the requiredness of the field based on the fiscalnumber for Boleto Bancario
+	 */
 	public void setBoletoBancarioRequiredness(BoletoBancarioRequirednessValidator value) {
 		this.boletoBancarioRequiredness = value;
 	}
 
+	/**
+	 * Indicates that the content should be validated against the rules for an email address
+	 */
 	public EmptyValidator getEmailAddress() {
 		return emailAddress;
 	}
 
+	/**
+	 * Indicates that the content should be validated against the rules for an email address
+	 */
 	public void setEmailAddress(EmptyValidator value) {
 		this.emailAddress = value;
 	}
 
+	/**
+	 * Indicates that the content should be validated against the rules for an expiration date (it should be in the future)
+	 */
 	public EmptyValidator getExpirationDate() {
 		return expirationDate;
 	}
 
+	/**
+	 * Indicates that the content should be validated against the rules for an expiration date (it should be in the future)
+	 */
 	public void setExpirationDate(EmptyValidator value) {
 		this.expirationDate = value;
 	}
 
+	/**
+	 * Indicates that content should be one of the, in this object, listed items
+	 */
 	public FixedListValidator getFixedList() {
 		return fixedList;
 	}
 
+	/**
+	 * Indicates that content should be one of the, in this object, listed items
+	 */
 	public void setFixedList(FixedListValidator value) {
 		this.fixedList = value;
 	}
 
+	/**
+	 * Indicates that the content needs to be validated against length criteria defined in this object
+	 */
 	public LengthValidator getLength() {
 		return length;
 	}
 
+	/**
+	 * Indicates that the content needs to be validated against length criteria defined in this object
+	 */
 	public void setLength(LengthValidator value) {
 		this.length = value;
 	}
 
+	/**
+	 * Indicates that the content needs to be validated using a LUHN check
+	 */
 	public EmptyValidator getLuhn() {
 		return luhn;
 	}
 
+	/**
+	 * Indicates that the content needs to be validated using a LUHN check
+	 */
 	public void setLuhn(EmptyValidator value) {
 		this.luhn = value;
 	}
 
+	/**
+	 * Indicates that the content needs to be validated against a, in this object, defined range
+	 */
 	public RangeValidator getRange() {
 		return range;
 	}
 
+	/**
+	 * Indicates that the content needs to be validated against a, in this object, defined range
+	 */
 	public void setRange(RangeValidator value) {
 		this.range = value;
 	}
 
+	/**
+	 * A string representing the regular expression to check
+	 */
 	public RegularExpressionValidator getRegularExpression() {
 		return regularExpression;
 	}
 
+	/**
+	 * A string representing the regular expression to check
+	 */
 	public void setRegularExpression(RegularExpressionValidator value) {
 		this.regularExpression = value;
 	}

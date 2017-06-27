@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
@@ -8,9 +8,6 @@ import java.util.List;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_Order">Order</a>
- */
 public class Order {
 
 	private AdditionalOrderInput additionalInput = null;
@@ -25,50 +22,86 @@ public class Order {
 
 	private ShoppingCart shoppingCart = null;
 
+	/**
+	 * Object containing additional input on the order
+	 */
 	public AdditionalOrderInput getAdditionalInput() {
 		return additionalInput;
 	}
 
+	/**
+	 * Object containing additional input on the order
+	 */
 	public void setAdditionalInput(AdditionalOrderInput value) {
 		this.additionalInput = value;
 	}
 
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
 	public AmountOfMoney getAmountOfMoney() {
 		return amountOfMoney;
 	}
 
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public Customer getCustomer() {
 		return customer;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public void setCustomer(Customer value) {
 		this.customer = value;
 	}
 
+	/**
+	 * Shopping cart data
+	 */
 	public List<LineItem> getItems() {
 		return items;
 	}
 
+	/**
+	 * Shopping cart data
+	 */
 	public void setItems(List<LineItem> value) {
 		this.items = value;
 	}
 
+	/**
+	 * Object that holds all reference fields that are linked to this transaction
+	 */
 	public OrderReferences getReferences() {
 		return references;
 	}
 
+	/**
+	 * Object that holds all reference fields that are linked to this transaction
+	 */
 	public void setReferences(OrderReferences value) {
 		this.references = value;
 	}
 
+	/**
+	 * Shopping cart data, including items and specific amounts.
+	 */
 	public ShoppingCart getShoppingCart() {
 		return shoppingCart;
 	}
 
+	/**
+	 * Shopping cart data, including items and specific amounts.
+	 */
 	public void setShoppingCart(ShoppingCart value) {
 		this.shoppingCart = value;
 	}

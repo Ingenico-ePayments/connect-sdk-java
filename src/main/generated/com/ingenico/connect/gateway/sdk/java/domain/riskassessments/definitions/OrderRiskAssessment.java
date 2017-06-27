@@ -1,15 +1,12 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.riskassessments.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AdditionalOrderInputAirlineData;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
 
-/**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_OrderRiskAssessment">OrderRiskAssessment</a>
- */
 public class OrderRiskAssessment {
 
 	private AdditionalOrderInputAirlineData additionalInput = null;
@@ -18,26 +15,44 @@ public class OrderRiskAssessment {
 
 	private CustomerRiskAssessment customer = null;
 
+	/**
+	 * Object containing additional input on the order
+	 */
 	public AdditionalOrderInputAirlineData getAdditionalInput() {
 		return additionalInput;
 	}
 
+	/**
+	 * Object containing additional input on the order
+	 */
 	public void setAdditionalInput(AdditionalOrderInputAirlineData value) {
 		this.additionalInput = value;
 	}
 
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
 	public AmountOfMoney getAmountOfMoney() {
 		return amountOfMoney;
 	}
 
+	/**
+	 * Object containing amount and ISO currency code attributes
+	 */
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public CustomerRiskAssessment getCustomer() {
 		return customer;
 	}
 
+	/**
+	 * Object containing the details of the consumer
+	 */
 	public void setCustomer(CustomerRiskAssessment value) {
 		this.customer = value;
 	}

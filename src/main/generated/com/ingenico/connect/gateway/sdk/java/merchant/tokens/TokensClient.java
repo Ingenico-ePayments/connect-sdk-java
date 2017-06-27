@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.tokens;
 
@@ -34,7 +34,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens_post">Create token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/create.html">Create token</a>
 	 *
 	 * @param body CreateTokenRequest
 	 * @return CreateTokenResponse
@@ -53,7 +53,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens_post">Create token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/create.html">Create token</a>
 	 *
 	 * @param body CreateTokenRequest
 	 * @param context CallContext
@@ -87,7 +87,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__get">Get token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/get.html">Get token</a>
 	 *
 	 * @param tokenId String
 	 * @return TokenResponse
@@ -106,7 +106,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__get">Get token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/get.html">Get token</a>
 	 *
 	 * @param tokenId String
 	 * @param context CallContext
@@ -141,7 +141,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/update.html">Update token</a>
 	 *
 	 * @param tokenId String
 	 * @param body UpdateTokenRequest
@@ -161,7 +161,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__put">Update token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/update.html">Update token</a>
 	 *
 	 * @param tokenId String
 	 * @param body UpdateTokenRequest
@@ -198,7 +198,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/delete.html">Delete token</a>
 	 *
 	 * @param tokenId String
 	 * @param query DeleteTokenParams
@@ -218,7 +218,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/delete.html">Delete token</a>
 	 *
 	 * @param tokenId String
 	 * @param query DeleteTokenParams
@@ -254,7 +254,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/approvesepadirectdebit.html">Approve SEPA DD mandate</a>
 	 *
 	 * @param tokenId String
 	 * @param body ApproveTokenRequest
@@ -274,7 +274,7 @@ public class TokensClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens/{tokenId}/approvesepadirectdebit
-	 * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__approvesepadirectdebit_post">Approve SEPA DD mandate</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/approvesepadirectdebit.html">Approve SEPA DD mandate</a>
 	 *
 	 * @param tokenId String
 	 * @param body ApproveTokenRequest

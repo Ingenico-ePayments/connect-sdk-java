@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.merchant.tokens;
 
@@ -12,16 +12,24 @@ import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
- * <a href="https://developer.globalcollect.com/documentation/api/server/#__merchantId__tokens__tokenId__delete">Delete token</a>
+ * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/delete.html">Delete token</a>
  */
 public class DeleteTokenParams extends AbstractParamRequest {
 
 	private String mandateCancelDate;
 
+	/**
+	 * Date of the mandate cancellation<br>
+	 * Format: YYYYMMDD
+	 */
 	public String getMandateCancelDate() {
 		return mandateCancelDate;
 	}
 
+	/**
+	 * Date of the mandate cancellation<br>
+	 * Format: YYYYMMDD
+	 */
 	public void setMandateCancelDate(String value) {
 		this.mandateCancelDate = value;
 	}

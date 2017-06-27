@@ -1,22 +1,28 @@
 /*
  * This class was auto-generated from the API references found at
- * https://developer.globalcollect.com/documentation/api/server/
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountIban;
 
 /**
- * Class <a href="https://developer.globalcollect.com/documentation/api/server/#schema_RedirectPaymentProduct816SpecificInput">RedirectPaymentProduct816SpecificInput</a>
+ * Please find below specific input fields for payment product 816 (giropay)
  */
 public class RedirectPaymentProduct816SpecificInput {
 
 	private BankAccountIban bankAccountIban = null;
 
+	/**
+	 * Object containing the bank account details of the consumer
+	 */
 	public BankAccountIban getBankAccountIban() {
 		return bankAccountIban;
 	}
 
+	/**
+	 * Object containing the bank account details of the consumer
+	 */
 	public void setBankAccountIban(BankAccountIban value) {
 		this.bankAccountIban = value;
 	}

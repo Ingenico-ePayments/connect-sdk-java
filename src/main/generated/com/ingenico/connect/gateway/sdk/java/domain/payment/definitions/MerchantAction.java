@@ -7,10 +7,13 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 import java.util.List;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.KeyValuePair;
+import com.ingenico.connect.gateway.sdk.java.domain.product.definitions.PaymentProductField;
 
 public class MerchantAction {
 
 	private String actionType = null;
+
+	private List<PaymentProductField> formFields = null;
 
 	private RedirectData redirectData = null;
 
@@ -21,6 +24,7 @@ public class MerchantAction {
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
 	 * <ul><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span>
+	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * </ul>
@@ -32,12 +36,27 @@ public class MerchantAction {
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
 	 * <ul><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span>
+	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * </ul>
 	 */
 	public void setActionType(String value) {
 		this.actionType = value;
+	}
+
+	/**
+	 * Populated only when the <span class="property">actionType</span> of the <span class="property">merchantAction</span> is SHOW_FORM. In this case, this field contains the list of fields to render, in the format that is also used in the response of <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>.
+	 */
+	public List<PaymentProductField> getFormFields() {
+		return formFields;
+	}
+
+	/**
+	 * Populated only when the <span class="property">actionType</span> of the <span class="property">merchantAction</span> is SHOW_FORM. In this case, this field contains the list of fields to render, in the format that is also used in the response of <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>.
+	 */
+	public void setFormFields(List<PaymentProductField> value) {
+		this.formFields = value;
 	}
 
 	/**

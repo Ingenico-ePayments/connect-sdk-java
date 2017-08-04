@@ -28,6 +28,8 @@ public class GetProductParams extends AbstractParamRequest {
 
 	private List<String> hide;
 
+	private Boolean forceBasicFlow;
+
 	/**
 	 * ISO 3166-1 alpha-2 country code
 	 */
@@ -150,6 +152,20 @@ public class GetProductParams extends AbstractParamRequest {
 		this.hide.add(value);
 	}
 
+	/**
+	 * Relevant only for payment product 3004 (Bancontact). A boolean that indicates if you want to force the response to return the fields of the basic flow. This can be useful in corner cases where you have enabled the enhanced flow which supports payment with the Bancontact app, but need access to the product fields without creating a payment first.
+	 */
+	public Boolean getForceBasicFlow() {
+		return forceBasicFlow;
+	}
+
+	/**
+	 * Relevant only for payment product 3004 (Bancontact). A boolean that indicates if you want to force the response to return the fields of the basic flow. This can be useful in corner cases where you have enabled the enhanced flow which supports payment with the Bancontact app, but need access to the product fields without creating a payment first.
+	 */
+	public void setForceBasicFlow(Boolean value) {
+		this.forceBasicFlow = value;
+	}
+
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
@@ -159,6 +175,7 @@ public class GetProductParams extends AbstractParamRequest {
 		addParameter(result, "amount", amount);
 		addParameter(result, "isRecurring", isRecurring);
 		addParameter(result, "hide", hide);
+		addParameter(result, "forceBasicFlow", forceBasicFlow);
 		return result;
 	}
 }

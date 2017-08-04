@@ -2,7 +2,7 @@
  * This class was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
-package com.ingenico.connect.gateway.sdk.java.merchant.products;
+package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -11,24 +11,15 @@ import java.net.URL;
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
-import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.ThirdPartyStatusResponse;
 
-public class GetPaymentProductExample {
+public class GetThirdPartyStatusExample {
 
 	@SuppressWarnings("unused")
 	public void example() throws URISyntaxException, IOException {
 		Client client = getClient();
 		try {
-			GetProductParams query = new GetProductParams();
-			query.setCountryCode("US");
-			query.setCurrencyCode("USD");
-			query.setLocale("en_US");
-			query.setAmount(1000L);
-			query.setIsRecurring(true);
-			query.setForceBasicFlow(false);
-			query.addHide("fields");
-
-			PaymentProductResponse response = client.merchant("merchantId").products().get(1, query);
+			ThirdPartyStatusResponse response = client.merchant("merchantId").payments().thirdPartyStatus("paymentId");
 		} finally {
 			client.close();
 		}

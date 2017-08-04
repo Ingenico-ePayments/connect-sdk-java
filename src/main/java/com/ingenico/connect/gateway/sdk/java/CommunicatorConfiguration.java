@@ -79,14 +79,17 @@ public class CommunicatorConfiguration {
 	}
 
 	private ShoppingCartExtension getShoppingCartExtension(Properties properties) {
-		String creator	= properties.getProperty("connect.api.shoppingCartExtension.creator");
-		String name		= properties.getProperty("connect.api.shoppingCartExtension.name");
-		String version	= properties.getProperty("connect.api.shoppingCartExtension.version");
+		String creator		= properties.getProperty("connect.api.shoppingCartExtension.creator");
+		String name			= properties.getProperty("connect.api.shoppingCartExtension.name");
+		String version		= properties.getProperty("connect.api.shoppingCartExtension.version");
+		String extensionId	= properties.getProperty("connect.api.shoppingCartExtension.extensionId");
 
-		if (creator == null && name == null && version == null) {
+		if (creator == null && name == null && version == null && extensionId == null) {
 			return null;
-		} else {
+		} else if (extensionId == null) {
 			return new ShoppingCartExtension(creator, name, version);
+		} else {
+			return new ShoppingCartExtension(creator, name, version, extensionId);
 		}
 	}
 

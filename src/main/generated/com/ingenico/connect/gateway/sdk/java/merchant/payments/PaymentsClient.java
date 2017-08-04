@@ -25,11 +25,14 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.ApprovePaymentReques
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CancelApprovalPaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CancelPaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CapturePaymentRequest;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.CompletePaymentRequest;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.CompletePaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentApprovalResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.ThirdPartyStatusResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.TokenizePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.RefundErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.RefundRequest;
@@ -343,6 +346,117 @@ public class PaymentsClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/payments/{paymentId}/complete
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a>
+	 *
+	 * @param paymentId String
+	 * @param body CompletePaymentRequest
+	 * @return CompletePaymentResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CompletePaymentResponse complete(String paymentId, CompletePaymentRequest body) {
+		return complete(paymentId, body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/complete
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a>
+	 *
+	 * @param paymentId String
+	 * @param body CompletePaymentRequest
+	 * @param context CallContext
+	 * @return CompletePaymentResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public CompletePaymentResponse complete(String paymentId, CompletePaymentRequest body, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentId", paymentId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/complete", pathContext);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					CompletePaymentResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/thirdpartystatus
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/thirdPartyStatus.html">Third party status poll</a>
+	 *
+	 * @param paymentId String
+	 * @return ThirdPartyStatusResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public ThirdPartyStatusResponse thirdPartyStatus(String paymentId) {
+		return thirdPartyStatus(paymentId, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/thirdpartystatus
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/thirdPartyStatus.html">Third party status poll</a>
+	 *
+	 * @param paymentId String
+	 * @param context CallContext
+	 * @return ThirdPartyStatusResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
+	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 */
+	public ThirdPartyStatusResponse thirdPartyStatus(String paymentId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentId", paymentId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/thirdpartystatus", pathContext);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					null,
+					ThirdPartyStatusResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
 	 * Resource /{merchantId}/payments/{paymentId}/cancel
 	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancel.html">Cancel payment</a>
 	 *
@@ -399,7 +513,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/cancelapproval
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancelapproval.html">Undo capture payment request</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancelapproval.html">Undo capture payment</a>
 	 *
 	 * @param paymentId String
 	 * @return CancelApprovalPaymentResponse
@@ -418,7 +532,7 @@ public class PaymentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments/{paymentId}/cancelapproval
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancelapproval.html">Undo capture payment request</a>
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/cancelapproval.html">Undo capture payment</a>
 	 *
 	 * @param paymentId String
 	 * @param context CallContext

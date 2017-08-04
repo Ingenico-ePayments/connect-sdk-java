@@ -22,6 +22,22 @@ public class MetaDataProviderTest {
 	@Test
 	public void testGetServerMetaDataHeadersFull() {
 
+		ShoppingCartExtension shoppingCartExtension = new ShoppingCartExtension("Ingenico.Creator", "Extension", "1.0", "ExtensionId");
+
+		MetaDataProvider metaDataProvider = new MetaDataProviderBuilder("Ingenico.Integrator")
+				.withShoppingCartExtension(shoppingCartExtension)
+				.build();
+
+		Collection<RequestHeader> requestHeaders = metaDataProvider.getServerMetaDataHeaders();
+		Assert.assertEquals(1, requestHeaders.size());
+
+		RequestHeader requestHeader = requestHeaders.iterator().next();
+		assertServerMetaInfo(metaDataProvider, "Ingenico.Integrator", shoppingCartExtension, requestHeader);
+	}
+
+	@Test
+	public void testGetServerMetaDataHeadersFullNoShoppingCartExtensionId() {
+
 		ShoppingCartExtension shoppingCartExtension = new ShoppingCartExtension("Ingenico.Creator", "Extension", "1.0");
 
 		MetaDataProvider metaDataProvider = new MetaDataProviderBuilder("Ingenico.Integrator")

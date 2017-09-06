@@ -21,7 +21,7 @@ public class DeclinedRefundException extends DeclinedTransactionException {
 		if (refund != null) {
 			return "declined refund '" + refund.getId() + "' with status '" + refund.getStatus() + "'";
 		} else {
-			return "the GlobalCollect platform returned a declined refund response";
+			return "the Ingenico ePayments platform returned a declined refund response";
 		}
 	}
 

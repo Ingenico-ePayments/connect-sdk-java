@@ -66,14 +66,20 @@ public class Order {
 
 	/**
 	 * Shopping cart data
+	 *
+	 * @deprecated Use ShoppingCart.items instead
 	 */
+	@Deprecated
 	public List<LineItem> getItems() {
 		return items;
 	}
 
 	/**
 	 * Shopping cart data
+	 *
+	 * @deprecated Use ShoppingCart.items instead
 	 */
+	@Deprecated
 	public void setItems(List<LineItem> value) {
 		this.items = value;
 	}

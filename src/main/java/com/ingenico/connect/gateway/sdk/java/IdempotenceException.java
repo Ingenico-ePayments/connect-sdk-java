@@ -5,7 +5,7 @@ import java.util.List;
 import com.ingenico.connect.gateway.sdk.java.domain.errors.definitions.APIError;
 
 /**
- * Represents an error response from the GlobalCollect platform when an idempotent request failed because the first request has not
+ * Represents an error response from the Ingenico ePayments platform when an idempotent request failed because the first request has not
  * finished yet.
  */
 @SuppressWarnings("serial")
@@ -16,7 +16,7 @@ public class IdempotenceException extends ApiException {
 
 	public IdempotenceException(String idempotenceKey, Long idempotenceRequestTimestamp,
 			int statusCode, String responseBody, String errorId, List<APIError> errors) {
-		super("the GlobalCollect platform returned a duplicate request error response", statusCode, responseBody, errorId, errors);
+		super("the Ingenico ePayments platform returned a duplicate request error response", statusCode, responseBody, errorId, errors);
 		this.idempotenceKey = idempotenceKey;
 		this.idempotenceRequestTimestamp = idempotenceRequestTimestamp;
 	}

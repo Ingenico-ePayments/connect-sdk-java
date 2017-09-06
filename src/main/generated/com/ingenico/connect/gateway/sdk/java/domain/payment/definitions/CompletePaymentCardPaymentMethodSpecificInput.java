@@ -10,10 +10,16 @@ public class CompletePaymentCardPaymentMethodSpecificInput {
 
 	private CardWithoutCvv card = null;
 
+	/**
+	 * Object containing card details 
+	 */
 	public CardWithoutCvv getCard() {
 		return card;
 	}
 
+	/**
+	 * Object containing card details 
+	 */
 	public void setCard(CardWithoutCvv value) {
 		this.card = value;
 	}

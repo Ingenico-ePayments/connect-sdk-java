@@ -42,10 +42,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProducts find(FindProductsParams query) {
 		return find(query, null);
@@ -63,10 +63,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProducts find(FindProductsParams query, CallContext context) {
 		String uri = instantiateUri("/{apiVersion}/{merchantId}/products", null);
@@ -95,10 +95,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProductResponse get(Integer paymentProductId, GetProductParams query) {
 		return get(paymentProductId, query, null);
@@ -117,10 +117,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProductResponse get(Integer paymentProductId, GetProductParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -151,10 +151,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Directory directory(Integer paymentProductId, DirectoryParams query) {
 		return directory(paymentProductId, query, null);
@@ -173,10 +173,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Directory directory(Integer paymentProductId, DirectoryParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -207,10 +207,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProductNetworksResponse networks(Integer paymentProductId, NetworksParams query) {
 		return networks(paymentProductId, query, null);
@@ -229,10 +229,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProductNetworksResponse networks(Integer paymentProductId, NetworksParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -262,10 +262,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PublicKey publicKey(Integer paymentProductId) {
 		return publicKey(paymentProductId, null);
@@ -283,10 +283,10 @@ public class ProductsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PublicKey publicKey(Integer paymentProductId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();

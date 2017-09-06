@@ -42,10 +42,10 @@ public class TokensClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public CreateTokenResponse create(CreateTokenRequest body) {
 		return create(body, null);
@@ -63,10 +63,10 @@ public class TokensClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public CreateTokenResponse create(CreateTokenRequest body, CallContext context) {
 		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens", null);
@@ -95,10 +95,10 @@ public class TokensClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public TokenResponse get(String tokenId) {
 		return get(tokenId, null);
@@ -116,10 +116,10 @@ public class TokensClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public TokenResponse get(String tokenId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -150,10 +150,10 @@ public class TokensClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void update(String tokenId, UpdateTokenRequest body) {
 		return update(tokenId, body, null);
@@ -172,10 +172,10 @@ public class TokensClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void update(String tokenId, UpdateTokenRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -207,10 +207,10 @@ public class TokensClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void delete(String tokenId, DeleteTokenParams query) {
 		return delete(tokenId, query, null);
@@ -229,10 +229,10 @@ public class TokensClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void delete(String tokenId, DeleteTokenParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -263,10 +263,10 @@ public class TokensClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body) {
 		return approvesepadirectdebit(tokenId, body, null);
@@ -285,10 +285,10 @@ public class TokensClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();

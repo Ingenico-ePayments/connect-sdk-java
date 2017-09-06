@@ -10,6 +10,8 @@ public class ShoppingCart {
 
 	private List<AmountBreakdown> amountBreakdown = null;
 
+	private List<LineItem> items = null;
+
 	/**
 	 * Determines the type of the amount.
 	 */
@@ -22,5 +24,13 @@ public class ShoppingCart {
 	 */
 	public void setAmountBreakdown(List<AmountBreakdown> value) {
 		this.amountBreakdown = value;
+	}
+
+	public List<LineItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<LineItem> value) {
+		this.items = value;
 	}
 }

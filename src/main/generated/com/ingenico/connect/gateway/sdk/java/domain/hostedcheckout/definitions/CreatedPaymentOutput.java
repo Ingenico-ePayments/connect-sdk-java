@@ -65,7 +65,7 @@ public class CreatedPaymentOutput {
 	}
 
 	/**
-	 * Highlevel status of the payment with the following possible values:
+	 * Highlevel indication of the payment status with the following possible values:
 	 * <ul><li>REJECTED - The payment has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
 	 * <ul><li>CREATED
 	 * <li>REJECTED
@@ -73,7 +73,7 @@ public class CreatedPaymentOutput {
 	 * <li>REJECTED REFUND
 	 * <li>REJECTED PAYOUT
 	 * <li>CANCELLED</ul>
-	 * <li>SUCCESSFUL - The payment was successful. This category groups the following statuses:
+	 * <li>SUCCESSFUL - The payment was not (yet) rejected. Use the payment statuses to determine if it was completed, see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a>. This category groups the following statuses:
 	 * <ul><li>PENDING PAYMENT
 	 * <li>ACCOUNT VERIFIED
 	 * <li>PENDING FRAUD APPROVAL
@@ -100,7 +100,7 @@ public class CreatedPaymentOutput {
 	}
 
 	/**
-	 * Highlevel status of the payment with the following possible values:
+	 * Highlevel indication of the payment status with the following possible values:
 	 * <ul><li>REJECTED - The payment has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
 	 * <ul><li>CREATED
 	 * <li>REJECTED
@@ -108,7 +108,7 @@ public class CreatedPaymentOutput {
 	 * <li>REJECTED REFUND
 	 * <li>REJECTED PAYOUT
 	 * <li>CANCELLED</ul>
-	 * <li>SUCCESSFUL - The payment was successful. This category groups the following statuses:
+	 * <li>SUCCESSFUL - The payment was not (yet) rejected. Use the payment statuses to determine if it was completed, see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a>. This category groups the following statuses:
 	 * <ul><li>PENDING PAYMENT
 	 * <li>ACCOUNT VERIFIED
 	 * <li>PENDING FRAUD APPROVAL

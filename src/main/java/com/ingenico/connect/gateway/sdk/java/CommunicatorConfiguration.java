@@ -94,7 +94,7 @@ public class CommunicatorConfiguration {
 	}
 
 	/**
-	 * Returns the GlobalCollect platform API endpoint URI.
+	 * Returns the Ingenico ePayments platform API endpoint URI.
 	 */
 	public URI getApiEndpoint() {
 		return apiEndpoint;

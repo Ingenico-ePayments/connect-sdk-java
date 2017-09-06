@@ -19,7 +19,7 @@ import com.ingenico.connect.gateway.sdk.java.logging.CommunicatorLogger;
 import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
 
 /**
- * Used to communicate with the GlobalCollect platform web services.
+ * Used to communicate with the Ingenico ePayments platform web services.
  * <p>
  * It contains all the logic to transform a request object to a HTTP request and
  * a HTTP response to a response object.
@@ -59,9 +59,9 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @param requestParameters An optional set of request parameters.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the GlobalCollect platform
-	 * @throws ResponseException when an error response was received from the GlobalCollect platform
-	 * @throws ApiException when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
 	public <P extends ParamRequest, O> O get(String relativePath, List<RequestHeader> requestHeaders, P requestParameters,
@@ -90,9 +90,9 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @param requestParameters An optional set of request parameters.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the GlobalCollect platform
-	 * @throws ResponseException when an error response was received from the GlobalCollect platform
-	 * @throws ApiException when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
 	public <P extends ParamRequest, O> O delete(String relativePath, List<RequestHeader> requestHeaders, P requestParameters,
@@ -122,9 +122,9 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @param requestBody The optional request body to send.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the GlobalCollect platform
-	 * @throws ResponseException when an error response was received from the GlobalCollect platform
-	 * @throws ApiException when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
 	public <P extends ParamRequest, O> O post(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody,
@@ -160,9 +160,9 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @param requestBody The optional request body to send.
 	 * @param responseType The type of response to return.
 	 * @param context The optional call context to use.
-	 * @throws CommunicationException when an exception occurred communicating with the GlobalCollect platform
-	 * @throws ResponseException when an error response was received from the GlobalCollect platform
-	 * @throws ApiException when an error response was received from the GlobalCollect platform which contained a list of errors
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
 	public <P extends ParamRequest, O> O put(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody,

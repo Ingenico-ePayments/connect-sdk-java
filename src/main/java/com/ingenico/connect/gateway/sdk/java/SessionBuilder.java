@@ -16,7 +16,7 @@ public class SessionBuilder {
 	private Authenticator authenticator;
 
 	/**
-	 * Sets the GlobalCollect platform API endpoint URI to use.
+	 * Sets the Ingenico ePayments platform API endpoint URI to use.
 	 */
 	public SessionBuilder withAPIEndpoint(URI apiEndpoint) {
 		this.apiEndpoint = apiEndpoint;
@@ -24,7 +24,7 @@ public class SessionBuilder {
 	}
 
 	/**
-	 * Sets the GlobalCollect platform API endpoint URI to use.
+	 * Sets the Ingenico ePayments platform API endpoint URI to use.
 	 * @deprecated Use {@link #withAPIEndpoint(URI)} instead.
 	 */
 	@Deprecated

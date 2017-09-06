@@ -19,7 +19,7 @@ import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
 import com.ingenico.connect.gateway.sdk.java.merchant.MerchantClient;
 
 /**
- * GlobalCollect platform client.
+ * Ingenico ePayments platform client.
  * <p>
  * This client and all its child clients are bound to one specific value for the <i>X-GCS-ClientMetaInfo</i> header.
  * To get a new client with a different header value, use {@link #withClientMetaInfo(String)}.

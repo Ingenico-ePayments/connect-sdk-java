@@ -4,5 +4,5 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-public class ApprovePaymentSepaDirectDebitPaymentMethodSpecificInput extends ApprovePaymentPaymentMethodSpecificInput {
+public class ApprovePaymentSepaDirectDebitPaymentMethodSpecificInput extends ApprovePaymentDirectDebitPaymentMethodSpecificInput {
 }

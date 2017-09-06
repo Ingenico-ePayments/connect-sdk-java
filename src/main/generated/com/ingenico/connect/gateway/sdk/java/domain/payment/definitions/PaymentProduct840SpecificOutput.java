@@ -12,6 +12,8 @@ public class PaymentProduct840SpecificOutput {
 
 	private Address customerAddress = null;
 
+	private ProtectionEligibility protectionEligibility = null;
+
 	/**
 	 * Object containing the details of the PayPal account
 	 */
@@ -38,5 +40,19 @@ public class PaymentProduct840SpecificOutput {
 	 */
 	public void setCustomerAddress(Address value) {
 		this.customerAddress = value;
+	}
+
+	/**
+	 * Protection Eligibility data of the PayPal customer
+	 */
+	public ProtectionEligibility getProtectionEligibility() {
+		return protectionEligibility;
+	}
+
+	/**
+	 * Protection Eligibility data of the PayPal customer
+	 */
+	public void setProtectionEligibility(ProtectionEligibility value) {
+		this.protectionEligibility = value;
 	}
 }

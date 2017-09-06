@@ -3,7 +3,7 @@ package com.ingenico.connect.gateway.sdk.java;
 import java.net.URI;
 
 /**
- * Contains the components needed to communicate with the GlobalCollect platform. Thread-safe.
+ * Contains the components needed to communicate with the Ingenico ePayments platform. Thread-safe.
  */
 public class Session {
 
@@ -45,7 +45,7 @@ public class Session {
 	}
 
 	/**
-	 * @return The GlobalCollect platform API endpoint URI. This URI's path will be {@code null} or empty.
+	 * @return The Ingenico ePayments platform API endpoint URI. This URI's path will be {@code null} or empty.
 	 */
 	public URI getApiEndpoint() {
 		return apiEndpoint;

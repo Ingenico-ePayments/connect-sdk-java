@@ -1,7 +1,7 @@
 package com.ingenico.connect.gateway.sdk.java;
 
 /**
- * Used to marshal and unmarshal GlobalCollect platform request and response objects to and from JSON. Thread-safe.
+ * Used to marshal and unmarshal Ingenico ePayments platform request and response objects to and from JSON. Thread-safe.
  */
 public interface Marshaller {
 

@@ -10,7 +10,7 @@ import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultConnection;
 import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultMarshaller;
 
 /**
- * GlobalCollect platform factory for several SDK components.
+ * Ingenico ePayments platform factory for several SDK components.
  */
 public final class Factory {
 

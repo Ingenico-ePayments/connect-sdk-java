@@ -41,7 +41,7 @@ public class DefaultAuthenticator implements Authenticator {
 
 	/**
 	 * @param authorizationType
-	 *            Based on this value both the GlobalCollect platform and the merchant know
+	 *            Based on this value both the Ingenico ePayments platform and the merchant know
 	 *            which security implementation is used. A version number is
 	 *            used for backward compatibility in the future.
 	 * @param apiKeyId

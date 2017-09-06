@@ -71,8 +71,8 @@ public class CommunicatorConfigurationTest {
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
 		properties.setProperty("connect.api.proxy.uri", "http://proxy.example.org:3128");
-		properties.setProperty("connect.api.proxy.username", "global-collect-username");
-		properties.setProperty("connect.api.proxy.password", "global-collect-password");
+		properties.setProperty("connect.api.proxy.username", "connect-username");
+		properties.setProperty("connect.api.proxy.password", "connect-password");
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
@@ -89,8 +89,8 @@ public class CommunicatorConfigurationTest {
 		Assert.assertEquals("http", proxyConfiguration.getScheme());
 		Assert.assertEquals("proxy.example.org", proxyConfiguration.getHost());
 		Assert.assertEquals(3128, proxyConfiguration.getPort());
-		Assert.assertEquals("global-collect-username", proxyConfiguration.getUsername());
-		Assert.assertEquals("global-collect-password", proxyConfiguration.getPassword());
+		Assert.assertEquals("connect-username", proxyConfiguration.getUsername());
+		Assert.assertEquals("connect-password", proxyConfiguration.getPassword());
 	}
 
 	@Test

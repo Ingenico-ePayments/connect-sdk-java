@@ -34,6 +34,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderInv
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalInformation;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalName;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ShoppingCart;
 
 public class CreatePaymentExample {
 
@@ -110,6 +111,16 @@ public class CreatePaymentExample {
 			customer.setShippingAddress(shippingAddress);
 			customer.setVatNumber("1234AB5678CD");
 
+			OrderInvoiceData invoiceData = new OrderInvoiceData();
+			invoiceData.setInvoiceDate("20140306191500");
+			invoiceData.setInvoiceNumber("000000123");
+
+			OrderReferences references = new OrderReferences();
+			references.setDescriptor("Fast and Furry-ous");
+			references.setInvoiceData(invoiceData);
+			references.setMerchantOrderId(123456L);
+			references.setMerchantReference("AcmeOrder0001");
+
 			List<LineItem> items = new ArrayList<LineItem>();
 
 			AmountOfMoney item1AmountOfMoney = new AmountOfMoney();
@@ -142,21 +153,14 @@ public class CreatePaymentExample {
 
 			items.add(item2);
 
-			OrderInvoiceData invoiceData = new OrderInvoiceData();
-			invoiceData.setInvoiceDate("20140306191500");
-			invoiceData.setInvoiceNumber("000000123");
-
-			OrderReferences references = new OrderReferences();
-			references.setDescriptor("Fast and Furry-ous");
-			references.setInvoiceData(invoiceData);
-			references.setMerchantOrderId(123456L);
-			references.setMerchantReference("AcmeOrder0001");
+			ShoppingCart shoppingCart = new ShoppingCart();
+			shoppingCart.setItems(items);
 
 			Order order = new Order();
 			order.setAmountOfMoney(amountOfMoney);
 			order.setCustomer(customer);
-			order.setItems(items);
 			order.setReferences(references);
+			order.setShoppingCart(shoppingCart);
 
 			CreatePaymentRequest body = new CreatePaymentRequest();
 			body.setCardPaymentMethodSpecificInput(cardPaymentMethodSpecificInput);

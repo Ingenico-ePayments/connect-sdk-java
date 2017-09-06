@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * A response from the GlobalCollect platform.
+ * A response from the Ingenico ePayments platform.
  */
 public class Response {
 
@@ -19,21 +19,21 @@ public class Response {
 	}
 
 	/**
-	 * @return The HTTP status code that was returned by the GlobalCollect platform.
+	 * @return The HTTP status code that was returned by the Ingenico ePayments platform.
 	 */
 	public int getStatusCode() {
 		return statusCode;
 	}
 
 	/**
-	 * @return The raw response body that was returned by the GlobalCollect platform.
+	 * @return The raw response body that was returned by the Ingenico ePayments platform.
 	 */
 	public String getBody() {
 		return body;
 	}
 
 	/**
-	 * @return The headers that were returned by the GlobalCollect platform. Never {@code null}.
+	 * @return The headers that were returned by the Ingenico ePayments platform. Never {@code null}.
 	 */
 	public List<ResponseHeader> getHeaders() {
 		return headers;

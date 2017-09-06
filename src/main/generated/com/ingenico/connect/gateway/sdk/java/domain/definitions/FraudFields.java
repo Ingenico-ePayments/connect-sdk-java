@@ -42,10 +42,16 @@ public class FraudFields {
 
 	private String website = null;
 
+	/**
+	 * Indicates that invoice and shipping addresses are equal.
+	 */
 	public Boolean getAddressesAreIdentical() {
 		return addressesAreIdentical;
 	}
 
+	/**
+	 * Indicates that invoice and shipping addresses are equal.
+	 */
 	public void setAddressesAreIdentical(Boolean value) {
 		this.addressesAreIdentical = value;
 	}

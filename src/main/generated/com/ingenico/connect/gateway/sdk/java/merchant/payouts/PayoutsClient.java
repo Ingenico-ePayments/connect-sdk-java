@@ -38,15 +38,15 @@ public class PayoutsClient extends ApiResource {
 	 *
 	 * @param body CreatePayoutRequest
 	 * @return PayoutResponse
-	 * @throws DeclinedPayoutException if the GlobalCollect platform declined / rejected the payout. The payout result will be available from the exception.
+	 * @throws DeclinedPayoutException if the Ingenico ePayments platform declined / rejected the payout. The payout result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PayoutResponse create(CreatePayoutRequest body) {
 		return create(body, null);
@@ -59,16 +59,16 @@ public class PayoutsClient extends ApiResource {
 	 * @param body CreatePayoutRequest
 	 * @param context CallContext
 	 * @return PayoutResponse
-	 * @throws DeclinedPayoutException if the GlobalCollect platform declined / rejected the payout. The payout result will be available from the exception.
+	 * @throws DeclinedPayoutException if the Ingenico ePayments platform declined / rejected the payout. The payout result will be available from the exception.
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PayoutResponse create(CreatePayoutRequest body, CallContext context) {
 		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts", null);
@@ -105,10 +105,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PayoutResponse get(String payoutId) {
 		return get(payoutId, null);
@@ -126,10 +126,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PayoutResponse get(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -160,10 +160,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PayoutResponse approve(String payoutId, ApprovePayoutRequest body) {
 		return approve(payoutId, body, null);
@@ -182,10 +182,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PayoutResponse approve(String payoutId, ApprovePayoutRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -216,10 +216,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void cancel(String payoutId) {
 		return cancel(payoutId, null);
@@ -237,10 +237,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void cancel(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
@@ -271,10 +271,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void cancelapproval(String payoutId) {
 		return cancelapproval(payoutId, null);
@@ -292,10 +292,10 @@ public class PayoutsClient extends ApiResource {
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
 	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the GlobalCollect platform,
-	 *            the GlobalCollect platform was unable to process a message from a downstream partner/acquirer,
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the GlobalCollect platform returned any other error
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public Void cancelapproval(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();

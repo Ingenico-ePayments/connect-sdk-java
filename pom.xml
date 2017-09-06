@@ -5,11 +5,11 @@
 
 	<groupId>com.ingenico.connect.gateway</groupId>
 	<artifactId>connect-sdk-java</artifactId>
-	<version>5.7.0</version>
+	<version>5.8.0</version>
 	<packaging>jar</packaging>
 
 	<name>connect-sdk-java</name>
-	<description>SDK to communicate with the GlobalCollect platform using the Ingenico Connect Server API</description>
+	<description>SDK to communicate with the Ingenico ePayments platform using the Ingenico Connect Server API</description>
 	<url>https://github.com/Ingenico-ePayments/connect-sdk-java</url>
 
 	<organization>

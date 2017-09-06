@@ -3,7 +3,7 @@ package com.ingenico.connect.gateway.sdk.java;
 import java.util.List;
 
 /**
- * Thrown when a response was received from the GlobalCollect platform which indicates an error.
+ * Thrown when a response was received from the Ingenico ePayments platform which indicates an error.
  */
 @SuppressWarnings("serial")
 public class ResponseException extends RuntimeException {
@@ -11,33 +11,33 @@ public class ResponseException extends RuntimeException {
 	private final Response response;
 
 	public ResponseException(Response response) {
-		super("the GlobalCollect platform returned an error response");
+		super("the Ingenico ePayments platform returned an error response");
 		this.response = response;
 	}
 
 	/**
-	 * @return The response that was returned by the GlobalCollect platform.
+	 * @return The response that was returned by the Ingenico ePayments platform.
 	 */
 	public Response getResponse() {
 		return response;
 	}
 
 	/**
-	 * @return The HTTP status code that was returned by the GlobalCollect platform.
+	 * @return The HTTP status code that was returned by the Ingenico ePayments platform.
 	 */
 	public int getStatusCode() {
 		return response.getStatusCode();
 	}
 
 	/**
-	 * @return The raw response body that was returned by the GlobalCollect platform.
+	 * @return The raw response body that was returned by the Ingenico ePayments platform.
 	 */
 	public String getBody() {
 		return response.getBody();
 	}
 
 	/**
-	 * @return The headers that were returned by the GlobalCollect platform. Never {@code null}.
+	 * @return The headers that were returned by the Ingenico ePayments platform. Never {@code null}.
 	 */
 	public List<ResponseHeader> getHeaders() {
 		return response.getHeaders();

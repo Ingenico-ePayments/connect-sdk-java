@@ -7,11 +7,11 @@ import java.net.URL;
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
+import com.ingenico.connect.gateway.sdk.java.ProxyConfiguration;
 
 abstract class ItTest {
 
 	private static final String PROPERTIES_URL			= "/itconfiguration.properties";
-	private static final String PROPERTIES_URL_PROXY	= "/itconfiguration.proxy.properties";
 	private static final String API_KEY_ID;
 	private static final String SECRET_API_KEY;
 
@@ -42,8 +42,15 @@ abstract class ItTest {
 	}
 
 	protected CommunicatorConfiguration getCommunicatorConfigurationWithProxy() throws URISyntaxException {
-		URL propertiesUrl = getClass().getResource(PROPERTIES_URL_PROXY);
-		return getCommunicatorConfiguration(propertiesUrl);
+		String proxyURI = System.getProperty("connect.api.proxy.uri");
+		String proxyUsername = System.getProperty("connect.api.proxy.username");
+		String proxyPassword = System.getProperty("connect.api.proxy.password");
+		if (proxyURI == null) {
+			throw new IllegalStateException("System property 'connect.api.proxy.uri' must be set");
+		}
+
+		return getCommunicatorConfiguration()
+				.withProxyConfiguration(new ProxyConfiguration(new URI(proxyURI), proxyUsername, proxyPassword));
 	}
 
 	protected Client getClient() throws URISyntaxException {
@@ -55,8 +62,7 @@ abstract class ItTest {
 	}
 
 	protected Client getClientWithProxy() throws URISyntaxException {
-		URL propertiesUrl = getClass().getResource(PROPERTIES_URL_PROXY);
-		CommunicatorConfiguration configuration = getCommunicatorConfiguration(propertiesUrl);
+		CommunicatorConfiguration configuration = getCommunicatorConfigurationWithProxy();
 		return Factory
 				.createClient(configuration)
 				.withClientMetaInfo("{\"test\":\"test\"}");

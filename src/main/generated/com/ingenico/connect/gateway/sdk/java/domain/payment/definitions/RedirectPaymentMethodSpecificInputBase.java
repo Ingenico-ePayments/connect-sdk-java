@@ -12,7 +12,11 @@ public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMetho
 
 	private String recurringPaymentSequenceIndicator = null;
 
+	private Boolean requiresApproval = null;
+
 	private String token = null;
+
+	private Boolean tokenize = null;
 
 	/**
 	 * This sets the maximum amount of minutes a consumer has to complete the payment at the bank. After this period has expired it is impossible for the consumer to make a payment and in case no payment has been made the transaction will be marked as unsuccessful and expired by the bank. Setting the expirationPeriod is convenient if you want to maximise the time a consumer has to complete the payment. Please note that it is normal for a consumer to take up to 5 minutes to complete a payment. Setting this value below 10 minutes is not advised.
@@ -61,6 +65,24 @@ public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMetho
 	}
 
 	/**
+	 * <ul><li>true = the payment requires approval before the funds will be captured using the <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html'>Capture payment</a> API
+	 * <li>false = the payment does not require approval, and the funds will be captured automatically
+	 * </ul>
+	 */
+	public Boolean getRequiresApproval() {
+		return requiresApproval;
+	}
+
+	/**
+	 * <ul><li>true = the payment requires approval before the funds will be captured using the <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html'>Capture payment</a> API
+	 * <li>false = the payment does not require approval, and the funds will be captured automatically
+	 * </ul>
+	 */
+	public void setRequiresApproval(Boolean value) {
+		this.requiresApproval = value;
+	}
+
+	/**
 	 * ID of the token
 	 */
 	public String getToken() {
@@ -72,5 +94,25 @@ public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMetho
 	 */
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	/**
+	 * Indicates if this transaction should be tokenized
+	 * <ul><li>true - Tokenize the transaction
+	 * <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
+	 * </ul>
+	 */
+	public Boolean getTokenize() {
+		return tokenize;
+	}
+
+	/**
+	 * Indicates if this transaction should be tokenized
+	 * <ul><li>true - Tokenize the transaction
+	 * <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
+	 * </ul>
+	 */
+	public void setTokenize(Boolean value) {
+		this.tokenize = value;
 	}
 }

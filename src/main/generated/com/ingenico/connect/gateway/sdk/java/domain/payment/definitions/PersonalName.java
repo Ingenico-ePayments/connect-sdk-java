@@ -10,10 +10,16 @@ public class PersonalName extends PersonalNameBase {
 
 	private String title = null;
 
+	/**
+	 * Title of consumer
+	 */
 	public String getTitle() {
 		return title;
 	}
 
+	/**
+	 * Title of consumer
+	 */
 	public void setTitle(String value) {
 		this.title = value;
 	}

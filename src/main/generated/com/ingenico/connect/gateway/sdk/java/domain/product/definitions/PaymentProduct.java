@@ -14,6 +14,8 @@ public class PaymentProduct {
 
 	private Boolean allowsTokenization = null;
 
+	private AuthenticationIndicator authenticationIndicator = null;
+
 	private Boolean autoTokenized = null;
 
 	private Boolean canBeIframed = null;
@@ -92,6 +94,20 @@ public class PaymentProduct {
 	 */
 	public void setAllowsTokenization(Boolean value) {
 		this.allowsTokenization = value;
+	}
+
+	/**
+	 * Indicates if the payment product supports 3D Security (mandatory, optional or not needed).
+	 */
+	public AuthenticationIndicator getAuthenticationIndicator() {
+		return authenticationIndicator;
+	}
+
+	/**
+	 * Indicates if the payment product supports 3D Security (mandatory, optional or not needed).
+	 */
+	public void setAuthenticationIndicator(AuthenticationIndicator value) {
+		this.authenticationIndicator = value;
 	}
 
 	/**

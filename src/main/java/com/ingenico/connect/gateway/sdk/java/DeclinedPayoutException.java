@@ -21,7 +21,7 @@ public class DeclinedPayoutException extends DeclinedTransactionException {
 		if (payout != null) {
 			return "declined payout '" + payout.getId() + "' with status '" + payout.getStatus() + "'";
 		} else {
-			return "the GlobalCollect platform returned a declined payout response";
+			return "the Ingenico ePayments platform returned a declined payout response";
 		}
 	}
 

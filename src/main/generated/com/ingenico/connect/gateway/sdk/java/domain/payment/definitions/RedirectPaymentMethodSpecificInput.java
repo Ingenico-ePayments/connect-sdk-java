@@ -12,6 +12,8 @@ public class RedirectPaymentMethodSpecificInput extends RedirectPaymentMethodSpe
 
 	private RedirectPaymentProduct816SpecificInput paymentProduct816SpecificInput = null;
 
+	private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput = null;
+
 	private RedirectPaymentProduct882SpecificInput paymentProduct882SpecificInput = null;
 
 	private String returnUrl = null;
@@ -60,6 +62,20 @@ public class RedirectPaymentMethodSpecificInput extends RedirectPaymentMethodSpe
 	 */
 	public void setPaymentProduct816SpecificInput(RedirectPaymentProduct816SpecificInput value) {
 		this.paymentProduct816SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for PayPal payments (Payment product ID 840)
+	 */
+	public RedirectPaymentProduct840SpecificInput getPaymentProduct840SpecificInput() {
+		return paymentProduct840SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for PayPal payments (Payment product ID 840)
+	 */
+	public void setPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
+		this.paymentProduct840SpecificInput = value;
 	}
 
 	/**

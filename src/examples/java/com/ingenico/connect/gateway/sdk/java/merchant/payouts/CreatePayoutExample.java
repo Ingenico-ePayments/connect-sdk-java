@@ -23,6 +23,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.errors.definitions.APIError;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalName;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.CreatePayoutRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.PayoutResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.BankTransferPayoutMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutCustomer;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutResult;
@@ -67,17 +68,20 @@ public class CreatePayoutExample {
 			customer.setContactDetails(contactDetails);
 			customer.setName(name);
 
+			BankTransferPayoutMethodSpecificInput bankTransferPayoutMethodSpecificInput = new BankTransferPayoutMethodSpecificInput();
+			bankTransferPayoutMethodSpecificInput.setBankAccountIban(bankAccountIban);
+			bankTransferPayoutMethodSpecificInput.setCustomer(customer);
+			bankTransferPayoutMethodSpecificInput.setPayoutDate("20150102");
+			bankTransferPayoutMethodSpecificInput.setPayoutText("Payout Acme");
+			bankTransferPayoutMethodSpecificInput.setSwiftCode("swift");
+
 			PayoutReferences references = new PayoutReferences();
 			references.setMerchantReference("AcmeOrder001");
 
 			CreatePayoutRequest body = new CreatePayoutRequest();
 			body.setAmountOfMoney(amountOfMoney);
-			body.setBankAccountIban(bankAccountIban);
-			body.setCustomer(customer);
-			body.setPayoutDate("20150102");
-			body.setPayoutText("Payout Acme");
+			body.setBankTransferPayoutMethodSpecificInput(bankTransferPayoutMethodSpecificInput);
 			body.setReferences(references);
-			body.setSwiftCode("swift");
 
 			try {
 				PayoutResponse response = client.merchant("merchantId").payouts().create(body);

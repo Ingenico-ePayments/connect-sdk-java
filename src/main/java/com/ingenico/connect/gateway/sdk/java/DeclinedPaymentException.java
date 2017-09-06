@@ -22,7 +22,7 @@ public class DeclinedPaymentException extends DeclinedTransactionException {
 		if (payment != null) {
 			return "declined payment '" + payment.getId() + "' with status '" + payment.getStatus() + "'";
 		} else {
-			return "the GlobalCollect platform returned a declined payment response";
+			return "the Ingenico ePayments platform returned a declined payment response";
 		}
 	}
 

@@ -11,7 +11,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payout.PayoutErrorResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.RefundErrorResponse;
 
 /**
- * Base class of all GlobalCollect platform API resources.
+ * Base class of all Ingenico ePayments platform API resources.
  */
 public abstract class ApiResource {
 

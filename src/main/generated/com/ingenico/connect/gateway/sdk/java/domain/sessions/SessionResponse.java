@@ -62,8 +62,10 @@ public class SessionResponse {
 	 * Possible values:
 	 * <ul><li>EU - datacenter located in Amsterdam
 	 * <li>US - datacenter located in Miami
+	 * <li>AMS - datacenter located in Amsterdam
+	 * <li>PAR - datacenter located in Paris
 	 * </ul>
-	 * When a session is created it is created in a specific datacenter. Any subsequent calls using the Client API need to be datacenter specific. The region is identified either by EU (datacenter located in Amsterdam) or US (datacenter located in Miami). This value needs to be passed to the a Client SDK to make sure that the client software connects to the right datacenter.
+	 * When a session is created it is created in a specific datacenter. Any subsequent calls using the Client API need to be datacenter specific. The region is identified by EU or AMS (datacenter located in Amsterdam), US (datacenter located in Miami) or PAR (datacenter located in Paris). This value needs to be passed to the a Client SDK to make sure that the client software connects to the right datacenter.
 	 */
 	public String getRegion() {
 		return region;
@@ -73,8 +75,10 @@ public class SessionResponse {
 	 * Possible values:
 	 * <ul><li>EU - datacenter located in Amsterdam
 	 * <li>US - datacenter located in Miami
+	 * <li>AMS - datacenter located in Amsterdam
+	 * <li>PAR - datacenter located in Paris
 	 * </ul>
-	 * When a session is created it is created in a specific datacenter. Any subsequent calls using the Client API need to be datacenter specific. The region is identified either by EU (datacenter located in Amsterdam) or US (datacenter located in Miami). This value needs to be passed to the a Client SDK to make sure that the client software connects to the right datacenter.
+	 * When a session is created it is created in a specific datacenter. Any subsequent calls using the Client API need to be datacenter specific. The region is identified by EU or AMS (datacenter located in Amsterdam), US (datacenter located in Miami) or PAR (datacenter located in Paris). This value needs to be passed to the a Client SDK to make sure that the client software connects to the right datacenter.
 	 */
 	public void setRegion(String value) {
 		this.region = value;

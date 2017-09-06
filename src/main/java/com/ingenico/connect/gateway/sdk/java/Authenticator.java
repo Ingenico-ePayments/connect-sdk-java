@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.List;
 
 /**
- * Used to sign requests to the GlobalCollect platform. Thread-safe.
+ * Used to sign requests to the Ingenico ePayments platform. Thread-safe.
  */
 public interface Authenticator {
 

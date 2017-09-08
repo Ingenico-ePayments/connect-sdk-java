@@ -173,7 +173,6 @@ public class Communicator implements Closeable, LoggingCapable {
 		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
 		URI uri = toAbsoluteURI(relativePath, requestParameterList);
 
-
 		if (requestHeaders == null) {
 			requestHeaders = new ArrayList<RequestHeader>();
 		}

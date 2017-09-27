@@ -11,6 +11,8 @@ public class CustomerRiskAssessment {
 
 	private Address billingAddress = null;
 
+	private ContactDetailsRiskAssessment contactDetails = null;
+
 	private String locale = null;
 
 	private PersonalInformationRiskAssessment personalInformation = null;
@@ -29,6 +31,20 @@ public class CustomerRiskAssessment {
 	 */
 	public void setBillingAddress(Address value) {
 		this.billingAddress = value;
+	}
+
+	/**
+	 * Object containing contact details like email address
+	 */
+	public ContactDetailsRiskAssessment getContactDetails() {
+		return contactDetails;
+	}
+
+	/**
+	 * Object containing contact details like email address
+	 */
+	public void setContactDetails(ContactDetailsRiskAssessment value) {
+		this.contactDetails = value;
 	}
 
 	/**

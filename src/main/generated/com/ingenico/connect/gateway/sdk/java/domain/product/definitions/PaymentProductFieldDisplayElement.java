@@ -1,0 +1,70 @@
+/*
+ * This class was auto-generated from the API references found at
+ * https://epayments-api.developer-ingenico.com/s2sapi/v1/
+ */
+package com.ingenico.connect.gateway.sdk.java.domain.product.definitions;
+
+public class PaymentProductFieldDisplayElement {
+
+	private String id = null;
+
+	private String type = null;
+
+	private String value = null;
+
+	/**
+	 * The ID of the display element.
+	 */
+	public String getId() {
+		return id;
+	}
+
+	/**
+	 * The ID of the display element.
+	 */
+	public void setId(String value) {
+		this.id = value;
+	}
+
+	/**
+	 * The type of the display element. Indicates how the value should be presented. Possible values are:
+	 * <ul>
+	 * <li>string - as plain text
+	 * <li>currency - as an amount in cents displayed with a decimal separator and the currency of the payment
+	 * <li>percentage - as a number with a percentage sign
+	 * <li>integer - as an integer
+	 * <li>uri - as a link
+	 * </ul>
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * The type of the display element. Indicates how the value should be presented. Possible values are:
+	 * <ul>
+	 * <li>string - as plain text
+	 * <li>currency - as an amount in cents displayed with a decimal separator and the currency of the payment
+	 * <li>percentage - as a number with a percentage sign
+	 * <li>integer - as an integer
+	 * <li>uri - as a link
+	 * </ul>
+	 */
+	public void setType(String value) {
+		this.type = value;
+	}
+
+	/**
+	 * the value of the display element.
+	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * the value of the display element.
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
+}

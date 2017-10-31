@@ -16,6 +16,8 @@ public class PaymentOutput extends OrderOutput {
 
 	private NonSepaDirectDebitPaymentMethodSpecificOutput directDebitPaymentMethodSpecificOutput = null;
 
+	private EInvoicePaymentMethodSpecificOutput eInvoicePaymentMethodSpecificOutput = null;
+
 	private InvoicePaymentMethodSpecificOutput invoicePaymentMethodSpecificOutput = null;
 
 	private MobilePaymentMethodSpecificOutput mobilePaymentMethodSpecificOutput = null;
@@ -94,6 +96,20 @@ public class PaymentOutput extends OrderOutput {
 	 */
 	public void setDirectDebitPaymentMethodSpecificOutput(NonSepaDirectDebitPaymentMethodSpecificOutput value) {
 		this.directDebitPaymentMethodSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing the e-invoice payment method details
+	 */
+	public EInvoicePaymentMethodSpecificOutput getEInvoicePaymentMethodSpecificOutput() {
+		return eInvoicePaymentMethodSpecificOutput;
+	}
+
+	/**
+	 * Object containing the e-invoice payment method details
+	 */
+	public void setEInvoicePaymentMethodSpecificOutput(EInvoicePaymentMethodSpecificOutput value) {
+		this.eInvoicePaymentMethodSpecificOutput = value;
 	}
 
 	/**

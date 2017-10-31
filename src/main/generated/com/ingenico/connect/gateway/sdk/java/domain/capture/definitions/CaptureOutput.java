@@ -7,6 +7,7 @@ package com.ingenico.connect.gateway.sdk.java.domain.capture.definitions;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTransferPaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificOutput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.EInvoicePaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.InvoicePaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MobilePaymentMethodSpecificOutput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificOutput;
@@ -25,6 +26,8 @@ public class CaptureOutput extends OrderOutput {
 	private CashPaymentMethodSpecificOutput cashPaymentMethodSpecificOutput = null;
 
 	private NonSepaDirectDebitPaymentMethodSpecificOutput directDebitPaymentMethodSpecificOutput = null;
+
+	private EInvoicePaymentMethodSpecificOutput eInvoicePaymentMethodSpecificOutput = null;
 
 	private InvoicePaymentMethodSpecificOutput invoicePaymentMethodSpecificOutput = null;
 
@@ -104,6 +107,20 @@ public class CaptureOutput extends OrderOutput {
 	 */
 	public void setDirectDebitPaymentMethodSpecificOutput(NonSepaDirectDebitPaymentMethodSpecificOutput value) {
 		this.directDebitPaymentMethodSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing the e-invoice payment method details
+	 */
+	public EInvoicePaymentMethodSpecificOutput getEInvoicePaymentMethodSpecificOutput() {
+		return eInvoicePaymentMethodSpecificOutput;
+	}
+
+	/**
+	 * Object containing the e-invoice payment method details
+	 */
+	public void setEInvoicePaymentMethodSpecificOutput(EInvoicePaymentMethodSpecificOutput value) {
+		this.eInvoicePaymentMethodSpecificOutput = value;
 	}
 
 	/**

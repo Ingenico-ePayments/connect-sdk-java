@@ -24,6 +24,8 @@ public class PaymentProduct {
 
 	private List<PaymentProductField> fields = null;
 
+	private String fieldsWarning = null;
+
 	private Integer id = null;
 
 	private Long maxAmount = null;
@@ -180,6 +182,20 @@ public class PaymentProduct {
 	 */
 	public void setFields(List<PaymentProductField> value) {
 		this.fields = value;
+	}
+
+	/**
+	 * If one or more of the payment product fields could not be constructed, no payment product fields will be returned and a message will be present in this field stating why.
+	 */
+	public String getFieldsWarning() {
+		return fieldsWarning;
+	}
+
+	/**
+	 * If one or more of the payment product fields could not be constructed, no payment product fields will be returned and a message will be present in this field stating why.
+	 */
+	public void setFieldsWarning(String value) {
+		this.fieldsWarning = value;
 	}
 
 	/**

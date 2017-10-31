@@ -12,8 +12,8 @@ public class OrderTypeInformation {
 
 	/**
 	 * Possible values are:<ul>
-	 * <li>good
-	 * <li>service
+	 * <li>physical
+	 * <li>digital
 	 * </ul>
 	 */
 	public String getPurchaseType() {
@@ -22,8 +22,8 @@ public class OrderTypeInformation {
 
 	/**
 	 * Possible values are:<ul>
-	 * <li>good
-	 * <li>service
+	 * <li>physical
+	 * <li>digital
 	 * </ul>
 	 */
 	public void setPurchaseType(String value) {

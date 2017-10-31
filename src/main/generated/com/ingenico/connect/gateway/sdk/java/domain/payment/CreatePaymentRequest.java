@@ -8,6 +8,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.FraudFields;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTransferPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificInput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.EInvoicePaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.InvoicePaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MobilePaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificInput;
@@ -24,6 +25,8 @@ public class CreatePaymentRequest {
 	private CashPaymentMethodSpecificInput cashPaymentMethodSpecificInput = null;
 
 	private NonSepaDirectDebitPaymentMethodSpecificInput directDebitPaymentMethodSpecificInput = null;
+
+	private EInvoicePaymentMethodSpecificInput eInvoicePaymentMethodSpecificInput = null;
 
 	private String encryptedCustomerInput = null;
 
@@ -93,6 +96,20 @@ public class CreatePaymentRequest {
 	 */
 	public void setDirectDebitPaymentMethodSpecificInput(NonSepaDirectDebitPaymentMethodSpecificInput value) {
 		this.directDebitPaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for e-invoice payments.
+	 */
+	public EInvoicePaymentMethodSpecificInput getEInvoicePaymentMethodSpecificInput() {
+		return eInvoicePaymentMethodSpecificInput;
+	}
+
+	/**
+	 * Object containing the specific input details for e-invoice payments.
+	 */
+	public void setEInvoicePaymentMethodSpecificInput(EInvoicePaymentMethodSpecificInput value) {
+		this.eInvoicePaymentMethodSpecificInput = value;
 	}
 
 	/**

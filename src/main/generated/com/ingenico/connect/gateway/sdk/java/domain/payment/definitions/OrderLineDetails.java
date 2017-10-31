@@ -8,9 +8,13 @@ public class OrderLineDetails {
 
 	private Long discountAmount = null;
 
+	private Long googleProductCategoryId = null;
+
 	private Long lineAmountTotal = null;
 
 	private String productCode = null;
+
+	private String productName = null;
 
 	private Long productPrice = null;
 
@@ -34,6 +38,20 @@ public class OrderLineDetails {
 	 */
 	public void setDiscountAmount(Long value) {
 		this.discountAmount = value;
+	}
+
+	/**
+	 * The Google product category ID for the item.
+	 */
+	public Long getGoogleProductCategoryId() {
+		return googleProductCategoryId;
+	}
+
+	/**
+	 * The Google product category ID for the item.
+	 */
+	public void setGoogleProductCategoryId(Long value) {
+		this.googleProductCategoryId = value;
 	}
 
 	/**
@@ -64,6 +82,20 @@ public class OrderLineDetails {
 	 */
 	public void setProductCode(String value) {
 		this.productCode = value;
+	}
+
+	/**
+	 * The name of the product.
+	 */
+	public String getProductName() {
+		return productName;
+	}
+
+	/**
+	 * The name of the product.
+	 */
+	public void setProductName(String value) {
+		this.productName = value;
 	}
 
 	/**

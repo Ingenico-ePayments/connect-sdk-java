@@ -14,6 +14,8 @@ public class PaymentProductFieldDisplayHints {
 
 	private String label = null;
 
+	private String link = null;
+
 	private String mask = null;
 
 	private Boolean obfuscate = null;
@@ -73,17 +75,31 @@ public class PaymentProductFieldDisplayHints {
 	}
 
 	/**
-	 * Label/Name of the field to used in the user interface
+	 * Label/Name of the field to be used in the user interface
 	 */
 	public String getLabel() {
 		return label;
 	}
 
 	/**
-	 * Label/Name of the field to used in the user interface
+	 * Label/Name of the field to be used in the user interface
 	 */
 	public void setLabel(String value) {
 		this.label = value;
+	}
+
+	/**
+	 * Link that should be used to replace the '{link}' variable in the label.
+	 */
+	public String getLink() {
+		return link;
+	}
+
+	/**
+	 * Link that should be used to replace the '{link}' variable in the label.
+	 */
+	public void setLink(String value) {
+		this.link = value;
 	}
 
 	/**

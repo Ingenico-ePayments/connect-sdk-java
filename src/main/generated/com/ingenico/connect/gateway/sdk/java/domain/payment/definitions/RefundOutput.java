@@ -91,13 +91,14 @@ public class RefundOutput extends OrderOutput {
 	/**
 	 * Payment method identifier used by the our payment engine with the following possible values:
 	 * <ul>
-	 * <li>card
-	 * <li>directDebit
-	 * <li>invoice
-	 * <li>bankTransfer
-	 * <li>redirect
-	 * <li>cash
 	 * <li>bankRefund
+	 * <li>bankTransfer
+	 * <li>card
+	 * <li>cash
+	 * <li>directDebit
+	 * <li>eInvoice
+	 * <li>invoice
+	 * <li>redirect
 	 * </ul>
 	 */
 	public String getPaymentMethod() {
@@ -107,13 +108,14 @@ public class RefundOutput extends OrderOutput {
 	/**
 	 * Payment method identifier used by the our payment engine with the following possible values:
 	 * <ul>
-	 * <li>card
-	 * <li>directDebit
-	 * <li>invoice
-	 * <li>bankTransfer
-	 * <li>redirect
-	 * <li>cash
 	 * <li>bankRefund
+	 * <li>bankTransfer
+	 * <li>card
+	 * <li>cash
+	 * <li>directDebit
+	 * <li>eInvoice
+	 * <li>invoice
+	 * <li>redirect
 	 * </ul>
 	 */
 	public void setPaymentMethod(String value) {

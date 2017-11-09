@@ -12,6 +12,8 @@ public class HostedCheckoutSpecificInput {
 
 	private PaymentProductFiltersHostedCheckout paymentProductFilters = null;
 
+	private Boolean returnCancelState = null;
+
 	private String returnUrl = null;
 
 	private Boolean showResultPage = null;
@@ -66,6 +68,20 @@ public class HostedCheckoutSpecificInput {
 	 */
 	public void setPaymentProductFilters(PaymentProductFiltersHostedCheckout value) {
 		this.paymentProductFilters = value;
+	}
+
+	/**
+	 * When set on true, the consumer is able to cancel the Hosted Checkout by pressing the cancel button. When set to false, the cancel button will only return the consumer back to the payment method selection page. Default value is false.
+	 */
+	public Boolean getReturnCancelState() {
+		return returnCancelState;
+	}
+
+	/**
+	 * When set on true, the consumer is able to cancel the Hosted Checkout by pressing the cancel button. When set to false, the cancel button will only return the consumer back to the payment method selection page. Default value is false.
+	 */
+	public void setReturnCancelState(Boolean value) {
+		this.returnCancelState = value;
 	}
 
 	/**

@@ -20,6 +20,8 @@ public class Order {
 
 	private OrderReferences references = null;
 
+	private Seller seller = null;
+
 	private ShoppingCart shoppingCart = null;
 
 	/**
@@ -96,6 +98,20 @@ public class Order {
 	 */
 	public void setReferences(OrderReferences value) {
 		this.references = value;
+	}
+
+	/**
+	 * Object containing seller details
+	 */
+	public Seller getSeller() {
+		return seller;
+	}
+
+	/**
+	 * Object containing seller details
+	 */
+	public void setSeller(Seller value) {
+		this.seller = value;
 	}
 
 	/**

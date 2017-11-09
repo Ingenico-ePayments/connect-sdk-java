@@ -9,8 +9,10 @@ import com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions.H
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTransferPaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificInputBase;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.EInvoicePaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificInputBase;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.SepaDirectDebitPaymentMethodSpecificInputBase;
 
 public class CreateHostedCheckoutRequest {
 
@@ -20,6 +22,8 @@ public class CreateHostedCheckoutRequest {
 
 	private CashPaymentMethodSpecificInputBase cashPaymentMethodSpecificInput = null;
 
+	private EInvoicePaymentMethodSpecificInputBase eInvoicePaymentMethodSpecificInput = null;
+
 	private FraudFields fraudFields = null;
 
 	private HostedCheckoutSpecificInput hostedCheckoutSpecificInput = null;
@@ -27,6 +31,8 @@ public class CreateHostedCheckoutRequest {
 	private Order order = null;
 
 	private RedirectPaymentMethodSpecificInputBase redirectPaymentMethodSpecificInput = null;
+
+	private SepaDirectDebitPaymentMethodSpecificInputBase sepaDirectDebitPaymentMethodSpecificInput = null;
 
 	/**
 	 * Object containing the specific input details for bank transfer payments
@@ -68,6 +74,20 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setCashPaymentMethodSpecificInput(CashPaymentMethodSpecificInputBase value) {
 		this.cashPaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for eInvoice payments
+	 */
+	public EInvoicePaymentMethodSpecificInputBase getEInvoicePaymentMethodSpecificInput() {
+		return eInvoicePaymentMethodSpecificInput;
+	}
+
+	/**
+	 * Object containing the specific input details for eInvoice payments
+	 */
+	public void setEInvoicePaymentMethodSpecificInput(EInvoicePaymentMethodSpecificInputBase value) {
+		this.eInvoicePaymentMethodSpecificInput = value;
 	}
 
 	/**
@@ -124,5 +144,19 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setRedirectPaymentMethodSpecificInput(RedirectPaymentMethodSpecificInputBase value) {
 		this.redirectPaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing the specific input details for SEPA direct debit payments
+	 */
+	public SepaDirectDebitPaymentMethodSpecificInputBase getSepaDirectDebitPaymentMethodSpecificInput() {
+		return sepaDirectDebitPaymentMethodSpecificInput;
+	}
+
+	/**
+	 * Object containing the specific input details for SEPA direct debit payments
+	 */
+	public void setSepaDirectDebitPaymentMethodSpecificInput(SepaDirectDebitPaymentMethodSpecificInputBase value) {
+		this.sepaDirectDebitPaymentMethodSpecificInput = value;
 	}
 }

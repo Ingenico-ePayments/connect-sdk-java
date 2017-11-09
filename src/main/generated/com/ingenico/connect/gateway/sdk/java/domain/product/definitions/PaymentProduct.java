@@ -265,13 +265,13 @@ public class PaymentProduct {
 	/**
 	 * Indicates which payment method will be used for this payment product. Payment method is one of:
 	 * <ul>
-	 * <li>card
-	 * <li>directDebit
-	 * <li>onlineBankTransfer
-	 * <li>invoice
 	 * <li>bankTransfer
-	 * <li>redirect
+	 * <li>card
 	 * <li>cash
+	 * <li>directDebit
+	 * <li>eInvoice
+	 * <li>invoice
+	 * <li>redirect
 	 * </ul>
 	 */
 	public String getPaymentMethod() {
@@ -281,13 +281,13 @@ public class PaymentProduct {
 	/**
 	 * Indicates which payment method will be used for this payment product. Payment method is one of:
 	 * <ul>
-	 * <li>card
-	 * <li>directDebit
-	 * <li>onlineBankTransfer
-	 * <li>invoice
 	 * <li>bankTransfer
-	 * <li>redirect
+	 * <li>card
 	 * <li>cash
+	 * <li>directDebit
+	 * <li>eInvoice
+	 * <li>invoice
+	 * <li>redirect
 	 * </ul>
 	 */
 	public void setPaymentMethod(String value) {

@@ -10,6 +10,8 @@ public class SepaDirectDebitPaymentMethodSpecificOutput extends AbstractPaymentM
 
 	private FraudResults fraudResults = null;
 
+	private PaymentProduct771SpecificOutput paymentProduct771SpecificOutput = null;
+
 	/**
 	 * Object containing the results of the fraud screening
 	 */
@@ -22,5 +24,19 @@ public class SepaDirectDebitPaymentMethodSpecificOutput extends AbstractPaymentM
 	 */
 	public void setFraudResults(FraudResults value) {
 		this.fraudResults = value;
+	}
+
+	/**
+	 * Output that is SEPA Direct Debit specific (i.e. the used mandate)
+	 */
+	public PaymentProduct771SpecificOutput getPaymentProduct771SpecificOutput() {
+		return paymentProduct771SpecificOutput;
+	}
+
+	/**
+	 * Output that is SEPA Direct Debit specific (i.e. the used mandate)
+	 */
+	public void setPaymentProduct771SpecificOutput(PaymentProduct771SpecificOutput value) {
+		this.paymentProduct771SpecificOutput = value;
 	}
 }

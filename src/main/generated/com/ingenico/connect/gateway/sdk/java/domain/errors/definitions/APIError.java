@@ -101,14 +101,24 @@ public class APIError {
 	}
 
 	/**
-	 * In case the error was in relation to a property that was missing or not correct the name of the property in question is returned
+	 * Returned only if the error relates to a value that was missing or incorrect.<br>
+	 * Contains a location path to the value as a <a href="http://docs.jsonata.org/basic.html">JSonata query</a>.<br>
+	 * Some common examples:
+	 * <ul><li>a.b selects the value of property b of root property a,</li>
+	 * <li>a[1] selects the first element of the array in root property a,</li>
+	 * <li>a[b='some value'] selects all elements of the array in root property a that have a property b with value 'some value'.</li></ul>
 	 */
 	public String getPropertyName() {
 		return propertyName;
 	}
 
 	/**
-	 * In case the error was in relation to a property that was missing or not correct the name of the property in question is returned
+	 * Returned only if the error relates to a value that was missing or incorrect.<br>
+	 * Contains a location path to the value as a <a href="http://docs.jsonata.org/basic.html">JSonata query</a>.<br>
+	 * Some common examples:
+	 * <ul><li>a.b selects the value of property b of root property a,</li>
+	 * <li>a[1] selects the first element of the array in root property a,</li>
+	 * <li>a[b='some value'] selects all elements of the array in root property a that have a property b with value 'some value'.</li></ul>
 	 */
 	public void setPropertyName(String value) {
 		this.propertyName = value;

@@ -26,10 +26,16 @@ public class ShoppingCart {
 		this.amountBreakdown = value;
 	}
 
+	/**
+	 * Shopping cart data
+	 */
 	public List<LineItem> getItems() {
 		return items;
 	}
 
+	/**
+	 * Shopping cart data
+	 */
 	public void setItems(List<LineItem> value) {
 		this.items = value;
 	}

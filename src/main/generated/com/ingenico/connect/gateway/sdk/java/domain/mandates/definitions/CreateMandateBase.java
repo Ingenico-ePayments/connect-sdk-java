@@ -14,8 +14,6 @@ public class CreateMandateBase {
 
 	private String recurrenceType = null;
 
-	private String returnUrl = null;
-
 	private String signatureType = null;
 
 	/**
@@ -61,42 +59,44 @@ public class CreateMandateBase {
 	}
 
 	/**
-	 * Specifies whether the mandate is for one-off or recurring payments.
+	 * Specifies whether the mandate is for one-off or recurring payments. Possible values are:<br>
+	 * <ul>
+	 *  <li>UNIQUE
+	 * <li>RECURRING
+	 * </ul>
 	 */
 	public String getRecurrenceType() {
 		return recurrenceType;
 	}
 
 	/**
-	 * Specifies whether the mandate is for one-off or recurring payments.
+	 * Specifies whether the mandate is for one-off or recurring payments. Possible values are:<br>
+	 * <ul>
+	 *  <li>UNIQUE
+	 * <li>RECURRING
+	 * </ul>
 	 */
 	public void setRecurrenceType(String value) {
 		this.recurrenceType = value;
 	}
 
 	/**
-	 * Return url to use if the mandate signing requires redirection.
-	 */
-	public String getReturnUrl() {
-		return returnUrl;
-	}
-
-	/**
-	 * Return url to use if the mandate signing requires redirection.
-	 */
-	public void setReturnUrl(String value) {
-		this.returnUrl = value;
-	}
-
-	/**
-	 * Specifies whether the mandate is 'Unsigned' or singed by 'SMS'.
+	 * Specifies whether the mandate is unsigned or singed by SMS. Possible values are:<br>
+	 * <ul>
+	 *  <li>UNSIGNED
+	 * <li>SMS
+	 * </ul>
 	 */
 	public String getSignatureType() {
 		return signatureType;
 	}
 
 	/**
-	 * Specifies whether the mandate is 'Unsigned' or singed by 'SMS'.
+	 * Specifies whether the mandate is unsigned or singed by SMS. Possible values are:<br>
+	 * <ul>
+	 *  <li>UNSIGNED
+	 * <li>SMS
+	 * </ul>
 	 */
 	public void setSignatureType(String value) {
 		this.signatureType = value;

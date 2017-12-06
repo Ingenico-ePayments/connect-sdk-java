@@ -65,7 +65,7 @@ public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMetho
 	}
 
 	/**
-	 * <ul><li>true = the payment requires approval before the funds will be captured using the <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html'>Capture payment</a> API
+	 * <ul><li>true = the payment requires approval before the funds will be captured using the <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html'>Approve payment</a> or <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/capture.html'>Capture payment</a> API
 	 * <li>false = the payment does not require approval, and the funds will be captured automatically
 	 * </ul>
 	 */
@@ -74,7 +74,7 @@ public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMetho
 	}
 
 	/**
-	 * <ul><li>true = the payment requires approval before the funds will be captured using the <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html'>Capture payment</a> API
+	 * <ul><li>true = the payment requires approval before the funds will be captured using the <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html'>Approve payment</a> or <a href='https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/capture.html'>Capture payment</a> API
 	 * <li>false = the payment does not require approval, and the funds will be captured automatically
 	 * </ul>
 	 */

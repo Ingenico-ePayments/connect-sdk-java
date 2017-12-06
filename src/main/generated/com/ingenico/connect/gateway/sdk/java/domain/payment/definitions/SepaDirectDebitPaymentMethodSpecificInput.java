@@ -4,13 +4,15 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-public class SepaDirectDebitPaymentMethodSpecificInput extends SepaDirectDebitPaymentMethodSpecificInputBase {
+public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirectDebitPaymentMethodSpecificInput {
 
 	private String dateCollect = null;
 
 	private String directDebitText = null;
 
 	private Boolean isRecurring = null;
+
+	private SepaDirectDebitPaymentProduct771SpecificInput paymentProduct771SpecificInput = null;
 
 	private String recurringPaymentSequenceIndicator = null;
 
@@ -66,6 +68,20 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends SepaDirectDebitPa
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
+	}
+
+	/**
+	 * Object containing information specific to SEPA Direct Debit
+	 */
+	public SepaDirectDebitPaymentProduct771SpecificInput getPaymentProduct771SpecificInput() {
+		return paymentProduct771SpecificInput;
+	}
+
+	/**
+	 * Object containing information specific to SEPA Direct Debit
+	 */
+	public void setPaymentProduct771SpecificInput(SepaDirectDebitPaymentProduct771SpecificInput value) {
+		this.paymentProduct771SpecificInput = value;
 	}
 
 	/**

@@ -4,42 +4,26 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.CreateMandateBase;
+import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.CreateMandateWithReturnUrl;
 
 /**
- * Object containing information specific to SEPA Direct Debit
+ * Object containing information specific to SEPA Direct Debit for Create Payments.
  */
-public class SepaDirectDebitPaymentProduct771SpecificInput {
+public class SepaDirectDebitPaymentProduct771SpecificInput extends AbstractSepaDirectDebitPaymentProduct771SpecificInput {
 
-	private CreateMandateBase mandate = null;
-
-	private String mandateReference = null;
+	private CreateMandateWithReturnUrl mandate = null;
 
 	/**
-	 * Object containing informatin to create a SEPA Direct Debit mandate. Required for creating HostedCheckouts
+	 * Object containing information to create a SEPA Direct Debit mandate.
 	 */
-	public CreateMandateBase getMandate() {
+	public CreateMandateWithReturnUrl getMandate() {
 		return mandate;
 	}
 
 	/**
-	 * Object containing informatin to create a SEPA Direct Debit mandate. Required for creating HostedCheckouts
+	 * Object containing information to create a SEPA Direct Debit mandate.
 	 */
-	public void setMandate(CreateMandateBase value) {
+	public void setMandate(CreateMandateWithReturnUrl value) {
 		this.mandate = value;
-	}
-
-	/**
-	 * A mandate ID to create a mandate under iff the information to create a mandate has been supplied. Otherwise refers to the mandate to retrieve and use in the payment.
-	 */
-	public String getMandateReference() {
-		return mandateReference;
-	}
-
-	/**
-	 * A mandate ID to create a mandate under iff the information to create a mandate has been supplied. Otherwise refers to the mandate to retrieve and use in the payment.
-	 */
-	public void setMandateReference(String value) {
-		this.mandateReference = value;
 	}
 }

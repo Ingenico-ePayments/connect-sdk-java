@@ -4,23 +4,21 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractPaymentMethodSpecificInput;
+public class SepaDirectDebitPaymentMethodSpecificInputBase extends AbstractSepaDirectDebitPaymentMethodSpecificInput {
 
-public class SepaDirectDebitPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpecificInput {
-
-	private SepaDirectDebitPaymentProduct771SpecificInput paymentProduct771SpecificInput = null;
+	private SepaDirectDebitPaymentProduct771SpecificInputBase paymentProduct771SpecificInput = null;
 
 	/**
 	 * Object containing information specific to SEPA Direct Debit
 	 */
-	public SepaDirectDebitPaymentProduct771SpecificInput getPaymentProduct771SpecificInput() {
+	public SepaDirectDebitPaymentProduct771SpecificInputBase getPaymentProduct771SpecificInput() {
 		return paymentProduct771SpecificInput;
 	}
 
 	/**
 	 * Object containing information specific to SEPA Direct Debit
 	 */
-	public void setPaymentProduct771SpecificInput(SepaDirectDebitPaymentProduct771SpecificInput value) {
+	public void setPaymentProduct771SpecificInput(SepaDirectDebitPaymentProduct771SpecificInputBase value) {
 		this.paymentProduct771SpecificInput = value;
 	}
 }

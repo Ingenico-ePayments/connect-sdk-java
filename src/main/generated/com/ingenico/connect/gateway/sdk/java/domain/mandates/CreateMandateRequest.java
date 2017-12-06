@@ -4,7 +4,7 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.mandates;
 
-import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.CreateMandateBase;
+import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.CreateMandateWithReturnUrl;
 
-public class CreateMandateRequest extends CreateMandateBase {
+public class CreateMandateRequest extends CreateMandateWithReturnUrl {
 }

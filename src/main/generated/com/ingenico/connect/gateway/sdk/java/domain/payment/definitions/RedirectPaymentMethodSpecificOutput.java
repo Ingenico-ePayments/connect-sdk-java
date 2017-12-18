@@ -5,10 +5,13 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountIban;
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.FraudResults;
 
 public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecificOutput {
 
 	private BankAccountIban bankAccountIban = null;
+
+	private FraudResults fraudResults = null;
 
 	private PaymentProduct836SpecificOutput paymentProduct836SpecificOutput = null;
 
@@ -26,6 +29,20 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	 */
 	public void setBankAccountIban(BankAccountIban value) {
 		this.bankAccountIban = value;
+	}
+
+	/**
+	 * Object containing the results of the fraud screening
+	 */
+	public FraudResults getFraudResults() {
+		return fraudResults;
+	}
+
+	/**
+	 * Object containing the results of the fraud screening
+	 */
+	public void setFraudResults(FraudResults value) {
+		this.fraudResults = value;
 	}
 
 	/**

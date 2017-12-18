@@ -29,11 +29,11 @@ public class PaymentProductFieldDisplayElement {
 	/**
 	 * The type of the display element. Indicates how the value should be presented. Possible values are:
 	 * <ul>
-	 * <li>string - as plain text
-	 * <li>currency - as an amount in cents displayed with a decimal separator and the currency of the payment
-	 * <li>percentage - as a number with a percentage sign
-	 * <li>integer - as an integer
-	 * <li>uri - as a link
+	 * <li>STRING - as plain text
+	 * <li>CURRENCY - as an amount in cents displayed with a decimal separator and the currency of the payment
+	 * <li>PERCENTAGE - as a number with a percentage sign
+	 * <li>INTEGER - as an integer
+	 * <li>URI - as a link
 	 * </ul>
 	 */
 	public String getType() {
@@ -43,11 +43,11 @@ public class PaymentProductFieldDisplayElement {
 	/**
 	 * The type of the display element. Indicates how the value should be presented. Possible values are:
 	 * <ul>
-	 * <li>string - as plain text
-	 * <li>currency - as an amount in cents displayed with a decimal separator and the currency of the payment
-	 * <li>percentage - as a number with a percentage sign
-	 * <li>integer - as an integer
-	 * <li>uri - as a link
+	 * <li>STRING - as plain text
+	 * <li>CURRENCY - as an amount in cents displayed with a decimal separator and the currency of the payment
+	 * <li>PERCENTAGE - as a number with a percentage sign
+	 * <li>INTEGER - as an integer
+	 * <li>URI - as a link
 	 * </ul>
 	 */
 	public void setType(String value) {

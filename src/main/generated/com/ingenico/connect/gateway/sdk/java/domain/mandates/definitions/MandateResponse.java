@@ -6,6 +6,8 @@ package com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions;
 
 public class MandateResponse {
 
+	private String alias = null;
+
 	private MandateCustomer customer = null;
 
 	private String customerReference = null;
@@ -15,6 +17,22 @@ public class MandateResponse {
 	private String status = null;
 
 	private String uniqueMandateReference = null;
+
+	/**
+	 * An alias for the mandate. This can be used to visually represent the mandate.<br>
+	 * Do not include any unobfuscated sensitive data in the alias.
+	 */
+	public String getAlias() {
+		return alias;
+	}
+
+	/**
+	 * An alias for the mandate. This can be used to visually represent the mandate.<br>
+	 * Do not include any unobfuscated sensitive data in the alias.
+	 */
+	public void setAlias(String value) {
+		this.alias = value;
+	}
 
 	/**
 	 * Customer object containing customer specific inputs

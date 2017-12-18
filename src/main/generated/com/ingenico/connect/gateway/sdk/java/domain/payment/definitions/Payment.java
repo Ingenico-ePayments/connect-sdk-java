@@ -8,11 +8,27 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractOrderSta
 
 public class Payment extends AbstractOrderStatus {
 
+	private HostedCheckoutSpecificOutput hostedCheckoutSpecificOutput = null;
+
 	private PaymentOutput paymentOutput = null;
 
 	private String status = null;
 
 	private PaymentStatusOutput statusOutput = null;
+
+	/**
+	 * Hosted Checkout specific information
+	 */
+	public HostedCheckoutSpecificOutput getHostedCheckoutSpecificOutput() {
+		return hostedCheckoutSpecificOutput;
+	}
+
+	/**
+	 * Hosted Checkout specific information
+	 */
+	public void setHostedCheckoutSpecificOutput(HostedCheckoutSpecificOutput value) {
+		this.hostedCheckoutSpecificOutput = value;
+	}
 
 	/**
 	 * Object containing payment details

@@ -26,6 +26,8 @@ public class AirlineFlightLeg {
 
 	private String originAirport = null;
 
+	private String serviceClass = null;
+
 	private String stopoverCode = null;
 
 	/**
@@ -172,6 +174,20 @@ public class AirlineFlightLeg {
 	 */
 	public void setOriginAirport(String value) {
 		this.originAirport = value;
+	}
+
+	/**
+	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform)
+	 */
+	public String getServiceClass() {
+		return serviceClass;
+	}
+
+	/**
+	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform)
+	 */
+	public void setServiceClass(String value) {
+		this.serviceClass = value;
 	}
 
 	/**

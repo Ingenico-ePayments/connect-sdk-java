@@ -34,6 +34,8 @@ public class AirlineData {
 
 	private String passengerName = null;
 
+	private List<AirlinePassenger> passengers = null;
+
 	private String placeOfIssue = null;
 
 	private String pnr = null;
@@ -248,6 +250,20 @@ public class AirlineData {
 	 */
 	public void setPassengerName(String value) {
 		this.passengerName = value;
+	}
+
+	/**
+	 * Object that holds the data on the individual passengers (this object is used for fraud screening on the Ogone Payment Platform)
+	 */
+	public List<AirlinePassenger> getPassengers() {
+		return passengers;
+	}
+
+	/**
+	 * Object that holds the data on the individual passengers (this object is used for fraud screening on the Ogone Payment Platform)
+	 */
+	public void setPassengers(List<AirlinePassenger> value) {
+		this.passengers = value;
 	}
 
 	/**

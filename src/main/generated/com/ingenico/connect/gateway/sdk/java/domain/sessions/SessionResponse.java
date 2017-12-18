@@ -8,6 +8,10 @@ import java.util.List;
 
 public class SessionResponse {
 
+	private String assetUrl = null;
+
+	private String clientApiUrl = null;
+
 	private String clientSessionId = null;
 
 	private String customerId = null;
@@ -15,6 +19,34 @@ public class SessionResponse {
 	private List<String> invalidTokens = null;
 
 	private String region = null;
+
+	/**
+	 * The base url for assets.
+	 */
+	public String getAssetUrl() {
+		return assetUrl;
+	}
+
+	/**
+	 * The base url for assets.
+	 */
+	public void setAssetUrl(String value) {
+		this.assetUrl = value;
+	}
+
+	/**
+	 * The base url for client requests.
+	 */
+	public String getClientApiUrl() {
+		return clientApiUrl;
+	}
+
+	/**
+	 * The base url for client requests.
+	 */
+	public void setClientApiUrl(String value) {
+		this.clientApiUrl = value;
+	}
 
 	/**
 	 * The identifier of the session that has been created.

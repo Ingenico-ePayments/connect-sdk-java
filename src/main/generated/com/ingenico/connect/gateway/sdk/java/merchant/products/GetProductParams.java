@@ -153,14 +153,14 @@ public class GetProductParams extends AbstractParamRequest {
 	}
 
 	/**
-	 * Relevant only for payment product 3004 (Bancontact). A boolean that indicates if you want to force the response to return the fields of the basic flow. This can be useful in corner cases where you have enabled the enhanced flow which supports payment with the Bancontact app, but need access to the product fields without creating a payment first.
+	 * Relevant only for payment product 3012 (Bancontact). A boolean that indicates if you want to force the response to return the fields of the basic flow. This can be useful in corner cases where you have enabled the enhanced flow which supports payment with the Bancontact app, but need access to the product fields without creating a payment first.
 	 */
 	public Boolean getForceBasicFlow() {
 		return forceBasicFlow;
 	}
 
 	/**
-	 * Relevant only for payment product 3004 (Bancontact). A boolean that indicates if you want to force the response to return the fields of the basic flow. This can be useful in corner cases where you have enabled the enhanced flow which supports payment with the Bancontact app, but need access to the product fields without creating a payment first.
+	 * Relevant only for payment product 3012 (Bancontact). A boolean that indicates if you want to force the response to return the fields of the basic flow. This can be useful in corner cases where you have enabled the enhanced flow which supports payment with the Bancontact app, but need access to the product fields without creating a payment first.
 	 */
 	public void setForceBasicFlow(Boolean value) {
 		this.forceBasicFlow = value;

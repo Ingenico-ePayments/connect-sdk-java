@@ -17,6 +17,8 @@ import com.ingenico.connect.gateway.sdk.java.ReferenceException;
 import com.ingenico.connect.gateway.sdk.java.ResponseException;
 import com.ingenico.connect.gateway.sdk.java.ValidationException;
 import com.ingenico.connect.gateway.sdk.java.domain.errors.ErrorResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.product.DeviceFingerprintRequest;
+import com.ingenico.connect.gateway.sdk.java.domain.product.DeviceFingerprintResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.product.Directory;
 import com.ingenico.connect.gateway.sdk.java.domain.product.GetCustomerDetailsRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.product.GetCustomerDetailsResponse;
@@ -199,6 +201,120 @@ public class ProductsClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/products/{paymentProductId}/customerDetails
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
+	 *
+	 * @param paymentProductId Integer
+	 * @param body GetCustomerDetailsRequest
+	 * @return GetCustomerDetailsResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public GetCustomerDetailsResponse customerDetails(Integer paymentProductId, GetCustomerDetailsRequest body) {
+		return customerDetails(paymentProductId, body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/products/{paymentProductId}/customerDetails
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
+	 *
+	 * @param paymentProductId Integer
+	 * @param body GetCustomerDetailsRequest
+	 * @param context CallContext
+	 * @return GetCustomerDetailsResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public GetCustomerDetailsResponse customerDetails(Integer paymentProductId, GetCustomerDetailsRequest body, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentProductId", paymentProductId.toString());
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/customerDetails", pathContext);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					GetCustomerDetailsResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/products/{paymentProductId}/deviceFingerprint
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/deviceFingerprint.html">Get device fingerprint</a>
+	 *
+	 * @param paymentProductId Integer
+	 * @param body DeviceFingerprintRequest
+	 * @return DeviceFingerprintResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public DeviceFingerprintResponse deviceFingerprint(Integer paymentProductId, DeviceFingerprintRequest body) {
+		return deviceFingerprint(paymentProductId, body, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/products/{paymentProductId}/deviceFingerprint
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/deviceFingerprint.html">Get device fingerprint</a>
+	 *
+	 * @param paymentProductId Integer
+	 * @param body DeviceFingerprintRequest
+	 * @param context CallContext
+	 * @return DeviceFingerprintResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public DeviceFingerprintResponse deviceFingerprint(Integer paymentProductId, DeviceFingerprintRequest body, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentProductId", paymentProductId.toString());
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/deviceFingerprint", pathContext);
+		try {
+			return communicator.post(
+					uri,
+					getClientHeaders(),
+					null,
+					body,
+					DeviceFingerprintResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/networks
 	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
 	 *
@@ -300,63 +416,6 @@ public class ProductsClient extends ApiResource {
 					getClientHeaders(),
 					null,
 					PublicKey.class,
-					context);
-		} catch (ResponseException e) {
-			final Class<?> errorType = ErrorResponse.class;
-			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
-		}
-	}
-
-	/**
-	 * Resource /{merchantId}/products/{paymentProductId}/customerDetails
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
-	 *
-	 * @param paymentProductId Integer
-	 * @param body GetCustomerDetailsRequest
-	 * @return GetCustomerDetailsResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public GetCustomerDetailsResponse customerDetails(Integer paymentProductId, GetCustomerDetailsRequest body) {
-		return customerDetails(paymentProductId, body, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/products/{paymentProductId}/customerDetails
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
-	 *
-	 * @param paymentProductId Integer
-	 * @param body GetCustomerDetailsRequest
-	 * @param context CallContext
-	 * @return GetCustomerDetailsResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public GetCustomerDetailsResponse customerDetails(Integer paymentProductId, GetCustomerDetailsRequest body, CallContext context) {
-		Map<String, String> pathContext = new TreeMap<String, String>();
-		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/customerDetails", pathContext);
-		try {
-			return communicator.post(
-					uri,
-					getClientHeaders(),
-					null,
-					body,
-					GetCustomerDetailsResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

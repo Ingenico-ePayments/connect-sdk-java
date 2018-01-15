@@ -85,60 +85,6 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
-	 *
-	 * @param uniqueMandateReference String
-	 * @return GetMandateResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public GetMandateResponse get(String uniqueMandateReference) {
-		return get(uniqueMandateReference, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
-	 *
-	 * @param uniqueMandateReference String
-	 * @param context CallContext
-	 * @return GetMandateResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public GetMandateResponse get(String uniqueMandateReference, CallContext context) {
-		Map<String, String> pathContext = new TreeMap<String, String>();
-		pathContext.put("uniqueMandateReference", uniqueMandateReference);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates/{uniqueMandateReference}", pathContext);
-		try {
-			return communicator.get(
-					uri,
-					getClientHeaders(),
-					null,
-					GetMandateResponse.class,
-					context);
-		} catch (ResponseException e) {
-			final Class<?> errorType = ErrorResponse.class;
-			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
-		}
-	}
-
-	/**
-	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
 	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/createWithMandateReference.html">Create mandate with mandatereference</a>
 	 *
 	 * @param uniqueMandateReference String
@@ -186,6 +132,60 @@ public class MandatesClient extends ApiResource {
 					null,
 					body,
 					CreateMandateResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
+	 *
+	 * @param uniqueMandateReference String
+	 * @return GetMandateResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public GetMandateResponse get(String uniqueMandateReference) {
+		return get(uniqueMandateReference, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
+	 *
+	 * @param uniqueMandateReference String
+	 * @param context CallContext
+	 * @return GetMandateResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public GetMandateResponse get(String uniqueMandateReference, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("uniqueMandateReference", uniqueMandateReference);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates/{uniqueMandateReference}", pathContext);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					null,
+					GetMandateResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

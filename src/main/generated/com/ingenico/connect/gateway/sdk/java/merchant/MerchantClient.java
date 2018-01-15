@@ -30,6 +30,16 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/hostedcheckouts
+	 * Create new hosted checkout
+	 *
+	 * @return HostedcheckoutsClient
+	 */
+	public HostedcheckoutsClient hostedcheckouts() {
+		return new HostedcheckoutsClient(this, null);
+	}
+
+	/**
 	 * Resource /{merchantId}/payments
 	 * Create, cancel and approve payments
 	 *
@@ -50,6 +60,16 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/refunds
+	 * Create, cancel and approve refunds
+	 *
+	 * @return RefundsClient
+	 */
+	public RefundsClient refunds() {
+		return new RefundsClient(this, null);
+	}
+
+	/**
 	 * Resource /{merchantId}/payouts
 	 * Create, cancel and approve payouts
 	 *
@@ -57,16 +77,6 @@ public class MerchantClient extends ApiResource {
 	 */
 	public PayoutsClient payouts() {
 		return new PayoutsClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/products
-	 * Get information about payment products
-	 *
-	 * @return ProductsClient
-	 */
-	public ProductsClient products() {
-		return new ProductsClient(this, null);
 	}
 
 	/**
@@ -80,23 +90,13 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/mandates
-	 * Create, get and update mandates
+	 * Resource /{merchantId}/products
+	 * Get information about payment products
 	 *
-	 * @return MandatesClient
+	 * @return ProductsClient
 	 */
-	public MandatesClient mandates() {
-		return new MandatesClient(this, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/refunds
-	 * Create, cancel and approve refunds
-	 *
-	 * @return RefundsClient
-	 */
-	public RefundsClient refunds() {
-		return new RefundsClient(this, null);
+	public ProductsClient products() {
+		return new ProductsClient(this, null);
 	}
 
 	/**
@@ -120,16 +120,6 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/sessions
-	 * Create new Session for Client2Server API calls
-	 *
-	 * @return SessionsClient
-	 */
-	public SessionsClient sessions() {
-		return new SessionsClient(this, null);
-	}
-
-	/**
 	 * Resource /{merchantId}/tokens
 	 * Create, delete and update tokens
 	 *
@@ -140,12 +130,22 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/hostedcheckouts
-	 * Create new hosted checkout
+	 * Resource /{merchantId}/mandates
+	 * Create, get and update mandates
 	 *
-	 * @return HostedcheckoutsClient
+	 * @return MandatesClient
 	 */
-	public HostedcheckoutsClient hostedcheckouts() {
-		return new HostedcheckoutsClient(this, null);
+	public MandatesClient mandates() {
+		return new MandatesClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/sessions
+	 * Create new Session for Client2Server API calls
+	 *
+	 * @return SessionsClient
+	 */
+	public SessionsClient sessions() {
+		return new SessionsClient(this, null);
 	}
 }

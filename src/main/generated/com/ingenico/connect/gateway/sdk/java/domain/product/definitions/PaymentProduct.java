@@ -20,6 +20,8 @@ public class PaymentProduct {
 
 	private Boolean canBeIframed = null;
 
+	private Boolean deviceFingerprintEnabled = null;
+
 	private PaymentProductDisplayHints displayHints = null;
 
 	private List<PaymentProductField> fields = null;
@@ -154,6 +156,26 @@ public class PaymentProduct {
 	 */
 	public void setCanBeIframed(Boolean value) {
 		this.canBeIframed = value;
+	}
+
+	/**
+	 * Indicates if device fingerprint is enabled for the product
+	 * <ul><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public Boolean getDeviceFingerprintEnabled() {
+		return deviceFingerprintEnabled;
+	}
+
+	/**
+	 * Indicates if device fingerprint is enabled for the product
+	 * <ul><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public void setDeviceFingerprintEnabled(Boolean value) {
+		this.deviceFingerprintEnabled = value;
 	}
 
 	/**

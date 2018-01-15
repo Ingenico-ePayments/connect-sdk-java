@@ -20,7 +20,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.Mandate
 import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.MandatePersonalInformation;
 import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.MandatePersonalName;
 
-public class CreateMandateExample {
+public class CreateMandateWithReferenceExample {
 
 	@SuppressWarnings("unused")
 	public void example() throws URISyntaxException, IOException {
@@ -61,7 +61,7 @@ public class CreateMandateExample {
 			body.setRecurrenceType("UNIQUE");
 			body.setSignatureType("UNSIGNED");
 
-			CreateMandateResponse response = client.merchant("merchantId").mandates().create(body);
+			CreateMandateResponse response = client.merchant("merchantId").mandates().createWithMandateReference("42268d8067df43e18a50a2ebf4bdb729", body);
 		} finally {
 			client.close();
 		}

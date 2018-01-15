@@ -35,58 +35,6 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
-	 *
-	 * @param query FindPayoutsParams
-	 * @return FindPayoutsResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public FindPayoutsResponse find(FindPayoutsParams query) {
-		return find(query, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/payouts
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
-	 *
-	 * @param query FindPayoutsParams
-	 * @param context CallContext
-	 * @return FindPayoutsResponse
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public FindPayoutsResponse find(FindPayoutsParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts", null);
-		try {
-			return communicator.get(
-					uri,
-					getClientHeaders(),
-					query,
-					FindPayoutsResponse.class,
-					context);
-		} catch (ResponseException e) {
-			final Class<?> errorType = ErrorResponse.class;
-			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
-		}
-	}
-
-	/**
-	 * Resource /{merchantId}/payouts
 	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/create.html">Create payout</a>
 	 *
 	 * @param body CreatePayoutRequest
@@ -143,6 +91,58 @@ public class PayoutsClient extends ApiResource {
 				errorType = ErrorResponse.class;
 				break;
 			}
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/payouts
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
+	 *
+	 * @param query FindPayoutsParams
+	 * @return FindPayoutsResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public FindPayoutsResponse find(FindPayoutsParams query) {
+		return find(query, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/payouts
+	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
+	 *
+	 * @param query FindPayoutsParams
+	 * @param context CallContext
+	 * @return FindPayoutsResponse
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public FindPayoutsResponse find(FindPayoutsParams query, CallContext context) {
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts", null);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					query,
+					FindPayoutsResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}

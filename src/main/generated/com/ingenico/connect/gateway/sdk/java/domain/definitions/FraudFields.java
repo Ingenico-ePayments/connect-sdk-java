@@ -18,7 +18,9 @@ public class FraudFields {
 
 	private String defaultFormFill = null;
 
-	private Boolean fingerPrintActivated = null;
+	private Boolean deviceFingerprintActivated = null;
+
+	private String deviceFingerprintTransactionId = null;
 
 	private String giftCardType = null;
 
@@ -123,17 +125,31 @@ public class FraudFields {
 	}
 
 	/**
-	 * Indicates that the device fingerprint has been used while processing the order
+	 * Indicates that the device fingerprint has been used while processing the order.
 	 */
-	public Boolean getFingerPrintActivated() {
-		return fingerPrintActivated;
+	public Boolean getDeviceFingerprintActivated() {
+		return deviceFingerprintActivated;
 	}
 
 	/**
-	 * Indicates that the device fingerprint has been used while processing the order
+	 * Indicates that the device fingerprint has been used while processing the order.
 	 */
-	public void setFingerPrintActivated(Boolean value) {
-		this.fingerPrintActivated = value;
+	public void setDeviceFingerprintActivated(Boolean value) {
+		this.deviceFingerprintActivated = value;
+	}
+
+	/**
+	 * One must set the <span class="property">deviceFingerprintTransactionId</span> received by the response of the endpoint <span class="property">/{merchant}/products/{paymentProductId}/deviceFingerprint</span>
+	 */
+	public String getDeviceFingerprintTransactionId() {
+		return deviceFingerprintTransactionId;
+	}
+
+	/**
+	 * One must set the <span class="property">deviceFingerprintTransactionId</span> received by the response of the endpoint <span class="property">/{merchant}/products/{paymentProductId}/deviceFingerprint</span>
+	 */
+	public void setDeviceFingerprintTransactionId(String value) {
+		this.deviceFingerprintTransactionId = value;
 	}
 
 	/**

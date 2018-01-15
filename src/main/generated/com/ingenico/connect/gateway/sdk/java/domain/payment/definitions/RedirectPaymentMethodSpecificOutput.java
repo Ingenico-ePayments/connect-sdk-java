@@ -46,14 +46,14 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	}
 
 	/**
-	 * SofortBanking (payment product 836) specific details
+	 * Sofort (payment product 836) specific details
 	 */
 	public PaymentProduct836SpecificOutput getPaymentProduct836SpecificOutput() {
 		return paymentProduct836SpecificOutput;
 	}
 
 	/**
-	 * SofortBanking (payment product 836) specific details
+	 * Sofort (payment product 836) specific details
 	 */
 	public void setPaymentProduct836SpecificOutput(PaymentProduct836SpecificOutput value) {
 		this.paymentProduct836SpecificOutput = value;

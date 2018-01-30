@@ -20,7 +20,8 @@ public class CreateMandateBase {
 
 	/**
 	 * An alias for the mandate. This can be used to visually represent the mandate.<br>
-	 * Do not include any unobfuscated sensitive data in the alias.
+	 * Do not include any unobfuscated sensitive data in the alias.<br>
+	 * Default value if not provided is the obfuscated IBAN of the customer.
 	 */
 	public String getAlias() {
 		return alias;
@@ -28,7 +29,8 @@ public class CreateMandateBase {
 
 	/**
 	 * An alias for the mandate. This can be used to visually represent the mandate.<br>
-	 * Do not include any unobfuscated sensitive data in the alias.
+	 * Do not include any unobfuscated sensitive data in the alias.<br>
+	 * Default value if not provided is the obfuscated IBAN of the customer.
 	 */
 	public void setAlias(String value) {
 		this.alias = value;

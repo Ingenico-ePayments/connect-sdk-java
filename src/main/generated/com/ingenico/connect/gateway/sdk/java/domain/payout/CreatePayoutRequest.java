@@ -117,7 +117,7 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing the details of the consumer. 
+	 * Object containing the details of the consumer.
 	 *
 	 * @deprecated Use bankTransferPayoutMethodSpecificInput.customer instead
 	 */
@@ -127,7 +127,7 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing the details of the consumer. 
+	 * Object containing the details of the consumer.
 	 *
 	 * @deprecated Use bankTransferPayoutMethodSpecificInput.customer instead
 	 */

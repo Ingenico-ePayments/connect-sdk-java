@@ -41,14 +41,14 @@ public class Seller {
 	}
 
 	/**
-	 * Channel code, refer to 
+	 * Channel code, refer to
 	 */
 	public String getChannelCode() {
 		return channelCode;
 	}
 
 	/**
-	 * Channel code, refer to 
+	 * Channel code, refer to
 	 */
 	public void setChannelCode(String value) {
 		this.channelCode = value;

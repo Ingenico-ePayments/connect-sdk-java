@@ -47,7 +47,7 @@ public class LineItem {
 	}
 
 	/**
-	 * Object containing additional informationthat when supplied can have a beneficial effect on the discountrates
+	 * Object containing additional information that when supplied can have a beneficial effect on the discountrates
 	 *
 	 * @deprecated Use orderLineDetails instead
 	 */
@@ -57,7 +57,7 @@ public class LineItem {
 	}
 
 	/**
-	 * Object containing additional informationthat when supplied can have a beneficial effect on the discountrates
+	 * Object containing additional information that when supplied can have a beneficial effect on the discountrates
 	 *
 	 * @deprecated Use orderLineDetails instead
 	 */

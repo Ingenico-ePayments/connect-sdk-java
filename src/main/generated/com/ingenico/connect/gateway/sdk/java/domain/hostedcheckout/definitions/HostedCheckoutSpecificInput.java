@@ -20,6 +20,8 @@ public class HostedCheckoutSpecificInput {
 
 	private String tokens = null;
 
+	private Boolean validateShoppingCart = null;
+
 	private String variant = null;
 
 	/**
@@ -134,6 +136,20 @@ public class HostedCheckoutSpecificInput {
 	 */
 	public void setTokens(String value) {
 		this.tokens = value;
+	}
+
+	/**
+	 * By default validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.
+	 */
+	public Boolean getValidateShoppingCart() {
+		return validateShoppingCart;
+	}
+
+	/**
+	 * By default validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.
+	 */
+	public void setValidateShoppingCart(Boolean value) {
+		this.validateShoppingCart = value;
 	}
 
 	/**

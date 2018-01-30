@@ -14,6 +14,8 @@ public class PaymentProductFieldValidators {
 
 	private FixedListValidator fixedList = null;
 
+	private EmptyValidator iban = null;
+
 	private LengthValidator length = null;
 
 	private EmptyValidator luhn = null;
@@ -78,6 +80,20 @@ public class PaymentProductFieldValidators {
 	 */
 	public void setFixedList(FixedListValidator value) {
 		this.fixedList = value;
+	}
+
+	/**
+	 * Indicates that the content of this (iban) field needs to validated against format checks and modulo check (as described in ISO 7064)
+	 */
+	public EmptyValidator getIban() {
+		return iban;
+	}
+
+	/**
+	 * Indicates that the content of this (iban) field needs to validated against format checks and modulo check (as described in ISO 7064)
+	 */
+	public void setIban(EmptyValidator value) {
+		this.iban = value;
 	}
 
 	/**

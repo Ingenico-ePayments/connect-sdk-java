@@ -22,28 +22,28 @@ public class BankTransferPayoutMethodSpecificInput extends AbstractPayoutMethodS
 	private String swiftCode = null;
 
 	/**
-	 * Object containing account holder name and bank account information. 
+	 * Object containing account holder name and bank account information.
 	 */
 	public BankAccountBban getBankAccountBban() {
 		return bankAccountBban;
 	}
 
 	/**
-	 * Object containing account holder name and bank account information. 
+	 * Object containing account holder name and bank account information.
 	 */
 	public void setBankAccountBban(BankAccountBban value) {
 		this.bankAccountBban = value;
 	}
 
 	/**
-	 * Object containing account holder and IBAN information. 
+	 * Object containing account holder and IBAN information.
 	 */
 	public BankAccountIban getBankAccountIban() {
 		return bankAccountIban;
 	}
 
 	/**
-	 * Object containing account holder and IBAN information. 
+	 * Object containing account holder and IBAN information.
 	 */
 	public void setBankAccountIban(BankAccountIban value) {
 		this.bankAccountIban = value;

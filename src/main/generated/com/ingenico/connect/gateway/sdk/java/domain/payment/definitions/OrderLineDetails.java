@@ -12,6 +12,8 @@ public class OrderLineDetails {
 
 	private Long lineAmountTotal = null;
 
+	private String productCategory = null;
+
 	private String productCode = null;
 
 	private String productName = null;
@@ -66,6 +68,20 @@ public class OrderLineDetails {
 	 */
 	public void setLineAmountTotal(Long value) {
 		this.lineAmountTotal = value;
+	}
+
+	/**
+	 * This field indicates the category of the product (i.e. home appliance), used for fraud checks.
+	 */
+	public String getProductCategory() {
+		return productCategory;
+	}
+
+	/**
+	 * This field indicates the category of the product (i.e. home appliance), used for fraud checks.
+	 */
+	public void setProductCategory(String value) {
+		this.productCategory = value;
 	}
 
 	/**

@@ -73,14 +73,14 @@ public class FraudFields {
 	}
 
 	/**
-	 * The address that belongs to the owner of the card 
+	 * The address that belongs to the owner of the card
 	 */
 	public Address getCardOwnerAddress() {
 		return cardOwnerAddress;
 	}
 
 	/**
-	 * The address that belongs to the owner of the card 
+	 * The address that belongs to the owner of the card
 	 */
 	public void setCardOwnerAddress(Address value) {
 		this.cardOwnerAddress = value;

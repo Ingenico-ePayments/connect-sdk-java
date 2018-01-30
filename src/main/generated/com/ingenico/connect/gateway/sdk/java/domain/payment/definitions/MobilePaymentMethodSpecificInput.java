@@ -70,7 +70,7 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 * <ul>
 	 * <li>Apple Pay: PKPayment.token.paymentData
 	 * <li>Android Pay: FullWallet.paymentMethodToken.token
-	 * </ul>   
+	 * </ul>
 	 */
 	public String getEncryptedPaymentData() {
 		return encryptedPaymentData;
@@ -84,7 +84,7 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 * <ul>
 	 * <li>Apple Pay: PKPayment.token.paymentData
 	 * <li>Android Pay: FullWallet.paymentMethodToken.token
-	 * </ul>   
+	 * </ul>
 	 */
 	public void setEncryptedPaymentData(String value) {
 		this.encryptedPaymentData = value;

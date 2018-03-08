@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -146,7 +147,7 @@ public class DefaultAuthenticator implements Authenticator {
 	}
 
 	private String toCanonicalizeHeaderName(String originalName) {
-		return originalName == null ? null : originalName.toLowerCase();
+		return originalName == null ? null : originalName.toLowerCase(Locale.ENGLISH);
 	}
 
 	String toCanonicalizeHeaderValue(String originalValue) {

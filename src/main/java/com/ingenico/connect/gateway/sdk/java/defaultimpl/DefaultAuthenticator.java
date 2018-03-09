@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
+import java.util.regex.Pattern;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -25,6 +27,7 @@ public class DefaultAuthenticator implements Authenticator {
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
 	private static final String HMAC_ALGORITHM = "HmacSHA256";
+	private static final Pattern CANONICALIZE_HEADER_REGEXP = Pattern.compile("\r?\n[\\s&&[^\r\n]]*");
 
 	private static final Comparator<RequestHeader> REQUEST_HEADER_COMPARATOR = new Comparator<RequestHeader>() {
 		@Override
@@ -146,7 +149,7 @@ public class DefaultAuthenticator implements Authenticator {
 	}
 
 	private String toCanonicalizeHeaderName(String originalName) {
-		return originalName == null ? null : originalName.toLowerCase();
+		return originalName == null ? null : originalName.toLowerCase(Locale.ENGLISH);
 	}
 
 	String toCanonicalizeHeaderValue(String originalValue) {
@@ -155,7 +158,7 @@ public class DefaultAuthenticator implements Authenticator {
 			return "";
 		}
 
-		return originalValue.replaceAll("\r?\n[\\s&&[^\r\n]]*", " ").trim();
+		return CANONICALIZE_HEADER_REGEXP.matcher(originalValue).replaceAll(" ").trim();
 	}
 
 	/*

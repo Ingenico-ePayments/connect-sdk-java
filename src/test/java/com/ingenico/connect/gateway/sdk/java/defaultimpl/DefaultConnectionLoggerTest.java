@@ -471,7 +471,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		serverBootstrap.registerHandler("/v1/1234/services/testconnection", requestHandler);
 		HttpHost host = start();
 
-		Client client = createClient(host, 500, 10);
+		Client client = createClient(host, 1000, 10);
 		TestLogger logger = new TestLogger();
 		client.enableLogging(logger);
 
@@ -579,7 +579,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 		serverBootstrap.registerHandler("/v1/1234/services/testconnection", requestHandler);
 		HttpHost host = start();
 
-		Client client = createClient(host, 500, 10);
+		Client client = createClient(host, 1000, 10);
 		TestLogger logger = new TestLogger();
 
 		setupRequestHandler(enableLogging(delayedAnswer(setHtmlResponse("notFound.html", 404), 100), client, logger));
@@ -812,7 +812,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	// general utility methods
 
 	private Client createClient(HttpHost host) throws URISyntaxException {
-		return createClient(host, 500, 500);
+		return createClient(host, 1000, 1000);
 	}
 
 	@SuppressWarnings("resource")

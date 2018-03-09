@@ -1,9 +1,13 @@
 package com.ingenico.connect.gateway.sdk.java;
 
+import java.util.regex.Pattern;
+
 /**
  * A single request header. Immutable.
  */
 public class RequestHeader {
+
+	private static final Pattern WHITE_SPACE_NORMALIZER = Pattern.compile("[\\s&&[^\r\n]]*(\r?\n)[\\s&&[^\r\n]]*");
 
 	private final String name;
 	private final String value;
@@ -24,7 +28,7 @@ public class RequestHeader {
 		// This will ensure that:
 		// - no line ends with whitespace, because this causes authentication failures
 		// - each line starts with a single whitespace, so it is a valid header value
-		return value.replaceAll("[\\s&&[^\r\n]]*(\r?\n)[\\s&&[^\r\n]]*", "$1 ");
+		return WHITE_SPACE_NORMALIZER.matcher(value).replaceAll("$1 ");
 	}
 
 	public String getName(){

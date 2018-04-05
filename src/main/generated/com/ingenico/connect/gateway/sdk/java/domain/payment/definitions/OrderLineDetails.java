@@ -71,14 +71,14 @@ public class OrderLineDetails {
 	}
 
 	/**
-	 * This field indicates the category of the product (i.e. home appliance), used for fraud checks.
+	 * This field indicates the category of the product (i.e. home appliance), used for fraud screening on the Ogone Payment Platform.
 	 */
 	public String getProductCategory() {
 		return productCategory;
 	}
 
 	/**
-	 * This field indicates the category of the product (i.e. home appliance), used for fraud checks.
+	 * This field indicates the category of the product (i.e. home appliance), used for fraud screening on the Ogone Payment Platform.
 	 */
 	public void setProductCategory(String value) {
 		this.productCategory = value;

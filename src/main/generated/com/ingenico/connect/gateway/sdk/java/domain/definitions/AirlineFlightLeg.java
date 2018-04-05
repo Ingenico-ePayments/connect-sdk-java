@@ -177,14 +177,28 @@ public class AirlineFlightLeg {
 	}
 
 	/**
-	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform)
+	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform).
+	 * <p>Possible values are:
+	 * <ul>
+	 * <li>economy
+	 * <li>premium-economy
+	 * <li>business
+	 * <li>first
+	 * </ul>
 	 */
 	public String getServiceClass() {
 		return serviceClass;
 	}
 
 	/**
-	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform)
+	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform).
+	 * <p>Possible values are:
+	 * <ul>
+	 * <li>economy
+	 * <li>premium-economy
+	 * <li>business
+	 * <li>first
+	 * </ul>
 	 */
 	public void setServiceClass(String value) {
 		this.serviceClass = value;

@@ -1,6 +1,7 @@
 package com.ingenico.connect.gateway.sdk.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -102,6 +103,9 @@ public abstract class ApiResource {
 			ErrorResponse errorResponse = (ErrorResponse) errorObject;
 			errorId = errorResponse.getErrorId();
 			errors = errorResponse.getErrors();
+		} else if (errorObject == null) {
+			errorId = null;
+			errors = Collections.emptyList();
 		} else {
 			throw new IllegalArgumentException("unsupported error object type: " + errorObject.getClass().getName());
 		}

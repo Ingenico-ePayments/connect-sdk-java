@@ -24,6 +24,7 @@ import com.ingenico.connect.gateway.sdk.java.CommunicationException;
 import com.ingenico.connect.gateway.sdk.java.Connection;
 import com.ingenico.connect.gateway.sdk.java.DeclinedPaymentException;
 import com.ingenico.connect.gateway.sdk.java.Factory;
+import com.ingenico.connect.gateway.sdk.java.GlobalCollectException;
 import com.ingenico.connect.gateway.sdk.java.IdempotenceException;
 import com.ingenico.connect.gateway.sdk.java.MetaDataProvider;
 import com.ingenico.connect.gateway.sdk.java.NotFoundException;
@@ -237,6 +238,31 @@ public class PaymentsClientTest {
 			Assert.assertNotNull(e.getCause());
 			Assert.assertEquals(ResponseException.class, e.getCause().getClass());
 			Assert.assertTrue(e.getCause().toString().contains(responseBody));
+		}
+	}
+
+	/**
+	 * Tests that a 500 response with a JSON response with no body will throw a {@link GlobalCollectException} and not a {@link NullPointerException}.
+	 */
+	@Test
+	@SuppressWarnings("resource")
+	public void testCreateInternalServerErrorWithoutBody() {
+
+		Client client = Factory.createClient(session);
+		String responseBody = null;
+		whenPost().thenReturn(new Response(500, responseBody, Arrays.asList(
+				new ResponseHeader("content-type", "text/html")
+		)));
+
+		CreatePaymentRequest body = createRequest();
+
+		try {
+			client.merchant("merchantId").payments().create(body);
+			Assert.fail("Expected GlobalCollectException");
+		} catch (GlobalCollectException e) {
+			Assert.assertEquals(responseBody, e.getResponseBody());
+			Assert.assertNull(e.getErrorId());
+			Assert.assertEquals(0, e.getErrors().size());
 		}
 	}
 

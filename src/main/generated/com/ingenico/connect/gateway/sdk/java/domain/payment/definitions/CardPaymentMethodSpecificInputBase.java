@@ -160,7 +160,7 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 
 	/**
 	 * Indicates if this transaction should be tokenized
-	 * <ul><li>true - Tokenize the transaction
+	 * <ul><li>true - Tokenize the transaction. Note that a payment on the GlobalCollect platform that results in a status REDIRECTED cannot be tokenized in this way. In this case, use the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/tokenize.html">'Create a token from payment'</a> functionality after your customer succesfully completes the redirection.
 	 * <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
 	 * </ul>
 	 */
@@ -170,7 +170,7 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 
 	/**
 	 * Indicates if this transaction should be tokenized
-	 * <ul><li>true - Tokenize the transaction
+	 * <ul><li>true - Tokenize the transaction. Note that a payment on the GlobalCollect platform that results in a status REDIRECTED cannot be tokenized in this way. In this case, use the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/tokenize.html">'Create a token from payment'</a> functionality after your customer succesfully completes the redirection.
 	 * <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
 	 * </ul>
 	 */

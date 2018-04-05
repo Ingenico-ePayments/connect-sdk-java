@@ -139,14 +139,16 @@ public class HostedCheckoutSpecificInput {
 	}
 
 	/**
-	 * By default validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.
+	 * By default, validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off for the Ogone Payment Platform, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.<br>
+	 * Note: This field is only supported by the Ogone Payment Platform.
 	 */
 	public Boolean getValidateShoppingCart() {
 		return validateShoppingCart;
 	}
 
 	/**
-	 * By default validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.
+	 * By default, validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off for the Ogone Payment Platform, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.<br>
+	 * Note: This field is only supported by the Ogone Payment Platform.
 	 */
 	public void setValidateShoppingCart(Boolean value) {
 		this.validateShoppingCart = value;

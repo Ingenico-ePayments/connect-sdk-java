@@ -8,6 +8,8 @@ public class MandateNonSepaDirectDebit {
 
 	private TokenNonSepaDirectDebitPaymentProduct705SpecificData paymentProduct705SpecificData = null;
 
+	private TokenNonSepaDirectDebitPaymentProduct730SpecificData paymentProduct730SpecificData = null;
+
 	/**
 	 * Object containing specific data for Direct Debit UK
 	 */
@@ -20,5 +22,19 @@ public class MandateNonSepaDirectDebit {
 	 */
 	public void setPaymentProduct705SpecificData(TokenNonSepaDirectDebitPaymentProduct705SpecificData value) {
 		this.paymentProduct705SpecificData = value;
+	}
+
+	/**
+	 * Object containing specific data for ACH
+	 */
+	public TokenNonSepaDirectDebitPaymentProduct730SpecificData getPaymentProduct730SpecificData() {
+		return paymentProduct730SpecificData;
+	}
+
+	/**
+	 * Object containing specific data for ACH
+	 */
+	public void setPaymentProduct730SpecificData(TokenNonSepaDirectDebitPaymentProduct730SpecificData value) {
+		this.paymentProduct730SpecificData = value;
 	}
 }

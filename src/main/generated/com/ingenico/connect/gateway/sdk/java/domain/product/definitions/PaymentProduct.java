@@ -265,8 +265,9 @@ public class PaymentProduct {
 	/**
 	 * This provides insight into the level of support for payments using a device with a smaller screen size. You can for instance use this to rank payment products differently on devices with a smaller screen. Possible values are:
 	 * <ul>
+	 * <li>NO_SUPPORT - The payment product does not work at all on a mobile device
 	 * <li>BASIC_SUPPORT - The payment product has not optimized its user experience for devices with smaller screens
-	 * <li>OPTIMIZED_SUPPORT - The payment product offers a user experience that has been optimized for devices with smaller screens
+	 * <li>OPTIMISED_SUPPORT - The payment product offers a user experience that has been optimized for devices with smaller screens
 	 * </ul>
 	 */
 	public String getMobileIntegrationLevel() {
@@ -276,8 +277,9 @@ public class PaymentProduct {
 	/**
 	 * This provides insight into the level of support for payments using a device with a smaller screen size. You can for instance use this to rank payment products differently on devices with a smaller screen. Possible values are:
 	 * <ul>
+	 * <li>NO_SUPPORT - The payment product does not work at all on a mobile device
 	 * <li>BASIC_SUPPORT - The payment product has not optimized its user experience for devices with smaller screens
-	 * <li>OPTIMIZED_SUPPORT - The payment product offers a user experience that has been optimized for devices with smaller screens
+	 * <li>OPTIMISED_SUPPORT - The payment product offers a user experience that has been optimized for devices with smaller screens
 	 * </ul>
 	 */
 	public void setMobileIntegrationLevel(String value) {

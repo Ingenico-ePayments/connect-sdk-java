@@ -66,6 +66,8 @@ public class OrderStatusOutput {
 	 * <ul><li>ACCOUNT_VERIFIED</ul>
 	 * <li>PENDING_MERCHANT: The transaction is awaiting approval to proceed with the payment, payout or refund. This category groups the following statuses:
 	 * <ul><li>PENDING_APPROVAL
+	 * <li>PENDING_COMPLETION
+	 * <li>PENDING_CAPTURE
 	 * <li>PENDING_FRAUD_APPROVAL</ul>
 	 * <li>PENDING_CONNECT_OR_3RD_PARTY: The transaction is in the queue to be processed. This category groups the following statuses:
 	 * <ul><li>AUTHORIZATION_REQUESTED
@@ -105,6 +107,8 @@ public class OrderStatusOutput {
 	 * <ul><li>ACCOUNT_VERIFIED</ul>
 	 * <li>PENDING_MERCHANT: The transaction is awaiting approval to proceed with the payment, payout or refund. This category groups the following statuses:
 	 * <ul><li>PENDING_APPROVAL
+	 * <li>PENDING_COMPLETION
+	 * <li>PENDING_CAPTURE
 	 * <li>PENDING_FRAUD_APPROVAL</ul>
 	 * <li>PENDING_CONNECT_OR_3RD_PARTY: The transaction is in the queue to be processed. This category groups the following statuses:
 	 * <ul><li>AUTHORIZATION_REQUESTED

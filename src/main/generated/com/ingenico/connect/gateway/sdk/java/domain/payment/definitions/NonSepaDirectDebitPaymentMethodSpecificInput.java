@@ -16,6 +16,8 @@ public class NonSepaDirectDebitPaymentMethodSpecificInput extends AbstractPaymen
 
 	private NonSepaDirectDebitPaymentProduct705SpecificInput paymentProduct705SpecificInput = null;
 
+	private NonSepaDirectDebitPaymentProduct730SpecificInput paymentProduct730SpecificInput = null;
+
 	private String recurringPaymentSequenceIndicator = null;
 
 	private String token = null;
@@ -84,6 +86,20 @@ public class NonSepaDirectDebitPaymentMethodSpecificInput extends AbstractPaymen
 	 */
 	public void setPaymentProduct705SpecificInput(NonSepaDirectDebitPaymentProduct705SpecificInput value) {
 		this.paymentProduct705SpecificInput = value;
+	}
+
+	/**
+	 * Object containing ACH specific details
+	 */
+	public NonSepaDirectDebitPaymentProduct730SpecificInput getPaymentProduct730SpecificInput() {
+		return paymentProduct730SpecificInput;
+	}
+
+	/**
+	 * Object containing ACH specific details
+	 */
+	public void setPaymentProduct730SpecificInput(NonSepaDirectDebitPaymentProduct730SpecificInput value) {
+		this.paymentProduct730SpecificInput = value;
 	}
 
 	/**

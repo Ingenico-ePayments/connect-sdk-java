@@ -92,7 +92,6 @@ public class DefaultAuthenticator implements Authenticator {
 
 		String contentType = null;
 		String date = null;
-		StringBuilder canonicalizedHeaders = new StringBuilder();
 		String canonicalizedResource = toCanonicalizedResource(resourceUri);
 
 		List<RequestHeader> xgcsHttpHeaders = new ArrayList<RequestHeader>();
@@ -117,20 +116,18 @@ public class DefaultAuthenticator implements Authenticator {
 
 		Collections.sort(xgcsHttpHeaders, REQUEST_HEADER_COMPARATOR);
 
-		for (RequestHeader xgcsHttpHeader: xgcsHttpHeaders) {
-			canonicalizedHeaders.append(xgcsHttpHeader.getName()).append(":").append(xgcsHttpHeader.getValue()).append("\n");
-		}
-
-		StringBuilder sb = new StringBuilder();
-		sb.append(httpMethod.toUpperCase()).append("\n");
+		StringBuilder sb = new StringBuilder(100);
+		sb.append(httpMethod.toUpperCase()).append('\n');
 		if (contentType != null) {
-			sb.append(contentType).append("\n");
+			sb.append(contentType).append('\n');
 		} else {
-			sb.append("\n");
+			sb.append('\n');
 		}
-		sb.append(date).append("\n");
-		sb.append(canonicalizedHeaders.toString());
-		sb.append(canonicalizedResource).append("\n");
+		sb.append(date).append('\n');
+		for (RequestHeader xgcsHttpHeader: xgcsHttpHeaders) {
+			sb.append(xgcsHttpHeader.getName()).append(':').append(xgcsHttpHeader.getValue()).append('\n');
+		}
+		sb.append(canonicalizedResource).append('\n');
 
 		return sb.toString();
 	}
@@ -140,12 +137,12 @@ public class DefaultAuthenticator implements Authenticator {
 	 * decoded query parameters.
 	 */
 	private String toCanonicalizedResource(URI resourceUri) {
-		StringBuilder sb = new StringBuilder();
-		sb.append(resourceUri.getRawPath());
-		if (resourceUri.getQuery() != null) {
-			sb.append("?").append(resourceUri.getQuery());
+		String rawPath = resourceUri.getRawPath();
+		if (resourceUri.getQuery() == null) {
+			return rawPath;
 		}
-		return sb.toString();
+
+		return rawPath + '?' + resourceUri.getQuery();
 	}
 
 	private String toCanonicalizeHeaderName(String originalName) {

@@ -24,7 +24,7 @@ public class MerchantAction {
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
 	 * <ul><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span>
-	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request
+	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request. Additionally, for payment product 3012 (Bancontact), to support payments via the Bancontact app, <span class="property">showData</span> contains a QR code and URL intent.
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * </ul>
@@ -36,7 +36,7 @@ public class MerchantAction {
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
 	 * <ul><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span>
-	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request
+	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request. Additionally, for payment product 3012 (Bancontact), to support payments via the Bancontact app, <span class="property">showData</span> contains a QR code and URL intent.
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * </ul>
@@ -108,16 +108,24 @@ public class MerchantAction {
 	}
 
 	/**
-	 * Array of key value pairs of data that needs to be shown to the consumer. This is returned for both the SHOW_INSTRUCTION as well as the SHOW_TRANSACTION_RESULTS <span class="property">actionType</span>.<br>
-	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.
+	 * This is returned for the SHOW_INSTRUCTION, the SHOW_TRANSACTION_RESULTS and the SHOW_FORM <span class="property">actionType</span>.<br>
+	 * When returned for SHOW_TRANSACTION_RESULTS or SHOW_FORM, this contains an array of key value pairs of data that needs to be shown to the consumer.<br>
+	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.<br>
+	 * <br>
+	 * For SHOW_FORM, for payment product 3012 (Bancontact), this contains a QR code and a URL intent that can be used to complete the payment in the Bancontact app.<br>
+	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device. 
 	 */
 	public List<KeyValuePair> getShowData() {
 		return showData;
 	}
 
 	/**
-	 * Array of key value pairs of data that needs to be shown to the consumer. This is returned for both the SHOW_INSTRUCTION as well as the SHOW_TRANSACTION_RESULTS <span class="property">actionType</span>.<br>
-	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.
+	 * This is returned for the SHOW_INSTRUCTION, the SHOW_TRANSACTION_RESULTS and the SHOW_FORM <span class="property">actionType</span>.<br>
+	 * When returned for SHOW_TRANSACTION_RESULTS or SHOW_FORM, this contains an array of key value pairs of data that needs to be shown to the consumer.<br>
+	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.<br>
+	 * <br>
+	 * For SHOW_FORM, for payment product 3012 (Bancontact), this contains a QR code and a URL intent that can be used to complete the payment in the Bancontact app.<br>
+	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device. 
 	 */
 	public void setShowData(List<KeyValuePair> value) {
 		this.showData = value;

@@ -26,6 +26,10 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 
 	private String transactionChannel = null;
 
+	private String unscheduledCardOnFileIndicator = null;
+
+	private String unscheduledCardOnFileRequestor = null;
+
 	/**
 	 * Determines the type of the authorization that will be used. Allowed values:
 	 * <ul><li>FINAL_AUTHORIZATION - The payment creation results in an authorization that is ready for capture. Final authorizations can't be reversed and need to be captured for the full amount within 7 days.
@@ -196,5 +200,47 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 	 */
 	public void setTransactionChannel(String value) {
 		this.transactionChannel = value;
+	}
+
+	/**
+	 * <ul><li>first = This transaction is the first of a series of unscheduled recurring transactions
+	 * <li>subsequent = This transaction is a subsequent transaction in a series of unscheduled recurring transactions
+	 * </ul><br>
+	 * Note: this field is not allowed if <span class="property">isRecurring</span> is true.
+	 */
+	public String getUnscheduledCardOnFileIndicator() {
+		return unscheduledCardOnFileIndicator;
+	}
+
+	/**
+	 * <ul><li>first = This transaction is the first of a series of unscheduled recurring transactions
+	 * <li>subsequent = This transaction is a subsequent transaction in a series of unscheduled recurring transactions
+	 * </ul><br>
+	 * Note: this field is not allowed if <span class="property">isRecurring</span> is true.
+	 */
+	public void setUnscheduledCardOnFileIndicator(String value) {
+		this.unscheduledCardOnFileIndicator = value;
+	}
+
+	/**
+	 * Indicates which party initiated the unscheduled recurring transaction. Allowed values:
+	 * <ul><li>merchantInitiated - Merchant Initiated Transaction.
+	 * <li>cardholderInitiated - Cardholder Initiated Transaction.
+	 * </ul><br>
+	 * Note: this field is not allowed if <span class="property">isRecurring</span> is true.
+	 */
+	public String getUnscheduledCardOnFileRequestor() {
+		return unscheduledCardOnFileRequestor;
+	}
+
+	/**
+	 * Indicates which party initiated the unscheduled recurring transaction. Allowed values:
+	 * <ul><li>merchantInitiated - Merchant Initiated Transaction.
+	 * <li>cardholderInitiated - Cardholder Initiated Transaction.
+	 * </ul><br>
+	 * Note: this field is not allowed if <span class="property">isRecurring</span> is true.
+	 */
+	public void setUnscheduledCardOnFileRequestor(String value) {
+		this.unscheduledCardOnFileRequestor = value;
 	}
 }

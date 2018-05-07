@@ -18,6 +18,8 @@ public class CreateMandateBase {
 
 	private String signatureType = null;
 
+	private String uniqueMandateReference = null;
+
 	/**
 	 * An alias for the mandate. This can be used to visually represent the mandate.<br>
 	 * Do not include any unobfuscated sensitive data in the alias.<br>
@@ -120,5 +122,19 @@ public class CreateMandateBase {
 	 */
 	public void setSignatureType(String value) {
 		this.signatureType = value;
+	}
+
+	/**
+	 * The unique identifier of the mandate
+	 */
+	public String getUniqueMandateReference() {
+		return uniqueMandateReference;
+	}
+
+	/**
+	 * The unique identifier of the mandate
+	 */
+	public void setUniqueMandateReference(String value) {
+		this.uniqueMandateReference = value;
 	}
 }

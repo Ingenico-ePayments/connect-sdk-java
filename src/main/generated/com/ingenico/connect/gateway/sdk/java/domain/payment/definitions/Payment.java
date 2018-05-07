@@ -17,14 +17,14 @@ public class Payment extends AbstractOrderStatus {
 	private PaymentStatusOutput statusOutput = null;
 
 	/**
-	 * Hosted Checkout specific information
+	 * Hosted Checkout specific information. Populated if the payment was created on the GlobalCollect platform through a Hosted Checkout.
 	 */
 	public HostedCheckoutSpecificOutput getHostedCheckoutSpecificOutput() {
 		return hostedCheckoutSpecificOutput;
 	}
 
 	/**
-	 * Hosted Checkout specific information
+	 * Hosted Checkout specific information. Populated if the payment was created on the GlobalCollect platform through a Hosted Checkout.
 	 */
 	public void setHostedCheckoutSpecificOutput(HostedCheckoutSpecificOutput value) {
 		this.hostedCheckoutSpecificOutput = value;

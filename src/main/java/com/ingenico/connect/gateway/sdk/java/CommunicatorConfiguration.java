@@ -2,7 +2,13 @@ package com.ingenico.connect.gateway.sdk.java;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Properties;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 import com.ingenico.connect.gateway.sdk.java.defaultimpl.AuthorizationType;
 import com.ingenico.connect.gateway.sdk.java.domain.metadata.ShoppingCartExtension;
@@ -15,13 +21,18 @@ public class CommunicatorConfiguration {
 	/** The default number of maximum connections. */
 	public static final int DEFAULT_MAX_CONNECTIONS = 10;
 
+	/** The default HTTPS protocols. */
+	public static final Set<String> DEFAULT_HTTPS_PROTOCOLS = Collections.unmodifiableSet(new LinkedHashSet<String>(Arrays.asList("TLSv1.1", "TLSv1.2")));
+
+	private static final Pattern COMMA_SEPARATOR_PATTERN = Pattern.compile("\\s*,\\s*");
+
 	private URI apiEndpoint;
 
 	private int connectTimeout;
 
 	private int socketTimeout;
 
-	private int maxConnections;
+	private int maxConnections = DEFAULT_MAX_CONNECTIONS;
 
 	private AuthorizationType authorizationType;
 
@@ -30,6 +41,8 @@ public class CommunicatorConfiguration {
 	private String secretApiKey;
 
 	private ProxyConfiguration proxyConfiguration;
+
+	private Set<String> httpsProtocols = new LinkedHashSet<String>(DEFAULT_HTTPS_PROTOCOLS);
 
 	private String integrator;
 
@@ -50,6 +63,12 @@ public class CommunicatorConfiguration {
 			String proxyPass	= properties.getProperty("connect.api.proxy.password");
 			if (proxyURI != null) {
 				proxyConfiguration = new ProxyConfiguration(URI.create(proxyURI), proxyUser, proxyPass);
+			}
+
+			String httpsProtocolString = properties.getProperty("connect.api.https.protocols");
+			if (httpsProtocolString != null) {
+				httpsProtocols.clear();
+				httpsProtocols.addAll(Arrays.asList(COMMA_SEPARATOR_PATTERN.split(httpsProtocolString.trim())));
 			}
 
 			integrator				= properties.getProperty("connect.api.integrator");
@@ -204,6 +223,24 @@ public class CommunicatorConfiguration {
 	public CommunicatorConfiguration withProxyConfiguration(ProxyConfiguration proxyConfiguration) {
 		setProxyConfiguration(proxyConfiguration);
 		return this;
+	}
+
+	public Set<String> getHttpsProtocols() {
+		if (httpsProtocols == null) {
+			httpsProtocols = new LinkedHashSet<String>();
+		}
+		return httpsProtocols;
+	}
+	public void setHttpsProtocols(Set<String> httpsProtocols) {
+		this.httpsProtocols = httpsProtocols;
+	}
+	public CommunicatorConfiguration withHttpsProtocols(Collection<String> httpsProtocols) {
+		getHttpsProtocols().clear();
+		getHttpsProtocols().addAll(httpsProtocols);
+		return this;
+	}
+	public CommunicatorConfiguration withHttpsProtocols(String... httpsProtocols) {
+		return withHttpsProtocols(Arrays.asList(httpsProtocols));
 	}
 
 	public String getIntegrator() {

@@ -63,7 +63,8 @@ public final class Factory {
 						configuration.getConnectTimeout(),
 						configuration.getSocketTimeout(),
 						configuration.getMaxConnections(),
-						configuration.getProxyConfiguration()
+						configuration.getProxyConfiguration(),
+						configuration.getHttpsProtocols()
 				))
 				.withMetaDataProvider(metaDataProvider)
 				.withAuthenticator(new DefaultAuthenticator(

@@ -6,8 +6,12 @@ import java.net.URI;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLContext;
 
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -35,8 +39,13 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.http.conn.routing.HttpRoutePlanner;
+import org.apache.http.conn.socket.ConnectionSocketFactory;
+import org.apache.http.conn.socket.PlainConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
@@ -51,6 +60,7 @@ import org.apache.http.impl.conn.SystemDefaultRoutePlanner;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
+import org.apache.http.ssl.SSLContexts;
 import org.apache.http.util.EntityUtils;
 
 import com.ingenico.connect.gateway.sdk.java.CommunicationException;
@@ -87,22 +97,70 @@ public class DefaultConnection implements PooledConnection {
 
 	private volatile CommunicatorLogger communicatorLogger;
 
+	/**
+	 * Creates a new connection with the given timeouts, the default number of maximum connections, no proxy and the default HTTPS protocols.
+	 * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
+	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 */
 	public DefaultConnection(int connectTimeout, int socketTimeout) {
 		this(connectTimeout, socketTimeout, null);
 	}
 
+	/**
+	 * Creates a new connection with the given timeouts and number of maximum connections, no proxy and the default HTTPS protocols.
+	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 */
 	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections) {
 		this(connectTimeout, socketTimeout, maxConnections, null);
 	}
 
+	/**
+	 * Creates a new connection with the given timeouts and proxy configuration, the default number of maximum connections and the default HTTPS protocols.
+	 * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
+	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 */
 	public DefaultConnection(int connectTimeout, int socketTimeout, ProxyConfiguration proxyConfiguration) {
 		this(connectTimeout, socketTimeout, CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, proxyConfiguration);
 	}
 
+	/**
+	 * Creates a new connection with the given timeouts, number of maximum connections and proxy configuration, and the default HTTPS protocols.
+	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
+	 */
 	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration) {
+		this(connectTimeout, socketTimeout, maxConnections, proxyConfiguration, CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS);
+	}
+
+	/**
+	 * Creates a new connection with the given timeouts, number of maximum connections, proxy configuration and HTTPS protocols.
+	 */
+	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration, Set<String> httpsProtocols) {
+		this(connectTimeout, socketTimeout, maxConnections, proxyConfiguration, createSSLConnectionSocketFactory(httpsProtocols));
+	}
+
+	/**
+	 * Creates a new connection with the given timeouts, number of maximum connections, proxy configuration and SSL connection socket factory.
+	 * This constructor can be used in case none of the other constructors can be used due to SSL issues,
+	 * to provide a fully customizable SSL connection socket factory.
+	 */
+	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration,
+			SSLConnectionSocketFactory sslConnectionSocketFactory) {
+
+		if (sslConnectionSocketFactory == null) {
+			throw new IllegalArgumentException("sslConnectionSocketFactory is required");
+		}
 		requestConfig = createRequestConfig(connectTimeout, socketTimeout);
-		connectionManager = createHttpClientConnectionManager(maxConnections);
+		connectionManager = createHttpClientConnectionManager(maxConnections, sslConnectionSocketFactory);
 		httpClient = createHttpClient(proxyConfiguration);
+	}
+
+	private static SSLConnectionSocketFactory createSSLConnectionSocketFactory(Set<String> httpsProtocols) {
+		SSLContext sslContext = SSLContexts.createDefault();
+		HostnameVerifier hostnameVerifier = SSLConnectionSocketFactory.getDefaultHostnameVerifier();
+
+		Set<String> supportedProtocols = httpsProtocols != null && !httpsProtocols.isEmpty() ? httpsProtocols : CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS;
+
+		return new SSLConnectionSocketFactory(sslContext, supportedProtocols.toArray(new String[0]), null, hostnameVerifier);
 	}
 
 	private RequestConfig createRequestConfig(int connectTimeout, int socketTimeout) {
@@ -112,9 +170,13 @@ public class DefaultConnection implements PooledConnection {
 				.build();
 	}
 
-	private HttpClientConnectionManager createHttpClientConnectionManager(int maxConnections) {
+	private HttpClientConnectionManager createHttpClientConnectionManager(int maxConnections, SSLConnectionSocketFactory sslConnectionSocketFactory) {
+		Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
+				.register("http", PlainConnectionSocketFactory.getSocketFactory())
+				.register("https", sslConnectionSocketFactory)
+				.build();
 
-		PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
+		PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
 		connectionManager.setDefaultMaxPerRoute(maxConnections);
 		connectionManager.setMaxTotal(maxConnections + 20);
 		return connectionManager;

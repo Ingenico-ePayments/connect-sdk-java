@@ -33,6 +33,12 @@ abstract class ItTest {
 			URI apiEndpoint = new URI(scheme, null, host, port, null, null, null);
 			configuration = configuration.withApiEndpoint(apiEndpoint);
 		}
+
+		String httpsProtocols = System.getProperty("connect.api.https.protocols");
+		if (httpsProtocols != null) {
+			configuration = configuration.withHttpsProtocols(httpsProtocols.split("\\s*,\\s*"));
+		}
+
 		return configuration;
 	}
 

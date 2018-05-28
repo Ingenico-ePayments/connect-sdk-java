@@ -1,6 +1,8 @@
 package com.ingenico.connect.gateway.sdk.java;
 
 import java.net.URI;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Properties;
 
 import org.junit.Assert;
@@ -29,6 +31,7 @@ public class CommunicatorConfigurationTest {
 		Assert.assertNull(configuration.getApiKeyId());
 		Assert.assertNull(configuration.getSecretApiKey());
 		Assert.assertNull(configuration.getProxyConfiguration());
+		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_HTTPS_PROTOCOLS, configuration.getHttpsProtocols());
 		Assert.assertNull(configuration.getIntegrator());
 		Assert.assertNull(configuration.getShoppingCartExtension());
 	}
@@ -187,6 +190,31 @@ public class CommunicatorConfigurationTest {
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
 		Assert.assertEquals(URI.create("https://[::1]"), configuration.getApiEndpoint());
+	}
+
+	@Test
+	public void testConstructFromPropertiesWithHttpsProtocols() {
+
+		Properties properties = new Properties();
+		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.authorizationType", "V1HMAC");
+		properties.setProperty("connect.api.connectTimeout", "20000");
+		properties.setProperty("connect.api.socketTimeout", "10000");
+		properties.setProperty("connect.api.https.protocols", "TLSv1, TLSv1.1, TLSv1.2");
+
+		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
+
+		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
+		Assert.assertEquals(20000, configuration.getConnectTimeout());
+		Assert.assertEquals(10000, configuration.getSocketTimeout());
+		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, configuration.getMaxConnections());
+		Assert.assertNull(configuration.getApiKeyId());
+		Assert.assertNull(configuration.getSecretApiKey());
+		Assert.assertNull(configuration.getProxyConfiguration());
+		Assert.assertEquals(new HashSet<String>(Arrays.asList("TLSv1", "TLSv1.1", "TLSv1.2")), configuration.getHttpsProtocols());
+		Assert.assertNull(configuration.getIntegrator());
+		Assert.assertNull(configuration.getShoppingCartExtension());
 	}
 
 	@Test

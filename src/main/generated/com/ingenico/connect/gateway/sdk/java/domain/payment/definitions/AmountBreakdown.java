@@ -30,7 +30,9 @@ public class AmountBreakdown {
 	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.
 	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.
+	 * <li>HANDLING - Handling cost on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>SHIPPING - Shipping cost on the entire transaction, with the last 2 digits implied as decimal places.
+	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.
 	 * </ul>
 	 */
@@ -44,7 +46,9 @@ public class AmountBreakdown {
 	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.
 	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.
+	 * <li>HANDLING - Handling cost on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>SHIPPING - Shipping cost on the entire transaction, with the last 2 digits implied as decimal places.
+	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.
 	 * </ul>
 	 */

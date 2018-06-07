@@ -17,6 +17,8 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 
 	private PaymentProduct840SpecificOutput paymentProduct840SpecificOutput = null;
 
+	private String token = null;
+
 	/**
 	 * Object containing account holder name and IBAN information
 	 */
@@ -71,5 +73,19 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	 */
 	public void setPaymentProduct840SpecificOutput(PaymentProduct840SpecificOutput value) {
 		this.paymentProduct840SpecificOutput = value;
+	}
+
+	/**
+	 * ID of the token. This property is populated for the Ogone payment platform when the payment was done with a token or when the payment was tokenized.
+	 */
+	public String getToken() {
+		return token;
+	}
+
+	/**
+	 * ID of the token. This property is populated for the Ogone payment platform when the payment was done with a token or when the payment was tokenized.
+	 */
+	public void setToken(String value) {
+		this.token = value;
 	}
 }

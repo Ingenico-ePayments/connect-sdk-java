@@ -11,8 +11,6 @@ public class MandateContactDetails {
 
 	private String emailAddress = null;
 
-	private String phoneNumber = null;
-
 	/**
 	 * Email address of the consumer
 	 */
@@ -25,19 +23,5 @@ public class MandateContactDetails {
 	 */
 	public void setEmailAddress(String value) {
 		this.emailAddress = value;
-	}
-
-	/**
-	 * Phone number of the consumer
-	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	/**
-	 * Phone number of the consumer
-	 */
-	public void setPhoneNumber(String value) {
-		this.phoneNumber = value;
 	}
 }

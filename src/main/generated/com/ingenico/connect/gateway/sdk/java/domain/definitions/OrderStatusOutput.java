@@ -77,7 +77,8 @@ public class OrderStatusOutput {
 	 * <li>COMPLETED: The transaction has completed. This category groups the following statuses:
 	 * <ul><li>CAPTURED
 	 * <li>PAID
-	 * <li>ACCOUNT_CREDITED</ul>
+	 * <li>ACCOUNT_CREDITED
+	 * <li>CHARGEBACK_NOTIFICATION</ul>
 	 * <li>REVERSED: The transaction has been reversed. This category groups the following statuses:
 	 * <ul><li>CHARGEBACKED
 	 * <li>REVERSED</ul>
@@ -118,7 +119,8 @@ public class OrderStatusOutput {
 	 * <li>COMPLETED: The transaction has completed. This category groups the following statuses:
 	 * <ul><li>CAPTURED
 	 * <li>PAID
-	 * <li>ACCOUNT_CREDITED</ul>
+	 * <li>ACCOUNT_CREDITED
+	 * <li>CHARGEBACK_NOTIFICATION</ul>
 	 * <li>REVERSED: The transaction has been reversed. This category groups the following statuses:
 	 * <ul><li>CHARGEBACKED
 	 * <li>REVERSED</ul>

@@ -9,14 +9,14 @@ public class DeviceFingerprintRequest {
 	private String collectorCallback = null;
 
 	/**
-	 * If this JavaScript function is set, it will be called after the device fingerprint data collecting is finished.
+	 * You can supply a JavaScript function call that will be called after the device fingerprint data collecting using the provided JavaScript snippet is finished. This will then be added to the snippet that is returned in the property <span class="property">html</span>.
 	 */
 	public String getCollectorCallback() {
 		return collectorCallback;
 	}
 
 	/**
-	 * If this JavaScript function is set, it will be called after the device fingerprint data collecting is finished.
+	 * You can supply a JavaScript function call that will be called after the device fingerprint data collecting using the provided JavaScript snippet is finished. This will then be added to the snippet that is returned in the property <span class="property">html</span>.
 	 */
 	public void setCollectorCallback(String value) {
 		this.collectorCallback = value;

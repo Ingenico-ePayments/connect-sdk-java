@@ -63,6 +63,7 @@ public class Payment extends AbstractOrderStatus {
 	 * <li>CANCELLED - You have cancelled the transaction
 	 * <li>REJECTED_CAPTURE - We or one of our downstream acquirers/providers have rejected the capture request
 	 * <li>REVERSED - The transaction has been reversed
+	 * <li>CHARGEBACK_NOTIFICATION - We have received a notification of chargeback and this status informs you that your account will be debited for a particular transaction
 	 * <li>CHARGEBACKED - The transaction has been chargebacked
 	 * <li>REFUNDED - The transaction has been refunded
 	 * </ul><br>
@@ -91,6 +92,7 @@ public class Payment extends AbstractOrderStatus {
 	 * <li>CANCELLED - You have cancelled the transaction
 	 * <li>REJECTED_CAPTURE - We or one of our downstream acquirers/providers have rejected the capture request
 	 * <li>REVERSED - The transaction has been reversed
+	 * <li>CHARGEBACK_NOTIFICATION - We have received a notification of chargeback and this status informs you that your account will be debited for a particular transaction
 	 * <li>CHARGEBACKED - The transaction has been chargebacked
 	 * <li>REFUNDED - The transaction has been refunded
 	 * </ul><br>

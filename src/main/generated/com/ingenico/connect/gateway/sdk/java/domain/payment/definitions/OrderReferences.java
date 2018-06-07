@@ -34,7 +34,7 @@ public class OrderReferences {
 	 * </ul>
 	 * Note that we advise you to use 22 characters as the max length as beyond this our experience is that issuers will start to truncate. We currently also only allow per API call overrides for AIB and Barclays<br>
 	 * For alternative payment products the maximum allowed length varies per payment product:
-	 * <ul><li>402 eCard Poland - 30 characters
+	 * <ul><li>402 e-Przelewy - 30 characters
 	 * <li>404 INICIS - 80 characters
 	 * <li>802 Nordea ePayment Finland - 234 characters
 	 * <li>809 iDeal - 32 characters
@@ -42,7 +42,6 @@ public class OrderReferences {
 	 * <li>836 SOFORT - 42 characters
 	 * <li>840 PayPal - 127 characters
 	 * <li>841 WebMoney - 175 characters
-	 * <li>845 CashU - 250 characters
 	 * <li>849 Yandex - 64 characters
 	 * <li>861 Alipay - 256 characters
 	 * <li>880 BOKU - 20 characters
@@ -75,7 +74,7 @@ public class OrderReferences {
 	 * </ul>
 	 * Note that we advise you to use 22 characters as the max length as beyond this our experience is that issuers will start to truncate. We currently also only allow per API call overrides for AIB and Barclays<br>
 	 * For alternative payment products the maximum allowed length varies per payment product:
-	 * <ul><li>402 eCard Poland - 30 characters
+	 * <ul><li>402 e-Przelewy - 30 characters
 	 * <li>404 INICIS - 80 characters
 	 * <li>802 Nordea ePayment Finland - 234 characters
 	 * <li>809 iDeal - 32 characters
@@ -83,7 +82,6 @@ public class OrderReferences {
 	 * <li>836 SOFORT - 42 characters
 	 * <li>840 PayPal - 127 characters
 	 * <li>841 WebMoney - 175 characters
-	 * <li>845 CashU - 250 characters
 	 * <li>849 Yandex - 64 characters
 	 * <li>861 Alipay - 256 characters
 	 * <li>880 BOKU - 20 characters

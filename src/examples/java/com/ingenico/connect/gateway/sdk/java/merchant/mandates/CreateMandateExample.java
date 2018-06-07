@@ -31,7 +31,6 @@ public class CreateMandateExample {
 
 			MandateContactDetails contactDetails = new MandateContactDetails();
 			contactDetails.setEmailAddress("wile.e.coyote@acmelabs.com");
-			contactDetails.setPhoneNumber("+1234567890");
 
 			MandateAddress mandateAddress = new MandateAddress();
 			mandateAddress.setCity("Monumentenvallei");

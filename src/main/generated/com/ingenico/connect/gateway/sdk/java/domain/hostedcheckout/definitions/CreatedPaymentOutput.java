@@ -86,6 +86,7 @@ public class CreatedPaymentOutput {
 	 * <li>PAID
 	 * <li>ACCOUNT CREDITED
 	 * <li>REVERSED
+	 * <li>CHARGEBACK_NOTIFICATION
 	 * <li>CHARGEBACKED
 	 * <li>REFUNDED
 	 * </ul>
@@ -121,6 +122,7 @@ public class CreatedPaymentOutput {
 	 * <li>PAID
 	 * <li>ACCOUNT CREDITED
 	 * <li>REVERSED
+	 * <li>CHARGEBACK_NOTIFICATION
 	 * <li>CHARGEBACKED
 	 * <li>REFUNDED
 	 * </ul>

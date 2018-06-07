@@ -23,7 +23,7 @@ public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMetho
 	 * <br>You can set this value in minutes with a maximum value of 60 minutes. If no input is provided the default value of 60 is used for the transaction.
 	 * <br>This value can be set for the following payment products
 	 * <ul><li>809 - iDeal</li>
-	 * <li>402 - eCard Poland</li>
+	 * <li>402 - e-Przelewy</li>
 	 * </ul>
 	 */
 	public Integer getExpirationPeriod() {
@@ -35,7 +35,7 @@ public class RedirectPaymentMethodSpecificInputBase extends AbstractPaymentMetho
 	 * <br>You can set this value in minutes with a maximum value of 60 minutes. If no input is provided the default value of 60 is used for the transaction.
 	 * <br>This value can be set for the following payment products
 	 * <ul><li>809 - iDeal</li>
-	 * <li>402 - eCard Poland</li>
+	 * <li>402 - e-Przelewy</li>
 	 * </ul>
 	 */
 	public void setExpirationPeriod(Integer value) {

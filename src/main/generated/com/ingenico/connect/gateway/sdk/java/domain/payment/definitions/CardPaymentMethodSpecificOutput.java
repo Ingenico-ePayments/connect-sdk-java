@@ -20,6 +20,8 @@ public class CardPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecif
 
 	private ThreeDSecureResults threeDSecureResults = null;
 
+	private String token = null;
+
 	/**
 	 * Card Authorization code as returned by the acquirer
 	 */
@@ -74,5 +76,19 @@ public class CardPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecif
 	 */
 	public void setThreeDSecureResults(ThreeDSecureResults value) {
 		this.threeDSecureResults = value;
+	}
+
+	/**
+	 * ID of the token. This property is populated for the Ogone payment platform when the payment was done with a token or when the payment was tokenized.
+	 */
+	public String getToken() {
+		return token;
+	}
+
+	/**
+	 * ID of the token. This property is populated for the Ogone payment platform when the payment was done with a token or when the payment was tokenized.
+	 */
+	public void setToken(String value) {
+		this.token = value;
 	}
 }

@@ -9,6 +9,7 @@ import java.util.Map;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.merchant.captures.CapturesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.hostedcheckouts.HostedcheckoutsClient;
+import com.ingenico.connect.gateway.sdk.java.merchant.hostedmandatemanagements.HostedmandatemanagementsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.mandates.MandatesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.payments.PaymentsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.payouts.PayoutsClient;
@@ -37,6 +38,16 @@ public class MerchantClient extends ApiResource {
 	 */
 	public HostedcheckoutsClient hostedcheckouts() {
 		return new HostedcheckoutsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/hostedmandatemanagements
+	 * Create new hosted mandate management
+	 *
+	 * @return HostedmandatemanagementsClient
+	 */
+	public HostedmandatemanagementsClient hostedmandatemanagements() {
+		return new HostedmandatemanagementsClient(this, null);
 	}
 
 	/**

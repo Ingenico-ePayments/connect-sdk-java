@@ -38,6 +38,7 @@ public class CreateHostedCheckoutExample {
 
 			Customer customer = new Customer();
 			customer.setBillingAddress(billingAddress);
+			customer.setMerchantCustomerId("1234");
 
 			Order order = new Order();
 			order.setAmountOfMoney(amountOfMoney);

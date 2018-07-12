@@ -73,14 +73,14 @@ public class HostedCheckoutSpecificInput {
 	}
 
 	/**
-	 * When set on true, the consumer is able to cancel the Hosted Checkout by pressing the cancel button. When set to false, the cancel button will only return the consumer back to the payment method selection page. Default value is false.
+	 * This flag affects the status of a Hosted Checkout when a consumer presses the cancel button and is returned to you as a result.<br>If set to true, then the status will be CANCELLED_BY_CONSUMER. If set to false, then the status will be IN_PROGRESS.<br>The default value is false. This flag was added to introduce the additional CANCELLED_BY_CONSUMER state as a non-breaking change.
 	 */
 	public Boolean getReturnCancelState() {
 		return returnCancelState;
 	}
 
 	/**
-	 * When set on true, the consumer is able to cancel the Hosted Checkout by pressing the cancel button. When set to false, the cancel button will only return the consumer back to the payment method selection page. Default value is false.
+	 * This flag affects the status of a Hosted Checkout when a consumer presses the cancel button and is returned to you as a result.<br>If set to true, then the status will be CANCELLED_BY_CONSUMER. If set to false, then the status will be IN_PROGRESS.<br>The default value is false. This flag was added to introduce the additional CANCELLED_BY_CONSUMER state as a non-breaking change.
 	 */
 	public void setReturnCancelState(Boolean value) {
 		this.returnCancelState = value;

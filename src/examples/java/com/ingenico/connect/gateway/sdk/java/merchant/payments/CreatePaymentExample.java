@@ -83,7 +83,7 @@ public class CreatePaymentExample {
 
 			PersonalInformation personalInformation = new PersonalInformation();
 			personalInformation.setDateOfBirth("19490917");
-			personalInformation.setGender("M");
+			personalInformation.setGender("male");
 			personalInformation.setName(name);
 
 			PersonalName shippingName = new PersonalName();

@@ -31,6 +31,7 @@ public class GetHostedCheckoutResponse {
 	 * <ul>
 	 * <li>IN_PROGRESS - The checkout is still in progress and has not finished yet
 	 * <li>PAYMENT_CREATED - A payment has been created
+	 * <li>CANCELLED_BY_CONSUMER - If a consumer cancels the payment on the payment product detail page of the MyCheckout hosted payment pages, the status will change to IN_PROGRESS. Since we understand you want to be aware of a consumer cancelling the payment on the page we host for you, you can choose to get the status CANCELLED_BY_CONSUMER back instead of the status IN_PROGRESS. In order to get the status CANCELLED_BY_CONSUMER back, you need to have the <span class="property">returnCancelState</span> flag enabled in the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedcheckouts/create.html">Create hosted checkout</a> call
 	 * </ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
 	 */
@@ -43,6 +44,7 @@ public class GetHostedCheckoutResponse {
 	 * <ul>
 	 * <li>IN_PROGRESS - The checkout is still in progress and has not finished yet
 	 * <li>PAYMENT_CREATED - A payment has been created
+	 * <li>CANCELLED_BY_CONSUMER - If a consumer cancels the payment on the payment product detail page of the MyCheckout hosted payment pages, the status will change to IN_PROGRESS. Since we understand you want to be aware of a consumer cancelling the payment on the page we host for you, you can choose to get the status CANCELLED_BY_CONSUMER back instead of the status IN_PROGRESS. In order to get the status CANCELLED_BY_CONSUMER back, you need to have the <span class="property">returnCancelState</span> flag enabled in the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedcheckouts/create.html">Create hosted checkout</a> call
 	 * </ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
 	 */

@@ -34,6 +34,7 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 	 * Determines the type of the authorization that will be used. Allowed values:
 	 * <ul><li>FINAL_AUTHORIZATION - The payment creation results in an authorization that is ready for capture. Final authorizations can't be reversed and need to be captured for the full amount within 7 days.
 	 * <li>PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount.
+	 * <li>SALE - The payment creation results in an authorization that is already captured at the moment of approval.
 	 * </ul>
 	 * Only used with some acquirers, ingnored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the <span class="property">authorizationMode</span> is 'unspecified', which behaves similar to a final authorization.
 	 */
@@ -45,6 +46,7 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 	 * Determines the type of the authorization that will be used. Allowed values:
 	 * <ul><li>FINAL_AUTHORIZATION - The payment creation results in an authorization that is ready for capture. Final authorizations can't be reversed and need to be captured for the full amount within 7 days.
 	 * <li>PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount.
+	 * <li>SALE - The payment creation results in an authorization that is already captured at the moment of approval.
 	 * </ul>
 	 * Only used with some acquirers, ingnored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the <span class="property">authorizationMode</span> is 'unspecified', which behaves similar to a final authorization.
 	 */
@@ -89,7 +91,7 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 	}
 
 	/**
-	 * <ul><li>true = the payment requires approval before the funds will be captured
+	 * <div class="deprecated-wrapper depends-wrapper"><span>Deprecated for Ogone</span>: This flag is deprecated for the Ogone payment platform. Use CardPaymentMethodSpecificInputBase.authorizationMode instead. Value 'true' of this field is mapped to authorizationMode FINAL_AUTHORIZATION and value 'false' is mapped to authorizationMode SALE.</div><ul><li>true = the payment requires approval before the funds will be captured
 	 * <li>false = the payment does not require approval, and the funds will be captured automatically
 	 * </ul>
 	 * If true, payments with status PENDING_APPROVAL can be captured with the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html">Approve payment</a> API and payments with the status PENDING_CAPTURE can be captured using the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/capture.html">Capture payment</a> API
@@ -99,7 +101,7 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 	}
 
 	/**
-	 * <ul><li>true = the payment requires approval before the funds will be captured
+	 * <div class="deprecated-wrapper depends-wrapper"><span>Deprecated for Ogone</span>: This flag is deprecated for the Ogone payment platform. Use CardPaymentMethodSpecificInputBase.authorizationMode instead. Value 'true' of this field is mapped to authorizationMode FINAL_AUTHORIZATION and value 'false' is mapped to authorizationMode SALE.</div><ul><li>true = the payment requires approval before the funds will be captured
 	 * <li>false = the payment does not require approval, and the funds will be captured automatically
 	 * </ul>
 	 * If true, payments with status PENDING_APPROVAL can be captured with the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/approve.html">Approve payment</a> API and payments with the status PENDING_CAPTURE can be captured using the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/capture.html">Capture payment</a> API
@@ -109,8 +111,8 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 	}
 
 	/**
-	 * <ul><li>true = 3D Secure Authentication will be skipped for this transaction. This setting should be used when <span class="property">isRecurring</span> is set to true and <span class="property">recurringPaymentSequenceIndicator</span> is set to recurring.
-	 * <li>false = 3D Secure Authentication will not be skipped for this transaction.
+	 * <ul><li>true = 3D Secure authentication will be skipped for this transaction. This setting should be used when <span class="property">isRecurring</span> is set to true and <span class="property">recurringPaymentSequenceIndicator</span> is set to recurring.
+	 * <li>false = 3D Secure authentication will not be skipped for this transaction.
 	 * </ul>
 	 * Note: This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
 	 */
@@ -119,8 +121,8 @@ public class CardPaymentMethodSpecificInputBase extends AbstractPaymentMethodSpe
 	}
 
 	/**
-	 * <ul><li>true = 3D Secure Authentication will be skipped for this transaction. This setting should be used when <span class="property">isRecurring</span> is set to true and <span class="property">recurringPaymentSequenceIndicator</span> is set to recurring.
-	 * <li>false = 3D Secure Authentication will not be skipped for this transaction.
+	 * <ul><li>true = 3D Secure authentication will be skipped for this transaction. This setting should be used when <span class="property">isRecurring</span> is set to true and <span class="property">recurringPaymentSequenceIndicator</span> is set to recurring.
+	 * <li>false = 3D Secure authentication will not be skipped for this transaction.
 	 * </ul>
 	 * Note: This is only possible if your account in our system is setup for 3D Secure authentication and if your configuration in our system allows you to override it per transaction.
 	 */

@@ -15,14 +15,20 @@ public class RedirectPaymentProduct840SpecificInput {
 
 	/**
 	 * A free text string that you can send to PayPal. With a special agreement between PayPal and you, PayPal uses the data in that field, for custom services they offer to you.
+	 *
+	 * @deprecated use order.references.descriptor instead.
 	 */
+	@Deprecated
 	public String getCustom() {
 		return custom;
 	}
 
 	/**
 	 * A free text string that you can send to PayPal. With a special agreement between PayPal and you, PayPal uses the data in that field, for custom services they offer to you.
+	 *
+	 * @deprecated use order.references.descriptor instead.
 	 */
+	@Deprecated
 	public void setCustom(String value) {
 		this.custom = value;
 	}

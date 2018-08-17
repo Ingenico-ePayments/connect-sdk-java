@@ -10,6 +10,8 @@ public class PaymentCreationOutput extends PaymentCreationReferences {
 
 	private String token = null;
 
+	private Boolean tokenizationSucceeded = null;
+
 	/**
 	 * Indicates if a new token was created
 	 * <ul>
@@ -44,5 +46,19 @@ public class PaymentCreationOutput extends PaymentCreationReferences {
 	 */
 	public void setToken(String value) {
 		this.token = value;
+	}
+
+	/**
+	 * Indicates if tokenization was successful or not. If this value is false, then the <span class="property">token</span> and <span class="property">isNewToken</span> properties will not be set.
+	 */
+	public Boolean getTokenizationSucceeded() {
+		return tokenizationSucceeded;
+	}
+
+	/**
+	 * Indicates if tokenization was successful or not. If this value is false, then the <span class="property">token</span> and <span class="property">isNewToken</span> properties will not be set.
+	 */
+	public void setTokenizationSucceeded(Boolean value) {
+		this.tokenizationSucceeded = value;
 	}
 }

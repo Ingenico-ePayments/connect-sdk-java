@@ -20,6 +20,8 @@ public class CreatedPaymentOutput {
 
 	private String paymentStatusCategory = null;
 
+	private Boolean tokenizationSucceeded = null;
+
 	private String tokens = null;
 
 	/**
@@ -134,6 +136,20 @@ public class CreatedPaymentOutput {
 	 */
 	public void setPaymentStatusCategory(String value) {
 		this.paymentStatusCategory = value;
+	}
+
+	/**
+	 * If the payment was attempted to be tokenized, indicates if tokenization was successful or not.
+	 */
+	public Boolean getTokenizationSucceeded() {
+		return tokenizationSucceeded;
+	}
+
+	/**
+	 * If the payment was attempted to be tokenized, indicates if tokenization was successful or not.
+	 */
+	public void setTokenizationSucceeded(Boolean value) {
+		this.tokenizationSucceeded = value;
 	}
 
 	/**

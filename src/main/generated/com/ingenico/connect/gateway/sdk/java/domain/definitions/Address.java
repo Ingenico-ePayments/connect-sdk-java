@@ -37,14 +37,16 @@ public class Address {
 	}
 
 	/**
-	 * City
+	 * City<br>
+	 * Note: For payments with product 1503 the maximum length is not 40 but 20.
 	 */
 	public String getCity() {
 		return city;
 	}
 
 	/**
-	 * City
+	 * City<br>
+	 * Note: For payments with product 1503 the maximum length is not 40 but 20.
 	 */
 	public void setCity(String value) {
 		this.city = value;
@@ -93,14 +95,16 @@ public class Address {
 	}
 
 	/**
-	 * State code
+	 * State code<br>
+	 * Note: For payments with product 1503 the maximum length is not 9 but 2.
 	 */
 	public String getStateCode() {
 		return stateCode;
 	}
 
 	/**
-	 * State code
+	 * State code<br>
+	 * Note: For payments with product 1503 the maximum length is not 9 but 2.
 	 */
 	public void setStateCode(String value) {
 		this.stateCode = value;
@@ -121,14 +125,16 @@ public class Address {
 	}
 
 	/**
-	 * Zip code
+	 * Zip code<br>
+	 * Note: For payments with product 1503 the maximum length is not 10 but 8.
 	 */
 	public String getZip() {
 		return zip;
 	}
 
 	/**
-	 * Zip code
+	 * Zip code<br>
+	 * Note: For payments with product 1503 the maximum length is not 10 but 8.
 	 */
 	public void setZip(String value) {
 		this.zip = value;

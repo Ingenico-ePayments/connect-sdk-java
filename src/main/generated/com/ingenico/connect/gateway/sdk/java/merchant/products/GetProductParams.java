@@ -111,7 +111,9 @@ public class GetProductParams extends AbstractParamRequest {
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul>
-	 * <li>fields - This will not return any data on fields of the payment product
+	 * <li>fields - Don't return any data on fields of the payment product
+	 * <li>accountsOnFile - Don't return any accounts on file data
+	 * <li>translations - Don't return any label texts associated with the payment products
 	 * </ul>
 	 */
 	public List<String> getHide() {
@@ -121,7 +123,9 @@ public class GetProductParams extends AbstractParamRequest {
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul>
-	 * <li>fields - This will not return any data on fields of the payment product
+	 * <li>fields - Don't return any data on fields of the payment product
+	 * <li>accountsOnFile - Don't return any accounts on file data
+	 * <li>translations - Don't return any label texts associated with the payment products
 	 * </ul>
 	 */
 	public void setHide(List<String> value) {
@@ -142,7 +146,9 @@ public class GetProductParams extends AbstractParamRequest {
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul>
-	 * <li>fields - This will not return any data on fields of the payment product
+	 * <li>fields - Don't return any data on fields of the payment product
+	 * <li>accountsOnFile - Don't return any accounts on file data
+	 * <li>translations - Don't return any label texts associated with the payment products
 	 * </ul>
 	 */
 	public void addHide(String value) {

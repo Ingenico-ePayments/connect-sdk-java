@@ -109,7 +109,11 @@ public class FindProductsParams extends AbstractParamRequest {
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul>
-	 * <li>fields - This will not return any data on fields per payment product
+	 * <li>fields - Don't return any data on fields of the payment product
+	 * <li>accountsOnFile - Don't return any accounts on file data
+	 * <li>translations - Don't return any label texts associated with the payment products
+	 * <li>productsWithoutFields - Don't return products that require any additional data to be captured
+	 * <li>productsWithoutInstructions - Don't return products that show instructions
 	 * </ul>
 	 */
 	public List<String> getHide() {
@@ -119,7 +123,11 @@ public class FindProductsParams extends AbstractParamRequest {
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul>
-	 * <li>fields - This will not return any data on fields per payment product
+	 * <li>fields - Don't return any data on fields of the payment product
+	 * <li>accountsOnFile - Don't return any accounts on file data
+	 * <li>translations - Don't return any label texts associated with the payment products
+	 * <li>productsWithoutFields - Don't return products that require any additional data to be captured
+	 * <li>productsWithoutInstructions - Don't return products that show instructions
 	 * </ul>
 	 */
 	public void setHide(List<String> value) {
@@ -140,7 +148,11 @@ public class FindProductsParams extends AbstractParamRequest {
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul>
-	 * <li>fields - This will not return any data on fields per payment product
+	 * <li>fields - Don't return any data on fields of the payment product
+	 * <li>accountsOnFile - Don't return any accounts on file data
+	 * <li>translations - Don't return any label texts associated with the payment products
+	 * <li>productsWithoutFields - Don't return products that require any additional data to be captured
+	 * <li>productsWithoutInstructions - Don't return products that show instructions
 	 * </ul>
 	 */
 	public void addHide(String value) {

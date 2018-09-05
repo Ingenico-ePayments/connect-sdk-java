@@ -84,7 +84,7 @@ public class SDKProxyTest extends ItTest {
 				Object fieldValue = field.get(object);
 				Assert.assertTrue(fieldType.isInstance(fieldValue));
 				return fieldType.cast(fieldValue);
-			} catch (NoSuchFieldException e) {
+			} catch (@SuppressWarnings("unused") NoSuchFieldException e) {
 				// try next class
 			} catch (IllegalAccessException e) {
 				// should no longer occur

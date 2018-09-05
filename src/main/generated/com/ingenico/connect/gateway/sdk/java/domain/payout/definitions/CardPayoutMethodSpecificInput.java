@@ -12,6 +12,8 @@ public class CardPayoutMethodSpecificInput extends AbstractPayoutMethodSpecificI
 
 	private Integer paymentProductId = null;
 
+	private String token = null;
+
 	/**
 	 * Object containing the card details.
 	 */
@@ -40,5 +42,19 @@ public class CardPayoutMethodSpecificInput extends AbstractPayoutMethodSpecificI
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * ID of the token that holds previously stored card data. Note that this is only supported for transactions on the Ogone payment engine.
+	 */
+	public String getToken() {
+		return token;
+	}
+
+	/**
+	 * ID of the token that holds previously stored card data. Note that this is only supported for transactions on the Ogone payment engine.
+	 */
+	public void setToken(String value) {
+		this.token = value;
 	}
 }

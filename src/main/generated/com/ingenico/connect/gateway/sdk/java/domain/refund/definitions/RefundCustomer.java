@@ -16,6 +16,8 @@ public class RefundCustomer {
 
 	private ContactDetailsBase contactDetails = null;
 
+	private String fiscalNumber = null;
+
 	/**
 	 * Object containing address details
 	 */
@@ -56,5 +58,19 @@ public class RefundCustomer {
 	 */
 	public void setContactDetails(ContactDetailsBase value) {
 		this.contactDetails = value;
+	}
+
+	/**
+	 * Fiscal registration number of the consumer (CPF) with a length of 11 or the tax registration number of the company for a business consumer (CNPJ) with a length of 14.
+	 */
+	public String getFiscalNumber() {
+		return fiscalNumber;
+	}
+
+	/**
+	 * Fiscal registration number of the consumer (CPF) with a length of 11 or the tax registration number of the company for a business consumer (CNPJ) with a length of 14.
+	 */
+	public void setFiscalNumber(String value) {
+		this.fiscalNumber = value;
 	}
 }

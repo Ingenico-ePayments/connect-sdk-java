@@ -10,6 +10,8 @@ public class BankAccountBbanRefund extends BankAccountBban {
 
 	private String bankCity = null;
 
+	private String patronymicName = null;
+
 	private String swiftCode = null;
 
 	/**
@@ -24,6 +26,20 @@ public class BankAccountBbanRefund extends BankAccountBban {
 	 */
 	public void setBankCity(String value) {
 		this.bankCity = value;
+	}
+
+	/**
+	 * Every Russian has three names: a first name, a patronymic, and a surname. The second name is a patronymic. Russian patronymic is a name derived from the father's first name by adding -ович/-евич (son of) for male, or -овна/-евна (daughter of) for females.
+	 */
+	public String getPatronymicName() {
+		return patronymicName;
+	}
+
+	/**
+	 * Every Russian has three names: a first name, a patronymic, and a surname. The second name is a patronymic. Russian patronymic is a name derived from the father's first name by adding -ович/-евич (son of) for male, or -овна/-евна (daughter of) for females.
+	 */
+	public void setPatronymicName(String value) {
+		this.patronymicName = value;
 	}
 
 	/**

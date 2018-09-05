@@ -287,7 +287,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 			Assert.fail("expected ValidationException");
 
-		} catch (ValidationException e) {
+		} catch (@SuppressWarnings("unused") ValidationException e) {
 
 			// expected
 
@@ -400,7 +400,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 			Assert.fail("expected GlobalCollectException");
 
-		} catch (GlobalCollectException e) {
+		} catch (@SuppressWarnings("unused") GlobalCollectException e) {
 
 			// expected
 
@@ -441,7 +441,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 			Assert.fail("expected NotFoundException");
 
-		} catch (NotFoundException e) {
+		} catch (@SuppressWarnings("unused") NotFoundException e) {
 
 			// expected
 
@@ -482,7 +482,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 			Assert.fail("expected CommunicationException");
 
-		} catch (CommunicationException e) {
+		} catch (@SuppressWarnings("unused") CommunicationException e) {
 
 			// expected
 
@@ -589,7 +589,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 			Assert.fail("expected CommunicationException");
 
-		} catch (CommunicationException e) {
+		} catch (@SuppressWarnings("unused") CommunicationException e) {
 
 			// expected
 

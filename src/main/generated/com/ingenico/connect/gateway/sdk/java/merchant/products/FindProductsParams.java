@@ -114,6 +114,7 @@ public class FindProductsParams extends AbstractParamRequest {
 	 * <li>translations - Don't return any label texts associated with the payment products
 	 * <li>productsWithoutFields - Don't return products that require any additional data to be captured
 	 * <li>productsWithoutInstructions - Don't return products that show instructions
+	 * <li>productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
 	 * </ul>
 	 */
 	public List<String> getHide() {
@@ -128,6 +129,7 @@ public class FindProductsParams extends AbstractParamRequest {
 	 * <li>translations - Don't return any label texts associated with the payment products
 	 * <li>productsWithoutFields - Don't return products that require any additional data to be captured
 	 * <li>productsWithoutInstructions - Don't return products that show instructions
+	 * <li>productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
 	 * </ul>
 	 */
 	public void setHide(List<String> value) {
@@ -153,6 +155,7 @@ public class FindProductsParams extends AbstractParamRequest {
 	 * <li>translations - Don't return any label texts associated with the payment products
 	 * <li>productsWithoutFields - Don't return products that require any additional data to be captured
 	 * <li>productsWithoutInstructions - Don't return products that show instructions
+	 * <li>productsWithRedirects - Don't return products that require a redirect to a 3rd party. Note that products that involve potential redirects related to 3D Secure authentication are not hidden
 	 * </ul>
 	 */
 	public void addHide(String value) {

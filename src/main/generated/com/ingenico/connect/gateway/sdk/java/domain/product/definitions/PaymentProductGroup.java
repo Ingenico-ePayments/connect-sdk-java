@@ -13,6 +13,8 @@ public class PaymentProductGroup {
 
 	private List<AccountOnFile> accountsOnFile = null;
 
+	private Boolean deviceFingerprintEnabled = null;
+
 	private PaymentProductDisplayHints displayHints = null;
 
 	private List<PaymentProductField> fields = null;
@@ -31,6 +33,26 @@ public class PaymentProductGroup {
 	 */
 	public void setAccountsOnFile(List<AccountOnFile> value) {
 		this.accountsOnFile = value;
+	}
+
+	/**
+	 * Indicates if device fingerprint is enabled for the product group
+	 * <ul><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public Boolean getDeviceFingerprintEnabled() {
+		return deviceFingerprintEnabled;
+	}
+
+	/**
+	 * Indicates if device fingerprint is enabled for the product group
+	 * <ul><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public void setDeviceFingerprintEnabled(Boolean value) {
+		this.deviceFingerprintEnabled = value;
 	}
 
 	/**

@@ -14,6 +14,8 @@ public class CreateHostedCheckoutResponse {
 
 	private List<String> invalidTokens = null;
 
+	private String merchantReference = null;
+
 	private String partialRedirectUrl = null;
 
 	/**
@@ -56,6 +58,22 @@ public class CreateHostedCheckoutResponse {
 	 */
 	public void setInvalidTokens(List<String> value) {
 		this.invalidTokens = value;
+	}
+
+	/**
+	 * This field can be used to link a payment on the Ogone platform to the MyCheckout in which it was created. In a <span class="property">Payment</span> object, the <span class="property">merchantReference</span> is found in <span class="property">paymentOutput.references.merchantReference</span>. Note that the system generates a unique <span class="property">merchantReference</span> if none was provided in the Create Hosted Checkout request.
+	 * For a payment on the GlobalCollect platform, the field <span class="property">hostedCheckoutId</span> can be used instead. In a <span class="property">Payment</span> object, the <span class="property">hostedCheckoutId</span> is found in <span class="property">hostedCheckoutSpecificOutput.hostedCheckoutId</span>.
+	 */
+	public String getMerchantReference() {
+		return merchantReference;
+	}
+
+	/**
+	 * This field can be used to link a payment on the Ogone platform to the MyCheckout in which it was created. In a <span class="property">Payment</span> object, the <span class="property">merchantReference</span> is found in <span class="property">paymentOutput.references.merchantReference</span>. Note that the system generates a unique <span class="property">merchantReference</span> if none was provided in the Create Hosted Checkout request.
+	 * For a payment on the GlobalCollect platform, the field <span class="property">hostedCheckoutId</span> can be used instead. In a <span class="property">Payment</span> object, the <span class="property">hostedCheckoutId</span> is found in <span class="property">hostedCheckoutSpecificOutput.hostedCheckoutId</span>.
+	 */
+	public void setMerchantReference(String value) {
+		this.merchantReference = value;
 	}
 
 	/**

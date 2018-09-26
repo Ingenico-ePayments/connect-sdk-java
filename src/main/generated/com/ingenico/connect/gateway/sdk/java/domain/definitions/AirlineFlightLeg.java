@@ -10,15 +10,27 @@ public class AirlineFlightLeg {
 
 	private String arrivalAirport = null;
 
+	private String arrivalTime = null;
+
 	private String carrierCode = null;
+
+	private String conjunctionTicket = null;
+
+	private String couponNumber = null;
 
 	private String date = null;
 
 	private String departureTime = null;
 
+	private String endorsementOrRestriction = null;
+
+	private String exchangeTicket = null;
+
 	private String fare = null;
 
 	private String fareBasis = null;
+
+	private Integer fee = null;
 
 	private String flightNumber = null;
 
@@ -26,9 +38,13 @@ public class AirlineFlightLeg {
 
 	private String originAirport = null;
 
+	private String passengerClass = null;
+
 	private String serviceClass = null;
 
 	private String stopoverCode = null;
+
+	private Integer taxes = null;
 
 	/**
 	 * Reservation Booking Designator
@@ -59,6 +75,22 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * The arrival time in the local time zone <br>
+	 * Format: HH:MM
+	 */
+	public String getArrivalTime() {
+		return arrivalTime;
+	}
+
+	/**
+	 * The arrival time in the local time zone <br>
+	 * Format: HH:MM
+	 */
+	public void setArrivalTime(String value) {
+		this.arrivalTime = value;
+	}
+
+	/**
 	 * IATA carrier code
 	 */
 	public String getCarrierCode() {
@@ -70,6 +102,34 @@ public class AirlineFlightLeg {
 	 */
 	public void setCarrierCode(String value) {
 		this.carrierCode = value;
+	}
+
+	/**
+	 * Identifying number of a ticket issued to a passenger in conjunction with this ticket and that constitutes a single contract of carriage
+	 */
+	public String getConjunctionTicket() {
+		return conjunctionTicket;
+	}
+
+	/**
+	 * Identifying number of a ticket issued to a passenger in conjunction with this ticket and that constitutes a single contract of carriage
+	 */
+	public void setConjunctionTicket(String value) {
+		this.conjunctionTicket = value;
+	}
+
+	/**
+	 * The coupon number associated with this leg of the trip. A ticket can contain several legs of travel, and each leg of travel requires a separate coupon
+	 */
+	public String getCouponNumber() {
+		return couponNumber;
+	}
+
+	/**
+	 * The coupon number associated with this leg of the trip. A ticket can contain several legs of travel, and each leg of travel requires a separate coupon
+	 */
+	public void setCouponNumber(String value) {
+		this.couponNumber = value;
 	}
 
 	/**
@@ -105,6 +165,34 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay
+	 */
+	public String getEndorsementOrRestriction() {
+		return endorsementOrRestriction;
+	}
+
+	/**
+	 * An endorsement can be an agency-added notation or a mandatory government required notation, such as value-added tax. A restriction is a limitation based on the type of fare, such as a ticket with a 3-day minimum stay
+	 */
+	public void setEndorsementOrRestriction(String value) {
+		this.endorsementOrRestriction = value;
+	}
+
+	/**
+	 * New ticket number that is issued when a ticket is exchanged
+	 */
+	public String getExchangeTicket() {
+		return exchangeTicket;
+	}
+
+	/**
+	 * New ticket number that is issued when a ticket is exchanged
+	 */
+	public void setExchangeTicket(String value) {
+		this.exchangeTicket = value;
+	}
+
+	/**
 	 * Fare of this leg
 	 */
 	public String getFare() {
@@ -130,6 +218,20 @@ public class AirlineFlightLeg {
 	 */
 	public void setFareBasis(String value) {
 		this.fareBasis = value;
+	}
+
+	/**
+	 * Fee for this leg of the trip
+	 */
+	public Integer getFee() {
+		return fee;
+	}
+
+	/**
+	 * Fee for this leg of the trip
+	 */
+	public void setFee(Integer value) {
+		this.fee = value;
 	}
 
 	/**
@@ -177,6 +279,20 @@ public class AirlineFlightLeg {
 	}
 
 	/**
+	 * PassengerClass if this leg
+	 */
+	public String getPassengerClass() {
+		return passengerClass;
+	}
+
+	/**
+	 * PassengerClass if this leg
+	 */
+	public void setPassengerClass(String value) {
+		this.passengerClass = value;
+	}
+
+	/**
 	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform).
 	 * <p>Possible values are:
 	 * <ul>
@@ -185,7 +301,10 @@ public class AirlineFlightLeg {
 	 * <li>business
 	 * <li>first
 	 * </ul>
+	 *
+	 * @deprecated Use passengerClass instead
 	 */
+	@Deprecated
 	public String getServiceClass() {
 		return serviceClass;
 	}
@@ -199,7 +318,10 @@ public class AirlineFlightLeg {
 	 * <li>business
 	 * <li>first
 	 * </ul>
+	 *
+	 * @deprecated Use passengerClass instead
 	 */
+	@Deprecated
 	public void setServiceClass(String value) {
 		this.serviceClass = value;
 	}
@@ -222,5 +344,19 @@ public class AirlineFlightLeg {
 	 */
 	public void setStopoverCode(String value) {
 		this.stopoverCode = value;
+	}
+
+	/**
+	 * Taxes for this leg of the trip
+	 */
+	public Integer getTaxes() {
+		return taxes;
+	}
+
+	/**
+	 * Taxes for this leg of the trip
+	 */
+	public void setTaxes(Integer value) {
+		this.taxes = value;
 	}
 }

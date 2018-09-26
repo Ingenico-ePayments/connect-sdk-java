@@ -48,6 +48,14 @@ public class AirlineData {
 
 	private String ticketNumber = null;
 
+	private Integer totalFare = null;
+
+	private Integer totalFee = null;
+
+	private Integer totalTaxes = null;
+
+	private String travelAgencyName = null;
+
 	/**
 	 * Numeric code identifying the agent
 	 */
@@ -372,5 +380,61 @@ public class AirlineData {
 	 */
 	public void setTicketNumber(String value) {
 		this.ticketNumber = value;
+	}
+
+	/**
+	 * Total fare for all legs on the ticket, excluding taxes and fees. If multiple tickets are purchased, this is the total fare for all tickets
+	 */
+	public Integer getTotalFare() {
+		return totalFare;
+	}
+
+	/**
+	 * Total fare for all legs on the ticket, excluding taxes and fees. If multiple tickets are purchased, this is the total fare for all tickets
+	 */
+	public void setTotalFare(Integer value) {
+		this.totalFare = value;
+	}
+
+	/**
+	 * Total fee for all legs on the ticket. If multiple tickets are purchased, this is the total fee for all tickets
+	 */
+	public Integer getTotalFee() {
+		return totalFee;
+	}
+
+	/**
+	 * Total fee for all legs on the ticket. If multiple tickets are purchased, this is the total fee for all tickets
+	 */
+	public void setTotalFee(Integer value) {
+		this.totalFee = value;
+	}
+
+	/**
+	 * Total taxes for all legs on the ticket. If multiple tickets are purchased, this is the total taxes for all tickets
+	 */
+	public Integer getTotalTaxes() {
+		return totalTaxes;
+	}
+
+	/**
+	 * Total taxes for all legs on the ticket. If multiple tickets are purchased, this is the total taxes for all tickets
+	 */
+	public void setTotalTaxes(Integer value) {
+		this.totalTaxes = value;
+	}
+
+	/**
+	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this field blank
+	 */
+	public String getTravelAgencyName() {
+		return travelAgencyName;
+	}
+
+	/**
+	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this field blank
+	 */
+	public void setTravelAgencyName(String value) {
+		this.travelAgencyName = value;
 	}
 }

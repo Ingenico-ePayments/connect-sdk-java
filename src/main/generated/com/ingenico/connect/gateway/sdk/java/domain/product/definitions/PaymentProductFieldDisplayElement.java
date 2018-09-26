@@ -8,6 +8,8 @@ public class PaymentProductFieldDisplayElement {
 
 	private String id = null;
 
+	private String label = null;
+
 	private String type = null;
 
 	private String value = null;
@@ -24,6 +26,20 @@ public class PaymentProductFieldDisplayElement {
 	 */
 	public void setId(String value) {
 		this.id = value;
+	}
+
+	/**
+	 * The label of the display element.
+	 */
+	public String getLabel() {
+		return label;
+	}
+
+	/**
+	 * The label of the display element.
+	 */
+	public void setLabel(String value) {
+		this.label = value;
 	}
 
 	/**

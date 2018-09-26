@@ -113,7 +113,7 @@ public class MerchantAction {
 	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.<br>
 	 * <br>
 	 * For SHOW_FORM, for payment product 3012 (Bancontact), this contains a QR code and a URL intent that can be used to complete the payment in the Bancontact app.<br>
-	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device. 
+	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device.
 	 */
 	public List<KeyValuePair> getShowData() {
 		return showData;
@@ -125,7 +125,7 @@ public class MerchantAction {
 	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.<br>
 	 * <br>
 	 * For SHOW_FORM, for payment product 3012 (Bancontact), this contains a QR code and a URL intent that can be used to complete the payment in the Bancontact app.<br>
-	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device. 
+	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device.
 	 */
 	public void setShowData(List<KeyValuePair> value) {
 		this.showData = value;

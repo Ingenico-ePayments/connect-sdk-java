@@ -23,25 +23,29 @@ This repository consists out of four main components:
 3. The source code of the example integration tests: `/src/it/java/`
 4. The source code of the example calls: `/src/examples/java/`
 
-## Building the repository
+## Installation
 
-This repository uses [Maven](http://maven.apache.org/) to build. Assuming you have Maven installed, building is straightforward:
-
-1. Run `mvn -clean package` from the root directory (which contains the pom.xml file)
-
-The build will generate the following files in the target directory, where `x.y.z` is the version number:
-* `connect-sdk-java-x.y.z.jar`, containing the compiled class files
-* `connect-sdk-java-x.y.z-javadoc.jar`, containing the generated Javadoc
-* `connect-sdk-java-x.y.z-sources.jar`, containing the source code
-* `connect-sdk-java-x.y.z-src.zip`, containing the contents of this folder
-* `connect-sdk-java-x.y.z-bin.zip`, containing the necessary JAR files for standalone deployments and examples
-
-To use it add all JAR files inside the lib folder of the `connect-sdk-java-x.y.z-bin.zip` file to your project, except for `connect-sdk-java-x.y.z-javadoc.jar` and `connect-sdk-java-x.y.z-sources.jar`.
-
-Alternatively, if the Java SDK is installed in an available Maven repository, it can be included as a Maven dependency:
+Assuming you have [Maven](http://maven.apache.org/) installed, simply include the SDK as a Maven dependency:
 
     <dependency>
       <groupId>com.ingenico.connect.gateway</groupId>
       <artifactId>connect-sdk-java</artifactId>
       <version>x.y.z</version>
     </dependency>
+
+Alternatively, download the latest version of the SDK from GitHub. Choose the `connect-sdk-java-x.y.z-bin.zip` file from the [releases](https://github.com/Ingenico-ePayments/connect-sdk-java/releases) page, where `x.y.z` is the version number. Add all JAR files inside the `lib` folder of this file to your project, except for `connect-sdk-java-x.y.z-javadoc.jar` and `connect-sdk-java-x.y.z-sources.jar`
+
+## Building the repository
+
+This repository uses [Maven](http://maven.apache.org/) to build. To build the SDK, execute the following command from its root directory (which contains the `pom.xml` file):
+
+    mvn -clean package
+
+The build will generate the following files in the `target` directory, where `x.y.z` is the version number:
+* `connect-sdk-java-x.y.z.jar`, containing the compiled class files
+* `connect-sdk-java-x.y.z-javadoc.jar`, containing the generated Javadoc
+* `connect-sdk-java-x.y.z-sources.jar`, containing the source code
+* `connect-sdk-java-x.y.z-src.zip`, containing the contents of this folder
+* `connect-sdk-java-x.y.z-bin.zip`, containing the necessary JAR files for standalone deployments and examples
+
+To use it add all JAR files inside the `lib` folder of the `connect-sdk-java-x.y.z-bin.zip` file to your project, except for `connect-sdk-java-x.y.z-javadoc.jar` and `connect-sdk-java-x.y.z-sources.jar`.

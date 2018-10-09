@@ -61,16 +61,20 @@ public class CreateHostedCheckoutResponse {
 	}
 
 	/**
-	 * This field can be used to link a payment on the Ogone platform to the MyCheckout in which it was created. In a <span class="property">Payment</span> object, the <span class="property">merchantReference</span> is found in <span class="property">paymentOutput.references.merchantReference</span>. Note that the system generates a unique <span class="property">merchantReference</span> if none was provided in the Create Hosted Checkout request.
-	 * For a payment on the GlobalCollect platform, the field <span class="property">hostedCheckoutId</span> can be used instead. In a <span class="property">Payment</span> object, the <span class="property">hostedCheckoutId</span> is found in <span class="property">hostedCheckoutSpecificOutput.hostedCheckoutId</span>.
+	 * This field will contain the <span class="property">merchantReference</span> you provided in case you included one in the Create hostedCheckout API call. In case you didn't provide one the system will generate one for you (for the Ogone payment platform only) to allow you to link any created payment to this hostedCheckout.
+	 * To relate a payment done by the consumer in a hostedCheckout session you can use the following fields:
+	 * <ul><li><span class="property">paymentOutput.references.merchantReference</span> (for the GlobalCollect payment engine this is only possible when you supply a <span class="property">merchantReference</span> during the creation of the hostedCheckout)</li>
+	 * <li>hostedCheckoutSpecificOutput.hostedCheckoutId (only returned when using the GlobalCollect payment engine)</li></ul>
 	 */
 	public String getMerchantReference() {
 		return merchantReference;
 	}
 
 	/**
-	 * This field can be used to link a payment on the Ogone platform to the MyCheckout in which it was created. In a <span class="property">Payment</span> object, the <span class="property">merchantReference</span> is found in <span class="property">paymentOutput.references.merchantReference</span>. Note that the system generates a unique <span class="property">merchantReference</span> if none was provided in the Create Hosted Checkout request.
-	 * For a payment on the GlobalCollect platform, the field <span class="property">hostedCheckoutId</span> can be used instead. In a <span class="property">Payment</span> object, the <span class="property">hostedCheckoutId</span> is found in <span class="property">hostedCheckoutSpecificOutput.hostedCheckoutId</span>.
+	 * This field will contain the <span class="property">merchantReference</span> you provided in case you included one in the Create hostedCheckout API call. In case you didn't provide one the system will generate one for you (for the Ogone payment platform only) to allow you to link any created payment to this hostedCheckout.
+	 * To relate a payment done by the consumer in a hostedCheckout session you can use the following fields:
+	 * <ul><li><span class="property">paymentOutput.references.merchantReference</span> (for the GlobalCollect payment engine this is only possible when you supply a <span class="property">merchantReference</span> during the creation of the hostedCheckout)</li>
+	 * <li>hostedCheckoutSpecificOutput.hostedCheckoutId (only returned when using the GlobalCollect payment engine)</li></ul>
 	 */
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;

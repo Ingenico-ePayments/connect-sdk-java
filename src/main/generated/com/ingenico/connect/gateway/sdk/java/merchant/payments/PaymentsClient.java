@@ -99,27 +99,7 @@ public class PaymentsClient extends ApiResource {
 					CreatePaymentResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 400:
-				errorType = PaymentErrorResponse.class;
-				break;
-			case 402:
-				errorType = PaymentErrorResponse.class;
-				break;
-			case 403:
-				errorType = PaymentErrorResponse.class;
-				break;
-			case 502:
-				errorType = PaymentErrorResponse.class;
-				break;
-			case 503:
-				errorType = PaymentErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = PaymentErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}
@@ -730,18 +710,7 @@ public class PaymentsClient extends ApiResource {
 					RefundResponse.class,
 					context);
 		} catch (ResponseException e) {
-			final Class<?> errorType;
-			switch (e.getStatusCode()) {
-			case 400:
-				errorType = RefundErrorResponse.class;
-				break;
-			case 404:
-				errorType = RefundErrorResponse.class;
-				break;
-			default:
-				errorType = ErrorResponse.class;
-				break;
-			}
+			final Class<?> errorType = RefundErrorResponse.class;
 			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
 			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
 		}

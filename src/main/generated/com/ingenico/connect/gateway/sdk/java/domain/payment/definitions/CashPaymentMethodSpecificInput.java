@@ -4,7 +4,7 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-public class CashPaymentMethodSpecificInput extends CashPaymentMethodSpecificInputBase {
+public class CashPaymentMethodSpecificInput extends AbstractCashPaymentMethodSpecificInput {
 
 	private CashPaymentProduct1503SpecificInput paymentProduct1503SpecificInput = null;
 

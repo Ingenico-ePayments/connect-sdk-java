@@ -24,7 +24,12 @@ public class MerchantAction {
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
 	 * <ul><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span>
-	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request. Additionally, for payment product 3012 (Bancontact), to support payments via the Bancontact app, <span class="property">showData</span> contains a QR code and URL intent.
+	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request. Additionally:
+	 * <ul>
+	 * <li>for payment product 3012 (Bancontact), to support payments via the Bancontact app, <span class="property">showData</span> contains a QR code and URL intent.
+	 * <li>for payment product 863 (WeChat Pay), to support payments via the WeChat app, <span class="property">showData</span> contains a QR code, URL intent, or signature and nonce combination. The <span class="property">showData</span> field describes when each of these values can be returned.<br>
+	 * Note that WeChat Pay does not support completing payments.
+	 * </ul>
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * </ul>
@@ -36,7 +41,12 @@ public class MerchantAction {
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
 	 * <ul><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span>
-	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request. Additionally, for payment product 3012 (Bancontact), to support payments via the Bancontact app, <span class="property">showData</span> contains a QR code and URL intent.
+	 * <li>SHOW_FORM - The consumer needs to be shown a form with the fields found in <span class="property">formFields</span>. You can submit the data entered by the user in a <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/complete.html">Complete payment</a> request. Additionally:
+	 * <ul>
+	 * <li>for payment product 3012 (Bancontact), to support payments via the Bancontact app, <span class="property">showData</span> contains a QR code and URL intent.
+	 * <li>for payment product 863 (WeChat Pay), to support payments via the WeChat app, <span class="property">showData</span> contains a QR code, URL intent, or signature and nonce combination. The <span class="property">showData</span> field describes when each of these values can be returned.<br>
+	 * Note that WeChat Pay does not support completing payments.
+	 * </ul>
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">instructionsRenderingData</span>
 	 * </ul>
@@ -113,7 +123,15 @@ public class MerchantAction {
 	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.<br>
 	 * <br>
 	 * For SHOW_FORM, for payment product 3012 (Bancontact), this contains a QR code and a URL intent that can be used to complete the payment in the Bancontact app.<br>
-	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device.
+	 * In this case, the key <span class="property">QRCODE</span> contains a base64 encoded PNG image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">URLINTENT</span> contains a URL intent that can be used as the link of an 'open the app' button on an Android device.
+	 * <br>
+	 * <br>
+	 * For SHOW_FORM, for payment product 863 (WeChat Pay), this contains the PaymentId that WeChat has assigned to the payment. In this case, the key <span class="property">WECHAT_PAYMENTID</span> contains this PaymentId. In addition, this can contain different values depending on the integration type:
+	 * <ul>
+	 * <li>desktopQRCode - contains a QR code that can be used to complete the payment in the WeChat app. In this case, the key <span class="property">QRCODE</span> contains a base64 encoded PNG image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by a mobile device with the WeChat app).
+	 * <li>urlIntent - contains a URL intent that can be used to complete the payment in the WeChat app. In this case, the key <span class="property">URLINTENT</span> contains a URL intent that can be used as the link of an 'open the app' button on a mobile device.
+	 * <li>nativeInApp - contains a signature of the payment values and a nonce used to generate the signature, that can be used to complete the payment using the WeChat SDK. In this case, the key <span class="property">WECHAT_SIGNATURE</span> contains the signature that should be used for the WeChat SDK field <span class="property">sign</span>. The key <span class="property">SIGNATURE_NONCE</span> contains the nonce that should be used for the WeChat SDK field <span class="property">noncestr</span>.
+	 * </ul>
 	 */
 	public List<KeyValuePair> getShowData() {
 		return showData;
@@ -125,7 +143,15 @@ public class MerchantAction {
 	 * Note: The returned value for the key <span class="property">BARCODE</span> is a base64 encoded gif image. By prepending 'data:image/gif;base64,' this value can be used as the source of an HTML inline image.<br>
 	 * <br>
 	 * For SHOW_FORM, for payment product 3012 (Bancontact), this contains a QR code and a URL intent that can be used to complete the payment in the Bancontact app.<br>
-	 * In this case, the key <span class="property">QRCode</span> is a base64 encoded png image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">UrlIntent</span> contains a url intent that can be used as the link of an 'open the app' button on an android device.
+	 * In this case, the key <span class="property">QRCODE</span> contains a base64 encoded PNG image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by an Android device with the Bancontact app). The key <span class="property">URLINTENT</span> contains a URL intent that can be used as the link of an 'open the app' button on an Android device.
+	 * <br>
+	 * <br>
+	 * For SHOW_FORM, for payment product 863 (WeChat Pay), this contains the PaymentId that WeChat has assigned to the payment. In this case, the key <span class="property">WECHAT_PAYMENTID</span> contains this PaymentId. In addition, this can contain different values depending on the integration type:
+	 * <ul>
+	 * <li>desktopQRCode - contains a QR code that can be used to complete the payment in the WeChat app. In this case, the key <span class="property">QRCODE</span> contains a base64 encoded PNG image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by a mobile device with the WeChat app).
+	 * <li>urlIntent - contains a URL intent that can be used to complete the payment in the WeChat app. In this case, the key <span class="property">URLINTENT</span> contains a URL intent that can be used as the link of an 'open the app' button on a mobile device.
+	 * <li>nativeInApp - contains a signature of the payment values and a nonce used to generate the signature, that can be used to complete the payment using the WeChat SDK. In this case, the key <span class="property">WECHAT_SIGNATURE</span> contains the signature that should be used for the WeChat SDK field <span class="property">sign</span>. The key <span class="property">SIGNATURE_NONCE</span> contains the nonce that should be used for the WeChat SDK field <span class="property">noncestr</span>.
+	 * </ul>
 	 */
 	public void setShowData(List<KeyValuePair> value) {
 		this.showData = value;

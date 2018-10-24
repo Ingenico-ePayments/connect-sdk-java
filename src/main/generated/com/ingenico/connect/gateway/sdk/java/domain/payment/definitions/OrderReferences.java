@@ -44,6 +44,7 @@ public class OrderReferences {
 	 * <li>841 WebMoney - 175 characters
 	 * <li>849 Yandex - 64 characters
 	 * <li>861 Alipay - 256 characters
+	 * <li>863 WeChat Pay - 32 characters
 	 * <li>880 BOKU - 20 characters
 	 * <li>8580 Qiwi - 255 characters
 	 * <li>1504 Konbini - 80 characters
@@ -84,6 +85,7 @@ public class OrderReferences {
 	 * <li>841 WebMoney - 175 characters
 	 * <li>849 Yandex - 64 characters
 	 * <li>861 Alipay - 256 characters
+	 * <li>863 WeChat Pay - 32 characters
 	 * <li>880 BOKU - 20 characters
 	 * <li>8580 Qiwi - 255 characters
 	 * <li>1504 Konbini - 80 characters

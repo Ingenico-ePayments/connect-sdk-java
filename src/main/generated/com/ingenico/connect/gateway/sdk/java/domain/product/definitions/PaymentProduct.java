@@ -38,6 +38,12 @@ public class PaymentProduct {
 
 	private String paymentMethod = null;
 
+	private PaymentProduct302SpecificData paymentProduct302SpecificData = null;
+
+	private PaymentProduct320SpecificData paymentProduct320SpecificData = null;
+
+	private PaymentProduct863SpecificData paymentProduct863SpecificData = null;
+
 	private String paymentProductGroup = null;
 
 	private Boolean usesRedirectionTo3rdParty = null;
@@ -316,6 +322,48 @@ public class PaymentProduct {
 	 */
 	public void setPaymentMethod(String value) {
 		this.paymentMethod = value;
+	}
+
+	/**
+	 * Apple Pay (payment product 302) specific details.
+	 */
+	public PaymentProduct302SpecificData getPaymentProduct302SpecificData() {
+		return paymentProduct302SpecificData;
+	}
+
+	/**
+	 * Apple Pay (payment product 302) specific details.
+	 */
+	public void setPaymentProduct302SpecificData(PaymentProduct302SpecificData value) {
+		this.paymentProduct302SpecificData = value;
+	}
+
+	/**
+	 * Android Pay (payment product 320) specific details.
+	 */
+	public PaymentProduct320SpecificData getPaymentProduct320SpecificData() {
+		return paymentProduct320SpecificData;
+	}
+
+	/**
+	 * Android Pay (payment product 320) specific details.
+	 */
+	public void setPaymentProduct320SpecificData(PaymentProduct320SpecificData value) {
+		this.paymentProduct320SpecificData = value;
+	}
+
+	/**
+	 * WeChat Pay (payment product 863) specific details.
+	 */
+	public PaymentProduct863SpecificData getPaymentProduct863SpecificData() {
+		return paymentProduct863SpecificData;
+	}
+
+	/**
+	 * WeChat Pay (payment product 863) specific details.
+	 */
+	public void setPaymentProduct863SpecificData(PaymentProduct863SpecificData value) {
+		this.paymentProduct863SpecificData = value;
 	}
 
 	/**

@@ -10,7 +10,7 @@ public class RefundMobileMethodSpecificOutput extends RefundMethodSpecificOutput
 
 	/**
 	 * The network that was used for the refund. The string that represents the network is identical to the strings that the payment product vendors use in their documentation.
-	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/InstrumentInfo#getInstrumentType()" target="_blank">Android Pay</a>.
+	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/pay/api/android/reference/object#CardParameters" target="_blank">Android Pay</a>.
 	 */
 	public String getNetwork() {
 		return network;
@@ -18,7 +18,7 @@ public class RefundMobileMethodSpecificOutput extends RefundMethodSpecificOutput
 
 	/**
 	 * The network that was used for the refund. The string that represents the network is identical to the strings that the payment product vendors use in their documentation.
-	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/InstrumentInfo#getInstrumentType()" target="_blank">Android Pay</a>.
+	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/pay/api/android/reference/object#CardParameters" target="_blank">Android Pay</a>.
 	 */
 	public void setNetwork(String value) {
 		this.network = value;

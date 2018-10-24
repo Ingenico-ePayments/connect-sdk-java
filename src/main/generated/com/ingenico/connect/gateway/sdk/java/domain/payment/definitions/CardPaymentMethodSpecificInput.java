@@ -6,7 +6,7 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Card;
 
-public class CardPaymentMethodSpecificInput extends CardPaymentMethodSpecificInputBase {
+public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpecificInput {
 
 	private Card card = null;
 

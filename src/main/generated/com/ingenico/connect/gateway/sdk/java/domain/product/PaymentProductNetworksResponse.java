@@ -12,7 +12,7 @@ public class PaymentProductNetworksResponse {
 
 	/**
 	 * Array containing network entries for a payment product. The strings that represent the networks in the array are identical to the strings that the payment product vendors use in their documentation.
-	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/InstrumentInfo#getInstrumentType()" target="_blank">Android Pay</a>.
+	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/pay/api/android/reference/object#CardParameters" target="_blank">Android Pay</a>.
 	 */
 	public List<String> getNetworks() {
 		return networks;
@@ -20,7 +20,7 @@ public class PaymentProductNetworksResponse {
 
 	/**
 	 * Array containing network entries for a payment product. The strings that represent the networks in the array are identical to the strings that the payment product vendors use in their documentation.
-	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/InstrumentInfo#getInstrumentType()" target="_blank">Android Pay</a>.
+	 * For instance: "Visa" for <a href="https://developer.apple.com/reference/passkit/pkpaymentnetwork" target="_blank">Apple Pay</a>, and "VISA" for <a href="https://developers.google.com/pay/api/android/reference/object#CardParameters" target="_blank">Android Pay</a>.
 	 */
 	public void setNetworks(List<String> value) {
 		this.networks = value;

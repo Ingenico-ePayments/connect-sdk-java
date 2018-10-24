@@ -4,7 +4,7 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-public class EInvoicePaymentMethodSpecificInput extends EInvoicePaymentMethodSpecificInputBase {
+public class EInvoicePaymentMethodSpecificInput extends AbstractEInvoicePaymentMethodSpecificInput {
 
 	private Boolean acceptedTermsAndConditions = null;
 

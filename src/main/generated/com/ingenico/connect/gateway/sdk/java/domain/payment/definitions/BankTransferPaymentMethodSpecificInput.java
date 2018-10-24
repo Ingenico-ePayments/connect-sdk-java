@@ -4,5 +4,5 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-public class BankTransferPaymentMethodSpecificInput extends BankTransferPaymentMethodSpecificInputBase {
+public class BankTransferPaymentMethodSpecificInput extends AbstractBankTransferPaymentMethodSpecificInput {
 }

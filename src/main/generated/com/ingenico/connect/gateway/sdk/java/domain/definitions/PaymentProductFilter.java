@@ -13,14 +13,14 @@ public class PaymentProductFilter {
 	private List<Integer> products = null;
 
 	/**
-	 * List containing all payment product groups that should either be restricted to in or excluded from the payment context.
+	 * List containing all payment product groups that should either be restricted to in or excluded from the payment context. Currently, there is only one group, called 'cards'.
 	 */
 	public List<String> getGroups() {
 		return groups;
 	}
 
 	/**
-	 * List containing all payment product groups that should either be restricted to in or excluded from the payment context.
+	 * List containing all payment product groups that should either be restricted to in or excluded from the payment context. Currently, there is only one group, called 'cards'.
 	 */
 	public void setGroups(List<String> value) {
 		this.groups = value;

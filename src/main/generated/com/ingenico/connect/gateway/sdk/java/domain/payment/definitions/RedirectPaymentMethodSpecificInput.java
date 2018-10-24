@@ -4,7 +4,7 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
-public class RedirectPaymentMethodSpecificInput extends RedirectPaymentMethodSpecificInputBase {
+public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentMethodSpecificInput {
 
 	private Boolean isRecurring = null;
 
@@ -13,6 +13,8 @@ public class RedirectPaymentMethodSpecificInput extends RedirectPaymentMethodSpe
 	private RedirectPaymentProduct816SpecificInput paymentProduct816SpecificInput = null;
 
 	private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput = null;
+
+	private RedirectPaymentProduct863SpecificInput paymentProduct863SpecificInput = null;
 
 	private RedirectPaymentProduct882SpecificInput paymentProduct882SpecificInput = null;
 
@@ -76,6 +78,20 @@ public class RedirectPaymentMethodSpecificInput extends RedirectPaymentMethodSpe
 	 */
 	public void setPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
 		this.paymentProduct840SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for We Chat Pay payments (Payment product ID 863)
+	 */
+	public RedirectPaymentProduct863SpecificInput getPaymentProduct863SpecificInput() {
+		return paymentProduct863SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for We Chat Pay payments (Payment product ID 863)
+	 */
+	public void setPaymentProduct863SpecificInput(RedirectPaymentProduct863SpecificInput value) {
+		this.paymentProduct863SpecificInput = value;
 	}
 
 	/**

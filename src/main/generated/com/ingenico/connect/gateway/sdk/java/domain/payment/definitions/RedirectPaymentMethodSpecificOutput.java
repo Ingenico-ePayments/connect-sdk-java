@@ -13,6 +13,8 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 
 	private FraudResults fraudResults = null;
 
+	private PaymentProduct3201SpecificOutput paymentProduct3201SpecificOutput = null;
+
 	private PaymentProduct836SpecificOutput paymentProduct836SpecificOutput = null;
 
 	private PaymentProduct840SpecificOutput paymentProduct840SpecificOutput = null;
@@ -45,6 +47,20 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	 */
 	public void setFraudResults(FraudResults value) {
 		this.fraudResults = value;
+	}
+
+	/**
+	 * PostFinance Card (payment product 3201) specific details
+	 */
+	public PaymentProduct3201SpecificOutput getPaymentProduct3201SpecificOutput() {
+		return paymentProduct3201SpecificOutput;
+	}
+
+	/**
+	 * PostFinance Card (payment product 3201) specific details
+	 */
+	public void setPaymentProduct3201SpecificOutput(PaymentProduct3201SpecificOutput value) {
+		this.paymentProduct3201SpecificOutput = value;
 	}
 
 	/**

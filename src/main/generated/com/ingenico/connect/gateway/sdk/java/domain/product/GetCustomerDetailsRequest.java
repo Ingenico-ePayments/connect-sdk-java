@@ -18,28 +18,28 @@ public class GetCustomerDetailsRequest {
 	private List<KeyValuePair> values = null;
 
 	/**
-	 * The code of the country where the customer should recide.
+	 * The code of the country where the customer should reside.
 	 */
 	public String getCountryCode() {
 		return countryCode;
 	}
 
 	/**
-	 * The code of the country where the customer should recide.
+	 * The code of the country where the customer should reside.
 	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
 	}
 
 	/**
-	 * A list of keys with a value used to retreive the details of a consumer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product fields with the field <span class="property">usedForLookup</span> set to true.
+	 * A list of keys with a value used to retrieve the details of a consumer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product fields with the field <span class="property">usedForLookup</span> set to true.
 	 */
 	public List<KeyValuePair> getValues() {
 		return values;
 	}
 
 	/**
-	 * A list of keys with a value used to retreive the details of a consumer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product fields with the field <span class="property">usedForLookup</span> set to true.
+	 * A list of keys with a value used to retrieve the details of a consumer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product fields with the field <span class="property">usedForLookup</span> set to true.
 	 */
 	public void setValues(List<KeyValuePair> value) {
 		this.values = value;

@@ -30,28 +30,28 @@ public class GetCustomerDetailsResponse {
 	private String zip = null;
 
 	/**
-	 * The city in which the customer recides.
+	 * The city in which the customer resides.
 	 */
 	public String getCity() {
 		return city;
 	}
 
 	/**
-	 * The city in which the customer recides.
+	 * The city in which the customer resides.
 	 */
 	public void setCity(String value) {
 		this.city = value;
 	}
 
 	/**
-	 * The country in which the customer recides.
+	 * The country in which the customer resides.
 	 */
 	public String getCountry() {
 		return country;
 	}
 
 	/**
-	 * The country in which the customer recides.
+	 * The country in which the customer resides.
 	 */
 	public void setCountry(String value) {
 		this.country = value;
@@ -128,14 +128,14 @@ public class GetCustomerDetailsResponse {
 	}
 
 	/**
-	 * The street on which the customer recides.
+	 * The street on which the customer resides.
 	 */
 	public String getStreet() {
 		return street;
 	}
 
 	/**
-	 * The street on which the customer recides.
+	 * The street on which the customer resides.
 	 */
 	public void setStreet(String value) {
 		this.street = value;
@@ -156,14 +156,14 @@ public class GetCustomerDetailsResponse {
 	}
 
 	/**
-	 * The ZIP or postal code for the area in which the customer recides.
+	 * The ZIP or postal code for the area in which the customer resides.
 	 */
 	public String getZip() {
 		return zip;
 	}
 
 	/**
-	 * The ZIP or postal code for the area in which the customer recides.
+	 * The ZIP or postal code for the area in which the customer resides.
 	 */
 	public void setZip(String value) {
 		this.zip = value;

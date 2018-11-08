@@ -13,6 +13,8 @@ public class CardFraudResults extends FraudResults {
 
 	private String cvvResult = null;
 
+	private FraugsterResults fraugster = null;
+
 	private FraudResultsRetailDecisions retailDecisions = null;
 
 	/**
@@ -111,6 +113,20 @@ public class CardFraudResults extends FraudResults {
 	 */
 	public void setCvvResult(String value) {
 		this.cvvResult = value;
+	}
+
+	/**
+	 * Results of Fraugster fraud prevention check. Fraugster collects transaction data points such as name, email address, billing, etc. to analyze whether or not the transaction is fraudulent.
+	 */
+	public FraugsterResults getFraugster() {
+		return fraugster;
+	}
+
+	/**
+	 * Results of Fraugster fraud prevention check. Fraugster collects transaction data points such as name, email address, billing, etc. to analyze whether or not the transaction is fraudulent.
+	 */
+	public void setFraugster(FraugsterResults value) {
+		this.fraugster = value;
 	}
 
 	/**

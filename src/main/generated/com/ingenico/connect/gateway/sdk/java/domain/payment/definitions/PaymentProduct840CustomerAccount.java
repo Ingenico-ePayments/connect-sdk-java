@@ -86,7 +86,7 @@ public class PaymentProduct840CustomerAccount {
 	/**
 	 * Status of the PayPal account.<br>
 	 * Possible values are:
-	 * <ul><li>verified - PayPal has verified the funding means for this account
+	 * <ul class="paragraph-width"><li>verified - PayPal has verified the funding means for this account
 	 * <li>unverified - PayPal has not verified the funding means for this account
 	 * </ul>
 	 */
@@ -97,7 +97,7 @@ public class PaymentProduct840CustomerAccount {
 	/**
 	 * Status of the PayPal account.<br>
 	 * Possible values are:
-	 * <ul><li>verified - PayPal has verified the funding means for this account
+	 * <ul class="paragraph-width"><li>verified - PayPal has verified the funding means for this account
 	 * <li>unverified - PayPal has not verified the funding means for this account
 	 * </ul>
 	 */
@@ -108,7 +108,7 @@ public class PaymentProduct840CustomerAccount {
 	/**
 	 * Status of the consumer's shipping address as registered by PayPal<br>
 	 * Possible values are:
-	 * <ul><li>none - Status is unknown at PayPal
+	 * <ul class="paragraph-width"><li>none - Status is unknown at PayPal
 	 * <li>confirmed - The address has been confirmed
 	 * <li>unconfirmed - The address has not been confirmed
 	 * </ul>
@@ -120,7 +120,7 @@ public class PaymentProduct840CustomerAccount {
 	/**
 	 * Status of the consumer's shipping address as registered by PayPal<br>
 	 * Possible values are:
-	 * <ul><li>none - Status is unknown at PayPal
+	 * <ul class="paragraph-width"><li>none - Status is unknown at PayPal
 	 * <li>confirmed - The address has been confirmed
 	 * <li>unconfirmed - The address has not been confirmed
 	 * </ul>

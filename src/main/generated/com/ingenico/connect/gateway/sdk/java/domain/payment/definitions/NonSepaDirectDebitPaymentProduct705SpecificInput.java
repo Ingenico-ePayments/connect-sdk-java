@@ -46,7 +46,7 @@ public class NonSepaDirectDebitPaymentProduct705SpecificInput {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>first-payment - First payment direct debit
 	 * <li>nth-payment - Direct Debit (n-th payment)
 	 * <li>re-presented - Re-presented direct debit (after failed attempt)
@@ -61,7 +61,7 @@ public class NonSepaDirectDebitPaymentProduct705SpecificInput {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>first-payment - First payment direct debit
 	 * <li>nth-payment - Direct Debit (n-th payment)
 	 * <li>re-presented - Re-presented direct debit (after failed attempt)

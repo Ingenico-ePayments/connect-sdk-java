@@ -14,7 +14,7 @@ public class PaymentProductFieldFormElement {
 
 	/**
 	 * Type of form element to be used. The following types can be returned:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>text - A normal text input field
 	 * <li>list - A list of values that the consumer needs to choose from, is detailed in the <span class="property">valueMapping</span> array
 	 * <li>currency - Currency fields should be split into two fields, with the second one being specifically for the cents
@@ -28,7 +28,7 @@ public class PaymentProductFieldFormElement {
 
 	/**
 	 * Type of form element to be used. The following types can be returned:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>text - A normal text input field
 	 * <li>list - A list of values that the consumer needs to choose from, is detailed in the <span class="property">valueMapping</span> array
 	 * <li>currency - Currency fields should be split into two fields, with the second one being specifically for the cents

@@ -28,11 +28,11 @@ public class GetHostedCheckoutResponse {
 
 	/**
 	 * This is the status of the hosted checkout. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>IN_PROGRESS - The checkout is still in progress and has not finished yet
 	 * <li>PAYMENT_CREATED - A payment has been created
-	 * <li>CANCELLED_BY_CONSUMER - If a consumer cancels the payment on the payment product detail page of the MyCheckout hosted payment pages, the status will change to IN_PROGRESS. Since we understand you want to be aware of a consumer cancelling the payment on the page we host for you, you can choose to get the status CANCELLED_BY_CONSUMER back instead of the status IN_PROGRESS. In order to get the status CANCELLED_BY_CONSUMER back, you need to have the <span class="property">returnCancelState</span> flag enabled in the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedcheckouts/create.html">Create hosted checkout</a> call
-	 * </ul><br>
+	 * <li>CANCELLED_BY_CONSUMER - If a consumer cancels the payment on the payment product detail page of the MyCheckout hosted payment pages, the status will change to IN_PROGRESS. Since we understand you want to be aware of a consumer cancelling the payment on the page we host for you, you can choose to receive the status CANCELLED_BY_CONSUMER instead of the status IN_PROGRESS. In order to receive the status CANCELLED_BY_CONSUMER, you need to have the <span class="property">returnCancelState</span> flag enabled in the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedcheckouts/create.html">Create hosted checkout</a> call.
+	 * <li>CLIENT_NOT_ELIGIBLE_FOR_SELECTED_PAYMENT_PRODUCT - With some payment products it might occur that the device of the user is not capable to complete the payment. If the Hosted Checkout Session was restricted to a single project that is not compatible to the user's device you will receive this Hosted Checkout status. This scenario applies to: Google Pay (Payment Product ID: 320).</ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
 	 */
 	public String getStatus() {
@@ -41,11 +41,11 @@ public class GetHostedCheckoutResponse {
 
 	/**
 	 * This is the status of the hosted checkout. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>IN_PROGRESS - The checkout is still in progress and has not finished yet
 	 * <li>PAYMENT_CREATED - A payment has been created
-	 * <li>CANCELLED_BY_CONSUMER - If a consumer cancels the payment on the payment product detail page of the MyCheckout hosted payment pages, the status will change to IN_PROGRESS. Since we understand you want to be aware of a consumer cancelling the payment on the page we host for you, you can choose to get the status CANCELLED_BY_CONSUMER back instead of the status IN_PROGRESS. In order to get the status CANCELLED_BY_CONSUMER back, you need to have the <span class="property">returnCancelState</span> flag enabled in the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedcheckouts/create.html">Create hosted checkout</a> call
-	 * </ul><br>
+	 * <li>CANCELLED_BY_CONSUMER - If a consumer cancels the payment on the payment product detail page of the MyCheckout hosted payment pages, the status will change to IN_PROGRESS. Since we understand you want to be aware of a consumer cancelling the payment on the page we host for you, you can choose to receive the status CANCELLED_BY_CONSUMER instead of the status IN_PROGRESS. In order to receive the status CANCELLED_BY_CONSUMER, you need to have the <span class="property">returnCancelState</span> flag enabled in the <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedcheckouts/create.html">Create hosted checkout</a> call.
+	 * <li>CLIENT_NOT_ELIGIBLE_FOR_SELECTED_PAYMENT_PRODUCT - With some payment products it might occur that the device of the user is not capable to complete the payment. If the Hosted Checkout Session was restricted to a single project that is not compatible to the user's device you will receive this Hosted Checkout status. This scenario applies to: Google Pay (Payment Product ID: 320).</ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
 	 */
 	public void setStatus(String value) {

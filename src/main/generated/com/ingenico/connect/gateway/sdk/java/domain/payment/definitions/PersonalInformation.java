@@ -30,7 +30,7 @@ public class PersonalInformation {
 
 	/**
 	 * The gender of the consumer, possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>male
 	 * <li>female
 	 * <li>unknown or empty
@@ -42,7 +42,7 @@ public class PersonalInformation {
 
 	/**
 	 * The gender of the consumer, possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>male
 	 * <li>female
 	 * <li>unknown or empty

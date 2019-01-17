@@ -8,10 +8,18 @@ public class AbstractSepaDirectDebitPaymentProduct771SpecificInput {
 
 	private String mandateReference = null;
 
+	/**
+	 * @deprecated Use existingUniqueMandateReference instead
+	 */
+	@Deprecated
 	public String getMandateReference() {
 		return mandateReference;
 	}
 
+	/**
+	 * @deprecated Use existingUniqueMandateReference instead
+	 */
+	@Deprecated
 	public void setMandateReference(String value) {
 		this.mandateReference = value;
 	}

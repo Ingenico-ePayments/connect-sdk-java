@@ -68,7 +68,7 @@ public class HostedMandateInfo {
 
 	/**
 	 * Specifies whether the mandate is for one-off or recurring payments. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNIQUE
 	 * <li>RECURRING
 	 * </ul>
@@ -79,7 +79,7 @@ public class HostedMandateInfo {
 
 	/**
 	 * Specifies whether the mandate is for one-off or recurring payments. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNIQUE
 	 * <li>RECURRING
 	 * </ul>
@@ -90,7 +90,7 @@ public class HostedMandateInfo {
 
 	/**
 	 * Specifies whether the mandate is unsigned or singed by SMS. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNSIGNED
 	 * <li>SMS
 	 * </ul>
@@ -101,7 +101,7 @@ public class HostedMandateInfo {
 
 	/**
 	 * Specifies whether the mandate is unsigned or singed by SMS. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNSIGNED
 	 * <li>SMS
 	 * </ul>

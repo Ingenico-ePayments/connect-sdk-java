@@ -68,7 +68,7 @@ public class NetworksParams extends AbstractParamRequest {
 
 	/**
 	 * This allows you to filter networks based on their support for recurring or not
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -78,7 +78,7 @@ public class NetworksParams extends AbstractParamRequest {
 
 	/**
 	 * This allows you to filter networks based on their support for recurring or not
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */

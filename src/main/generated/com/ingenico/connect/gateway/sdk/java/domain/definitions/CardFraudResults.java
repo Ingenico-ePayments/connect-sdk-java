@@ -19,7 +19,7 @@ public class CardFraudResults extends FraudResults {
 
 	/**
 	 * Result of the Address Verification Service checks. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>A - Address (Street) matches, Zip does not
 	 * <li>B - Street address match for international transactions—Postal code not verified due to incompatible formats
 	 * <li>C - Street address and postal code not verified for international transaction due to incompatible formats
@@ -52,7 +52,7 @@ public class CardFraudResults extends FraudResults {
 
 	/**
 	 * Result of the Address Verification Service checks. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>A - Address (Street) matches, Zip does not
 	 * <li>B - Street address match for international transactions—Postal code not verified due to incompatible formats
 	 * <li>C - Street address and postal code not verified for international transaction due to incompatible formats
@@ -85,7 +85,7 @@ public class CardFraudResults extends FraudResults {
 
 	/**
 	 * Result of the Card Verification Value checks. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>M - CVV check performed and valid value
 	 * <li>N - CVV checked and no match
 	 * <li>P - CVV check not performed, not requested
@@ -101,7 +101,7 @@ public class CardFraudResults extends FraudResults {
 
 	/**
 	 * Result of the Card Verification Value checks. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>M - CVV check performed and valid value
 	 * <li>N - CVV checked and no match
 	 * <li>P - CVV check not performed, not requested

@@ -52,7 +52,7 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 
 	/**
 	 * Indicates if this transaction is of a one-off or a recurring type. Only relevant for legacy SEPA Direct Debit.
-	 * <ul><li>true - This is recurring
+	 * <ul class="paragraph-width"><li>true - This is recurring
 	 * <li>false - This is one-off
 	 * </ul>
 	 */
@@ -62,7 +62,7 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 
 	/**
 	 * Indicates if this transaction is of a one-off or a recurring type. Only relevant for legacy SEPA Direct Debit.
-	 * <ul><li>true - This is recurring
+	 * <ul class="paragraph-width"><li>true - This is recurring
 	 * <li>false - This is one-off
 	 * </ul>
 	 */
@@ -85,7 +85,7 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 	}
 
 	/**
-	 * Only relevant for legacy SEPA Direct Debit.<ul><li>first = This transaction is the first of a series of recurring transactions
+	 * Only relevant for legacy SEPA Direct Debit.<ul class="paragraph-width"><li>first = This transaction is the first of a series of recurring transactions
 	 * <li>recurring = This transaction is a subsequent transaction in a series of recurring transactions
 	 * <li>last = This transaction is the last transaction of a series of recurring transactions
 	 * </ul>
@@ -95,7 +95,7 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 	}
 
 	/**
-	 * Only relevant for legacy SEPA Direct Debit.<ul><li>first = This transaction is the first of a series of recurring transactions
+	 * Only relevant for legacy SEPA Direct Debit.<ul class="paragraph-width"><li>first = This transaction is the first of a series of recurring transactions
 	 * <li>recurring = This transaction is a subsequent transaction in a series of recurring transactions
 	 * <li>last = This transaction is the last transaction of a series of recurring transactions
 	 * </ul>
@@ -120,7 +120,7 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 
 	/**
 	 * Indicates if this transaction should be tokenized. Only relevant for legacy SEPA Direct Debit.
-	 * <ul><li>true - Tokenize the transaction
+	 * <ul class="paragraph-width"><li>true - Tokenize the transaction
 	 * <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
 	 * </ul>
 	 */
@@ -130,7 +130,7 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 
 	/**
 	 * Indicates if this transaction should be tokenized. Only relevant for legacy SEPA Direct Debit.
-	 * <ul><li>true - Tokenize the transaction
+	 * <ul class="paragraph-width"><li>true - Tokenize the transaction
 	 * <li>false - Do not tokenize the transaction, unless it would be tokenized by other means such as auto-tokenization of recurring payments.
 	 * </ul>
 	 */

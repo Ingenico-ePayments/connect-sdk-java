@@ -53,7 +53,7 @@ public class GetIINDetailsResponse {
 
 	/**
 	 * Populated only if you submitted a payment context.
-	 * <ul><li>true - The payment product is allowed in the submitted context.
+	 * <ul class="paragraph-width"><li>true - The payment product is allowed in the submitted context.
 	 * <li>false - The payment product is not allowed in the submitted context. Note that in this case, none of the brands of the card will be allowed in the submitted context.</ul>
 	 */
 	public Boolean getIsAllowedInContext() {
@@ -62,7 +62,7 @@ public class GetIINDetailsResponse {
 
 	/**
 	 * Populated only if you submitted a payment context.
-	 * <ul><li>true - The payment product is allowed in the submitted context.
+	 * <ul class="paragraph-width"><li>true - The payment product is allowed in the submitted context.
 	 * <li>false - The payment product is not allowed in the submitted context. Note that in this case, none of the brands of the card will be allowed in the submitted context.</ul>
 	 */
 	public void setIsAllowedInContext(Boolean value) {

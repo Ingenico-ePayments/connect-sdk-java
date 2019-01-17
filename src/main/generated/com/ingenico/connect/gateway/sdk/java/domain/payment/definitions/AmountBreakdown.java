@@ -26,7 +26,7 @@ public class AmountBreakdown {
 
 	/**
 	 * Type of the amount. Each type is only allowed to be provided once. Allowed values:
-	 * <ul><li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.
+	 * <ul class="paragraph-width"><li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.
 	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.
 	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.
@@ -43,7 +43,7 @@ public class AmountBreakdown {
 
 	/**
 	 * Type of the amount. Each type is only allowed to be provided once. Allowed values:
-	 * <ul><li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.
+	 * <ul class="paragraph-width"><li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.
 	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.
 	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.
 	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.

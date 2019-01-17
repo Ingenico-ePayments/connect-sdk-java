@@ -25,7 +25,7 @@ public class HostedCheckoutSpecificInput {
 	private String variant = null;
 
 	/**
-	 * <ul><li>true - Only payment products that support recurring payments will be shown. Any transactions created will also be tagged as being a first of a recurring sequence.
+	 * <ul class="paragraph-width"><li>true - Only payment products that support recurring payments will be shown. Any transactions created will also be tagged as being a first of a recurring sequence.
 	 * <li>false - Only payment products that support one-off payments will be shown.
 	 * </ul>
 	 * The default value for this field is false.
@@ -35,7 +35,7 @@ public class HostedCheckoutSpecificInput {
 	}
 
 	/**
-	 * <ul><li>true - Only payment products that support recurring payments will be shown. Any transactions created will also be tagged as being a first of a recurring sequence.
+	 * <ul class="paragraph-width"><li>true - Only payment products that support recurring payments will be shown. Any transactions created will also be tagged as being a first of a recurring sequence.
 	 * <li>false - Only payment products that support one-off payments will be shown.
 	 * </ul>
 	 * The default value for this field is false.
@@ -105,7 +105,7 @@ public class HostedCheckoutSpecificInput {
 	}
 
 	/**
-	 * <ul><li>true - MyCheckout will show a result page to the consumer when applicable. Default.
+	 * <ul class="paragraph-width"><li>true - MyCheckout will show a result page to the consumer when applicable. Default.
 	 * <li>false - MyCheckout will redirect the consumer back to the provided returnUrl when this is possible.
 	 * </ul>
 	 * The default value for this field is true.
@@ -115,7 +115,7 @@ public class HostedCheckoutSpecificInput {
 	}
 
 	/**
-	 * <ul><li>true - MyCheckout will show a result page to the consumer when applicable. Default.
+	 * <ul class="paragraph-width"><li>true - MyCheckout will show a result page to the consumer when applicable. Default.
 	 * <li>false - MyCheckout will redirect the consumer back to the provided returnUrl when this is possible.
 	 * </ul>
 	 * The default value for this field is true.

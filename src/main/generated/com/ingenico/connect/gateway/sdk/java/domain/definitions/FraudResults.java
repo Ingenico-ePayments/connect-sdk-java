@@ -10,7 +10,7 @@ public class FraudResults {
 
 	/**
 	 * Results from the fraud prevention check. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>accepted - Based on the checks performed the transaction can be accepted
 	 * <li>challenged - Based on the checks performed the transaction should be manually reviewed
 	 * <li>denied - Based on the checks performed the transaction should be rejected
@@ -24,7 +24,7 @@ public class FraudResults {
 
 	/**
 	 * Results from the fraud prevention check. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>accepted - Based on the checks performed the transaction can be accepted
 	 * <li>challenged - Based on the checks performed the transaction should be manually reviewed
 	 * <li>denied - Based on the checks performed the transaction should be rejected

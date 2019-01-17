@@ -6,6 +6,7 @@ package com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.FraudFields;
 import com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions.HostedCheckoutSpecificInput;
+import com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions.MobilePaymentMethodSpecificInputHostedCheckout;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTransferPaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificInputBase;
@@ -27,6 +28,8 @@ public class CreateHostedCheckoutRequest {
 	private FraudFields fraudFields = null;
 
 	private HostedCheckoutSpecificInput hostedCheckoutSpecificInput = null;
+
+	private MobilePaymentMethodSpecificInputHostedCheckout mobilePaymentMethodSpecificInput = null;
 
 	private Order order = null;
 
@@ -116,6 +119,20 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
 		this.hostedCheckoutSpecificInput = value;
+	}
+
+	/**
+	 * Object containing reference data for Google Pay.
+	 */
+	public MobilePaymentMethodSpecificInputHostedCheckout getMobilePaymentMethodSpecificInput() {
+		return mobilePaymentMethodSpecificInput;
+	}
+
+	/**
+	 * Object containing reference data for Google Pay.
+	 */
+	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInputHostedCheckout value) {
+		this.mobilePaymentMethodSpecificInput = value;
 	}
 
 	/**

@@ -295,7 +295,7 @@ public class AirlineFlightLeg {
 	/**
 	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform).
 	 * <p>Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>economy
 	 * <li>premium-economy
 	 * <li>business
@@ -312,7 +312,7 @@ public class AirlineFlightLeg {
 	/**
 	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform).
 	 * <p>Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>economy
 	 * <li>premium-economy
 	 * <li>business
@@ -328,7 +328,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Possible values are:
-	 * <ul><li>permitted = Stopover permitted
+	 * <ul class="paragraph-width"><li>permitted = Stopover permitted
 	 * <li>non-permitted = Stopover not permitted
 	 * </ul>
 	 */
@@ -338,7 +338,7 @@ public class AirlineFlightLeg {
 
 	/**
 	 * Possible values are:
-	 * <ul><li>permitted = Stopover permitted
+	 * <ul class="paragraph-width"><li>permitted = Stopover permitted
 	 * <li>non-permitted = Stopover not permitted
 	 * </ul>
 	 */

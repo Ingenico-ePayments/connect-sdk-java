@@ -82,7 +82,7 @@ public class CreateMandateBase {
 
 	/**
 	 * Specifies whether the mandate is for one-off or recurring payments. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNIQUE
 	 * <li>RECURRING
 	 * </ul>
@@ -93,7 +93,7 @@ public class CreateMandateBase {
 
 	/**
 	 * Specifies whether the mandate is for one-off or recurring payments. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNIQUE
 	 * <li>RECURRING
 	 * </ul>
@@ -104,7 +104,7 @@ public class CreateMandateBase {
 
 	/**
 	 * Specifies whether the mandate is unsigned or singed by SMS. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNSIGNED
 	 * <li>SMS
 	 * </ul>
@@ -115,7 +115,7 @@ public class CreateMandateBase {
 
 	/**
 	 * Specifies whether the mandate is unsigned or singed by SMS. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 *  <li>UNSIGNED
 	 * <li>SMS
 	 * </ul>
@@ -125,14 +125,14 @@ public class CreateMandateBase {
 	}
 
 	/**
-	 * The unique identifier of the mandate
+	 * The unique identifier of the mandate. If you do not provide one, we will generate one for you.
 	 */
 	public String getUniqueMandateReference() {
 		return uniqueMandateReference;
 	}
 
 	/**
-	 * The unique identifier of the mandate
+	 * The unique identifier of the mandate. If you do not provide one, we will generate one for you.
 	 */
 	public void setUniqueMandateReference(String value) {
 		this.uniqueMandateReference = value;

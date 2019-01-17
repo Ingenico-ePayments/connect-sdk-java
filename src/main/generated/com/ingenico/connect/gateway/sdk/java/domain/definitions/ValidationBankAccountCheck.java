@@ -42,7 +42,7 @@ public class ValidationBankAccountCheck {
 
 	/**
 	 * Result of the bank account validation check performed, with the following possible results:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>PASSED - The check passed
 	 * <li>ERROR - The check did not pass
 	 * <li>WARNING - Depending on your needs this either needs to be treated as a passed or error response. It depends on your business logic and for what purpose you want to use the validated bank account details.
@@ -55,7 +55,7 @@ public class ValidationBankAccountCheck {
 
 	/**
 	 * Result of the bank account validation check performed, with the following possible results:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>PASSED - The check passed
 	 * <li>ERROR - The check did not pass
 	 * <li>WARNING - Depending on your needs this either needs to be treated as a passed or error response. It depends on your business logic and for what purpose you want to use the validated bank account details.

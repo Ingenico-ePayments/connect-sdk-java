@@ -26,7 +26,7 @@ public class ContactDetailsBase {
 
 	/**
 	 * Preference for the type of email message markup
-	 * <ul><li>plain-text
+	 * <ul class="paragraph-width"><li>plain-text
 	 * <li>html
 	 * </ul>
 	 */
@@ -36,7 +36,7 @@ public class ContactDetailsBase {
 
 	/**
 	 * Preference for the type of email message markup
-	 * <ul><li>plain-text
+	 * <ul class="paragraph-width"><li>plain-text
 	 * <li>html
 	 * </ul>
 	 */

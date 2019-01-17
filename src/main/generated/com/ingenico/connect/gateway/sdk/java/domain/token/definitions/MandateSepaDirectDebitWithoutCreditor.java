@@ -63,7 +63,7 @@ public class MandateSepaDirectDebitWithoutCreditor {
 	}
 
 	/**
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -72,7 +72,7 @@ public class MandateSepaDirectDebitWithoutCreditor {
 	}
 
 	/**
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -96,7 +96,7 @@ public class MandateSepaDirectDebitWithoutCreditor {
 
 	/**
 	 * Indicates whether a pre-notification should be sent to the consumer.<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>do-not-send - Do not send a pre-notification
 	 * <li>send-on-first-collection - Send a pre-notification
 	 * </ul>
@@ -107,7 +107,7 @@ public class MandateSepaDirectDebitWithoutCreditor {
 
 	/**
 	 * Indicates whether a pre-notification should be sent to the consumer.<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>do-not-send - Do not send a pre-notification
 	 * <li>send-on-first-collection - Send a pre-notification
 	 * </ul>

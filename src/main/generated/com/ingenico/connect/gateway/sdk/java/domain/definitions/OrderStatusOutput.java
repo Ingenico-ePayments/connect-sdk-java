@@ -36,7 +36,7 @@ public class OrderStatusOutput {
 
 	/**
 	 * Flag indicating if the payment can be cancelled
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -46,7 +46,7 @@ public class OrderStatusOutput {
 
 	/**
 	 * Flag indicating if the payment can be cancelled
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -56,36 +56,36 @@ public class OrderStatusOutput {
 
 	/**
 	 * Highlevel status of the payment, payout or refund with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment, payout or refund is created. This category groups the following statuses:
-	 * <ul><li>CREATED</ul>
+	 * <ul class="paragraph-width"><li>CREATED</ul>
 	 * <li>PENDING_PAYMENT: The payment is waiting on consumer action. This category groups the following statuses:
-	 * <ul><li>PENDING_PAYMENT
+	 * <ul class="paragraph-width"><li>PENDING_PAYMENT
 	 * <li>REDIRECTED</ul>
 	 * <li>ACCOUNT_VERIFIED: The account has been verified. This category groups the following statuses:
-	 * <ul><li>ACCOUNT_VERIFIED</ul>
+	 * <ul class="paragraph-width"><li>ACCOUNT_VERIFIED</ul>
 	 * <li>PENDING_MERCHANT: The transaction is awaiting approval to proceed with the payment, payout or refund. This category groups the following statuses:
-	 * <ul><li>PENDING_APPROVAL
+	 * <ul class="paragraph-width"><li>PENDING_APPROVAL
 	 * <li>PENDING_COMPLETION
 	 * <li>PENDING_CAPTURE
 	 * <li>PENDING_FRAUD_APPROVAL</ul>
 	 * <li>PENDING_CONNECT_OR_3RD_PARTY: The transaction is in the queue to be processed. This category groups the following statuses:
-	 * <ul><li>AUTHORIZATION_REQUESTED
+	 * <ul class="paragraph-width"><li>AUTHORIZATION_REQUESTED
 	 * <li>CAPTURE_REQUESTED
 	 * <li>PAYOUT_REQUESTED
 	 * <li>REFUND_REQUESTED</ul>
 	 * <li>COMPLETED: The transaction has completed. This category groups the following statuses:
-	 * <ul><li>CAPTURED
+	 * <ul class="paragraph-width"><li>CAPTURED
 	 * <li>PAID
 	 * <li>ACCOUNT_CREDITED
 	 * <li>CHARGEBACK_NOTIFICATION</ul>
 	 * <li>REVERSED: The transaction has been reversed. This category groups the following statuses:
-	 * <ul><li>CHARGEBACKED
+	 * <ul class="paragraph-width"><li>CHARGEBACKED
 	 * <li>REVERSED</ul>
 	 * <li>REFUNDED: The transaction has been refunded. This category groups the following statuses:
-	 * <ul><li>REFUNDED</ul>
+	 * <ul class="paragraph-width"><li>REFUNDED</ul>
 	 * <li>UNSUCCESSFUL: The transaction has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
-	 * <ul><li>CANCELLED
+	 * <ul class="paragraph-width"><li>CANCELLED
 	 * <li>REJECTED
 	 * <li>REJECTED_CAPTURE
 	 * <li>REJECTED_CREDIT</ul>
@@ -98,36 +98,36 @@ public class OrderStatusOutput {
 
 	/**
 	 * Highlevel status of the payment, payout or refund with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment, payout or refund is created. This category groups the following statuses:
-	 * <ul><li>CREATED</ul>
+	 * <ul class="paragraph-width"><li>CREATED</ul>
 	 * <li>PENDING_PAYMENT: The payment is waiting on consumer action. This category groups the following statuses:
-	 * <ul><li>PENDING_PAYMENT
+	 * <ul class="paragraph-width"><li>PENDING_PAYMENT
 	 * <li>REDIRECTED</ul>
 	 * <li>ACCOUNT_VERIFIED: The account has been verified. This category groups the following statuses:
-	 * <ul><li>ACCOUNT_VERIFIED</ul>
+	 * <ul class="paragraph-width"><li>ACCOUNT_VERIFIED</ul>
 	 * <li>PENDING_MERCHANT: The transaction is awaiting approval to proceed with the payment, payout or refund. This category groups the following statuses:
-	 * <ul><li>PENDING_APPROVAL
+	 * <ul class="paragraph-width"><li>PENDING_APPROVAL
 	 * <li>PENDING_COMPLETION
 	 * <li>PENDING_CAPTURE
 	 * <li>PENDING_FRAUD_APPROVAL</ul>
 	 * <li>PENDING_CONNECT_OR_3RD_PARTY: The transaction is in the queue to be processed. This category groups the following statuses:
-	 * <ul><li>AUTHORIZATION_REQUESTED
+	 * <ul class="paragraph-width"><li>AUTHORIZATION_REQUESTED
 	 * <li>CAPTURE_REQUESTED
 	 * <li>PAYOUT_REQUESTED
 	 * <li>REFUND_REQUESTED</ul>
 	 * <li>COMPLETED: The transaction has completed. This category groups the following statuses:
-	 * <ul><li>CAPTURED
+	 * <ul class="paragraph-width"><li>CAPTURED
 	 * <li>PAID
 	 * <li>ACCOUNT_CREDITED
 	 * <li>CHARGEBACK_NOTIFICATION</ul>
 	 * <li>REVERSED: The transaction has been reversed. This category groups the following statuses:
-	 * <ul><li>CHARGEBACKED
+	 * <ul class="paragraph-width"><li>CHARGEBACKED
 	 * <li>REVERSED</ul>
 	 * <li>REFUNDED: The transaction has been refunded. This category groups the following statuses:
-	 * <ul><li>REFUNDED</ul>
+	 * <ul class="paragraph-width"><li>REFUNDED</ul>
 	 * <li>UNSUCCESSFUL: The transaction has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
-	 * <ul><li>CANCELLED
+	 * <ul class="paragraph-width"><li>CANCELLED
 	 * <li>REJECTED
 	 * <li>REJECTED_CAPTURE
 	 * <li>REJECTED_CREDIT</ul>

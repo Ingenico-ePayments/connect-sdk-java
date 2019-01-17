@@ -18,7 +18,7 @@ public class DisplayedData {
 
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">renderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">renderingData</span>
 	 * </ul>
@@ -29,7 +29,7 @@ public class DisplayedData {
 
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>SHOW_INSTRUCTIONS - The consumer needs to be shown payment instruction using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">renderingData</span>
 	 * <li>SHOW_TRANSACTION_RESULTS - The consumer needs to be shown the transaction results using the details found in <span class="property">showData</span>. Alternatively the instructions can be rendered by us using the <span class="property">renderingData</span>
 	 * </ul>
@@ -43,7 +43,7 @@ public class DisplayedData {
 	 * <p>This service will be available at the following endpoint:
 	 * http(s)://{{merchant specific subdomain}}.{{base MyCheckout hosted payment pages domain}}/instructions/{{merchantId}}/{{clientSessionId}}
 	 * <p>This instructions page rendering service accepts the following parameters:
-	 * <ul><li><span class="property">renderingData</span> (required, the content of this field)
+	 * <ul class="paragraph-width"><li><span class="property">renderingData</span> (required, the content of this field)
 	 * <li><span class="property">locale</span> (optional, if present overrides default locale, e.g. "en_GB")
 	 * <li><span class="property">variant</span> (optional, code of a variant, if present overrides default variant, e.g. "100")
 	 * </ul>
@@ -60,7 +60,7 @@ public class DisplayedData {
 	 * <p>This service will be available at the following endpoint:
 	 * http(s)://{{merchant specific subdomain}}.{{base MyCheckout hosted payment pages domain}}/instructions/{{merchantId}}/{{clientSessionId}}
 	 * <p>This instructions page rendering service accepts the following parameters:
-	 * <ul><li><span class="property">renderingData</span> (required, the content of this field)
+	 * <ul class="paragraph-width"><li><span class="property">renderingData</span> (required, the content of this field)
 	 * <li><span class="property">locale</span> (optional, if present overrides default locale, e.g. "en_GB")
 	 * <li><span class="property">variant</span> (optional, code of a variant, if present overrides default variant, e.g. "100")
 	 * </ul>

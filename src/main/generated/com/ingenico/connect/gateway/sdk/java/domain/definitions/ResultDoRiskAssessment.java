@@ -16,7 +16,7 @@ public class ResultDoRiskAssessment {
 
 	/**
 	 * The Risk Services category with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>retaildecisionsCCFraudCheck - checks performed by Retail Decisions
 	 * <li>globalcollectBlacklistCheckCC - Checked against the blacklist on the GlobalCollect platform
 	 * <li>authorizationCheck - 0$ auth card account validation check
@@ -31,7 +31,7 @@ public class ResultDoRiskAssessment {
 
 	/**
 	 * The Risk Services category with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>retaildecisionsCCFraudCheck - checks performed by Retail Decisions
 	 * <li>globalcollectBlacklistCheckCC - Checked against the blacklist on the GlobalCollect platform
 	 * <li>authorizationCheck - 0$ auth card account validation check
@@ -46,7 +46,7 @@ public class ResultDoRiskAssessment {
 
 	/**
 	 * Risk service result with the following possible results:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>accepted - Based on the checks performed the transaction can be accepted
 	 * <li>challenged - Based on the checks performed the transaction should be manually reviewed
 	 * <li>denied - Based on the checks performed the transaction should be rejected
@@ -60,7 +60,7 @@ public class ResultDoRiskAssessment {
 
 	/**
 	 * Risk service result with the following possible results:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>accepted - Based on the checks performed the transaction can be accepted
 	 * <li>challenged - Based on the checks performed the transaction should be manually reviewed
 	 * <li>denied - Based on the checks performed the transaction should be rejected

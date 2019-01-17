@@ -12,7 +12,7 @@ public class ThirdPartyStatusResponse {
 	 * The status returned by the third party.
 	 * 
 	 * Possible values:
-	 * <ul><li>WAITING - The customer has not connected to the third party</li>
+	 * <ul class="paragraph-width"><li>WAITING - The customer has not connected to the third party</li>
 	 * <li>INITIALIZED - Authentication in progress</li>
 	 * <li>AUTHORIZED - Payment in progress</li>
 	 * <li>COMPLETED - The customer has completed the payment at the third party</li></ul>
@@ -25,7 +25,7 @@ public class ThirdPartyStatusResponse {
 	 * The status returned by the third party.
 	 * 
 	 * Possible values:
-	 * <ul><li>WAITING - The customer has not connected to the third party</li>
+	 * <ul class="paragraph-width"><li>WAITING - The customer has not connected to the third party</li>
 	 * <li>INITIALIZED - Authentication in progress</li>
 	 * <li>AUTHORIZED - Payment in progress</li>
 	 * <li>COMPLETED - The customer has completed the payment at the third party</li></ul>

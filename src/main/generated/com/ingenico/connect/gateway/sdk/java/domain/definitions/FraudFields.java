@@ -102,7 +102,7 @@ public class FraudFields {
 
 	/**
 	 * Degree of default form fill, with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>automatically - All fields filled automatically
 	 * <li>automatically-but-modified - All fields filled automatically, but some fields were modified manually
 	 * <li>manually - All fields were entered manually
@@ -114,7 +114,7 @@ public class FraudFields {
 
 	/**
 	 * Degree of default form fill, with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>automatically - All fields filled automatically
 	 * <li>automatically-but-modified - All fields filled automatically, but some fields were modified manually
 	 * <li>manually - All fields were entered manually
@@ -154,7 +154,7 @@ public class FraudFields {
 
 	/**
 	 * One of the following gift card types:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>celebrate-fall - Celebrate Fall
 	 * <li>grandparents-day - Grandparent's Day
 	 * <li>independence-day - Independence Day
@@ -192,7 +192,7 @@ public class FraudFields {
 
 	/**
 	 * One of the following gift card types:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>celebrate-fall - Celebrate Fall
 	 * <li>grandparents-day - Grandparent's Day
 	 * <li>independence-day - Independence Day
@@ -244,7 +244,7 @@ public class FraudFields {
 
 	/**
 	 * Specifies if the consumer (initially) had forgotten their password
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer has forgotten their password
 	 * <li>false - The consumer has not forgotten their password
 	 * </ul>
@@ -255,7 +255,7 @@ public class FraudFields {
 
 	/**
 	 * Specifies if the consumer (initially) had forgotten their password
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer has forgotten their password
 	 * <li>false - The consumer has not forgotten their password
 	 * </ul>
@@ -266,7 +266,7 @@ public class FraudFields {
 
 	/**
 	 * Specifies if the consumer entered a password to gain access to an account registered with the you
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer has used a password to gain access
 	 * <li>false - The consumer has not used a password to gain access
 	 * </ul>
@@ -277,7 +277,7 @@ public class FraudFields {
 
 	/**
 	 * Specifies if the consumer entered a password to gain access to an account registered with the you
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer has used a password to gain access
 	 * <li>false - The consumer has not used a password to gain access
 	 * </ul>
@@ -288,7 +288,7 @@ public class FraudFields {
 
 	/**
 	 * Specifies if the consumer has a history of online shopping with the merchant
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer is a known returning consumer
 	 * <li>false - The consumer is new/unknown consumer
 	 * </ul>
@@ -299,7 +299,7 @@ public class FraudFields {
 
 	/**
 	 * Specifies if the consumer has a history of online shopping with the merchant
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer is a known returning consumer
 	 * <li>false - The consumer is new/unknown consumer
 	 * </ul>

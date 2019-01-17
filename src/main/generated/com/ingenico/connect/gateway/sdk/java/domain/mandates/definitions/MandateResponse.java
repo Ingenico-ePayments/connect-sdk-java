@@ -80,7 +80,7 @@ public class MandateResponse {
 
 	/**
 	 * The status of the mandate. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>ACTIVE
 	 * <li>EXPIRED
 	 * <li>CREATED
@@ -96,7 +96,7 @@ public class MandateResponse {
 
 	/**
 	 * The status of the mandate. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>ACTIVE
 	 * <li>EXPIRED
 	 * <li>CREATED

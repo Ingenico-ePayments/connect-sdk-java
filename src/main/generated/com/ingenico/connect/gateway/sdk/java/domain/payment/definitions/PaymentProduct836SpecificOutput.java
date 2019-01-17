@@ -10,7 +10,7 @@ public class PaymentProduct836SpecificOutput {
 
 	/**
 	 * Indicates if SofortBank could estabilish if the transaction could successfully be processed.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>0 - You should wait for the transaction to be reported as paid before shipping any goods.
 	 * <li>1 - You can ship the goods. In case the transaction is not reported as paid you can initiate a claims process with SofortBank.
 	 * </ul>
@@ -21,7 +21,7 @@ public class PaymentProduct836SpecificOutput {
 
 	/**
 	 * Indicates if SofortBank could estabilish if the transaction could successfully be processed.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>0 - You should wait for the transaction to be reported as paid before shipping any goods.
 	 * <li>1 - You can ship the goods. In case the transaction is not reported as paid you can initiate a claims process with SofortBank.
 	 * </ul>

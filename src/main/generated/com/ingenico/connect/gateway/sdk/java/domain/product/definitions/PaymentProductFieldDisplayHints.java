@@ -27,7 +27,7 @@ public class PaymentProductFieldDisplayHints {
 	private PaymentProductFieldTooltip tooltip = null;
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Indicates that this field is advised to be captured to increase the success rates even-though it isn't marked as required. Please note that making the field required could hurt the success rates negatively. This boolean only indicates our advise to always show this field to the consumer.
 	 * <li>false - Indicates that this field is not to be shown unless it is a required field.
 	 * </ul>
@@ -37,7 +37,7 @@ public class PaymentProductFieldDisplayHints {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Indicates that this field is advised to be captured to increase the success rates even-though it isn't marked as required. Please note that making the field required could hurt the success rates negatively. This boolean only indicates our advise to always show this field to the consumer.
 	 * <li>false - Indicates that this field is not to be shown unless it is a required field.
 	 * </ul>
@@ -123,7 +123,7 @@ public class PaymentProductFieldDisplayHints {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The data in this field should be obfuscated as it is entered, just like a password field
 	 * <li>false - The data in this field does not need to be obfuscated
 	 * </ul>
@@ -133,7 +133,7 @@ public class PaymentProductFieldDisplayHints {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The data in this field should be obfuscated as it is entered, just like a password field
 	 * <li>false - The data in this field does not need to be obfuscated
 	 * </ul>
@@ -158,7 +158,7 @@ public class PaymentProductFieldDisplayHints {
 
 	/**
 	 * The type of keyboard that can best be used to fill out the value of this field. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>PhoneNumberKeyboard - Keyboard that is normally used to enter phone numbers
 	 * <li>StringKeyboard - Keyboard that is used to enter strings
 	 * <li>IntegerKeyboard - Keyboard that is used to enter only numerical values
@@ -171,7 +171,7 @@ public class PaymentProductFieldDisplayHints {
 
 	/**
 	 * The type of keyboard that can best be used to fill out the value of this field. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>PhoneNumberKeyboard - Keyboard that is normally used to enter phone numbers
 	 * <li>StringKeyboard - Keyboard that is used to enter strings
 	 * <li>IntegerKeyboard - Keyboard that is used to enter only numerical values

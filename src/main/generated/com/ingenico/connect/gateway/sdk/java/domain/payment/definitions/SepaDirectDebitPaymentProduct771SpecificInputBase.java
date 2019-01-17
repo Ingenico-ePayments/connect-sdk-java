@@ -11,7 +11,23 @@ import com.ingenico.connect.gateway.sdk.java.domain.mandates.definitions.CreateM
  */
 public class SepaDirectDebitPaymentProduct771SpecificInputBase extends AbstractSepaDirectDebitPaymentProduct771SpecificInput {
 
+	private String existingUniqueMandateReference = null;
+
 	private CreateMandateBase mandate = null;
+
+	/**
+	 * The unique reference of the existing mandate to use in this payment.
+	 */
+	public String getExistingUniqueMandateReference() {
+		return existingUniqueMandateReference;
+	}
+
+	/**
+	 * The unique reference of the existing mandate to use in this payment.
+	 */
+	public void setExistingUniqueMandateReference(String value) {
+		this.existingUniqueMandateReference = value;
+	}
 
 	/**
 	 * Object containing information to create a SEPA Direct Debit mandate. Required for creating HostedCheckouts with SEPA Direct Debit supported.

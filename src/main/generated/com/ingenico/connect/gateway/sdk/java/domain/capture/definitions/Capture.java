@@ -30,7 +30,7 @@ public class Capture extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the payment in a human-readable form. Possible values are :
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CAPTURE_REQUESTED - The transaction is in the queue to be captured.
 	 * <li>CAPTURED - The transaction has been captured and we have received online confirmation.
 	 * <li>CANCELLED - You have cancelled the transaction.
@@ -45,7 +45,7 @@ public class Capture extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the payment in a human-readable form. Possible values are :
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CAPTURE_REQUESTED - The transaction is in the queue to be captured.
 	 * <li>CAPTURED - The transaction has been captured and we have received online confirmation.
 	 * <li>CANCELLED - You have cancelled the transaction.

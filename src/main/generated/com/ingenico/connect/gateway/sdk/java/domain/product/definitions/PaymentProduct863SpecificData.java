@@ -12,7 +12,7 @@ public class PaymentProduct863SpecificData {
 
 	/**
 	 * The WeChat Pay integration types that can be used in the current payment context. Possible values:
-	 * <ul><li>desktopQRCode - used on desktops, the consumer opens the WeChat app by scanning a QR code.
+	 * <ul class="paragraph-width"><li>desktopQRCode - used on desktops, the consumer opens the WeChat app by scanning a QR code.
 	 * <li>urlIntent - used in mobile apps or on mobile web pages, the consumer opens the WeChat app using a URL intent.
 	 * <li>nativeInApp - used in mobile apps that use the WeChat Pay SDK.
 	 * </ul>
@@ -23,7 +23,7 @@ public class PaymentProduct863SpecificData {
 
 	/**
 	 * The WeChat Pay integration types that can be used in the current payment context. Possible values:
-	 * <ul><li>desktopQRCode - used on desktops, the consumer opens the WeChat app by scanning a QR code.
+	 * <ul class="paragraph-width"><li>desktopQRCode - used on desktops, the consumer opens the WeChat app by scanning a QR code.
 	 * <li>urlIntent - used in mobile apps or on mobile web pages, the consumer opens the WeChat app using a URL intent.
 	 * <li>nativeInApp - used in mobile apps that use the WeChat Pay SDK.
 	 * </ul>

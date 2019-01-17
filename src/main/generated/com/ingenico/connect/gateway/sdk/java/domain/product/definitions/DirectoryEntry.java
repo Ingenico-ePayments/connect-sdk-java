@@ -48,7 +48,7 @@ public class DirectoryEntry {
 
 	/**
 	 * To be used to sort the issuers.
-	 * <ul><li>short - These issuers should be presented at the top of the list
+	 * <ul class="paragraph-width"><li>short - These issuers should be presented at the top of the list
 	 * <li>long - These issuers should be presented after the issuers marked as short
 	 * </ul>
 	 * Note: this is only filled if supported by the payment product. Currently only iDeal (809) support this. Sorting within the groups should be done alphabetically.
@@ -59,7 +59,7 @@ public class DirectoryEntry {
 
 	/**
 	 * To be used to sort the issuers.
-	 * <ul><li>short - These issuers should be presented at the top of the list
+	 * <ul class="paragraph-width"><li>short - These issuers should be presented at the top of the list
 	 * <li>long - These issuers should be presented after the issuers marked as short
 	 * </ul>
 	 * Note: this is only filled if supported by the payment product. Currently only iDeal (809) support this. Sorting within the groups should be done alphabetically.

@@ -92,13 +92,13 @@ public class SessionResponse {
 
 	/**
 	 * Possible values:
-	 * <ul><li>EU - datacenter located in Amsterdam
+	 * <ul class="paragraph-width"><li>EU - datacenter located in Amsterdam
 	 * <li>US - datacenter located in Miami
 	 * <li>AMS - datacenter located in Amsterdam
 	 * <li>PAR - datacenter located in Paris
 	 * </ul>
 	 * When a session is created it is created in a specific datacenter. Any subsequent calls using the Client API need to be datacenter specific. The datacenters are identified by this region value. This value needs to be passed to the Client SDK to make sure that the client software connects to the right datacenter. This only applies if your clients use a version older than the ones listed below:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>JavaScript Client SDK v3.6.0
 	 * <li>iOS ObjectiveC Client SDK v3.10.0
 	 * <li>iOS Swift Client SDK v2.2.0
@@ -112,13 +112,13 @@ public class SessionResponse {
 
 	/**
 	 * Possible values:
-	 * <ul><li>EU - datacenter located in Amsterdam
+	 * <ul class="paragraph-width"><li>EU - datacenter located in Amsterdam
 	 * <li>US - datacenter located in Miami
 	 * <li>AMS - datacenter located in Amsterdam
 	 * <li>PAR - datacenter located in Paris
 	 * </ul>
 	 * When a session is created it is created in a specific datacenter. Any subsequent calls using the Client API need to be datacenter specific. The datacenters are identified by this region value. This value needs to be passed to the Client SDK to make sure that the client software connects to the right datacenter. This only applies if your clients use a version older than the ones listed below:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>JavaScript Client SDK v3.6.0
 	 * <li>iOS ObjectiveC Client SDK v3.10.0
 	 * <li>iOS Swift Client SDK v2.2.0

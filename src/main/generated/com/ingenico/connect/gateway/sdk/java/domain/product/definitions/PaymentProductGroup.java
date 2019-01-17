@@ -37,7 +37,7 @@ public class PaymentProductGroup {
 
 	/**
 	 * Indicates if device fingerprint is enabled for the product group
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -47,7 +47,7 @@ public class PaymentProductGroup {
 
 	/**
 	 * Indicates if device fingerprint is enabled for the product group
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */

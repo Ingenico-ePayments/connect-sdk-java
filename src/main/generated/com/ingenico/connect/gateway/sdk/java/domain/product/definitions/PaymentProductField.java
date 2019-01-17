@@ -60,7 +60,7 @@ public class PaymentProductField {
 
 	/**
 	 * The type of field, possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>string - Any UTF-8 chracters
 	 * <li>numericstring - A string that consisting only of numbers. Note that you should strip out anything that is not a digit, but leading zeros are allowed
 	 * <li>date - Date in the format DDMMYYYY
@@ -75,7 +75,7 @@ public class PaymentProductField {
 
 	/**
 	 * The type of field, possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>string - Any UTF-8 chracters
 	 * <li>numericstring - A string that consisting only of numbers. Note that you should strip out anything that is not a digit, but leading zeros are allowed
 	 * <li>date - Date in the format DDMMYYYY

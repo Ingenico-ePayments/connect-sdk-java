@@ -21,7 +21,7 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 	private String returnUrl = null;
 
 	/**
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -30,7 +30,7 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 	}
 
 	/**
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */

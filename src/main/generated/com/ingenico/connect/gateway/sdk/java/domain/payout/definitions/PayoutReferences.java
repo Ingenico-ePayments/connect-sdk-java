@@ -43,14 +43,14 @@ public class PayoutReferences {
 	}
 
 	/**
-	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
 	 */
 	public String getMerchantReference() {
 		return merchantReference;
 	}
 
 	/**
-	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
 	 */
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;

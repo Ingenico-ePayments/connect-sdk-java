@@ -34,14 +34,14 @@ public class RedirectPaymentProduct840SpecificInput {
 	}
 
 	/**
-	 * Indicates whether to use PayPal Express Checkout. <ul><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
+	 * Indicates whether to use PayPal Express Checkout. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
 	 */
 	public Boolean getIsShortcut() {
 		return isShortcut;
 	}
 
 	/**
-	 * Indicates whether to use PayPal Express Checkout. <ul><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
+	 * Indicates whether to use PayPal Express Checkout. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
 	 */
 	public void setIsShortcut(Boolean value) {
 		this.isShortcut = value;

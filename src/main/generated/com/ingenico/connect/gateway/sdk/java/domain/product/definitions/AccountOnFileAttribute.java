@@ -28,7 +28,7 @@ public class AccountOnFileAttribute extends KeyValuePair {
 
 	/**
 	 * Possible values:
-	 * <ul><li>READ_ONLY - attribute cannot be updated and should be presented in that way to the user
+	 * <ul class="paragraph-width"><li>READ_ONLY - attribute cannot be updated and should be presented in that way to the user
 	 * <li>CAN_WRITE - attribute can be updated and should be presented as an editable field, for example an expiration date that will expire very soon
 	 * <li>MUST_WRITE - attribute should be updated and must be presented as an editable field, for example an expiration date that has already expired
 	 * </ul>
@@ -40,7 +40,7 @@ public class AccountOnFileAttribute extends KeyValuePair {
 
 	/**
 	 * Possible values:
-	 * <ul><li>READ_ONLY - attribute cannot be updated and should be presented in that way to the user
+	 * <ul class="paragraph-width"><li>READ_ONLY - attribute cannot be updated and should be presented in that way to the user
 	 * <li>CAN_WRITE - attribute can be updated and should be presented as an editable field, for example an expiration date that will expire very soon
 	 * <li>MUST_WRITE - attribute should be updated and must be presented as an editable field, for example an expiration date that has already expired
 	 * </ul>

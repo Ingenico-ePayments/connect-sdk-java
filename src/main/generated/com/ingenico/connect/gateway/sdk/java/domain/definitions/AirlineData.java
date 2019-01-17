@@ -129,7 +129,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true = The ticket is an E-Ticket
+	 * <ul class="paragraph-width"><li>true = The ticket is an E-Ticket
 	 * <li>false = the ticket is not an E-Ticket
 	 * </ul>
 	 */
@@ -138,7 +138,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true = The ticket is an E-Ticket
+	 * <ul class="paragraph-width"><li>true = The ticket is an E-Ticket
 	 * <li>false = the ticket is not an E-Ticket
 	 * </ul>
 	 */
@@ -147,7 +147,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true = a registered known consumer
+	 * <ul class="paragraph-width"><li>true = a registered known consumer
 	 * <li>false = unknown consumer
 	 * </ul>
 	 */
@@ -156,7 +156,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true = a registered known consumer
+	 * <ul class="paragraph-width"><li>true = a registered known consumer
 	 * <li>false = unknown consumer
 	 * </ul>
 	 */
@@ -165,7 +165,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true - Restricted, the ticket is non-refundable
+	 * <ul class="paragraph-width"><li>true - Restricted, the ticket is non-refundable
 	 * <li>false - No restrictions, the ticket is (partially) refundable
 	 * </ul>
 	 */
@@ -174,7 +174,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true - Restricted, the ticket is non-refundable
+	 * <ul class="paragraph-width"><li>true - Restricted, the ticket is non-refundable
 	 * <li>false - No restrictions, the ticket is (partially) refundable
 	 * </ul>
 	 */
@@ -183,7 +183,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true - The payer is the ticket holder
+	 * <ul class="paragraph-width"><li>true - The payer is the ticket holder
 	 * <li>false - The payer is not the ticket holder
 	 * </ul>
 	 */
@@ -192,7 +192,7 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul><li>true - The payer is the ticket holder
+	 * <ul class="paragraph-width"><li>true - The payer is the ticket holder
 	 * <li>false - The payer is not the ticket holder
 	 * </ul>
 	 */
@@ -334,7 +334,7 @@ public class AirlineData {
 
 	/**
 	 * Possible values:
-	 * <ul><li>e-ticket
+	 * <ul class="paragraph-width"><li>e-ticket
 	 * <li>city-ticket-office
 	 * <li>airport-ticket-office
 	 * <li>ticket-by-mail
@@ -347,7 +347,7 @@ public class AirlineData {
 
 	/**
 	 * Possible values:
-	 * <ul><li>e-ticket
+	 * <ul class="paragraph-width"><li>e-ticket
 	 * <li>city-ticket-office
 	 * <li>airport-ticket-office
 	 * <li>ticket-by-mail
@@ -360,7 +360,7 @@ public class AirlineData {
 
 	/**
 	 * The ticket or document number contains:<br>
-	 * <ul><li>Airline code: 3-digit airline code number
+	 * <ul class="paragraph-width"><li>Airline code: 3-digit airline code number
 	 * <li>Form code: A maximum of 3 digits indicating the type of document, the source of issue and the number of coupons it contains
 	 * <li>Serial number: A maximum of 8 digits allocated on a sequential basis, provided that the total number of digits allocated to the form code and serial number shall not exceed ten
 	 * <li>TICKETNUMBER can be replaced with PNR if the ticket number is unavailable
@@ -372,7 +372,7 @@ public class AirlineData {
 
 	/**
 	 * The ticket or document number contains:<br>
-	 * <ul><li>Airline code: 3-digit airline code number
+	 * <ul class="paragraph-width"><li>Airline code: 3-digit airline code number
 	 * <li>Form code: A maximum of 3 digits indicating the type of document, the source of issue and the number of coupons it contains
 	 * <li>Serial number: A maximum of 8 digits allocated on a sequential basis, provided that the total number of digits allocated to the form code and serial number shall not exceed ten
 	 * <li>TICKETNUMBER can be replaced with PNR if the ticket number is unavailable

@@ -11,7 +11,7 @@ public class OrderTypeInformation {
 	private String usageType = null;
 
 	/**
-	 * Possible values are:<ul>
+	 * Possible values are:<ul class="paragraph-width">
 	 * <li>physical
 	 * <li>digital
 	 * </ul>
@@ -21,7 +21,7 @@ public class OrderTypeInformation {
 	}
 
 	/**
-	 * Possible values are:<ul>
+	 * Possible values are:<ul class="paragraph-width">
 	 * <li>physical
 	 * <li>digital
 	 * </ul>
@@ -31,7 +31,7 @@ public class OrderTypeInformation {
 	}
 
 	/**
-	 * Possible values are:<ul>
+	 * Possible values are:<ul class="paragraph-width">
 	 * <li>private
 	 * <li>commercial
 	 * </ul>
@@ -41,7 +41,7 @@ public class OrderTypeInformation {
 	}
 
 	/**
-	 * Possible values are:<ul>
+	 * Possible values are:<ul class="paragraph-width">
 	 * <li>private
 	 * <li>commercial
 	 * </ul>

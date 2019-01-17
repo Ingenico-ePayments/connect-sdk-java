@@ -157,14 +157,24 @@ public class CreatePaymentRequest {
 	}
 
 	/**
-	 * Object containing the specific input details for mobile payments
+	 * Object containing the specific input details for mobile payments.
+	 * <p>Mobile payments produce the required payment data in encrypted form.
+	 * <ul class="paragraph-width">
+	 * <li>For Apple Pay, the encrypted payment data can be found in field <span class="property">data</span> of the <span class="property"><a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData</span> property.
+	 * <li>For Google Pay, the encrypted payment data can be found in field <span class="property">paymentMethodData.tokenizationData.token</span> of the <span class="property"><a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson()</span> result.
+	 * </ul>
 	 */
 	public MobilePaymentMethodSpecificInput getMobilePaymentMethodSpecificInput() {
 		return mobilePaymentMethodSpecificInput;
 	}
 
 	/**
-	 * Object containing the specific input details for mobile payments
+	 * Object containing the specific input details for mobile payments.
+	 * <p>Mobile payments produce the required payment data in encrypted form.
+	 * <ul class="paragraph-width">
+	 * <li>For Apple Pay, the encrypted payment data can be found in field <span class="property">data</span> of the <span class="property"><a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData</span> property.
+	 * <li>For Google Pay, the encrypted payment data can be found in field <span class="property">paymentMethodData.tokenizationData.token</span> of the <span class="property"><a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson()</span> result.
+	 * </ul>
 	 */
 	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInput value) {
 		this.mobilePaymentMethodSpecificInput = value;

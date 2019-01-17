@@ -30,6 +30,8 @@ public class PaymentProduct {
 
 	private Integer id = null;
 
+	private Boolean isJavaScriptRequired = null;
+
 	private Long maxAmount = null;
 
 	private Long minAmount = null;
@@ -64,7 +66,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if the product supports recurring payments
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - This payment product supports recurring payments
 	 * <li>false - This payment product does not support recurring transactions and can only be used for one-off payments
 	 * </ul>
@@ -75,7 +77,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if the product supports recurring payments
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - This payment product supports recurring payments
 	 * <li>false - This payment product does not support recurring transactions and can only be used for one-off payments
 	 * </ul>
@@ -86,7 +88,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if the payment details can be tokenized for future re-use
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Payment details from payments done with this payment product can be tokenized for future re-use
 	 * <li>false - Payment details from payments done with this payment product can not be tokenized
 	 * </ul>
@@ -97,7 +99,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if the payment details can be tokenized for future re-use
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Payment details from payments done with this payment product can be tokenized for future re-use
 	 * <li>false - Payment details from payments done with this payment product can not be tokenized
 	 * </ul>
@@ -122,7 +124,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if the payment details can be automatically tokenized for future re-use
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Payment details from payments done with this payment product can be automatically tokenized for future re-use
 	 * <li>false - Payment details from payments done with this payment product can not be automatically tokenized
 	 * </ul>
@@ -133,7 +135,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if the payment details can be automatically tokenized for future re-use
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Payment details from payments done with this payment product can be automatically tokenized for future re-use
 	 * <li>false - Payment details from payments done with this payment product can not be automatically tokenized
 	 * </ul>
@@ -144,7 +146,7 @@ public class PaymentProduct {
 
 	/**
 	 * This field is only relevant for payment products that use third party redirects. This field indicates if the third party disallows their payment pages to be embedded in an iframe using the <span class="property">X-Frame-Options</span> header.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - the third party allows their payment pages to be embedded in an iframe.
 	 * <li>false - the third party disallows their payment pages to be embedded in an iframe.
 	 * </ul>
@@ -155,7 +157,7 @@ public class PaymentProduct {
 
 	/**
 	 * This field is only relevant for payment products that use third party redirects. This field indicates if the third party disallows their payment pages to be embedded in an iframe using the <span class="property">X-Frame-Options</span> header.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - the third party allows their payment pages to be embedded in an iframe.
 	 * <li>false - the third party disallows their payment pages to be embedded in an iframe.
 	 * </ul>
@@ -166,7 +168,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if device fingerprint is enabled for the product
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -176,7 +178,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates if device fingerprint is enabled for the product
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 */
@@ -241,6 +243,28 @@ public class PaymentProduct {
 	}
 
 	/**
+	 * This fields indicates if the payment product requires JavaScript to be enabled on the customer's browser. This is usually only true if the payment product depends on a third party JavaScript integration.
+	 * <ul class="paragraph-width">
+	 * <li>true - the payment product requires JavaScript to be enabled.
+	 * <li>false - the payment product does not require JavaScript to be enabled. This is the default value if the field is not present.
+	 * </ul>
+	 */
+	public Boolean getIsJavaScriptRequired() {
+		return isJavaScriptRequired;
+	}
+
+	/**
+	 * This fields indicates if the payment product requires JavaScript to be enabled on the customer's browser. This is usually only true if the payment product depends on a third party JavaScript integration.
+	 * <ul class="paragraph-width">
+	 * <li>true - the payment product requires JavaScript to be enabled.
+	 * <li>false - the payment product does not require JavaScript to be enabled. This is the default value if the field is not present.
+	 * </ul>
+	 */
+	public void setIsJavaScriptRequired(Boolean value) {
+		this.isJavaScriptRequired = value;
+	}
+
+	/**
 	 * Maximum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
 	 */
 	public Long getMaxAmount() {
@@ -270,7 +294,7 @@ public class PaymentProduct {
 
 	/**
 	 * This provides insight into the level of support for payments using a device with a smaller screen size. You can for instance use this to rank payment products differently on devices with a smaller screen. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>NO_SUPPORT - The payment product does not work at all on a mobile device
 	 * <li>BASIC_SUPPORT - The payment product has not optimized its user experience for devices with smaller screens
 	 * <li>OPTIMISED_SUPPORT - The payment product offers a user experience that has been optimized for devices with smaller screens
@@ -282,7 +306,7 @@ public class PaymentProduct {
 
 	/**
 	 * This provides insight into the level of support for payments using a device with a smaller screen size. You can for instance use this to rank payment products differently on devices with a smaller screen. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>NO_SUPPORT - The payment product does not work at all on a mobile device
 	 * <li>BASIC_SUPPORT - The payment product has not optimized its user experience for devices with smaller screens
 	 * <li>OPTIMISED_SUPPORT - The payment product offers a user experience that has been optimized for devices with smaller screens
@@ -294,7 +318,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates which payment method will be used for this payment product. Payment method is one of:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>bankTransfer
 	 * <li>card
 	 * <li>cash
@@ -310,7 +334,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates which payment method will be used for this payment product. Payment method is one of:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>bankTransfer
 	 * <li>card
 	 * <li>cash
@@ -339,14 +363,14 @@ public class PaymentProduct {
 	}
 
 	/**
-	 * Android Pay (payment product 320) specific details.
+	 * Google Pay (payment product 320) specific details.
 	 */
 	public PaymentProduct320SpecificData getPaymentProduct320SpecificData() {
 		return paymentProduct320SpecificData;
 	}
 
 	/**
-	 * Android Pay (payment product 320) specific details.
+	 * Google Pay (payment product 320) specific details.
 	 */
 	public void setPaymentProduct320SpecificData(PaymentProduct320SpecificData value) {
 		this.paymentProduct320SpecificData = value;
@@ -368,7 +392,7 @@ public class PaymentProduct {
 
 	/**
 	 * The payment product group that has this payment product, if there is any. Not populated otherwise. Currently only one payment product group is supported:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>cards
 	 * </ul>
 	 */
@@ -378,7 +402,7 @@ public class PaymentProduct {
 
 	/**
 	 * The payment product group that has this payment product, if there is any. Not populated otherwise. Currently only one payment product group is supported:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>cards
 	 * </ul>
 	 */
@@ -388,7 +412,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates whether the payment product requires redirection to a third party to complete the payment. You can use this to filter out products that require a redirect if you don't want to support that.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Redirection is required
 	 * <li>false - No redirection is required
 	 * </ul>
@@ -399,7 +423,7 @@ public class PaymentProduct {
 
 	/**
 	 * Indicates whether the payment product requires redirection to a third party to complete the payment. You can use this to filter out products that require a redirect if you don't want to support that.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Redirection is required
 	 * <li>false - No redirection is required
 	 * </ul>

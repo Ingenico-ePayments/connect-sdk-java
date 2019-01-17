@@ -86,7 +86,7 @@ public class FindProductsParams extends AbstractParamRequest {
 
 	/**
 	 * This allows you to filter payment products based on their support for recurring or not
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 * If this is omitted all payment products are returned.
@@ -97,7 +97,7 @@ public class FindProductsParams extends AbstractParamRequest {
 
 	/**
 	 * This allows you to filter payment products based on their support for recurring or not
-	 * <ul><li>true
+	 * <ul class="paragraph-width"><li>true
 	 * <li>false
 	 * </ul>
 	 * If this is omitted all payment products are returned.
@@ -108,7 +108,7 @@ public class FindProductsParams extends AbstractParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
 	 * <li>accountsOnFile - Don't return any accounts on file data
 	 * <li>translations - Don't return any label texts associated with the payment products
@@ -123,7 +123,7 @@ public class FindProductsParams extends AbstractParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
 	 * <li>accountsOnFile - Don't return any accounts on file data
 	 * <li>translations - Don't return any label texts associated with the payment products
@@ -149,7 +149,7 @@ public class FindProductsParams extends AbstractParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
 	 * <li>accountsOnFile - Don't return any accounts on file data
 	 * <li>translations - Don't return any label texts associated with the payment products

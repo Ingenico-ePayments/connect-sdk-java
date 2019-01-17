@@ -46,7 +46,7 @@ public class Payment extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the payment in a human-readable form. Possible values are :
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>ACCOUNT_VERIFIED - The account has been verified using a validation services like 0$ auth
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment is created.
 	 * <li>REDIRECTED - The consumer has been redirected to a 3rd party to complete the authentication/payment
@@ -75,7 +75,7 @@ public class Payment extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the payment in a human-readable form. Possible values are :
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>ACCOUNT_VERIFIED - The account has been verified using a validation services like 0$ auth
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment is created.
 	 * <li>REDIRECTED - The consumer has been redirected to a 3rd party to complete the authentication/payment

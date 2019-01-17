@@ -43,7 +43,7 @@ public class PaymentProductFiltersHostedCheckout {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer may only complete the payment using one of the provided accounts on file.
 	 * <li>false -The consumer can complete the payment using any way they like, as long as it is allowed in the payment context. Default.
 	 * </ul>
@@ -54,7 +54,7 @@ public class PaymentProductFiltersHostedCheckout {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - The consumer may only complete the payment using one of the provided accounts on file.
 	 * <li>false -The consumer can complete the payment using any way they like, as long as it is allowed in the payment context. Default.
 	 * </ul>

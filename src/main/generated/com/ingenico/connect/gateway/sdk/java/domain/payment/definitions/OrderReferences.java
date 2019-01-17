@@ -16,7 +16,7 @@ public class OrderReferences {
 
 	/**
 	 * Descriptive text that is used towards to consumer, either during an online checkout at a third party and/or on the statement of the consumer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
-	 * <ul><li>AIB - 22 characters
+	 * <ul class="paragraph-width"><li>AIB - 22 characters
 	 * <li>American Express - 25 characters
 	 * <li>Atos Origin BNP - 15 characters
 	 * <li>Barclays - 25 characters
@@ -34,7 +34,7 @@ public class OrderReferences {
 	 * </ul>
 	 * Note that we advise you to use 22 characters as the max length as beyond this our experience is that issuers will start to truncate. We currently also only allow per API call overrides for AIB and Barclays<br>
 	 * For alternative payment products the maximum allowed length varies per payment product:
-	 * <ul><li>402 e-Przelewy - 30 characters
+	 * <ul class="paragraph-width"><li>402 e-Przelewy - 30 characters
 	 * <li>404 INICIS - 80 characters
 	 * <li>802 Nordea ePayment Finland - 234 characters
 	 * <li>809 iDeal - 32 characters
@@ -57,7 +57,7 @@ public class OrderReferences {
 
 	/**
 	 * Descriptive text that is used towards to consumer, either during an online checkout at a third party and/or on the statement of the consumer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
-	 * <ul><li>AIB - 22 characters
+	 * <ul class="paragraph-width"><li>AIB - 22 characters
 	 * <li>American Express - 25 characters
 	 * <li>Atos Origin BNP - 15 characters
 	 * <li>Barclays - 25 characters
@@ -75,7 +75,7 @@ public class OrderReferences {
 	 * </ul>
 	 * Note that we advise you to use 22 characters as the max length as beyond this our experience is that issuers will start to truncate. We currently also only allow per API call overrides for AIB and Barclays<br>
 	 * For alternative payment products the maximum allowed length varies per payment product:
-	 * <ul><li>402 e-Przelewy - 30 characters
+	 * <ul class="paragraph-width"><li>402 e-Przelewy - 30 characters
 	 * <li>404 INICIS - 80 characters
 	 * <li>802 Nordea ePayment Finland - 234 characters
 	 * <li>809 iDeal - 32 characters
@@ -127,14 +127,14 @@ public class OrderReferences {
 	}
 
 	/**
-	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
 	 */
 	public String getMerchantReference() {
 		return merchantReference;
 	}
 
 	/**
-	 * Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
 	 */
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;

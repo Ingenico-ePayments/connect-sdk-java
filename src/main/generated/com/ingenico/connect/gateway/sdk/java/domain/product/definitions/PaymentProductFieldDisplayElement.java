@@ -44,7 +44,7 @@ public class PaymentProductFieldDisplayElement {
 
 	/**
 	 * The type of the display element. Indicates how the value should be presented. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>STRING - as plain text
 	 * <li>CURRENCY - as an amount in cents displayed with a decimal separator and the currency of the payment
 	 * <li>PERCENTAGE - as a number with a percentage sign
@@ -58,7 +58,7 @@ public class PaymentProductFieldDisplayElement {
 
 	/**
 	 * The type of the display element. Indicates how the value should be presented. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>STRING - as plain text
 	 * <li>CURRENCY - as an amount in cents displayed with a decimal separator and the currency of the payment
 	 * <li>PERCENTAGE - as a number with a percentage sign

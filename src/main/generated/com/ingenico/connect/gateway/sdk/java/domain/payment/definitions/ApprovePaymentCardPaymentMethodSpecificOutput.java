@@ -11,7 +11,7 @@ public class ApprovePaymentCardPaymentMethodSpecificOutput {
 	/**
 	 * Result of the authorization reversal request
 	 * <p>Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>00 - Successful reversal
 	 * <li>0, 8 or 11 - Reversal request submitted
 	 * <li>5 or 55 - Reversal request declined or referred
@@ -25,7 +25,7 @@ public class ApprovePaymentCardPaymentMethodSpecificOutput {
 	/**
 	 * Result of the authorization reversal request
 	 * <p>Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>00 - Successful reversal
 	 * <li>0, 8 or 11 - Reversal request submitted
 	 * <li>5 or 55 - Reversal request declined or referred

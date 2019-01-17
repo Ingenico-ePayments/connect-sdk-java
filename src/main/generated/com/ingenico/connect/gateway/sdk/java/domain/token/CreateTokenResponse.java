@@ -12,7 +12,7 @@ public class CreateTokenResponse {
 
 	/**
 	 * Indicates if a new token was created
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - A new token was created
 	 * <li>false - A token with the same card number already exists and is returned. Please note that the existing token has not been updated. When you want to update other data then the card number, you need to use the update API call, as data is never updated during the creation of a token.
 	 * </ul>
@@ -23,7 +23,7 @@ public class CreateTokenResponse {
 
 	/**
 	 * Indicates if a new token was created
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - A new token was created
 	 * <li>false - A token with the same card number already exists and is returned. Please note that the existing token has not been updated. When you want to update other data then the card number, you need to use the update API call, as data is never updated during the creation of a token.
 	 * </ul>

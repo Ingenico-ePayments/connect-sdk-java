@@ -24,7 +24,7 @@ public class APIError {
 	 * Category the error belongs to. The category should give an indication of the type of error you are dealing with.
 	 * 
 	 * Possible values:
-	 * <ul><li>CONNECT_PLATFORM_ERROR - indicating that a functional error has occurred in the Connect platform.</li>
+	 * <ul class="paragraph-width"><li>CONNECT_PLATFORM_ERROR - indicating that a functional error has occurred in the Connect platform.</li>
 	 * <li>PAYMENT_PLATFORM_ERROR - indicating that a functional error has occurred in the Payment platform.</li>
 	 * <li>IO_ERROR - indicating that a technical error has occurred within the Connect platform or between Connect and any of the payment platforms or third party systems.</li></ul>
 	 */
@@ -36,7 +36,7 @@ public class APIError {
 	 * Category the error belongs to. The category should give an indication of the type of error you are dealing with.
 	 * 
 	 * Possible values:
-	 * <ul><li>CONNECT_PLATFORM_ERROR - indicating that a functional error has occurred in the Connect platform.</li>
+	 * <ul class="paragraph-width"><li>CONNECT_PLATFORM_ERROR - indicating that a functional error has occurred in the Connect platform.</li>
 	 * <li>PAYMENT_PLATFORM_ERROR - indicating that a functional error has occurred in the Payment platform.</li>
 	 * <li>IO_ERROR - indicating that a technical error has occurred within the Connect platform or between Connect and any of the payment platforms or third party systems.</li></ul>
 	 */
@@ -104,7 +104,7 @@ public class APIError {
 	 * Returned only if the error relates to a value that was missing or incorrect.<br>
 	 * Contains a location path to the value as a <a href="http://docs.jsonata.org/basic.html">JSonata query</a>.<br>
 	 * Some common examples:
-	 * <ul><li>a.b selects the value of property b of root property a,</li>
+	 * <ul class="paragraph-width"><li>a.b selects the value of property b of root property a,</li>
 	 * <li>a[1] selects the first element of the array in root property a,</li>
 	 * <li>a[b='some value'] selects all elements of the array in root property a that have a property b with value 'some value'.</li></ul>
 	 */
@@ -116,7 +116,7 @@ public class APIError {
 	 * Returned only if the error relates to a value that was missing or incorrect.<br>
 	 * Contains a location path to the value as a <a href="http://docs.jsonata.org/basic.html">JSonata query</a>.<br>
 	 * Some common examples:
-	 * <ul><li>a.b selects the value of property b of root property a,</li>
+	 * <ul class="paragraph-width"><li>a.b selects the value of property b of root property a,</li>
 	 * <li>a[1] selects the first element of the array in root property a,</li>
 	 * <li>a[b='some value'] selects all elements of the array in root property a that have a property b with value 'some value'.</li></ul>
 	 */

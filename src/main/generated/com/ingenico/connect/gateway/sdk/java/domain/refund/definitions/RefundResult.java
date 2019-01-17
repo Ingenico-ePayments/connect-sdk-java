@@ -32,7 +32,7 @@ public class RefundResult extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the refund in a human-readable form. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new refund is created.
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the processing of the refund
 	 * <li>REJECTED - The refund has been rejected
@@ -49,7 +49,7 @@ public class RefundResult extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the refund in a human-readable form. Possible values are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new refund is created.
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the processing of the refund
 	 * <li>REJECTED - The refund has been rejected

@@ -11,7 +11,7 @@ public class PaymentProductFieldDataRestrictions {
 	private PaymentProductFieldValidators validators = null;
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Indicates that this field is required
 	 * <li>false - Indicates that this field is optional
 	 * </ul>
@@ -21,7 +21,7 @@ public class PaymentProductFieldDataRestrictions {
 	}
 
 	/**
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - Indicates that this field is required
 	 * <li>false - Indicates that this field is optional
 	 * </ul>

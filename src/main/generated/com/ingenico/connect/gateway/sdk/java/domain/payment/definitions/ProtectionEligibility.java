@@ -11,28 +11,28 @@ public class ProtectionEligibility {
 	private String type = null;
 
 	/**
-	 * Possible values: <ul> <li> Eligible <li> PartiallyEligible <li> Ineligible </ul>
+	 * Possible values: <ul class="paragraph-width"> <li> Eligible <li> PartiallyEligible <li> Ineligible </ul>
 	 */
 	public String getEligibility() {
 		return eligibility;
 	}
 
 	/**
-	 * Possible values: <ul> <li> Eligible <li> PartiallyEligible <li> Ineligible </ul>
+	 * Possible values: <ul class="paragraph-width"> <li> Eligible <li> PartiallyEligible <li> Ineligible </ul>
 	 */
 	public void setEligibility(String value) {
 		this.eligibility = value;
 	}
 
 	/**
-	 * Possible values: <ul> <li> ItemNotReceivedEligible <li> UnauthorizedPaymentEligible <li> Ineligible </ul>
+	 * Possible values: <ul class="paragraph-width"> <li> ItemNotReceivedEligible <li> UnauthorizedPaymentEligible <li> Ineligible </ul>
 	 */
 	public String getType() {
 		return type;
 	}
 
 	/**
-	 * Possible values: <ul> <li> ItemNotReceivedEligible <li> UnauthorizedPaymentEligible <li> Ineligible </ul>
+	 * Possible values: <ul class="paragraph-width"> <li> ItemNotReceivedEligible <li> UnauthorizedPaymentEligible <li> Ineligible </ul>
 	 */
 	public void setType(String value) {
 		this.type = value;

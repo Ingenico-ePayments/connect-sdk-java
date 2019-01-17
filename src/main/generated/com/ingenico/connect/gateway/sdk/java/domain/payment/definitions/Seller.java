@@ -140,7 +140,7 @@ public class Seller {
 
 	/**
 	 * Seller type. Possible values:
-	 * <ul><li>passport
+	 * <ul class="paragraph-width"><li>passport
 	 * <li>dni
 	 * <li>arg-identity-card
 	 * <li>civic-notebook
@@ -163,7 +163,7 @@ public class Seller {
 
 	/**
 	 * Seller type. Possible values:
-	 * <ul><li>passport
+	 * <ul class="paragraph-width"><li>passport
 	 * <li>dni
 	 * <li>arg-identity-card
 	 * <li>civic-notebook

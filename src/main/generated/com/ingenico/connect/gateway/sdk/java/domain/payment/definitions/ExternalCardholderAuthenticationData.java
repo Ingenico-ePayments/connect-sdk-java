@@ -46,7 +46,7 @@ public class ExternalCardholderAuthenticationData {
 
 	/**
 	 * Electronic Commerce Indicator provides authentication validation results returned after AUTHENTICATIONVALIDATION
-	 * <ul><li>0 = No authentication, Internet (no liability shift, not a 3D Secure transaction)
+	 * <ul class="paragraph-width"><li>0 = No authentication, Internet (no liability shift, not a 3D Secure transaction)
 	 * <li>1 = Authentication attempted (MasterCard)
 	 * <li>2 = Successful authentication (MasterCard)
 	 * <li>5 = Successful authentication (Visa, Diners Club, Amex)
@@ -61,7 +61,7 @@ public class ExternalCardholderAuthenticationData {
 
 	/**
 	 * Electronic Commerce Indicator provides authentication validation results returned after AUTHENTICATIONVALIDATION
-	 * <ul><li>0 = No authentication, Internet (no liability shift, not a 3D Secure transaction)
+	 * <ul class="paragraph-width"><li>0 = No authentication, Internet (no liability shift, not a 3D Secure transaction)
 	 * <li>1 = Authentication attempted (MasterCard)
 	 * <li>2 = Successful authentication (MasterCard)
 	 * <li>5 = Successful authentication (Visa, Diners Club, Amex)

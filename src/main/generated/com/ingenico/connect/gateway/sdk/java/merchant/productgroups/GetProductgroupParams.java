@@ -86,7 +86,7 @@ public class GetProductgroupParams extends AbstractParamRequest {
 
 	/**
 	 * Toggles filtering on support for recurring payments. Default value is false.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - filter out groups that do not support recurring payments, where a group supports recurring payments if it has at least one payment product that supports recurring.
 	 * <li>false - do not filter
 	 * </ul>
@@ -97,7 +97,7 @@ public class GetProductgroupParams extends AbstractParamRequest {
 
 	/**
 	 * Toggles filtering on support for recurring payments. Default value is false.
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>true - filter out groups that do not support recurring payments, where a group supports recurring payments if it has at least one payment product that supports recurring.
 	 * <li>false - do not filter
 	 * </ul>
@@ -108,7 +108,7 @@ public class GetProductgroupParams extends AbstractParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
 	 * <li>accountsOnFile - Don't return any accounts on file data
 	 * <li>translations - Don't return any label texts associated with the payment products
@@ -120,7 +120,7 @@ public class GetProductgroupParams extends AbstractParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
 	 * <li>accountsOnFile - Don't return any accounts on file data
 	 * <li>translations - Don't return any label texts associated with the payment products
@@ -143,7 +143,7 @@ public class GetProductgroupParams extends AbstractParamRequest {
 
 	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
 	 * <li>accountsOnFile - Don't return any accounts on file data
 	 * <li>translations - Don't return any label texts associated with the payment products

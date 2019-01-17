@@ -43,7 +43,7 @@ public class MandateApproval {
 	}
 
 	/**
-	 * <ul><li>true = Mandate is signed
+	 * <ul class="paragraph-width"><li>true = Mandate is signed
 	 * <li>false = Mandate is not signed
 	 * </ul>
 	 */
@@ -52,7 +52,7 @@ public class MandateApproval {
 	}
 
 	/**
-	 * <ul><li>true = Mandate is signed
+	 * <ul class="paragraph-width"><li>true = Mandate is signed
 	 * <li>false = Mandate is not signed
 	 * </ul>
 	 */

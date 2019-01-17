@@ -153,7 +153,7 @@ public class CaptureOutput extends OrderOutput {
 
 	/**
 	 * Payment method identifier used by the our payment engine with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>bankRefund
 	 * <li>bankTransfer
 	 * <li>card
@@ -170,7 +170,7 @@ public class CaptureOutput extends OrderOutput {
 
 	/**
 	 * Payment method identifier used by the our payment engine with the following possible values:
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>bankRefund
 	 * <li>bankTransfer
 	 * <li>card

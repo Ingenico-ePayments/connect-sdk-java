@@ -46,7 +46,7 @@ public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpe
 
 	/**
 	 * Indicates if this transaction is of a one-off or a recurring type
-	 * <ul><li>true - This is recurring
+	 * <ul class="paragraph-width"><li>true - This is recurring
 	 * <li>false - This is one-off
 	 * </ul>
 	 */
@@ -56,7 +56,7 @@ public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpe
 
 	/**
 	 * Indicates if this transaction is of a one-off or a recurring type
-	 * <ul><li>true - This is recurring
+	 * <ul class="paragraph-width"><li>true - This is recurring
 	 * <li>false - This is one-off
 	 * </ul>
 	 */

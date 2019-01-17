@@ -47,7 +47,7 @@ public class HostedMandateManagementSpecificInput {
 	}
 
 	/**
-	 * <ul><li>true - MyMandate will show a result page to the consumer when applicable. Default.
+	 * <ul class="paragraph-width"><li>true - MyMandate will show a result page to the consumer when applicable. Default.
 	 * <li>false - MyMandate will redirect the consumer back to the provided returnUrl when this is possible.
 	 * </ul>
 	 * The default value for this field is true.
@@ -57,7 +57,7 @@ public class HostedMandateManagementSpecificInput {
 	}
 
 	/**
-	 * <ul><li>true - MyMandate will show a result page to the consumer when applicable. Default.
+	 * <ul class="paragraph-width"><li>true - MyMandate will show a result page to the consumer when applicable. Default.
 	 * <li>false - MyMandate will redirect the consumer back to the provided returnUrl when this is possible.
 	 * </ul>
 	 * The default value for this field is true.

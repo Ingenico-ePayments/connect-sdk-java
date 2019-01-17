@@ -32,7 +32,7 @@ public class PayoutResult extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the payouts in a human-readable form. Possible values are :
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payout is created.
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the paying out of the funds
 	 * <li>REJECTED - The transaction has been rejected
@@ -50,7 +50,7 @@ public class PayoutResult extends AbstractOrderStatus {
 
 	/**
 	 * Current high-level status of the payouts in a human-readable form. Possible values are :
-	 * <ul>
+	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payout is created.
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the paying out of the funds
 	 * <li>REJECTED - The transaction has been rejected

@@ -68,15 +68,15 @@ public class CreatedPaymentOutput {
 
 	/**
 	 * Highlevel indication of the payment status with the following possible values:
-	 * <ul><li>REJECTED - The payment has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
-	 * <ul><li>CREATED
+	 * <ul class="paragraph-width"><li>REJECTED - The payment has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
+	 * <ul class="paragraph-width"><li>CREATED
 	 * <li>REJECTED
 	 * <li>REJECTED CAPTURE
 	 * <li>REJECTED REFUND
 	 * <li>REJECTED PAYOUT
 	 * <li>CANCELLED</ul>
 	 * <li>SUCCESSFUL - The payment was not (yet) rejected. Use the payment statuses to determine if it was completed, see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a>. This category groups the following statuses:
-	 * <ul><li>PENDING PAYMENT
+	 * <ul class="paragraph-width"><li>PENDING PAYMENT
 	 * <li>ACCOUNT VERIFIED
 	 * <li>PENDING FRAUD APPROVAL
 	 * <li>PENDING APPROVAL
@@ -93,26 +93,29 @@ public class CreatedPaymentOutput {
 	 * <li>REFUNDED
 	 * </ul>
 	 * <li>STATUS_UNKNOWN - The status of the payment is unknown at this moment. This category groups the following statuses:
-	 * <ul><li>REDIRECTED
+	 * <ul class="paragraph-width"><li>REDIRECTED
 	 * </ul>
 	 * </ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
+	 *
+	 * @deprecated Use payment.statusOutput.statusCategory instead
 	 */
+	@Deprecated
 	public String getPaymentStatusCategory() {
 		return paymentStatusCategory;
 	}
 
 	/**
 	 * Highlevel indication of the payment status with the following possible values:
-	 * <ul><li>REJECTED - The payment has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
-	 * <ul><li>CREATED
+	 * <ul class="paragraph-width"><li>REJECTED - The payment has been rejected or is in such a state that it will never become successful. This category groups the following statuses:
+	 * <ul class="paragraph-width"><li>CREATED
 	 * <li>REJECTED
 	 * <li>REJECTED CAPTURE
 	 * <li>REJECTED REFUND
 	 * <li>REJECTED PAYOUT
 	 * <li>CANCELLED</ul>
 	 * <li>SUCCESSFUL - The payment was not (yet) rejected. Use the payment statuses to determine if it was completed, see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a>. This category groups the following statuses:
-	 * <ul><li>PENDING PAYMENT
+	 * <ul class="paragraph-width"><li>PENDING PAYMENT
 	 * <li>ACCOUNT VERIFIED
 	 * <li>PENDING FRAUD APPROVAL
 	 * <li>PENDING APPROVAL
@@ -129,11 +132,14 @@ public class CreatedPaymentOutput {
 	 * <li>REFUNDED
 	 * </ul>
 	 * <li>STATUS_UNKNOWN - The status of the payment is unknown at this moment. This category groups the following statuses:
-	 * <ul><li>REDIRECTED
+	 * <ul class="paragraph-width"><li>REDIRECTED
 	 * </ul>
 	 * </ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
+	 *
+	 * @deprecated Use payment.statusOutput.statusCategory instead
 	 */
+	@Deprecated
 	public void setPaymentStatusCategory(String value) {
 		this.paymentStatusCategory = value;
 	}

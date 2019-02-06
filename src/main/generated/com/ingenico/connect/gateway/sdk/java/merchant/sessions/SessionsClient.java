@@ -30,7 +30,7 @@ public class SessionsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/sessions
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/sessions/create.html">Create session</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/sessions/create.html">Create session</a>
 	 *
 	 * @param body SessionRequest
 	 * @return SessionResponse
@@ -49,7 +49,7 @@ public class SessionsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/sessions
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/sessions/create.html">Create session</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/sessions/create.html">Create session</a>
 	 *
 	 * @param body SessionRequest
 	 * @param context CallContext

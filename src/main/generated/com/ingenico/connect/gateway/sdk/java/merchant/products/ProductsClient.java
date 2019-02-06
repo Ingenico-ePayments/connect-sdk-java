@@ -38,7 +38,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/find.html">Get payment products</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/find.html">Get payment products</a>
 	 *
 	 * @param query FindProductsParams
 	 * @return PaymentProducts
@@ -57,7 +57,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/find.html">Get payment products</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/find.html">Get payment products</a>
 	 *
 	 * @param query FindProductsParams
 	 * @param context CallContext
@@ -90,7 +90,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query GetProductParams
@@ -110,7 +110,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query GetProductParams
@@ -146,7 +146,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/directory
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/directory.html">Get payment product directory</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/directory.html">Get payment product directory</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query DirectoryParams
@@ -166,7 +166,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/directory
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/directory.html">Get payment product directory</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/directory.html">Get payment product directory</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query DirectoryParams
@@ -202,7 +202,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/customerDetails
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param body GetCustomerDetailsRequest
@@ -222,7 +222,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/customerDetails
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/customerDetails.html">Get customer details</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param body GetCustomerDetailsRequest
@@ -259,7 +259,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/deviceFingerprint
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/deviceFingerprint.html">Get device fingerprint</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/deviceFingerprint.html">Get device fingerprint</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param body DeviceFingerprintRequest
@@ -279,7 +279,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/deviceFingerprint
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/deviceFingerprint.html">Get device fingerprint</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/deviceFingerprint.html">Get device fingerprint</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param body DeviceFingerprintRequest
@@ -316,7 +316,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/networks
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query NetworksParams
@@ -336,7 +336,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/networks
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/networks.html">Get payment product networks</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param query NetworksParams
@@ -372,7 +372,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/publicKey
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @return PublicKey
@@ -391,7 +391,7 @@ public class ProductsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products/{paymentProductId}/publicKey
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
 	 *
 	 * @param paymentProductId Integer
 	 * @param context CallContext

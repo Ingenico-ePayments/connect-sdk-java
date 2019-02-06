@@ -32,7 +32,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/create.html">Create mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/create.html">Create mandate</a>
 	 *
 	 * @param body CreateMandateRequest
 	 * @return CreateMandateResponse
@@ -51,7 +51,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/create.html">Create mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/create.html">Create mandate</a>
 	 *
 	 * @param body CreateMandateRequest
 	 * @param context CallContext
@@ -85,7 +85,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/createWithMandateReference.html">Create mandate with mandatereference</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/createWithMandateReference.html">Create mandate with mandatereference</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @param body CreateMandateRequest
@@ -105,7 +105,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/createWithMandateReference.html">Create mandate with mandatereference</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/createWithMandateReference.html">Create mandate with mandatereference</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @param body CreateMandateRequest
@@ -142,7 +142,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @return GetMandateResponse
@@ -161,7 +161,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/get.html">Get mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @param context CallContext
@@ -196,7 +196,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}/block
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/block.html">Block mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/block.html">Block mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @return GetMandateResponse
@@ -215,7 +215,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}/block
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/block.html">Block mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/block.html">Block mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @param context CallContext
@@ -251,7 +251,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}/unblock
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/unblock.html">Unblock mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/unblock.html">Unblock mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @return GetMandateResponse
@@ -270,7 +270,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}/unblock
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/unblock.html">Unblock mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/unblock.html">Unblock mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @param context CallContext
@@ -306,7 +306,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}/revoke
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/revoke.html">Revoke mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/revoke.html">Revoke mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @return GetMandateResponse
@@ -325,7 +325,7 @@ public class MandatesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates/{uniqueMandateReference}/revoke
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/revoke.html">Revoke mandate</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/mandates/revoke.html">Revoke mandate</a>
 	 *
 	 * @param uniqueMandateReference String
 	 * @param context CallContext

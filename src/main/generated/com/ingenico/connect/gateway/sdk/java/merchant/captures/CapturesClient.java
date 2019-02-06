@@ -30,7 +30,7 @@ public class CapturesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/captures/{captureId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/captures/get.html">Get capture</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/captures/get.html">Get capture</a>
 	 *
 	 * @param captureId String
 	 * @return CaptureResponse
@@ -49,7 +49,7 @@ public class CapturesClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/captures/{captureId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/captures/get.html">Get capture</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/captures/get.html">Get capture</a>
 	 *
 	 * @param captureId String
 	 * @param context CallContext

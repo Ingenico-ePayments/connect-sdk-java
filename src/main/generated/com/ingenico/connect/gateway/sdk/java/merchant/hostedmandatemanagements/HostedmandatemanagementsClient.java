@@ -32,7 +32,7 @@ public class HostedmandatemanagementsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/hostedmandatemanagements
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/create.html">Create hosted mandate management</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/create.html">Create hosted mandate management</a>
 	 *
 	 * @param body CreateHostedMandateManagementRequest
 	 * @return CreateHostedMandateManagementResponse
@@ -51,7 +51,7 @@ public class HostedmandatemanagementsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/hostedmandatemanagements
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/create.html">Create hosted mandate management</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/create.html">Create hosted mandate management</a>
 	 *
 	 * @param body CreateHostedMandateManagementRequest
 	 * @param context CallContext
@@ -85,7 +85,7 @@ public class HostedmandatemanagementsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/hostedmandatemanagements/{hostedMandateManagementId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/get.html">Get hosted mandate management status</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/get.html">Get hosted mandate management status</a>
 	 *
 	 * @param hostedMandateManagementId String
 	 * @return GetHostedMandateManagementResponse
@@ -104,7 +104,7 @@ public class HostedmandatemanagementsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/hostedmandatemanagements/{hostedMandateManagementId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/get.html">Get hosted mandate management status</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/hostedmandatemanagements/get.html">Get hosted mandate management status</a>
 	 *
 	 * @param hostedMandateManagementId String
 	 * @param context CallContext

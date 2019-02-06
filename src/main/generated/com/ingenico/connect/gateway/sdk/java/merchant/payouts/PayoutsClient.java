@@ -35,7 +35,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/create.html">Create payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/create.html">Create payout</a>
 	 *
 	 * @param body CreatePayoutRequest
 	 * @return PayoutResponse
@@ -55,7 +55,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/create.html">Create payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/create.html">Create payout</a>
 	 *
 	 * @param body CreatePayoutRequest
 	 * @param context CallContext
@@ -90,7 +90,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
 	 *
 	 * @param query FindPayoutsParams
 	 * @return FindPayoutsResponse
@@ -109,7 +109,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/find.html">Find payouts</a>
 	 *
 	 * @param query FindPayoutsParams
 	 * @param context CallContext
@@ -142,7 +142,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/get.html">Get payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/get.html">Get payout</a>
 	 *
 	 * @param payoutId String
 	 * @return PayoutResponse
@@ -161,7 +161,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/get.html">Get payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/get.html">Get payout</a>
 	 *
 	 * @param payoutId String
 	 * @param context CallContext
@@ -196,7 +196,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}/approve
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/approve.html">Approve payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/approve.html">Approve payout</a>
 	 *
 	 * @param payoutId String
 	 * @param body ApprovePayoutRequest
@@ -216,7 +216,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}/approve
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/approve.html">Approve payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/approve.html">Approve payout</a>
 	 *
 	 * @param payoutId String
 	 * @param body ApprovePayoutRequest
@@ -253,7 +253,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}/cancel
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancel.html">Cancel payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancel.html">Cancel payout</a>
 	 *
 	 * @param payoutId String
 	 * @return Void
@@ -272,7 +272,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}/cancel
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancel.html">Cancel payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancel.html">Cancel payout</a>
 	 *
 	 * @param payoutId String
 	 * @param context CallContext
@@ -308,7 +308,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}/cancelapproval
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancelapproval.html">Undo approve payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancelapproval.html">Undo approve payout</a>
 	 *
 	 * @param payoutId String
 	 * @return Void
@@ -327,7 +327,7 @@ public class PayoutsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payouts/{payoutId}/cancelapproval
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancelapproval.html">Undo approve payout</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancelapproval.html">Undo approve payout</a>
 	 *
 	 * @param payoutId String
 	 * @param context CallContext

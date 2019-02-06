@@ -2,9 +2,10 @@
  * This class was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
-package com.ingenico.connect.gateway.sdk.java.merchant.riskassessments;
+package com.ingenico.connect.gateway.sdk.java.merchant.disputes;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
@@ -15,26 +16,24 @@ import com.ingenico.connect.gateway.sdk.java.IdempotenceException;
 import com.ingenico.connect.gateway.sdk.java.ReferenceException;
 import com.ingenico.connect.gateway.sdk.java.ResponseException;
 import com.ingenico.connect.gateway.sdk.java.ValidationException;
+import com.ingenico.connect.gateway.sdk.java.domain.dispute.DisputeResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.errors.ErrorResponse;
-import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessmentBankAccount;
-import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessmentCard;
-import com.ingenico.connect.gateway.sdk.java.domain.riskassessments.RiskAssessmentResponse;
 
 /**
- * Riskassessments client. Thread-safe.
+ * Disputes client. Thread-safe.
  */
-public class RiskassessmentsClient extends ApiResource {
+public class DisputesClient extends ApiResource {
 
-	public RiskassessmentsClient(ApiResource parent, Map<String, String> pathContext) {
+	public DisputesClient(ApiResource parent, Map<String, String> pathContext) {
 		super(parent, pathContext);
 	}
 
 	/**
-	 * Resource /{merchantId}/riskassessments/bankaccounts
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/bankaccounts.html">Risk-assess bankaccount</a>
+	 * Resource /{merchantId}/disputes/{disputeId}
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/disputes/get.html">Get dispute</a>
 	 *
-	 * @param body RiskAssessmentBankAccount
-	 * @return RiskAssessmentResponse
+	 * @param disputeId String
+	 * @return DisputeResponse
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -44,17 +43,17 @@ public class RiskassessmentsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public RiskAssessmentResponse bankaccounts(RiskAssessmentBankAccount body) {
-		return bankaccounts(body, null);
+	public DisputeResponse get(String disputeId) {
+		return get(disputeId, null);
 	}
 
 	/**
-	 * Resource /{merchantId}/riskassessments/bankaccounts
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/bankaccounts.html">Risk-assess bankaccount</a>
+	 * Resource /{merchantId}/disputes/{disputeId}
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/disputes/get.html">Get dispute</a>
 	 *
-	 * @param body RiskAssessmentBankAccount
+	 * @param disputeId String
 	 * @param context CallContext
-	 * @return RiskAssessmentResponse
+	 * @return DisputeResponse
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -65,15 +64,16 @@ public class RiskassessmentsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public RiskAssessmentResponse bankaccounts(RiskAssessmentBankAccount body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/riskassessments/bankaccounts", null);
+	public DisputeResponse get(String disputeId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("disputeId", disputeId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/disputes/{disputeId}", pathContext);
 		try {
-			return communicator.post(
+			return communicator.get(
 					uri,
 					getClientHeaders(),
 					null,
-					body,
-					RiskAssessmentResponse.class,
+					DisputeResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;
@@ -83,11 +83,11 @@ public class RiskassessmentsClient extends ApiResource {
 	}
 
 	/**
-	 * Resource /{merchantId}/riskassessments/cards
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/cards.html">Risk-assess card</a>
+	 * Resource /{merchantId}/disputes/{disputeId}/submit
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/disputes/submit.html">Submit dispute</a>
 	 *
-	 * @param body RiskAssessmentCard
-	 * @return RiskAssessmentResponse
+	 * @param disputeId String
+	 * @return DisputeResponse
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -97,17 +97,17 @@ public class RiskassessmentsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public RiskAssessmentResponse cards(RiskAssessmentCard body) {
-		return cards(body, null);
+	public DisputeResponse submit(String disputeId) {
+		return submit(disputeId, null);
 	}
 
 	/**
-	 * Resource /{merchantId}/riskassessments/cards
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/riskassessments/cards.html">Risk-assess card</a>
+	 * Resource /{merchantId}/disputes/{disputeId}/submit
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/disputes/submit.html">Submit dispute</a>
 	 *
-	 * @param body RiskAssessmentCard
+	 * @param disputeId String
 	 * @param context CallContext
-	 * @return RiskAssessmentResponse
+	 * @return DisputeResponse
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -118,15 +118,17 @@ public class RiskassessmentsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public RiskAssessmentResponse cards(RiskAssessmentCard body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/riskassessments/cards", null);
+	public DisputeResponse submit(String disputeId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("disputeId", disputeId);
+		String uri = instantiateUri("/{apiVersion}/{merchantId}/disputes/{disputeId}/submit", pathContext);
 		try {
 			return communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
-					body,
-					RiskAssessmentResponse.class,
+					null,
+					DisputeResponse.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

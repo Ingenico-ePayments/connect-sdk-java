@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.ingenico.connect.gateway.sdk.java.ApiResource;
 import com.ingenico.connect.gateway.sdk.java.merchant.captures.CapturesClient;
+import com.ingenico.connect.gateway.sdk.java.merchant.disputes.DisputesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.hostedcheckouts.HostedcheckoutsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.hostedmandatemanagements.HostedmandatemanagementsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.mandates.MandatesClient;
@@ -32,7 +33,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/hostedcheckouts
-	 * Create new hosted checkout
 	 *
 	 * @return HostedcheckoutsClient
 	 */
@@ -42,7 +42,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/hostedmandatemanagements
-	 * Create new hosted mandate management
 	 *
 	 * @return HostedmandatemanagementsClient
 	 */
@@ -52,7 +51,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/payments
-	 * Create, cancel and approve payments
 	 *
 	 * @return PaymentsClient
 	 */
@@ -62,7 +60,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/captures
-	 * Get capture
 	 *
 	 * @return CapturesClient
 	 */
@@ -72,7 +69,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds
-	 * Create, cancel and approve refunds
 	 *
 	 * @return RefundsClient
 	 */
@@ -81,8 +77,16 @@ public class MerchantClient extends ApiResource {
 	}
 
 	/**
+	 * Resource /{merchantId}/disputes
+	 *
+	 * @return DisputesClient
+	 */
+	public DisputesClient disputes() {
+		return new DisputesClient(this, null);
+	}
+
+	/**
 	 * Resource /{merchantId}/payouts
-	 * Create, cancel and approve payouts
 	 *
 	 * @return PayoutsClient
 	 */
@@ -92,7 +96,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/productgroups
-	 * Get information about payment product groups
 	 *
 	 * @return ProductgroupsClient
 	 */
@@ -102,7 +105,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/products
-	 * Get information about payment products
 	 *
 	 * @return ProductsClient
 	 */
@@ -112,7 +114,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/riskassessments
-	 * Perform risk assessments on your customer data
 	 *
 	 * @return RiskassessmentsClient
 	 */
@@ -122,7 +123,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/services
-	 * Several services to help you
 	 *
 	 * @return ServicesClient
 	 */
@@ -132,7 +132,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/tokens
-	 * Create, delete and update tokens
 	 *
 	 * @return TokensClient
 	 */
@@ -142,7 +141,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/mandates
-	 * Create, get and update mandates
 	 *
 	 * @return MandatesClient
 	 */
@@ -152,7 +150,6 @@ public class MerchantClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/sessions
-	 * Create new Session for Client2Server API calls
 	 *
 	 * @return SessionsClient
 	 */

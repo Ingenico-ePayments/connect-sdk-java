@@ -32,7 +32,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/find.html">Find refunds</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/find.html">Find refunds</a>
 	 *
 	 * @param query FindRefundsParams
 	 * @return FindRefundsResponse
@@ -51,7 +51,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/find.html">Find refunds</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/find.html">Find refunds</a>
 	 *
 	 * @param query FindRefundsParams
 	 * @param context CallContext
@@ -84,7 +84,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/get.html">Get refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/get.html">Get refund</a>
 	 *
 	 * @param refundId String
 	 * @return RefundResponse
@@ -103,7 +103,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/get.html">Get refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/get.html">Get refund</a>
 	 *
 	 * @param refundId String
 	 * @param context CallContext
@@ -138,7 +138,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/approve
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/approve.html">Approve refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/approve.html">Approve refund</a>
 	 *
 	 * @param refundId String
 	 * @param body ApproveRefundRequest
@@ -158,7 +158,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/approve
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/approve.html">Approve refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/approve.html">Approve refund</a>
 	 *
 	 * @param refundId String
 	 * @param body ApproveRefundRequest
@@ -195,7 +195,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancel
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancel.html">Cancel refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancel.html">Cancel refund</a>
 	 *
 	 * @param refundId String
 	 * @return Void
@@ -214,7 +214,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancel
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancel.html">Cancel refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancel.html">Cancel refund</a>
 	 *
 	 * @param refundId String
 	 * @param context CallContext
@@ -250,7 +250,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancelapproval
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancelapproval.html">Undo approve refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancelapproval.html">Undo approve refund</a>
 	 *
 	 * @param refundId String
 	 * @return Void
@@ -269,7 +269,7 @@ public class RefundsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/refunds/{refundId}/cancelapproval
-	 * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancelapproval.html">Undo approve refund</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancelapproval.html">Undo approve refund</a>
 	 *
 	 * @param refundId String
 	 * @param context CallContext

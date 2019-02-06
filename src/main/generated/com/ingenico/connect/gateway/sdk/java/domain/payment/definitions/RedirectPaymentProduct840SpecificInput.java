@@ -7,7 +7,7 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 /**
  * Please find below specific input fields for payment product 840 (PayPal)
  */
-public class RedirectPaymentProduct840SpecificInput {
+public class RedirectPaymentProduct840SpecificInput extends AbstractRedirectPaymentProduct840SpecificInput {
 
 	private String custom = null;
 
@@ -34,14 +34,14 @@ public class RedirectPaymentProduct840SpecificInput {
 	}
 
 	/**
-	 * Indicates whether to use PayPal Express Checkout. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
+	 * <div class="deprecated-wrapper depends-wrapper">Deprecated: If your PayPal payments are processed by Ingenico's Ogone Payment Platform, please use the field addressSelectionAtPayPal instead.</div><br>Indicates whether to use PayPal Express Checkout for payments processed by Ingenico's GlobalCollect Payment Platform. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>. For payments processed by Ingenico's Ogone Payment Platform, please see the addressSelectionAtPayPal field for more information.
 	 */
 	public Boolean getIsShortcut() {
 		return isShortcut;
 	}
 
 	/**
-	 * Indicates whether to use PayPal Express Checkout. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
+	 * <div class="deprecated-wrapper depends-wrapper">Deprecated: If your PayPal payments are processed by Ingenico's Ogone Payment Platform, please use the field addressSelectionAtPayPal instead.</div><br>Indicates whether to use PayPal Express Checkout for payments processed by Ingenico's GlobalCollect Payment Platform. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>. For payments processed by Ingenico's Ogone Payment Platform, please see the addressSelectionAtPayPal field for more information.
 	 */
 	public void setIsShortcut(Boolean value) {
 		this.isShortcut = value;

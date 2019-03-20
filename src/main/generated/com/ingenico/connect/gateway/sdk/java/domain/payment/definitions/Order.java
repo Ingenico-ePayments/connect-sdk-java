@@ -22,6 +22,8 @@ public class Order {
 
 	private Seller seller = null;
 
+	private Shipping shipping = null;
+
 	private ShoppingCart shoppingCart = null;
 
 	/**
@@ -112,6 +114,20 @@ public class Order {
 	 */
 	public void setSeller(Seller value) {
 		this.seller = value;
+	}
+
+	/**
+	 * Object containing information regarding shipping / delivery
+	 */
+	public Shipping getShipping() {
+		return shipping;
+	}
+
+	/**
+	 * Object containing information regarding shipping / delivery
+	 */
+	public void setShipping(Shipping value) {
+		this.shipping = value;
 	}
 
 	/**

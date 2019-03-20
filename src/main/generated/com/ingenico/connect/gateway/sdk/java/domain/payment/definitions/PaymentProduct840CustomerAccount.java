@@ -15,6 +15,8 @@ public class PaymentProduct840CustomerAccount {
 
 	private String companyName = null;
 
+	private String contactPhone = null;
+
 	private String countryCode = null;
 
 	private String customerAccountStatus = null;
@@ -67,6 +69,20 @@ public class PaymentProduct840CustomerAccount {
 	 */
 	public void setCompanyName(String value) {
 		this.companyName = value;
+	}
+
+	/**
+	 * The phone number of the PayPal account holder
+	 */
+	public String getContactPhone() {
+		return contactPhone;
+	}
+
+	/**
+	 * The phone number of the PayPal account holder
+	 */
+	public void setContactPhone(String value) {
+		this.contactPhone = value;
 	}
 
 	/**

@@ -61,7 +61,7 @@ public class CreateHostedCheckoutResponse {
 	}
 
 	/**
-	 * This field will contain the <span class="property">merchantReference</span> you provided in case you included one in the Create hostedCheckout API call. In case you didn't provide one the system will generate one for you (for the Ogone payment platform only) to allow you to link any created payment to this hostedCheckout.
+	 * This property will contain the <span class="property">merchantReference</span> you provided in case you included one in the Create Hosted Checkout API call. In case you didn't provide one the system will generate one for you (for the Ogone payment platform only) to allow you to link any created payment to this hostedCheckout.
 	 * To relate a payment done by the consumer in a hostedCheckout session you can use the following fields:
 	 * <ul class="paragraph-width"><li><span class="property">paymentOutput.references.merchantReference</span> (for the GlobalCollect payment engine this is only possible when you supply a <span class="property">merchantReference</span> during the creation of the hostedCheckout)</li>
 	 * <li>hostedCheckoutSpecificOutput.hostedCheckoutId (only returned when using the GlobalCollect payment engine)</li></ul>
@@ -71,7 +71,7 @@ public class CreateHostedCheckoutResponse {
 	}
 
 	/**
-	 * This field will contain the <span class="property">merchantReference</span> you provided in case you included one in the Create hostedCheckout API call. In case you didn't provide one the system will generate one for you (for the Ogone payment platform only) to allow you to link any created payment to this hostedCheckout.
+	 * This property will contain the <span class="property">merchantReference</span> you provided in case you included one in the Create Hosted Checkout API call. In case you didn't provide one the system will generate one for you (for the Ogone payment platform only) to allow you to link any created payment to this hostedCheckout.
 	 * To relate a payment done by the consumer in a hostedCheckout session you can use the following fields:
 	 * <ul class="paragraph-width"><li><span class="property">paymentOutput.references.merchantReference</span> (for the GlobalCollect payment engine this is only possible when you supply a <span class="property">merchantReference</span> during the creation of the hostedCheckout)</li>
 	 * <li>hostedCheckoutSpecificOutput.hostedCheckoutId (only returned when using the GlobalCollect payment engine)</li></ul>

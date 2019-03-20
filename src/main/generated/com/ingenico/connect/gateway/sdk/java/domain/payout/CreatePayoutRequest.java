@@ -49,7 +49,7 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK. Either a BBAN account or an IBAN account should be provided, but not both.
+	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK.
 	 *
 	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountBban instead
 	 */
@@ -59,7 +59,7 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK. Either a BBAN account or an IBAN account should be provided, but not both.
+	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK.
 	 *
 	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountBban instead
 	 */
@@ -69,7 +69,7 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing account holder and IBAN information. Either a BBAN account or an IBAN account should be provided, but not both.
+	 * Object containing account holder and IBAN information.
 	 *
 	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountIban instead
 	 */
@@ -79,7 +79,7 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing account holder and IBAN information. Either a BBAN account or an IBAN account should be provided, but not both.
+	 * Object containing account holder and IBAN information.
 	 *
 	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountIban instead
 	 */

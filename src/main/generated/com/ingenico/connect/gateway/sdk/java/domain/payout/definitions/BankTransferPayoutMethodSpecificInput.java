@@ -22,14 +22,14 @@ public class BankTransferPayoutMethodSpecificInput extends AbstractPayoutMethodS
 	private String swiftCode = null;
 
 	/**
-	 * Object containing account holder name and bank account information.
+	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK.
 	 */
 	public BankAccountBban getBankAccountBban() {
 		return bankAccountBban;
 	}
 
 	/**
-	 * Object containing account holder name and bank account information.
+	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK.
 	 */
 	public void setBankAccountBban(BankAccountBban value) {
 		this.bankAccountBban = value;

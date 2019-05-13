@@ -35,14 +35,14 @@ public class PrivacypolicyParams extends AbstractParamRequest {
 	}
 
 	/**
-	 * ID of the payment product for which you wish to retrieve the privacy policy. When no ID is provided you will receive all privacy policies for your payment products. 
+	 * ID of the payment product for which you wish to retrieve the privacy policy. When no ID is provided you will receive all privacy policies for your payment products.
 	 */
 	public Integer getPaymentProductId() {
 		return paymentProductId;
 	}
 
 	/**
-	 * ID of the payment product for which you wish to retrieve the privacy policy. When no ID is provided you will receive all privacy policies for your payment products. 
+	 * ID of the payment product for which you wish to retrieve the privacy policy. When no ID is provided you will receive all privacy policies for your payment products.
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;

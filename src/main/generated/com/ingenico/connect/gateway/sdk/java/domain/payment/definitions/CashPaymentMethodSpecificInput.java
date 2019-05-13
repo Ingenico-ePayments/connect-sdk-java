@@ -6,20 +6,27 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class CashPaymentMethodSpecificInput extends AbstractCashPaymentMethodSpecificInput {
 
+	@SuppressWarnings("deprecation")
 	private CashPaymentProduct1503SpecificInput paymentProduct1503SpecificInput = null;
 
 	private CashPaymentProduct1504SpecificInput paymentProduct1504SpecificInput = null;
 
 	/**
 	 * Object that holds the specific data for Boleto Bancario in Brazil (payment product 1503)
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public CashPaymentProduct1503SpecificInput getPaymentProduct1503SpecificInput() {
 		return paymentProduct1503SpecificInput;
 	}
 
 	/**
 	 * Object that holds the specific data for Boleto Bancario in Brazil (payment product 1503)
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public void setPaymentProduct1503SpecificInput(CashPaymentProduct1503SpecificInput value) {
 		this.paymentProduct1503SpecificInput = value;
 	}

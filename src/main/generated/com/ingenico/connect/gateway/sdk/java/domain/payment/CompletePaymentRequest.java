@@ -5,11 +5,14 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment;
 
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CompletePaymentCardPaymentMethodSpecificInput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Merchant;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
 
 public class CompletePaymentRequest {
 
 	private CompletePaymentCardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = null;
+
+	private Merchant merchant = null;
 
 	private Order order = null;
 
@@ -25,6 +28,20 @@ public class CompletePaymentRequest {
 	 */
 	public void setCardPaymentMethodSpecificInput(CompletePaymentCardPaymentMethodSpecificInput value) {
 		this.cardPaymentMethodSpecificInput = value;
+	}
+
+	/**
+	 * Object containing information on you, the merchant
+	 */
+	public Merchant getMerchant() {
+		return merchant;
+	}
+
+	/**
+	 * Object containing information on you, the merchant
+	 */
+	public void setMerchant(Merchant value) {
+		this.merchant = value;
 	}
 
 	/**

@@ -32,14 +32,14 @@ public class GetCustomerDetailsRequest {
 	}
 
 	/**
-	 * A list of keys with a value used to retrieve the details of a consumer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product fields with the field <span class="property">usedForLookup</span> set to true.
+	 * A list of keys with a value used to retrieve the details of a customer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product properties with the property usedForLookup set to true.
 	 */
 	public List<KeyValuePair> getValues() {
 		return values;
 	}
 
 	/**
-	 * A list of keys with a value used to retrieve the details of a consumer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product fields with the field <span class="property">usedForLookup</span> set to true.
+	 * A list of keys with a value used to retrieve the details of a customer. Depending on the country code, different keys are required. These can be determined with a getPaymentProduct call and using payment product properties with the property usedForLookup set to true.
 	 */
 	public void setValues(List<KeyValuePair> value) {
 		this.values = value;

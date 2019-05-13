@@ -9,14 +9,14 @@ public class ContactDetailsRiskAssessment {
 	private String emailAddress = null;
 
 	/**
-	 * Email address of the consumer
+	 * Email address of the customer
 	 */
 	public String getEmailAddress() {
 		return emailAddress;
 	}
 
 	/**
-	 * Email address of the consumer
+	 * Email address of the customer
 	 */
 	public void setEmailAddress(String value) {
 		this.emailAddress = value;

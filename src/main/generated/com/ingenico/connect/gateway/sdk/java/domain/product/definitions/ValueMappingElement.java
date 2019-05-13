@@ -31,7 +31,7 @@ public class ValueMappingElement {
 	/**
 	 * Key name
 	 *
-	 * @deprecated use displayElement with ID 'displayName' instead.
+	 * @deprecated Use displayElements instead with ID 'displayName'
 	 */
 	@Deprecated
 	public String getDisplayName() {
@@ -41,7 +41,7 @@ public class ValueMappingElement {
 	/**
 	 * Key name
 	 *
-	 * @deprecated use displayElement with ID 'displayName' instead.
+	 * @deprecated Use displayElements instead with ID 'displayName'
 	 */
 	@Deprecated
 	public void setDisplayName(String value) {

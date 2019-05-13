@@ -74,7 +74,6 @@ public class RiskAssessmentCardsExample {
 			airlineData.setFlightLegs(flightLegs);
 			airlineData.setInvoiceNumber("123456");
 			airlineData.setIsETicket(true);
-			airlineData.setIsRegisteredCustomer(true);
 			airlineData.setIsRestrictedTicket(true);
 			airlineData.setIsThirdParty(true);
 			airlineData.setIssueDate("20150101");
@@ -99,6 +98,7 @@ public class RiskAssessmentCardsExample {
 			billingAddress.setCountryCode("US");
 
 			CustomerRiskAssessment customer = new CustomerRiskAssessment();
+			customer.setAccountType("existing");
 			customer.setBillingAddress(billingAddress);
 			customer.setLocale("en_US");
 

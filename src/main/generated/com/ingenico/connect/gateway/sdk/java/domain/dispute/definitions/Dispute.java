@@ -17,14 +17,14 @@ public class Dispute {
 	private DisputeStatusOutput statusOutput = null;
 
 	/**
-	 * This field contains the creationDetails and default information regarding a dispute.
+	 * This property contains the creationDetails and default information regarding a dispute.
 	 */
 	public DisputeOutput getDisputeOutput() {
 		return disputeOutput;
 	}
 
 	/**
-	 * This field contains the creationDetails and default information regarding a dispute.
+	 * This property contains the creationDetails and default information regarding a dispute.
 	 */
 	public void setDisputeOutput(DisputeOutput value) {
 		this.disputeOutput = value;
@@ -73,14 +73,14 @@ public class Dispute {
 	}
 
 	/**
-	 * This field contains the output for a dispute regarding the status of the dispute.
+	 * This property contains the output for a dispute regarding the status of the dispute.
 	 */
 	public DisputeStatusOutput getStatusOutput() {
 		return statusOutput;
 	}
 
 	/**
-	 * This field contains the output for a dispute regarding the status of the dispute.
+	 * This property contains the output for a dispute regarding the status of the dispute.
 	 */
 	public void setStatusOutput(DisputeStatusOutput value) {
 		this.statusOutput = value;

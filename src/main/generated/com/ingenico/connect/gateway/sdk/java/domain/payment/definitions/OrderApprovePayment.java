@@ -10,6 +10,8 @@ public class OrderApprovePayment {
 
 	private AdditionalOrderInputAirlineData additionalInput = null;
 
+	private CustomerApprovePayment customer = null;
+
 	private OrderReferencesApprovePayment references = null;
 
 	/**
@@ -27,14 +29,28 @@ public class OrderApprovePayment {
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object containing data related to the customer
+	 */
+	public CustomerApprovePayment getCustomer() {
+		return customer;
+	}
+
+	/**
+	 * Object containing data related to the customer
+	 */
+	public void setCustomer(CustomerApprovePayment value) {
+		this.customer = value;
+	}
+
+	/**
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public OrderReferencesApprovePayment getReferences() {
 		return references;
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public void setReferences(OrderReferencesApprovePayment value) {
 		this.references = value;

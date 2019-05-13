@@ -9,14 +9,14 @@ public class CreateMandateWithReturnUrl extends CreateMandateBase {
 	private String returnUrl = null;
 
 	/**
-	 * Return url to use if the mandate signing requires redirection.
+	 * Return URL to use if the mandate signing requires redirection.
 	 */
 	public String getReturnUrl() {
 		return returnUrl;
 	}
 
 	/**
-	 * Return url to use if the mandate signing requires redirection.
+	 * Return URL to use if the mandate signing requires redirection.
 	 */
 	public void setReturnUrl(String value) {
 		this.returnUrl = value;

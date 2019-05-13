@@ -48,14 +48,14 @@ public class CancelPaymentResponse {
 	}
 
 	/**
-	 * Object that holds the payment related fields
+	 * Object that holds the payment related properties
 	 */
 	public Payment getPayment() {
 		return payment;
 	}
 
 	/**
-	 * Object that holds the payment related fields
+	 * Object that holds the payment related properties
 	 */
 	public void setPayment(Payment value) {
 		this.payment = value;

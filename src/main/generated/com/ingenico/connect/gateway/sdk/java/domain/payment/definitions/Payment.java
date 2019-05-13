@@ -49,7 +49,7 @@ public class Payment extends AbstractOrderStatus {
 	 * <ul class="paragraph-width">
 	 * <li>ACCOUNT_VERIFIED - The account has been verified using a validation services like 0$ auth
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment is created.
-	 * <li>REDIRECTED - The consumer has been redirected to a 3rd party to complete the authentication/payment
+	 * <li>REDIRECTED - The customer has been redirected to a 3rd party to complete the authentication/payment
 	 * <li>PENDING_PAYMENT - Instructions have been provided and we are now waiting for the money to come in
 	 * <li>PENDING_FRAUD_APPROVAL - The transaction has been marked for manual review after an automatic fraud screening
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the capturing of the funds
@@ -78,7 +78,7 @@ public class Payment extends AbstractOrderStatus {
 	 * <ul class="paragraph-width">
 	 * <li>ACCOUNT_VERIFIED - The account has been verified using a validation services like 0$ auth
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment is created.
-	 * <li>REDIRECTED - The consumer has been redirected to a 3rd party to complete the authentication/payment
+	 * <li>REDIRECTED - The customer has been redirected to a 3rd party to complete the authentication/payment
 	 * <li>PENDING_PAYMENT - Instructions have been provided and we are now waiting for the money to come in
 	 * <li>PENDING_FRAUD_APPROVAL - The transaction has been marked for manual review after an automatic fraud screening
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the capturing of the funds

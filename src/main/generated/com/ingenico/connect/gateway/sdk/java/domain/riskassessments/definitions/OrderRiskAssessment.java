@@ -15,6 +15,8 @@ public class OrderRiskAssessment {
 
 	private CustomerRiskAssessment customer = null;
 
+	private ShippingRiskAssessment shipping = null;
+
 	/**
 	 * Object containing additional input on the order
 	 */
@@ -44,16 +46,30 @@ public class OrderRiskAssessment {
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public CustomerRiskAssessment getCustomer() {
 		return customer;
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public void setCustomer(CustomerRiskAssessment value) {
 		this.customer = value;
+	}
+
+	/**
+	 * Object containing information regarding shipping / delivery
+	 */
+	public ShippingRiskAssessment getShipping() {
+		return shipping;
+	}
+
+	/**
+	 * Object containing information regarding shipping / delivery
+	 */
+	public void setShipping(ShippingRiskAssessment value) {
+		this.shipping = value;
 	}
 }

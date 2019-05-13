@@ -89,14 +89,14 @@ public class PaymentReferences {
 	}
 
 	/**
-	 * When you did not supply a <span class="property">merchantReference</span> for your payment, you need to fill this field with the reference of the original payment when you want to refund it
+	 * When you did not supply a merchantReference for your payment, you need to fill this property with the reference of the original payment when you want to refund it
 	 */
 	public String getReferenceOrigPayment() {
 		return referenceOrigPayment;
 	}
 
 	/**
-	 * When you did not supply a <span class="property">merchantReference</span> for your payment, you need to fill this field with the reference of the original payment when you want to refund it
+	 * When you did not supply a merchantReference for your payment, you need to fill this property with the reference of the original payment when you want to refund it
 	 */
 	public void setReferenceOrigPayment(String value) {
 		this.referenceOrigPayment = value;

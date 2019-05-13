@@ -11,14 +11,14 @@ public class TokenCard extends AbstractToken {
 	private TokenCardData data = null;
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public CustomerToken getCustomer() {
 		return customer;
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public void setCustomer(CustomerToken value) {
 		this.customer = value;

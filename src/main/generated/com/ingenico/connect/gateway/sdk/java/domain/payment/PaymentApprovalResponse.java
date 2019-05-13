@@ -62,7 +62,7 @@ public class PaymentApprovalResponse {
 
 	/**
 	 * Object containing additional payment method specific details<br>
-	 * Deprecated: this field does not support different outputs for payment methods other than cards. Please use <span class="property">cardPaymentMethodSpecificOutput</span> instead.
+	 * Deprecated: this property does not support different outputs for payment methods other than cards. Please use cardPaymentMethodSpecificOutput instead.
 	 *
 	 * @deprecated Use cardPaymentMethodSpecificOutput instead
 	 */
@@ -73,7 +73,7 @@ public class PaymentApprovalResponse {
 
 	/**
 	 * Object containing additional payment method specific details<br>
-	 * Deprecated: this field does not support different outputs for payment methods other than cards. Please use <span class="property">cardPaymentMethodSpecificOutput</span> instead.
+	 * Deprecated: this property does not support different outputs for payment methods other than cards. Please use cardPaymentMethodSpecificOutput instead.
 	 *
 	 * @deprecated Use cardPaymentMethodSpecificOutput instead
 	 */

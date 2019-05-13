@@ -15,7 +15,7 @@ public class OrderReferences {
 	private String merchantReference = null;
 
 	/**
-	 * Descriptive text that is used towards to consumer, either during an online checkout at a third party and/or on the statement of the consumer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
+	 * Descriptive text that is used towards to customer, either during an online checkout at a third party and/or on the statement of the customer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
 	 * <ul class="paragraph-width"><li>AIB - 22 characters
 	 * <li>American Express - 25 characters
 	 * <li>Atos Origin BNP - 15 characters
@@ -56,7 +56,7 @@ public class OrderReferences {
 	}
 
 	/**
-	 * Descriptive text that is used towards to consumer, either during an online checkout at a third party and/or on the statement of the consumer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
+	 * Descriptive text that is used towards to customer, either during an online checkout at a third party and/or on the statement of the customer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
 	 * <ul class="paragraph-width"><li>AIB - 22 characters
 	 * <li>American Express - 25 characters
 	 * <li>Atos Origin BNP - 15 characters

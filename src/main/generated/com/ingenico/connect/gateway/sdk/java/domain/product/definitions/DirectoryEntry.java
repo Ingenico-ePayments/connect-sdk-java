@@ -33,14 +33,14 @@ public class DirectoryEntry {
 	}
 
 	/**
-	 * Unique ID of the issuing bank of the consumer
+	 * Unique ID of the issuing bank of the customer
 	 */
 	public String getIssuerId() {
 		return issuerId;
 	}
 
 	/**
-	 * Unique ID of the issuing bank of the consumer
+	 * Unique ID of the issuing bank of the customer
 	 */
 	public void setIssuerId(String value) {
 		this.issuerId = value;
@@ -69,14 +69,14 @@ public class DirectoryEntry {
 	}
 
 	/**
-	 * Name of the issuing bank, as it should be presented to the consumer
+	 * Name of the issuing bank, as it should be presented to the customer
 	 */
 	public String getIssuerName() {
 		return issuerName;
 	}
 
 	/**
-	 * Name of the issuing bank, as it should be presented to the consumer
+	 * Name of the issuing bank, as it should be presented to the customer
 	 */
 	public void setIssuerName(String value) {
 		this.issuerName = value;

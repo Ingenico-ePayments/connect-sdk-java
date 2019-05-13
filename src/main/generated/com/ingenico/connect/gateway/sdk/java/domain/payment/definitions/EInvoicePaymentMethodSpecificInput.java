@@ -11,14 +11,14 @@ public class EInvoicePaymentMethodSpecificInput extends AbstractEInvoicePaymentM
 	private EInvoicePaymentProduct9000SpecificInput paymentProduct9000SpecificInput = null;
 
 	/**
-	 * Indicates that the consumer has read and accepted the terms and conditions of the product before proceeding with the payment. This must be done before the payment can continue. An URL to the terms and conditions can be retrieved with <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>.
+	 * Indicates that the customer has read and accepted the terms and conditions of the product before proceeding with the payment. This must be done before the payment can continue. An URL to the terms and conditions can be retrieved with <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>.
 	 */
 	public Boolean getAcceptedTermsAndConditions() {
 		return acceptedTermsAndConditions;
 	}
 
 	/**
-	 * Indicates that the consumer has read and accepted the terms and conditions of the product before proceeding with the payment. This must be done before the payment can continue. An URL to the terms and conditions can be retrieved with <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>.
+	 * Indicates that the customer has read and accepted the terms and conditions of the product before proceeding with the payment. This must be done before the payment can continue. An URL to the terms and conditions can be retrieved with <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/get.html">Get payment product</a>.
 	 */
 	public void setAcceptedTermsAndConditions(Boolean value) {
 		this.acceptedTermsAndConditions = value;

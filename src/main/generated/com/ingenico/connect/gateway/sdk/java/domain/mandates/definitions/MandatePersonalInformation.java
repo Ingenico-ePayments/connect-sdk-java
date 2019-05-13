@@ -11,28 +11,28 @@ public class MandatePersonalInformation {
 	private String title = null;
 
 	/**
-	 * Object containing the name details of the consumer
+	 * Object containing the name details of the customer
 	 */
 	public MandatePersonalName getName() {
 		return name;
 	}
 
 	/**
-	 * Object containing the name details of the consumer
+	 * Object containing the name details of the customer
 	 */
 	public void setName(MandatePersonalName value) {
 		this.name = value;
 	}
 
 	/**
-	 * Object containing the title of the consumer (Mr, Miss or Mrs)
+	 * Object containing the title of the customer (Mr, Miss or Mrs)
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * Object containing the title of the consumer (Mr, Miss or Mrs)
+	 * Object containing the title of the customer (Mr, Miss or Mrs)
 	 */
 	public void setTitle(String value) {
 		this.title = value;

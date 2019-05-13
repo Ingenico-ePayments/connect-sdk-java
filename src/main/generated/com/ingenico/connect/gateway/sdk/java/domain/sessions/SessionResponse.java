@@ -63,14 +63,14 @@ public class SessionResponse {
 	}
 
 	/**
-	 * The session is build up around the consumer in the form of the customerId. All of the Client APIs use this customerId in the URI to identify the consumer.
+	 * The session is build up around the customer in the form of the customerId. All of the Client APIs use this customerId in the URI to identify the customer.
 	 */
 	public String getCustomerId() {
 		return customerId;
 	}
 
 	/**
-	 * The session is build up around the consumer in the form of the customerId. All of the Client APIs use this customerId in the URI to identify the consumer.
+	 * The session is build up around the customer in the form of the customerId. All of the Client APIs use this customerId in the URI to identify the customer.
 	 */
 	public void setCustomerId(String value) {
 		this.customerId = value;

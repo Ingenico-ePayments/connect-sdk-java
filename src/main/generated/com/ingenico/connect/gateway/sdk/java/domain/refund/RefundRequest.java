@@ -50,14 +50,14 @@ public class RefundRequest {
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public RefundCustomer getCustomer() {
 		return customer;
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public void setCustomer(RefundCustomer value) {
 		this.customer = value;
@@ -80,14 +80,14 @@ public class RefundRequest {
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this refund
+	 * Object that holds all reference properties that are linked to this refund
 	 */
 	public RefundReferences getRefundReferences() {
 		return refundReferences;
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this refund
+	 * Object that holds all reference properties that are linked to this refund
 	 */
 	public void setRefundReferences(RefundReferences value) {
 		this.refundReferences = value;

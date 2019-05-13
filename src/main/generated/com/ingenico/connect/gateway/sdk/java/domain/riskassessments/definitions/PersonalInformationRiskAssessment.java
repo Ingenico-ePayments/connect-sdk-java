@@ -9,14 +9,14 @@ public class PersonalInformationRiskAssessment {
 	private PersonalNameRiskAssessment name = null;
 
 	/**
-	 * Object containing the name details of the consumer
+	 * Object containing the name details of the customer
 	 */
 	public PersonalNameRiskAssessment getName() {
 		return name;
 	}
 
 	/**
-	 * Object containing the name details of the consumer
+	 * Object containing the name details of the customer
 	 */
 	public void setName(PersonalNameRiskAssessment value) {
 		this.name = value;

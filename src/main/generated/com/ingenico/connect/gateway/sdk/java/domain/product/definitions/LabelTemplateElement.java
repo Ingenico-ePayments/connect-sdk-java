@@ -11,14 +11,14 @@ public class LabelTemplateElement {
 	private String mask = null;
 
 	/**
-	 * Name of the attribute that is shown to the consumer on selection pages or screens
+	 * Name of the attribute that is shown to the customer on selection pages or screens
 	 */
 	public String getAttributeKey() {
 		return attributeKey;
 	}
 
 	/**
-	 * Name of the attribute that is shown to the consumer on selection pages or screens
+	 * Name of the attribute that is shown to the customer on selection pages or screens
 	 */
 	public void setAttributeKey(String value) {
 		this.attributeKey = value;

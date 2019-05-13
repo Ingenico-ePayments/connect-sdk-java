@@ -26,16 +26,18 @@ public class AmountBreakdown {
 
 	/**
 	 * Type of the amount. Each type is only allowed to be provided once. Allowed values:
-	 * <ul class="paragraph-width"><li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.
-	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.
-	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>HANDLING - Handling cost on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>SHIPPING - Shipping cost on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.
+	 * <ul class="paragraph-width">
+	 * <li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.</li>
+	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.</li>
+	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>HANDLING - Handling cost on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>SHIPPING - Shipping cost on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.</li>
 	 * <li>BASE_AMOUNT - Order amount excluding all taxes, discount &amp; shipping costs, with the last 2 digits implied as decimal places.
-	 * Note: BASE_AMOUNT is only supported by the Ogone Payment Platform.</ul>
+	 * Note: BASE_AMOUNT is only supported by the Ogone Payment Platform.</li>
+	 * </ul>
 	 */
 	public String getType() {
 		return type;
@@ -43,16 +45,18 @@ public class AmountBreakdown {
 
 	/**
 	 * Type of the amount. Each type is only allowed to be provided once. Allowed values:
-	 * <ul class="paragraph-width"><li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.
-	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.
-	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>HANDLING - Handling cost on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>SHIPPING - Shipping cost on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.
-	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.
+	 * <ul class="paragraph-width">
+	 * <li>AIRPORT_TAX - The amount of tax paid for the airport, with the last 2 digits implied as decimal places.</li>
+	 * <li>CONSUMPTION_TAX - The amount of consumption tax paid by the customer, with the last 2 digits implied as decimal places.</li>
+	 * <li>DISCOUNT - Discount on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>DUTY - Duty on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>HANDLING - Handling cost on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>SHIPPING - Shipping cost on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.</li>
+	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.</li>
 	 * <li>BASE_AMOUNT - Order amount excluding all taxes, discount &amp; shipping costs, with the last 2 digits implied as decimal places.
-	 * Note: BASE_AMOUNT is only supported by the Ogone Payment Platform.</ul>
+	 * Note: BASE_AMOUNT is only supported by the Ogone Payment Platform.</li>
+	 * </ul>
 	 */
 	public void setType(String value) {
 		this.type = value;

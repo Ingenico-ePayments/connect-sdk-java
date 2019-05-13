@@ -293,7 +293,7 @@ public class AirlineFlightLeg {
 	}
 
 	/**
-	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform).
+	 * ServiceClass of this leg (this property is used for fraud screening on the Ogone Payment Platform).
 	 * <p>Possible values are:
 	 * <ul class="paragraph-width">
 	 * <li>economy
@@ -310,7 +310,7 @@ public class AirlineFlightLeg {
 	}
 
 	/**
-	 * ServiceClass of this leg (this field is used for fraud screening on the Ogone Payment Platform).
+	 * ServiceClass of this leg (this property is used for fraud screening on the Ogone Payment Platform).
 	 * <p>Possible values are:
 	 * <ul class="paragraph-width">
 	 * <li>economy

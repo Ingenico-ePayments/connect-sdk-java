@@ -13,14 +13,14 @@ public class PersonalNameBase {
 	private String surnamePrefix = null;
 
 	/**
-	 * Given name(s) or first name(s) of the consumer
+	 * Given name(s) or first name(s) of the customer
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
 
 	/**
-	 * Given name(s) or first name(s) of the consumer
+	 * Given name(s) or first name(s) of the customer
 	 */
 	public void setFirstName(String value) {
 		this.firstName = value;
@@ -35,14 +35,14 @@ public class PersonalNameBase {
 	}
 
 	/**
-	 * Middle name - In between first name and surname - of the consumer
+	 * Middle name - In between first name and surname - of the customer
 	 */
 	public String getSurnamePrefix() {
 		return surnamePrefix;
 	}
 
 	/**
-	 * Middle name - In between first name and surname - of the consumer
+	 * Middle name - In between first name and surname - of the customer
 	 */
 	public void setSurnamePrefix(String value) {
 		this.surnamePrefix = value;

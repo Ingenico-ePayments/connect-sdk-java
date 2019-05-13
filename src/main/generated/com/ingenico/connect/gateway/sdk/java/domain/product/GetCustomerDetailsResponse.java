@@ -86,14 +86,14 @@ public class GetCustomerDetailsResponse {
 	}
 
 	/**
-	 * The fiscal number (SSN) for the consumer.
+	 * The fiscal number (SSN) for the customer.
 	 */
 	public String getFiscalNumber() {
 		return fiscalNumber;
 	}
 
 	/**
-	 * The fiscal number (SSN) for the consumer.
+	 * The fiscal number (SSN) for the customer.
 	 */
 	public void setFiscalNumber(String value) {
 		this.fiscalNumber = value;

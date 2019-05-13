@@ -49,9 +49,9 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK.
+	 * Object containing account holder name and bank account information. This property can only be used for payouts in the UK.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountBban instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public BankAccountBban getBankAccountBban() {
@@ -59,9 +59,9 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing account holder name and bank account information. This field can only be used for payouts in the UK.
+	 * Object containing account holder name and bank account information. This property can only be used for payouts in the UK.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountBban instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public void setBankAccountBban(BankAccountBban value) {
@@ -71,7 +71,7 @@ public class CreatePayoutRequest {
 	/**
 	 * Object containing account holder and IBAN information.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountIban instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public BankAccountIban getBankAccountIban() {
@@ -81,7 +81,7 @@ public class CreatePayoutRequest {
 	/**
 	 * Object containing account holder and IBAN information.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.bankAccountIban instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public void setBankAccountIban(BankAccountIban value) {
@@ -117,9 +117,9 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing the details of the consumer.
+	 * Object containing the details of the customer.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.customer instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public PayoutCustomer getCustomer() {
@@ -127,9 +127,9 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object containing the details of the consumer.
+	 * Object containing the details of the customer.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.customer instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public void setCustomer(PayoutCustomer value) {
@@ -140,7 +140,7 @@ public class CreatePayoutRequest {
 	 * Date of the payout sent to the bank by us<br>
 	 * Format: YYYYMMDD
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.payoutDate instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public String getPayoutDate() {
@@ -151,7 +151,7 @@ public class CreatePayoutRequest {
 	 * Date of the payout sent to the bank by us<br>
 	 * Format: YYYYMMDD
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.payoutDate instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public void setPayoutDate(String value) {
@@ -161,7 +161,7 @@ public class CreatePayoutRequest {
 	/**
 	 * Text to be printed on the bank account statement of the beneficiary. The maximum allowed length might differ per country. The data will be automatically truncated to the maximum allowed length.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.payoutText instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public String getPayoutText() {
@@ -171,7 +171,7 @@ public class CreatePayoutRequest {
 	/**
 	 * Text to be printed on the bank account statement of the beneficiary. The maximum allowed length might differ per country. The data will be automatically truncated to the maximum allowed length.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.payoutText instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public void setPayoutText(String value) {
@@ -179,14 +179,14 @@ public class CreatePayoutRequest {
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public PayoutReferences getReferences() {
 		return references;
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public void setReferences(PayoutReferences value) {
 		this.references = value;
@@ -195,7 +195,7 @@ public class CreatePayoutRequest {
 	/**
 	 * The BIC is the Business Identifier Code, also known as SWIFT or Bank Identifier code. It is a code with an internationally agreed format to Identify a specific bank. The BIC contains 8 or 11 positions: the first 4 contain the bank code, followed by the country code and location code.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.swiftCode instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public String getSwiftCode() {
@@ -205,7 +205,7 @@ public class CreatePayoutRequest {
 	/**
 	 * The BIC is the Business Identifier Code, also known as SWIFT or Bank Identifier code. It is a code with an internationally agreed format to Identify a specific bank. The BIC contains 8 or 11 positions: the first 4 contain the bank code, followed by the country code and location code.
 	 *
-	 * @deprecated Use bankTransferPayoutMethodSpecificInput.swiftCode instead
+	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
 	 */
 	@Deprecated
 	public void setSwiftCode(String value) {

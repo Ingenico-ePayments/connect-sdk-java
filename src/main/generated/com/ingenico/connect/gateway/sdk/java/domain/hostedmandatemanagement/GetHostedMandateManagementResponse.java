@@ -30,7 +30,7 @@ public class GetHostedMandateManagementResponse {
 	 * This is the status of the hosted mandate management. Possible values are:
 	 * <ul class="paragraph-width">
 	 * <li>IN_PROGRESS - The session has been created, but no mandate has been created yet.
-	 * <li>MANDATE_CREATED - A mandate has been created, the consumer might still need to sign the mandate.
+	 * <li>MANDATE_CREATED - A mandate has been created, the customer might still need to sign the mandate.
 	 * <li>FAILED - There was an error while creating the mandate, the session can not continue.
 	 * <li>CANCELLED_BY_CONSUMER - The session was cancelled before a mandate was created</ul>.
 	 */
@@ -42,7 +42,7 @@ public class GetHostedMandateManagementResponse {
 	 * This is the status of the hosted mandate management. Possible values are:
 	 * <ul class="paragraph-width">
 	 * <li>IN_PROGRESS - The session has been created, but no mandate has been created yet.
-	 * <li>MANDATE_CREATED - A mandate has been created, the consumer might still need to sign the mandate.
+	 * <li>MANDATE_CREATED - A mandate has been created, the customer might still need to sign the mandate.
 	 * <li>FAILED - There was an error while creating the mandate, the session can not continue.
 	 * <li>CANCELLED_BY_CONSUMER - The session was cancelled before a mandate was created</ul>.
 	 */

@@ -24,7 +24,7 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 * <li>PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount.
 	 * <li>SALE - The payment creation results in an authorization that is already captured at the moment of approval.
 	 * </ul>
-	 * Only used with some acquirers, ingnored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the <span class="property">authorizationMode</span> is 'unspecified', which behaves similar to a final authorization.
+	 * Only used with some acquirers, ingnored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
 	 */
 	public String getAuthorizationMode() {
 		return authorizationMode;
@@ -36,7 +36,7 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 * <li>PRE_AUTHORIZATION - The payment creation results in a pre-authorization that is ready for capture. Pre-authortizations can be reversed and can be captured within 30 days. The capture amount can be lower than the authorized amount.
 	 * <li>SALE - The payment creation results in an authorization that is already captured at the moment of approval.
 	 * </ul>
-	 * Only used with some acquirers, ingnored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the <span class="property">authorizationMode</span> is 'unspecified', which behaves similar to a final authorization.
+	 * Only used with some acquirers, ingnored for acquirers that don't support this. In case the acquirer doesn't allow this to be specified the authorizationMode is 'unspecified', which behaves similar to a final authorization.
 	 */
 	public void setAuthorizationMode(String value) {
 		this.authorizationMode = value;
@@ -58,10 +58,10 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 
 	/**
 	 * The payment data if we will do the decryption of the encrypted payment data.<br>
-	 * <p>Typically you'd use <span class="property">encryptedCustomerInput</span> in the root of the create payment request to provide the encrypted payment data instead.
+	 * <p>Typically you'd use encryptedCustomerInput in the root of the create payment request to provide the encrypted payment data instead.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in field <span class="property">data</span> of the <span class="property"><a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData</span> property.
-	 * <li>For Google Pay, the encrypted payment data can be found in field <span class="property">paymentMethodData.tokenizationData.token</span> of the <span class="property"><a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson()</span> result.
+	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */
 	public String getEncryptedPaymentData() {
@@ -70,10 +70,10 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 
 	/**
 	 * The payment data if we will do the decryption of the encrypted payment data.<br>
-	 * <p>Typically you'd use <span class="property">encryptedCustomerInput</span> in the root of the create payment request to provide the encrypted payment data instead.
+	 * <p>Typically you'd use encryptedCustomerInput in the root of the create payment request to provide the encrypted payment data instead.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in field <span class="property">data</span> of the <span class="property"><a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData</span> property.
-	 * <li>For Google Pay, the encrypted payment data can be found in field <span class="property">paymentMethodData.tokenizationData.token</span> of the <span class="property"><a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson()</span> result.
+	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */
 	public void setEncryptedPaymentData(String value) {

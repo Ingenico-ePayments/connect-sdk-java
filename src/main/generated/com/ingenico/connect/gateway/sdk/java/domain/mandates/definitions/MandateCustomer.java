@@ -33,14 +33,14 @@ public class MandateCustomer {
 	}
 
 	/**
-	 * Name of company, as a consumer
+	 * Name of company, as a customer
 	 */
 	public String getCompanyName() {
 		return companyName;
 	}
 
 	/**
-	 * Name of company, as a consumer
+	 * Name of company, as a customer
 	 */
 	public void setCompanyName(String value) {
 		this.companyName = value;
@@ -75,14 +75,14 @@ public class MandateCustomer {
 	}
 
 	/**
-	 * Object containing personal information of the consumer
+	 * Object containing personal information of the customer
 	 */
 	public MandatePersonalInformation getPersonalInformation() {
 		return personalInformation;
 	}
 
 	/**
-	 * Object containing personal information of the consumer
+	 * Object containing personal information of the customer
 	 */
 	public void setPersonalInformation(MandatePersonalInformation value) {
 		this.personalInformation = value;

@@ -4,13 +4,22 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
+/**
+ * Object containing 3D secure details.
+ */
 public class ExternalCardholderAuthenticationData {
 
 	private String cavv = null;
 
 	private String cavvAlgorithm = null;
 
+	private String directoryServerTransactionId = null;
+
 	private Integer eci = null;
+
+	private String threeDSecureVersion = null;
+
+	private String threeDServerTransactionId = null;
 
 	private String validationResult = null;
 
@@ -45,6 +54,20 @@ public class ExternalCardholderAuthenticationData {
 	}
 
 	/**
+	 * The 3-D Secure Directory Server transaction ID that is used for the 3D Authentication
+	 */
+	public String getDirectoryServerTransactionId() {
+		return directoryServerTransactionId;
+	}
+
+	/**
+	 * The 3-D Secure Directory Server transaction ID that is used for the 3D Authentication
+	 */
+	public void setDirectoryServerTransactionId(String value) {
+		this.directoryServerTransactionId = value;
+	}
+
+	/**
 	 * Electronic Commerce Indicator provides authentication validation results returned after AUTHENTICATIONVALIDATION
 	 * <ul class="paragraph-width"><li>0 = No authentication, Internet (no liability shift, not a 3D Secure transaction)
 	 * <li>1 = Authentication attempted (MasterCard)
@@ -72,6 +95,42 @@ public class ExternalCardholderAuthenticationData {
 	 */
 	public void setEci(Integer value) {
 		this.eci = value;
+	}
+
+	/**
+	 * The 3-D Secure version used for the authentication. Possible values:
+	 * <ul class="paragraph-width">
+	 * <li>v1
+	 * <li>v2
+	 * </ul>
+	 */
+	public String getThreeDSecureVersion() {
+		return threeDSecureVersion;
+	}
+
+	/**
+	 * The 3-D Secure version used for the authentication. Possible values:
+	 * <ul class="paragraph-width">
+	 * <li>v1
+	 * <li>v2
+	 * </ul>
+	 */
+	public void setThreeDSecureVersion(String value) {
+		this.threeDSecureVersion = value;
+	}
+
+	/**
+	 * The 3-D Secure Server transaction ID that is used for the 3-D Secure version 2 Authentication.
+	 */
+	public String getThreeDServerTransactionId() {
+		return threeDServerTransactionId;
+	}
+
+	/**
+	 * The 3-D Secure Server transaction ID that is used for the 3-D Secure version 2 Authentication.
+	 */
+	public void setThreeDServerTransactionId(String value) {
+		this.threeDServerTransactionId = value;
 	}
 
 	/**

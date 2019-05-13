@@ -28,7 +28,7 @@ public class HostedCheckoutSpecificInput {
 	 * <ul class="paragraph-width"><li>true - Only payment products that support recurring payments will be shown. Any transactions created will also be tagged as being a first of a recurring sequence.
 	 * <li>false - Only payment products that support one-off payments will be shown.
 	 * </ul>
-	 * The default value for this field is false.
+	 * The default value for this property is false.
 	 */
 	public Boolean getIsRecurring() {
 		return isRecurring;
@@ -38,56 +38,56 @@ public class HostedCheckoutSpecificInput {
 	 * <ul class="paragraph-width"><li>true - Only payment products that support recurring payments will be shown. Any transactions created will also be tagged as being a first of a recurring sequence.
 	 * <li>false - Only payment products that support one-off payments will be shown.
 	 * </ul>
-	 * The default value for this field is false.
+	 * The default value for this property is false.
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
 	}
 
 	/**
-	 * Locale to use to present the MyCheckout payment pages to the consumer. Please make sure that a language pack is configured for the locale you are submitting. If you submit a locale that is not setup on your account we will use the default language pack for your account. You can easily upload additional language packs and set the default language pack in the Configuration Center.
+	 * Locale to use to present the MyCheckout payment pages to the customer. Please make sure that a language pack is configured for the locale you are submitting. If you submit a locale that is not setup on your account we will use the default language pack for your account. You can easily upload additional language packs and set the default language pack in the Configuration Center.
 	 */
 	public String getLocale() {
 		return locale;
 	}
 
 	/**
-	 * Locale to use to present the MyCheckout payment pages to the consumer. Please make sure that a language pack is configured for the locale you are submitting. If you submit a locale that is not setup on your account we will use the default language pack for your account. You can easily upload additional language packs and set the default language pack in the Configuration Center.
+	 * Locale to use to present the MyCheckout payment pages to the customer. Please make sure that a language pack is configured for the locale you are submitting. If you submit a locale that is not setup on your account we will use the default language pack for your account. You can easily upload additional language packs and set the default language pack in the Configuration Center.
 	 */
 	public void setLocale(String value) {
 		this.locale = value;
 	}
 
 	/**
-	 * Contains the payment product ids and payment product groups that will be used for manipulating the payment products available for the payment to the consumer.
+	 * Contains the payment product ids and payment product groups that will be used for manipulating the payment products available for the payment to the customer.
 	 */
 	public PaymentProductFiltersHostedCheckout getPaymentProductFilters() {
 		return paymentProductFilters;
 	}
 
 	/**
-	 * Contains the payment product ids and payment product groups that will be used for manipulating the payment products available for the payment to the consumer.
+	 * Contains the payment product ids and payment product groups that will be used for manipulating the payment products available for the payment to the customer.
 	 */
 	public void setPaymentProductFilters(PaymentProductFiltersHostedCheckout value) {
 		this.paymentProductFilters = value;
 	}
 
 	/**
-	 * This flag affects the status of a Hosted Checkout when a consumer presses the cancel button and is returned to you as a result.<br>If set to true, then the status will be CANCELLED_BY_CONSUMER. If set to false, then the status will be IN_PROGRESS.<br>The default value is false. This flag was added to introduce the additional CANCELLED_BY_CONSUMER state as a non-breaking change.
+	 * This flag affects the status of a Hosted Checkout when a customer presses the cancel button and is returned to you as a result.<br>If set to true, then the status will be CANCELLED_BY_CONSUMER. If set to false, then the status will be IN_PROGRESS.<br>The default value is false. This flag was added to introduce the additional CANCELLED_BY_CONSUMER state as a non-breaking change.
 	 */
 	public Boolean getReturnCancelState() {
 		return returnCancelState;
 	}
 
 	/**
-	 * This flag affects the status of a Hosted Checkout when a consumer presses the cancel button and is returned to you as a result.<br>If set to true, then the status will be CANCELLED_BY_CONSUMER. If set to false, then the status will be IN_PROGRESS.<br>The default value is false. This flag was added to introduce the additional CANCELLED_BY_CONSUMER state as a non-breaking change.
+	 * This flag affects the status of a Hosted Checkout when a customer presses the cancel button and is returned to you as a result.<br>If set to true, then the status will be CANCELLED_BY_CONSUMER. If set to false, then the status will be IN_PROGRESS.<br>The default value is false. This flag was added to introduce the additional CANCELLED_BY_CONSUMER state as a non-breaking change.
 	 */
 	public void setReturnCancelState(Boolean value) {
 		this.returnCancelState = value;
 	}
 
 	/**
-	 * The URL that the consumer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the consumer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.<br>
+	 * The URL that the customer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.<br>
 	 * Note: The provided URL should be absolute and contain the protocol to use, e.g. http:// or https://. For use on mobile devices a custom protocol can be used in the form of <i>protocol</i>://. This protocol must be registered on the device first.<br>
 	 * URLs without a protocol will be rejected.
 	 */
@@ -96,7 +96,7 @@ public class HostedCheckoutSpecificInput {
 	}
 
 	/**
-	 * The URL that the consumer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the consumer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.<br>
+	 * The URL that the customer is redirect to after the payment flow has finished. You can add any number of key value pairs in the query string that, for instance help you to identify the customer when they return to your site. Please note that we will also append some additional key value pairs that will also help you with this identification process.<br>
 	 * Note: The provided URL should be absolute and contain the protocol to use, e.g. http:// or https://. For use on mobile devices a custom protocol can be used in the form of <i>protocol</i>://. This protocol must be registered on the device first.<br>
 	 * URLs without a protocol will be rejected.
 	 */
@@ -105,50 +105,48 @@ public class HostedCheckoutSpecificInput {
 	}
 
 	/**
-	 * <ul class="paragraph-width"><li>true - MyCheckout will show a result page to the consumer when applicable. Default.
-	 * <li>false - MyCheckout will redirect the consumer back to the provided returnUrl when this is possible.
+	 * <ul class="paragraph-width"><li>true - MyCheckout will show a result page to the customer when applicable. Default.
+	 * <li>false - MyCheckout will redirect the customer back to the provided returnUrl when this is possible.
 	 * </ul>
-	 * The default value for this field is true.
+	 * The default value for this property is true.
 	 */
 	public Boolean getShowResultPage() {
 		return showResultPage;
 	}
 
 	/**
-	 * <ul class="paragraph-width"><li>true - MyCheckout will show a result page to the consumer when applicable. Default.
-	 * <li>false - MyCheckout will redirect the consumer back to the provided returnUrl when this is possible.
+	 * <ul class="paragraph-width"><li>true - MyCheckout will show a result page to the customer when applicable. Default.
+	 * <li>false - MyCheckout will redirect the customer back to the provided returnUrl when this is possible.
 	 * </ul>
-	 * The default value for this field is true.
+	 * The default value for this property is true.
 	 */
 	public void setShowResultPage(Boolean value) {
 		this.showResultPage = value;
 	}
 
 	/**
-	 * String containing comma separated tokens (no spaces) associated with the consumer of this hosted checkout. Valid tokens will be used to present the consumer the option to re-use previously used payment details. This means the consumer for instance does not have to re-enter their card details again, which a big plus when the consumer is using his/her mobile phone to complete the checkout.
+	 * String containing comma separated tokens (no spaces) associated with the customer of this hosted checkout. Valid tokens will be used to present the customer the option to re-use previously used payment details. This means the customer for instance does not have to re-enter their card details again, which a big plus when the customer is using their mobile phone to complete the checkout.
 	 */
 	public String getTokens() {
 		return tokens;
 	}
 
 	/**
-	 * String containing comma separated tokens (no spaces) associated with the consumer of this hosted checkout. Valid tokens will be used to present the consumer the option to re-use previously used payment details. This means the consumer for instance does not have to re-enter their card details again, which a big plus when the consumer is using his/her mobile phone to complete the checkout.
+	 * String containing comma separated tokens (no spaces) associated with the customer of this hosted checkout. Valid tokens will be used to present the customer the option to re-use previously used payment details. This means the customer for instance does not have to re-enter their card details again, which a big plus when the customer is using their mobile phone to complete the checkout.
 	 */
 	public void setTokens(String value) {
 		this.tokens = value;
 	}
 
 	/**
-	 * By default, validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off for the Ogone Payment Platform, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.<br>
-	 * Note: This field is only supported by the Ogone Payment Platform.
+	 * By default, validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off for a hosted checkout on the Ogone Payment Platform, in which case the rendering of the shopping cart will be skipped if any required information is missing. Use this when you want fraud-checks to be performed on the shopping cart, but do not want to suply all data needed for displaying it in the hosted checkout. The default value for this property is true.
 	 */
 	public Boolean getValidateShoppingCart() {
 		return validateShoppingCart;
 	}
 
 	/**
-	 * By default, validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off for the Ogone Payment Platform, in which case the rendering of the shopping cart will be skipped if any required information is missing. By default the value is true.<br>
-	 * Note: This field is only supported by the Ogone Payment Platform.
+	 * By default, validation is done for all the information required to display the shopping cart. Set this value to false if you would like to turn that feature off for a hosted checkout on the Ogone Payment Platform, in which case the rendering of the shopping cart will be skipped if any required information is missing. Use this when you want fraud-checks to be performed on the shopping cart, but do not want to suply all data needed for displaying it in the hosted checkout. The default value for this property is true.
 	 */
 	public void setValidateShoppingCart(Boolean value) {
 		this.validateShoppingCart = value;

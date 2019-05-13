@@ -153,14 +153,14 @@ public class PaymentProductFieldValidators {
 	}
 
 	/**
-	 * Indicates that the content should be validated as such that the consumer has accepted the field as if they were terms and conditions of a service
+	 * Indicates that the content should be validated as such that the customer has accepted the field as if they were terms and conditions of a service
 	 */
 	public EmptyValidator getTermsAndConditions() {
 		return termsAndConditions;
 	}
 
 	/**
-	 * Indicates that the content should be validated as such that the consumer has accepted the field as if they were terms and conditions of a service
+	 * Indicates that the content should be validated as such that the customer has accepted the field as if they were terms and conditions of a service
 	 */
 	public void setTermsAndConditions(EmptyValidator value) {
 		this.termsAndConditions = value;

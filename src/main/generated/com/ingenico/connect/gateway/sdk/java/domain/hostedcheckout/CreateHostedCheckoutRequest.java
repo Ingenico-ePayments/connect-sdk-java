@@ -11,6 +11,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BankTran
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.EInvoicePaymentMethodSpecificInputBase;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Merchant;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificInputBase;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.SepaDirectDebitPaymentMethodSpecificInputBase;
@@ -28,6 +29,8 @@ public class CreateHostedCheckoutRequest {
 	private FraudFields fraudFields = null;
 
 	private HostedCheckoutSpecificInput hostedCheckoutSpecificInput = null;
+
+	private Merchant merchant = null;
 
 	private MobilePaymentMethodSpecificInputHostedCheckout mobilePaymentMethodSpecificInput = null;
 
@@ -119,6 +122,20 @@ public class CreateHostedCheckoutRequest {
 	 */
 	public void setHostedCheckoutSpecificInput(HostedCheckoutSpecificInput value) {
 		this.hostedCheckoutSpecificInput = value;
+	}
+
+	/**
+	 * Object containing information on you, the merchant
+	 */
+	public Merchant getMerchant() {
+		return merchant;
+	}
+
+	/**
+	 * Object containing information on you, the merchant
+	 */
+	public void setMerchant(Merchant value) {
+		this.merchant = value;
 	}
 
 	/**

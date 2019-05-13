@@ -11,14 +11,14 @@ public class TokenSepaDirectDebitWithoutCreditor extends AbstractToken {
 	private MandateSepaDirectDebitWithoutCreditor mandate = null;
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public CustomerTokenWithContactDetails getCustomer() {
 		return customer;
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public void setCustomer(CustomerTokenWithContactDetails value) {
 		this.customer = value;

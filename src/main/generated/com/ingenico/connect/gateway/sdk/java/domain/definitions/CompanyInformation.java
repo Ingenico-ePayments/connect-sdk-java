@@ -8,17 +8,33 @@ public class CompanyInformation {
 
 	private String name = null;
 
+	private String vatNumber = null;
+
 	/**
-	 * Name of company, as a consumer
+	 * Name of company, as a customer
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * Name of company, as a consumer
+	 * Name of company, as a customer
 	 */
 	public void setName(String value) {
 		this.name = value;
+	}
+
+	/**
+	 * Local VAT number of the company
+	 */
+	public String getVatNumber() {
+		return vatNumber;
+	}
+
+	/**
+	 * Local VAT number of the company
+	 */
+	public void setVatNumber(String value) {
+		this.vatNumber = value;
 	}
 }

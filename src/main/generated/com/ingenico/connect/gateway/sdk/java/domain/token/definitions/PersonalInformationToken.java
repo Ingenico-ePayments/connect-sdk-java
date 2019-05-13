@@ -9,14 +9,14 @@ public class PersonalInformationToken {
 	private PersonalNameToken name = null;
 
 	/**
-	 * Given name(s) or first name(s) of the consumer
+	 * Given name(s) or first name(s) of the customer
 	 */
 	public PersonalNameToken getName() {
 		return name;
 	}
 
 	/**
-	 * Given name(s) or first name(s) of the consumer
+	 * Given name(s) or first name(s) of the customer
 	 */
 	public void setName(PersonalNameToken value) {
 		this.name = value;

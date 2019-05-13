@@ -10,6 +10,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaym
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CashPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.EInvoicePaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.InvoicePaymentMethodSpecificInput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Merchant;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.MobilePaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.NonSepaDirectDebitPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
@@ -33,6 +34,8 @@ public class CreatePaymentRequest {
 	private FraudFields fraudFields = null;
 
 	private InvoicePaymentMethodSpecificInput invoicePaymentMethodSpecificInput = null;
+
+	private Merchant merchant = null;
 
 	private MobilePaymentMethodSpecificInput mobilePaymentMethodSpecificInput = null;
 
@@ -113,7 +116,7 @@ public class CreatePaymentRequest {
 	}
 
 	/**
-	 * Data that was encrypted client side containing all consumer entered data elements like card data.<br>
+	 * Data that was encrypted client side containing all customer entered data elements like card data.<br>
 	 * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
 	 */
 	public String getEncryptedCustomerInput() {
@@ -121,7 +124,7 @@ public class CreatePaymentRequest {
 	}
 
 	/**
-	 * Data that was encrypted client side containing all consumer entered data elements like card data.<br>
+	 * Data that was encrypted client side containing all customer entered data elements like card data.<br>
 	 * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
 	 */
 	public void setEncryptedCustomerInput(String value) {
@@ -157,11 +160,25 @@ public class CreatePaymentRequest {
 	}
 
 	/**
+	 * Object containing information on you, the merchant
+	 */
+	public Merchant getMerchant() {
+		return merchant;
+	}
+
+	/**
+	 * Object containing information on you, the merchant
+	 */
+	public void setMerchant(Merchant value) {
+		this.merchant = value;
+	}
+
+	/**
 	 * Object containing the specific input details for mobile payments.
 	 * <p>Mobile payments produce the required payment data in encrypted form.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in field <span class="property">data</span> of the <span class="property"><a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData</span> property.
-	 * <li>For Google Pay, the encrypted payment data can be found in field <span class="property">paymentMethodData.tokenizationData.token</span> of the <span class="property"><a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson()</span> result.
+	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */
 	public MobilePaymentMethodSpecificInput getMobilePaymentMethodSpecificInput() {
@@ -172,8 +189,8 @@ public class CreatePaymentRequest {
 	 * Object containing the specific input details for mobile payments.
 	 * <p>Mobile payments produce the required payment data in encrypted form.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in field <span class="property">data</span> of the <span class="property"><a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData</span> property.
-	 * <li>For Google Pay, the encrypted payment data can be found in field <span class="property">paymentMethodData.tokenizationData.token</span> of the <span class="property"><a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson()</span> result.
+	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */
 	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInput value) {

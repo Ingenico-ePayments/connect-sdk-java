@@ -12,7 +12,7 @@ public class MandateMerchantAction {
 
 	/**
 	 * Action merchants needs to take in the online mandate process. Possible values are:<br>
-	 * <ul class="paragraph-width"><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span></ul>
+	 * <ul class="paragraph-width"><li>REDIRECT - The customer needs to be redirected using the details found in redirectData</ul>
 	 */
 	public String getActionType() {
 		return actionType;
@@ -20,21 +20,21 @@ public class MandateMerchantAction {
 
 	/**
 	 * Action merchants needs to take in the online mandate process. Possible values are:<br>
-	 * <ul class="paragraph-width"><li>REDIRECT - The consumer needs to be redirected using the details found in <span class="property">redirectData</span></ul>
+	 * <ul class="paragraph-width"><li>REDIRECT - The customer needs to be redirected using the details found in redirectData</ul>
 	 */
 	public void setActionType(String value) {
 		this.actionType = value;
 	}
 
 	/**
-	 * Object containing all data needed to redirect the consumer
+	 * Object containing all data needed to redirect the customer
 	 */
 	public MandateRedirectData getRedirectData() {
 		return redirectData;
 	}
 
 	/**
-	 * Object containing all data needed to redirect the consumer
+	 * Object containing all data needed to redirect the customer
 	 */
 	public void setRedirectData(MandateRedirectData value) {
 		this.redirectData = value;

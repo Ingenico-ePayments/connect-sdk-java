@@ -10,6 +10,8 @@ public class RiskAssessment {
 
 	private FraudFields fraudFields = null;
 
+	private MerchantRiskAssessment merchant = null;
+
 	private OrderRiskAssessment order = null;
 
 	private Integer paymentProductId = null;
@@ -26,6 +28,14 @@ public class RiskAssessment {
 	 */
 	public void setFraudFields(FraudFields value) {
 		this.fraudFields = value;
+	}
+
+	public MerchantRiskAssessment getMerchant() {
+		return merchant;
+	}
+
+	public void setMerchant(MerchantRiskAssessment value) {
+		this.merchant = value;
 	}
 
 	public OrderRiskAssessment getOrder() {

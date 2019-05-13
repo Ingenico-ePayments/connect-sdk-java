@@ -10,8 +10,8 @@ public class RedirectPaymentProduct863SpecificInput {
 
 	/**
 	 * The type of integration with WeChat. Possible values:
-	 * <ul class="paragraph-width"><li>desktopQRCode - used on desktops, the consumer opens the WeChat app by scanning a QR code.
-	 * <li>urlIntent - used in mobile apps or on mobile web pages, the consumer opens the WeChat app using a URL intent.
+	 * <ul class="paragraph-width"><li>desktopQRCode - used on desktops, the customer opens the WeChat app by scanning a QR code.
+	 * <li>urlIntent - used in mobile apps or on mobile web pages, the customer opens the WeChat app using a URL intent.
 	 * <li>nativeInApp - used in mobile apps that use the WeChat Pay SDK.
 	 * </ul>
 	 */
@@ -21,8 +21,8 @@ public class RedirectPaymentProduct863SpecificInput {
 
 	/**
 	 * The type of integration with WeChat. Possible values:
-	 * <ul class="paragraph-width"><li>desktopQRCode - used on desktops, the consumer opens the WeChat app by scanning a QR code.
-	 * <li>urlIntent - used in mobile apps or on mobile web pages, the consumer opens the WeChat app using a URL intent.
+	 * <ul class="paragraph-width"><li>desktopQRCode - used on desktops, the customer opens the WeChat app by scanning a QR code.
+	 * <li>urlIntent - used in mobile apps or on mobile web pages, the customer opens the WeChat app using a URL intent.
 	 * <li>nativeInApp - used in mobile apps that use the WeChat Pay SDK.
 	 * </ul>
 	 */

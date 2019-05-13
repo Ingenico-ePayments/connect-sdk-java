@@ -59,7 +59,7 @@ public class OrderStatusOutput {
 	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment, payout or refund is created. This category groups the following statuses:
 	 * <ul class="paragraph-width"><li>CREATED</ul>
-	 * <li>PENDING_PAYMENT: The payment is waiting on consumer action. This category groups the following statuses:
+	 * <li>PENDING_PAYMENT: The payment is waiting on customer action. This category groups the following statuses:
 	 * <ul class="paragraph-width"><li>PENDING_PAYMENT
 	 * <li>REDIRECTED</ul>
 	 * <li>ACCOUNT_VERIFIED: The account has been verified. This category groups the following statuses:
@@ -101,7 +101,7 @@ public class OrderStatusOutput {
 	 * <ul class="paragraph-width">
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payment, payout or refund is created. This category groups the following statuses:
 	 * <ul class="paragraph-width"><li>CREATED</ul>
-	 * <li>PENDING_PAYMENT: The payment is waiting on consumer action. This category groups the following statuses:
+	 * <li>PENDING_PAYMENT: The payment is waiting on customer action. This category groups the following statuses:
 	 * <ul class="paragraph-width"><li>PENDING_PAYMENT
 	 * <li>REDIRECTED</ul>
 	 * <li>ACCOUNT_VERIFIED: The account has been verified. This category groups the following statuses:
@@ -139,14 +139,14 @@ public class OrderStatusOutput {
 	}
 
 	/**
-	 * Numeric status code that is returned by either Ingenico's Global Collect Payment Platform or Ingenico's Ogone Payment Platform. It is returned to ease the migration from the local APIs to Ingenico Connect. You should not write new business logic based on this field as it will be deprecated in a future version of the API. The value can also be found in the Global Collect Payment Console, in the Global Collect report files and the Ogone BackOffice and report files.
+	 * Numeric status code of the legacy API. It is returned to ease the migration from the legacy APIs to Ingenico Connect. You should not write new business logic based on this property as it will be deprecated in a future version of the API. The value can also be found in the GlobalCollect Payment Console, in the Ogone BackOffice and in report files.
 	 */
 	public Integer getStatusCode() {
 		return statusCode;
 	}
 
 	/**
-	 * Numeric status code that is returned by either Ingenico's Global Collect Payment Platform or Ingenico's Ogone Payment Platform. It is returned to ease the migration from the local APIs to Ingenico Connect. You should not write new business logic based on this field as it will be deprecated in a future version of the API. The value can also be found in the Global Collect Payment Console, in the Global Collect report files and the Ogone BackOffice and report files.
+	 * Numeric status code of the legacy API. It is returned to ease the migration from the legacy APIs to Ingenico Connect. You should not write new business logic based on this property as it will be deprecated in a future version of the API. The value can also be found in the GlobalCollect Payment Console, in the Ogone BackOffice and in report files.
 	 */
 	public void setStatusCode(Integer value) {
 		this.statusCode = value;

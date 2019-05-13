@@ -147,19 +147,25 @@ public class AirlineData {
 	}
 
 	/**
-	 * <ul class="paragraph-width"><li>true = a registered known consumer
-	 * <li>false = unknown consumer
+	 * <ul class="paragraph-width"><li>true = a registered known customer
+	 * <li>false = unknown customer
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.accountType instead
 	 */
+	@Deprecated
 	public Boolean getIsRegisteredCustomer() {
 		return isRegisteredCustomer;
 	}
 
 	/**
-	 * <ul class="paragraph-width"><li>true = a registered known consumer
-	 * <li>false = unknown consumer
+	 * <ul class="paragraph-width"><li>true = a registered known customer
+	 * <li>false = unknown customer
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.accountType instead
 	 */
+	@Deprecated
 	public void setIsRegisteredCustomer(Boolean value) {
 		this.isRegisteredCustomer = value;
 	}
@@ -219,14 +225,14 @@ public class AirlineData {
 	}
 
 	/**
-	 * Your ID of the consumer in the context of the airline data
+	 * Your ID of the customer in the context of the airline data
 	 */
 	public String getMerchantCustomerId() {
 		return merchantCustomerId;
 	}
 
 	/**
-	 * Your ID of the consumer in the context of the airline data
+	 * Your ID of the customer in the context of the airline data
 	 */
 	public void setMerchantCustomerId(String value) {
 		this.merchantCustomerId = value;
@@ -425,14 +431,14 @@ public class AirlineData {
 	}
 
 	/**
-	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this field blank
+	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank
 	 */
 	public String getTravelAgencyName() {
 		return travelAgencyName;
 	}
 
 	/**
-	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this field blank
+	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank
 	 */
 	public void setTravelAgencyName(String value) {
 		this.travelAgencyName = value;

@@ -12,6 +12,8 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 
 	private String customerReference = null;
 
+	private CardRecurrenceDetails recurring = null;
+
 	private String recurringPaymentSequenceIndicator = null;
 
 	private Boolean requiresApproval = null;
@@ -30,6 +32,8 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 
 	private String unscheduledCardOnFileRequestor = null;
 
+	private String unscheduledCardOnFileSequenceIndicator = null;
+
 	public String getAuthorizationMode() {
 		return authorizationMode;
 	}
@@ -46,10 +50,26 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 		this.customerReference = value;
 	}
 
+	public CardRecurrenceDetails getRecurring() {
+		return recurring;
+	}
+
+	public void setRecurring(CardRecurrenceDetails value) {
+		this.recurring = value;
+	}
+
+	/**
+	 * @deprecated Use recurring.recurringPaymentSequenceIndicator instead
+	 */
+	@Deprecated
 	public String getRecurringPaymentSequenceIndicator() {
 		return recurringPaymentSequenceIndicator;
 	}
 
+	/**
+	 * @deprecated Use recurring.recurringPaymentSequenceIndicator instead
+	 */
+	@Deprecated
 	public void setRecurringPaymentSequenceIndicator(String value) {
 		this.recurringPaymentSequenceIndicator = value;
 	}
@@ -62,10 +82,18 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 		this.requiresApproval = value;
 	}
 
+	/**
+	 * @deprecated Use threeDSecure.skipAuthentication instead
+	 */
+	@Deprecated
 	public Boolean getSkipAuthentication() {
 		return skipAuthentication;
 	}
 
+	/**
+	 * @deprecated Use threeDSecure.skipAuthentication instead
+	 */
+	@Deprecated
 	public void setSkipAuthentication(Boolean value) {
 		this.skipAuthentication = value;
 	}
@@ -102,10 +130,18 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 		this.transactionChannel = value;
 	}
 
+	/**
+	 * @deprecated Use unscheduledCardOnFileSequenceIndicator instead
+	 */
+	@Deprecated
 	public String getUnscheduledCardOnFileIndicator() {
 		return unscheduledCardOnFileIndicator;
 	}
 
+	/**
+	 * @deprecated Use unscheduledCardOnFileSequenceIndicator instead
+	 */
+	@Deprecated
 	public void setUnscheduledCardOnFileIndicator(String value) {
 		this.unscheduledCardOnFileIndicator = value;
 	}
@@ -116,5 +152,13 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 
 	public void setUnscheduledCardOnFileRequestor(String value) {
 		this.unscheduledCardOnFileRequestor = value;
+	}
+
+	public String getUnscheduledCardOnFileSequenceIndicator() {
+		return unscheduledCardOnFileSequenceIndicator;
+	}
+
+	public void setUnscheduledCardOnFileSequenceIndicator(String value) {
+		this.unscheduledCardOnFileSequenceIndicator = value;
 	}
 }

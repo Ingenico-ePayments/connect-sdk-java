@@ -5,7 +5,7 @@
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
 /**
- * Basic information of a consumer
+ * Basic information of a customer
  */
 public class CustomerBase {
 
@@ -30,29 +30,35 @@ public class CustomerBase {
 	}
 
 	/**
-	 * Your identifier for the consumer that can be used as a search criteria in the Global Collect Payment Console and is also included in the Global Collect report files. For Ingenco's Ogone Payment Platform this field is used in the fraud-screening process.
+	 * Your identifier for the customer. It can be used as a search criteria in the GlobalCollect Payment Console and is also included in the GlobalCollect report files. It is used in the fraud-screening process for payments on the Ogone Payment Platform.
 	 */
 	public String getMerchantCustomerId() {
 		return merchantCustomerId;
 	}
 
 	/**
-	 * Your identifier for the consumer that can be used as a search criteria in the Global Collect Payment Console and is also included in the Global Collect report files. For Ingenco's Ogone Payment Platform this field is used in the fraud-screening process.
+	 * Your identifier for the customer. It can be used as a search criteria in the GlobalCollect Payment Console and is also included in the GlobalCollect report files. It is used in the fraud-screening process for payments on the Ogone Payment Platform.
 	 */
 	public void setMerchantCustomerId(String value) {
 		this.merchantCustomerId = value;
 	}
 
 	/**
-	 * Local VAT number of the consumer
+	 * Local VAT number of the company
+	 *
+	 * @deprecated Use companyInformation.vatNumber instead
 	 */
+	@Deprecated
 	public String getVatNumber() {
 		return vatNumber;
 	}
 
 	/**
-	 * Local VAT number of the consumer
+	 * Local VAT number of the company
+	 *
+	 * @deprecated Use companyInformation.vatNumber instead
 	 */
+	@Deprecated
 	public void setVatNumber(String value) {
 		this.vatNumber = value;
 	}

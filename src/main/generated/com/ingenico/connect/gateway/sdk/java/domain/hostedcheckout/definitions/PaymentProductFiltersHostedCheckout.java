@@ -44,10 +44,10 @@ public class PaymentProductFiltersHostedCheckout {
 
 	/**
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer may only complete the payment using one of the provided accounts on file.
-	 * <li>false -The consumer can complete the payment using any way they like, as long as it is allowed in the payment context. Default.
+	 * <li>true - The customer may only complete the payment using one of the provided accounts on file.
+	 * <li>false -The customer can complete the payment using any way they like, as long as it is allowed in the payment context. Default.
 	 * </ul>
-	 * Note that the request must contain at least one valid account on file with an allowed payment product (not excluded and allowed in context) if this field is set to true, else the request will fail.
+	 * Note that the request must contain at least one valid account on file with an allowed payment product (not excluded and allowed in context) if this property is set to true, else the request will fail.
 	 */
 	public Boolean getTokensOnly() {
 		return tokensOnly;
@@ -55,10 +55,10 @@ public class PaymentProductFiltersHostedCheckout {
 
 	/**
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer may only complete the payment using one of the provided accounts on file.
-	 * <li>false -The consumer can complete the payment using any way they like, as long as it is allowed in the payment context. Default.
+	 * <li>true - The customer may only complete the payment using one of the provided accounts on file.
+	 * <li>false -The customer can complete the payment using any way they like, as long as it is allowed in the payment context. Default.
 	 * </ul>
-	 * Note that the request must contain at least one valid account on file with an allowed payment product (not excluded and allowed in context) if this field is set to true, else the request will fail.
+	 * Note that the request must contain at least one valid account on file with an allowed payment product (not excluded and allowed in context) if this property is set to true, else the request will fail.
 	 */
 	public void setTokensOnly(Boolean value) {
 		this.tokensOnly = value;

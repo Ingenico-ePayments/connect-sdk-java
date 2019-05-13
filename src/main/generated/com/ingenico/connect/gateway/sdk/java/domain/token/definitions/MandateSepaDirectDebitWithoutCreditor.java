@@ -35,14 +35,14 @@ public class MandateSepaDirectDebitWithoutCreditor {
 	}
 
 	/**
-	 * Identifies the contract between consumer and merchant
+	 * Identifies the contract between customer and merchant
 	 */
 	public String getCustomerContractIdentifier() {
 		return customerContractIdentifier;
 	}
 
 	/**
-	 * Identifies the contract between consumer and merchant
+	 * Identifies the contract between customer and merchant
 	 */
 	public void setCustomerContractIdentifier(String value) {
 		this.customerContractIdentifier = value;
@@ -95,7 +95,7 @@ public class MandateSepaDirectDebitWithoutCreditor {
 	}
 
 	/**
-	 * Indicates whether a pre-notification should be sent to the consumer.<br>
+	 * Indicates whether a pre-notification should be sent to the customer.<br>
 	 * <ul class="paragraph-width">
 	 * <li>do-not-send - Do not send a pre-notification
 	 * <li>send-on-first-collection - Send a pre-notification
@@ -106,7 +106,7 @@ public class MandateSepaDirectDebitWithoutCreditor {
 	}
 
 	/**
-	 * Indicates whether a pre-notification should be sent to the consumer.<br>
+	 * Indicates whether a pre-notification should be sent to the customer.<br>
 	 * <ul class="paragraph-width">
 	 * <li>do-not-send - Do not send a pre-notification
 	 * <li>send-on-first-collection - Send a pre-notification

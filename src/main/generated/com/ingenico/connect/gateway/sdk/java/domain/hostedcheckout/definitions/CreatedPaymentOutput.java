@@ -98,7 +98,7 @@ public class CreatedPaymentOutput {
 	 * </ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
 	 *
-	 * @deprecated Use payment.statusOutput.statusCategory instead
+	 * @deprecated Use Payment.statusOutput.statusCategory instead
 	 */
 	@Deprecated
 	public String getPaymentStatusCategory() {
@@ -137,7 +137,7 @@ public class CreatedPaymentOutput {
 	 * </ul><br>
 	 * Please see <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/statuses.html">Statuses</a> for a full overview of possible values.
 	 *
-	 * @deprecated Use payment.statusOutput.statusCategory instead
+	 * @deprecated Use Payment.statusOutput.statusCategory instead
 	 */
 	@Deprecated
 	public void setPaymentStatusCategory(String value) {
@@ -159,14 +159,14 @@ public class CreatedPaymentOutput {
 	}
 
 	/**
-	 * This field contains the tokens that are associated with the hosted checkout session/consumer. You can use the tokens listed in this list for a future checkout of the same consumer.
+	 * This property contains the tokens that are associated with the hosted checkout session/customer. You can use the tokens listed in this list for a future checkout of the same customer.
 	 */
 	public String getTokens() {
 		return tokens;
 	}
 
 	/**
-	 * This field contains the tokens that are associated with the hosted checkout session/consumer. You can use the tokens listed in this list for a future checkout of the same consumer.
+	 * This property contains the tokens that are associated with the hosted checkout session/customer. You can use the tokens listed in this list for a future checkout of the same customer.
 	 */
 	public void setTokens(String value) {
 		this.tokens = value;

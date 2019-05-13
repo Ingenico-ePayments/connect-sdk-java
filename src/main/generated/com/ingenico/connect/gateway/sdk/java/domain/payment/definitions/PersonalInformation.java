@@ -13,7 +13,7 @@ public class PersonalInformation {
 	private PersonalName name = null;
 
 	/**
-	 * The date of birth of the consumer<br>
+	 * The date of birth of the customer<br>
 	 * Format: YYYYMMDD
 	 */
 	public String getDateOfBirth() {
@@ -21,7 +21,7 @@ public class PersonalInformation {
 	}
 
 	/**
-	 * The date of birth of the consumer<br>
+	 * The date of birth of the customer<br>
 	 * Format: YYYYMMDD
 	 */
 	public void setDateOfBirth(String value) {
@@ -29,7 +29,7 @@ public class PersonalInformation {
 	}
 
 	/**
-	 * The gender of the consumer, possible values are:
+	 * The gender of the customer, possible values are:
 	 * <ul class="paragraph-width">
 	 * <li>male
 	 * <li>female
@@ -41,7 +41,7 @@ public class PersonalInformation {
 	}
 
 	/**
-	 * The gender of the consumer, possible values are:
+	 * The gender of the customer, possible values are:
 	 * <ul class="paragraph-width">
 	 * <li>male
 	 * <li>female
@@ -53,14 +53,14 @@ public class PersonalInformation {
 	}
 
 	/**
-	 * Object containing the name details of the consumer
+	 * Object containing the name details of the customer
 	 */
 	public PersonalName getName() {
 		return name;
 	}
 
 	/**
-	 * Object containing the name details of the consumer
+	 * Object containing the name details of the customer
 	 */
 	public void setName(PersonalName value) {
 		this.name = value;

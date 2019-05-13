@@ -15,56 +15,56 @@ public class AirlinePassenger {
 	private String title = null;
 
 	/**
-	 * First name of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * First name of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
 
 	/**
-	 * First name of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * First name of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public void setFirstName(String value) {
 		this.firstName = value;
 	}
 
 	/**
-	 * Surname of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * Surname of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public String getSurname() {
 		return surname;
 	}
 
 	/**
-	 * Surname of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * Surname of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public void setSurname(String value) {
 		this.surname = value;
 	}
 
 	/**
-	 * Surname prefix of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * Surname prefix of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public String getSurnamePrefix() {
 		return surnamePrefix;
 	}
 
 	/**
-	 * Surname prefix of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * Surname prefix of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public void setSurnamePrefix(String value) {
 		this.surnamePrefix = value;
 	}
 
 	/**
-	 * Title of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * Title of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * Title of the passenger (this field is used for fraud screening on the Ogone Payment Platform)
+	 * Title of the passenger (this property is used for fraud screening on the Ogone Payment Platform)
 	 */
 	public void setTitle(String value) {
 		this.title = value;

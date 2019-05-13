@@ -23,7 +23,7 @@ public class DecryptedPaymentData {
 	/**
 	 * Card holder's name on the card.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">cardholderName</span> field in the encrypted payment data.
+	 * <li>For Apple Pay, maps to the cardholderName property in the encrypted payment data.
 	 * <li>For Google Pay this is not available in the encrypted payment data, and can be omitted.
 	 * </ul>
 	 */
@@ -34,7 +34,7 @@ public class DecryptedPaymentData {
 	/**
 	 * Card holder's name on the card.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">cardholderName</span> field in the encrypted payment data.
+	 * <li>For Apple Pay, maps to the cardholderName property in the encrypted payment data.
 	 * <li>For Google Pay this is not available in the encrypted payment data, and can be omitted.
 	 * </ul>
 	 */
@@ -45,10 +45,10 @@ public class DecryptedPaymentData {
 	/**
 	 * The 3D secure online payment cryptogram.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">paymentData.onlinePaymentCryptogram</span> field in the encrypted payment data.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.3dsCryptogram</span> field in the encrypted payment data.
+	 * <li>For Apple Pay, maps to the paymentData.onlinePaymentCryptogram property in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsCryptogram property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is CARD.
+	 * Not allowed for Google Pay if the paymentMethod is CARD.
 	 */
 	public String getCryptogram() {
 		return cryptogram;
@@ -57,10 +57,10 @@ public class DecryptedPaymentData {
 	/**
 	 * The 3D secure online payment cryptogram.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">paymentData.onlinePaymentCryptogram</span> field in the encrypted payment data.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.3dsCryptogram</span> field in the encrypted payment data.
+	 * <li>For Apple Pay, maps to the paymentData.onlinePaymentCryptogram property in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsCryptogram property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is CARD.
+	 * Not allowed for Google Pay if the paymentMethod is CARD.
 	 */
 	public void setCryptogram(String value) {
 		this.cryptogram = value;
@@ -69,10 +69,10 @@ public class DecryptedPaymentData {
 	/**
 	 * The device specific PAN.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">applicationPrimaryAccountNumber</span> field in the encrypted payment data.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.dpan</span> field in the encrypted payment data.
+	 * <li>For Apple Pay, maps to the applicationPrimaryAccountNumber property in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.dpan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is CARD.
+	 * Not allowed for Google Pay if the paymentMethod is CARD.
 	 */
 	public String getDpan() {
 		return dpan;
@@ -81,10 +81,10 @@ public class DecryptedPaymentData {
 	/**
 	 * The device specific PAN.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">applicationPrimaryAccountNumber</span> field in the encrypted payment data.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.dpan</span> field in the encrypted payment data.
+	 * <li>For Apple Pay, maps to the applicationPrimaryAccountNumber property in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.dpan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is CARD.
+	 * Not allowed for Google Pay if the paymentMethod is CARD.
 	 */
 	public void setDpan(String value) {
 		this.dpan = value;
@@ -93,10 +93,10 @@ public class DecryptedPaymentData {
 	/**
 	 * Electronic Commerce Indicator.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">paymentData.eciIndicator</span> field in the encrypted payment data.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.3dsEciIndicator</span> field in the encryted payment data.
+	 * <li>For Apple Pay, maps to the paymentData.eciIndicator property in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsEciIndicator property in the encryted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is CARD.
+	 * Not allowed for Google Pay if the paymentMethod is CARD.
 	 */
 	public Integer getEci() {
 		return eci;
@@ -105,10 +105,10 @@ public class DecryptedPaymentData {
 	/**
 	 * Electronic Commerce Indicator.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">paymentData.eciIndicator</span> field in the encrypted payment data.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.3dsEciIndicator</span> field in the encryted payment data.
+	 * <li>For Apple Pay, maps to the paymentData.eciIndicator property in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsEciIndicator property in the encryted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is CARD.
+	 * Not allowed for Google Pay if the paymentMethod is CARD.
 	 */
 	public void setEci(Integer value) {
 		this.eci = value;
@@ -118,8 +118,8 @@ public class DecryptedPaymentData {
 	 * Expiry date of the card<br>
 	 * Format: MMYY.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">applicationExpirationDate</span> field in the encrypted payment data. This field is formatted as YYMMDD, so this needs to be converted to get a correctly formatted expiry date.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.expirationMonth</span> and <span class="property">paymentMethodDetails.expirationYear</span> fields in the encrypted payment data. These need to be combined to get a correctly formatted expiry date.
+	 * <li>For Apple Pay, maps to the applicationExpirationDate property in the encrypted payment data. This property is formatted as YYMMDD, so this needs to be converted to get a correctly formatted expiry date.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.expirationMonth and paymentMethodDetails.expirationYear properties in the encrypted payment data. These need to be combined to get a correctly formatted expiry date.
 	 * </ul>
 	 */
 	public String getExpiryDate() {
@@ -130,8 +130,8 @@ public class DecryptedPaymentData {
 	 * Expiry date of the card<br>
 	 * Format: MMYY.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, maps to the <span class="property">applicationExpirationDate</span> field in the encrypted payment data. This field is formatted as YYMMDD, so this needs to be converted to get a correctly formatted expiry date.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.expirationMonth</span> and <span class="property">paymentMethodDetails.expirationYear</span> fields in the encrypted payment data. These need to be combined to get a correctly formatted expiry date.
+	 * <li>For Apple Pay, maps to the applicationExpirationDate property in the encrypted payment data. This property is formatted as YYMMDD, so this needs to be converted to get a correctly formatted expiry date.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.expirationMonth and paymentMethodDetails.expirationYear properties in the encrypted payment data. These need to be combined to get a correctly formatted expiry date.
 	 * </ul>
 	 */
 	public void setExpiryDate(String value) {
@@ -142,9 +142,9 @@ public class DecryptedPaymentData {
 	 * The non-device specific complete credit/debit card number (also know as the PAN).
 	 * <ul class="paragraph-width">
 	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.pan</span> field in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.pan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is TOKENIZED_CARD.
+	 * Not allowed for Google Pay if the paymentMethod is TOKENIZED_CARD.
 	 */
 	public String getPan() {
 		return pan;
@@ -154,9 +154,9 @@ public class DecryptedPaymentData {
 	 * The non-device specific complete credit/debit card number (also know as the PAN).
 	 * <ul class="paragraph-width">
 	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethodDetails.pan</span> field in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.pan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the <span class="property">paymentMethod</span> is TOKENIZED_CARD.
+	 * Not allowed for Google Pay if the paymentMethod is TOKENIZED_CARD.
 	 */
 	public void setPan(String value) {
 		this.pan = value;
@@ -166,7 +166,7 @@ public class DecryptedPaymentData {
 	 * The type of the payment credential: either CARD or TOKENIZED_CARD.
 	 * <ul class="paragraph-width">
 	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethod</span> field in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethod property in the encrypted payment data.
 	 * </ul>
 	 */
 	public String getPaymentMethod() {
@@ -177,7 +177,7 @@ public class DecryptedPaymentData {
 	 * The type of the payment credential: either CARD or TOKENIZED_CARD.
 	 * <ul class="paragraph-width">
 	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
-	 * <li>For Google Pay, maps to the <span class="property">paymentMethod</span> field in the encrypted payment data.
+	 * <li>For Google Pay, maps to the paymentMethod property in the encrypted payment data.
 	 * </ul>
 	 */
 	public void setPaymentMethod(String value) {

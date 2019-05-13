@@ -12,14 +12,14 @@ public class RedirectPaymentProduct882SpecificInput {
 	private String issuerId = null;
 
 	/**
-	 * ID of the issuing bank of the consumer. A list of available issuerIDs can be obtained by using the retrieve payment product directory API.
+	 * ID of the issuing bank of the customer. A list of available issuerIDs can be obtained by using the retrieve payment product directory API.
 	 */
 	public String getIssuerId() {
 		return issuerId;
 	}
 
 	/**
-	 * ID of the issuing bank of the consumer. A list of available issuerIDs can be obtained by using the retrieve payment product directory API.
+	 * ID of the issuing bank of the customer. A list of available issuerIDs can be obtained by using the retrieve payment product directory API.
 	 */
 	public void setIssuerId(String value) {
 		this.issuerId = value;

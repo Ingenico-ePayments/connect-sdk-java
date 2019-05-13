@@ -36,7 +36,7 @@ public class AdditionalOrderInput {
 	/**
 	 * Object that holds Level3 summary data
 	 *
-	 * @deprecated Use Order.shoppingCart instead
+	 * @deprecated Use Order.shoppingCart.amountBreakdown instead
 	 */
 	@Deprecated
 	public Level3SummaryData getLevel3SummaryData() {
@@ -46,7 +46,7 @@ public class AdditionalOrderInput {
 	/**
 	 * Object that holds Level3 summary data
 	 *
-	 * @deprecated Use Order.shoppingCart instead
+	 * @deprecated Use Order.shoppingCart.amountBreakdown instead
 	 */
 	@Deprecated
 	public void setLevel3SummaryData(Level3SummaryData value) {

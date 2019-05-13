@@ -38,6 +38,7 @@ public class FraudFields {
 
 	private String shipmentTrackingNumber = null;
 
+	@SuppressWarnings("deprecation")
 	private FraudFieldsShippingDetails shippingDetails = null;
 
 	private List<String> userData = null;
@@ -46,14 +47,20 @@ public class FraudFields {
 
 	/**
 	 * Indicates that invoice and shipping addresses are equal.
+	 *
+	 * @deprecated For risk assessments there is no replacement. For other calls, use Order.shipping.addressIndicator instead
 	 */
+	@Deprecated
 	public Boolean getAddressesAreIdentical() {
 		return addressesAreIdentical;
 	}
 
 	/**
 	 * Indicates that invoice and shipping addresses are equal.
+	 *
+	 * @deprecated For risk assessments there is no replacement. For other calls, use Order.shipping.addressIndicator instead
 	 */
+	@Deprecated
 	public void setAddressesAreIdentical(Boolean value) {
 		this.addressesAreIdentical = value;
 	}
@@ -74,27 +81,33 @@ public class FraudFields {
 
 	/**
 	 * The address that belongs to the owner of the card
+	 *
+	 * @deprecated This should be the same as Order.customer.billingAddress
 	 */
+	@Deprecated
 	public Address getCardOwnerAddress() {
 		return cardOwnerAddress;
 	}
 
 	/**
 	 * The address that belongs to the owner of the card
+	 *
+	 * @deprecated This should be the same as Order.customer.billingAddress
 	 */
+	@Deprecated
 	public void setCardOwnerAddress(Address value) {
 		this.cardOwnerAddress = value;
 	}
 
 	/**
-	 * The IP Address of the consumer that is making the payment
+	 * The IP Address of the customer that is making the payment
 	 */
 	public String getCustomerIpAddress() {
 		return customerIpAddress;
 	}
 
 	/**
-	 * The IP Address of the consumer that is making the payment
+	 * The IP Address of the customer that is making the payment
 	 */
 	public void setCustomerIpAddress(String value) {
 		this.customerIpAddress = value;
@@ -107,7 +120,10 @@ public class FraudFields {
 	 * <li>automatically-but-modified - All fields filled automatically, but some fields were modified manually
 	 * <li>manually - All fields were entered manually
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.device.defaultFormFill instead
 	 */
+	@Deprecated
 	public String getDefaultFormFill() {
 		return defaultFormFill;
 	}
@@ -119,35 +135,50 @@ public class FraudFields {
 	 * <li>automatically-but-modified - All fields filled automatically, but some fields were modified manually
 	 * <li>manually - All fields were entered manually
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.device.defaultFormFill instead
 	 */
+	@Deprecated
 	public void setDefaultFormFill(String value) {
 		this.defaultFormFill = value;
 	}
 
 	/**
 	 * Indicates that the device fingerprint has been used while processing the order.
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public Boolean getDeviceFingerprintActivated() {
 		return deviceFingerprintActivated;
 	}
 
 	/**
 	 * Indicates that the device fingerprint has been used while processing the order.
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public void setDeviceFingerprintActivated(Boolean value) {
 		this.deviceFingerprintActivated = value;
 	}
 
 	/**
-	 * One must set the <span class="property">deviceFingerprintTransactionId</span> received by the response of the endpoint <span class="property">/{merchant}/products/{paymentProductId}/deviceFingerprint</span>
+	 * One must set the deviceFingerprintTransactionId received by the response of the endpoint /{merchant}/products/{paymentProductId}/deviceFingerprint
+	 *
+	 * @deprecated Use Order.customer.device.deviceFingerprintTransactionId instead
 	 */
+	@Deprecated
 	public String getDeviceFingerprintTransactionId() {
 		return deviceFingerprintTransactionId;
 	}
 
 	/**
-	 * One must set the <span class="property">deviceFingerprintTransactionId</span> received by the response of the endpoint <span class="property">/{merchant}/products/{paymentProductId}/deviceFingerprint</span>
+	 * One must set the deviceFingerprintTransactionId received by the response of the endpoint /{merchant}/products/{paymentProductId}/deviceFingerprint
+	 *
+	 * @deprecated Use Order.customer.device.deviceFingerprintTransactionId instead
 	 */
+	@Deprecated
 	public void setDeviceFingerprintTransactionId(String value) {
 		this.deviceFingerprintTransactionId = value;
 	}
@@ -243,67 +274,85 @@ public class FraudFields {
 	}
 
 	/**
-	 * Specifies if the consumer (initially) had forgotten their password
+	 * Specifies if the customer (initially) had forgotten their password
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer has forgotten their password
-	 * <li>false - The consumer has not forgotten their password
+	 * <li>true - The customer has forgotten their password
+	 * <li>false - The customer has not forgotten their password
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.account.hasForgottenPassword instead
 	 */
+	@Deprecated
 	public Boolean getHasForgottenPwd() {
 		return hasForgottenPwd;
 	}
 
 	/**
-	 * Specifies if the consumer (initially) had forgotten their password
+	 * Specifies if the customer (initially) had forgotten their password
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer has forgotten their password
-	 * <li>false - The consumer has not forgotten their password
+	 * <li>true - The customer has forgotten their password
+	 * <li>false - The customer has not forgotten their password
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.account.hasForgottenPassword instead
 	 */
+	@Deprecated
 	public void setHasForgottenPwd(Boolean value) {
 		this.hasForgottenPwd = value;
 	}
 
 	/**
-	 * Specifies if the consumer entered a password to gain access to an account registered with the you
+	 * Specifies if the customer entered a password to gain access to an account registered with the you
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer has used a password to gain access
-	 * <li>false - The consumer has not used a password to gain access
+	 * <li>true - The customer has used a password to gain access
+	 * <li>false - The customer has not used a password to gain access
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.account.hasPassword instead
 	 */
+	@Deprecated
 	public Boolean getHasPassword() {
 		return hasPassword;
 	}
 
 	/**
-	 * Specifies if the consumer entered a password to gain access to an account registered with the you
+	 * Specifies if the customer entered a password to gain access to an account registered with the you
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer has used a password to gain access
-	 * <li>false - The consumer has not used a password to gain access
+	 * <li>true - The customer has used a password to gain access
+	 * <li>false - The customer has not used a password to gain access
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.account.hasPassword instead
 	 */
+	@Deprecated
 	public void setHasPassword(Boolean value) {
 		this.hasPassword = value;
 	}
 
 	/**
-	 * Specifies if the consumer has a history of online shopping with the merchant
+	 * Specifies if the customer has a history of online shopping with the merchant
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer is a known returning consumer
-	 * <li>false - The consumer is new/unknown consumer
+	 * <li>true - The customer is a known returning customer
+	 * <li>false - The customer is new/unknown customer
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.isPreviousCustomer instead
 	 */
+	@Deprecated
 	public Boolean getIsPreviousCustomer() {
 		return isPreviousCustomer;
 	}
 
 	/**
-	 * Specifies if the consumer has a history of online shopping with the merchant
+	 * Specifies if the customer has a history of online shopping with the merchant
 	 * <ul class="paragraph-width">
-	 * <li>true - The consumer is a known returning consumer
-	 * <li>false - The consumer is new/unknown consumer
+	 * <li>true - The customer is a known returning customer
+	 * <li>false - The customer is new/unknown customer
 	 * </ul>
+	 *
+	 * @deprecated Use Order.customer.isPreviousCustomer instead
 	 */
+	@Deprecated
 	public void setIsPreviousCustomer(Boolean value) {
 		this.isPreviousCustomer = value;
 	}
@@ -324,55 +373,73 @@ public class FraudFields {
 
 	/**
 	 * Comments included during shipping
+	 *
+	 * @deprecated Use Order.shipping.comments instead
 	 */
+	@Deprecated
 	public String getShipComments() {
 		return shipComments;
 	}
 
 	/**
 	 * Comments included during shipping
+	 *
+	 * @deprecated Use Order.shipping.comments instead
 	 */
+	@Deprecated
 	public void setShipComments(String value) {
 		this.shipComments = value;
 	}
 
 	/**
 	 * Shipment tracking number
+	 *
+	 * @deprecated Use Order.shipping.trackingNumber instead
 	 */
+	@Deprecated
 	public String getShipmentTrackingNumber() {
 		return shipmentTrackingNumber;
 	}
 
 	/**
 	 * Shipment tracking number
+	 *
+	 * @deprecated Use Order.shipping.trackingNumber instead
 	 */
+	@Deprecated
 	public void setShipmentTrackingNumber(String value) {
 		this.shipmentTrackingNumber = value;
 	}
 
 	/**
 	 * Details on how the order is shipped to the customer
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public FraudFieldsShippingDetails getShippingDetails() {
 		return shippingDetails;
 	}
 
 	/**
 	 * Details on how the order is shipped to the customer
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public void setShippingDetails(FraudFieldsShippingDetails value) {
 		this.shippingDetails = value;
 	}
 
 	/**
-	 * Array of up to 16 userData fields, each with a max length of 256 characters, that can be used for fraudscreening
+	 * Array of up to 16 userData properties, each with a max length of 256 characters, that can be used for fraudscreening
 	 */
 	public List<String> getUserData() {
 		return userData;
 	}
 
 	/**
-	 * Array of up to 16 userData fields, each with a max length of 256 characters, that can be used for fraudscreening
+	 * Array of up to 16 userData properties, each with a max length of 256 characters, that can be used for fraudscreening
 	 */
 	public void setUserData(List<String> value) {
 		this.userData = value;
@@ -380,14 +447,20 @@ public class FraudFields {
 
 	/**
 	 * The website from which the purchase was made
+	 *
+	 * @deprecated Use Merchant.websiteUrl instead
 	 */
+	@Deprecated
 	public String getWebsite() {
 		return website;
 	}
 
 	/**
 	 * The website from which the purchase was made
+	 *
+	 * @deprecated Use Merchant.websiteUrl instead
 	 */
+	@Deprecated
 	public void setWebsite(String value) {
 		this.website = value;
 	}

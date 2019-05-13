@@ -55,14 +55,14 @@ public class Order {
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public Customer getCustomer() {
 		return customer;
 	}
 
 	/**
-	 * Object containing the details of the consumer
+	 * Object containing the details of the customer
 	 */
 	public void setCustomer(Customer value) {
 		this.customer = value;
@@ -71,7 +71,7 @@ public class Order {
 	/**
 	 * Shopping cart data
 	 *
-	 * @deprecated Use ShoppingCart.items instead
+	 * @deprecated Use shoppingCart.items instead
 	 */
 	@Deprecated
 	public List<LineItem> getItems() {
@@ -81,7 +81,7 @@ public class Order {
 	/**
 	 * Shopping cart data
 	 *
-	 * @deprecated Use ShoppingCart.items instead
+	 * @deprecated Use shoppingCart.items instead
 	 */
 	@Deprecated
 	public void setItems(List<LineItem> value) {
@@ -89,14 +89,14 @@ public class Order {
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public OrderReferences getReferences() {
 		return references;
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public void setReferences(OrderReferences value) {
 		this.references = value;
@@ -104,14 +104,20 @@ public class Order {
 
 	/**
 	 * Object containing seller details
+	 *
+	 * @deprecated Use Merchant.seller instead
 	 */
+	@Deprecated
 	public Seller getSeller() {
 		return seller;
 	}
 
 	/**
 	 * Object containing seller details
+	 *
+	 * @deprecated Use Merchant.seller instead
 	 */
+	@Deprecated
 	public void setSeller(Seller value) {
 		this.seller = value;
 	}

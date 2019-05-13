@@ -11,14 +11,14 @@ public class PersonalName extends PersonalNameBase {
 	private String title = null;
 
 	/**
-	 * Title of consumer
+	 * Title of customer
 	 */
 	public String getTitle() {
 		return title;
 	}
 
 	/**
-	 * Title of consumer
+	 * Title of customer
 	 */
 	public void setTitle(String value) {
 		this.title = value;

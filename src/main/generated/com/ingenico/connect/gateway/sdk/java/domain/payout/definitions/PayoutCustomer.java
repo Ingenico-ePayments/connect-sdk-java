@@ -64,14 +64,14 @@ public class PayoutCustomer {
 	}
 
 	/**
-	 * Your identifier for the consumer that can be used as a search criteria in the Global Collect Payment Console and is also included in the Global Collect report files. For Ingenco's Ogone Payment Platform this field is used in the fraud-screening process.
+	 * Your identifier for the customer. It can be used as a search criteria in the GlobalCollect Payment Console and is also included in the GlobalCollect report files. It is used in the fraud-screening process for payments on the Ogone Payment Platform.
 	 */
 	public String getMerchantCustomerId() {
 		return merchantCustomerId;
 	}
 
 	/**
-	 * Your identifier for the consumer that can be used as a search criteria in the Global Collect Payment Console and is also included in the Global Collect report files. For Ingenco's Ogone Payment Platform this field is used in the fraud-screening process.
+	 * Your identifier for the customer. It can be used as a search criteria in the GlobalCollect Payment Console and is also included in the GlobalCollect report files. It is used in the fraud-screening process for payments on the Ogone Payment Platform.
 	 */
 	public void setMerchantCustomerId(String value) {
 		this.merchantCustomerId = value;

@@ -27,6 +27,8 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaym
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ContactDetails;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CreatePaymentResult;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Customer;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.DeviceRenderOptions;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ExternalCardholderAuthenticationData;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.LineItem;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.LineItemInvoiceData;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
@@ -34,7 +36,11 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderInv
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalInformation;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalName;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.SdkDataInput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Shipping;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ShoppingCart;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ThreeDSecure;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ThreeDSecureData;
 
 public class CreatePaymentExample {
 
@@ -48,10 +54,47 @@ public class CreatePaymentExample {
 			card.setCvv("123");
 			card.setExpiryDate("1220");
 
+			ExternalCardholderAuthenticationData externalCardholderAuthenticationData = new ExternalCardholderAuthenticationData();
+			externalCardholderAuthenticationData.setCavv("AgAAAAAABk4DWZ4C28yUQAAAAAA=");
+			externalCardholderAuthenticationData.setCavvAlgorithm("1");
+			externalCardholderAuthenticationData.setEci(8);
+			externalCardholderAuthenticationData.setThreeDSecureVersion("v2");
+			externalCardholderAuthenticationData.setThreeDServerTransactionId("3DSTID1234");
+			externalCardholderAuthenticationData.setValidationResult("Y");
+			externalCardholderAuthenticationData.setXid("n3h2uOQPUgnmqhCkXNfxl8pOZJA=");
+
+			ThreeDSecureData priorThreeDSecureData = new ThreeDSecureData();
+			priorThreeDSecureData.setAcsTransactionId("empty");
+			priorThreeDSecureData.setMethod("challenged");
+			priorThreeDSecureData.setUtcTimestamp("201901311530");
+
+			DeviceRenderOptions deviceRenderOptions = new DeviceRenderOptions();
+			deviceRenderOptions.setSdkInterface("native");
+			deviceRenderOptions.setSdkUiType("multi-select");
+
+			SdkDataInput sdkData = new SdkDataInput();
+			sdkData.setDeviceInfo("abc123");
+			sdkData.setDeviceRenderOptions(deviceRenderOptions);
+			sdkData.setSdkAppId("xyz");
+			sdkData.setSdkEncryptedData("abc123");
+			sdkData.setSdkEphemeralPublicKey("123xyz");
+			sdkData.setSdkMaxTimeout("30");
+			sdkData.setSdkReferenceNumber("zaq123");
+			sdkData.setSdkTransactionId("xsw321");
+
+			ThreeDSecure threeDSecure = new ThreeDSecure();
+			threeDSecure.setAuthenticationFlow("browser");
+			threeDSecure.setChallengeCanvasSize("600x400");
+			threeDSecure.setChallengeIndicator("challenge-requested");
+			threeDSecure.setExternalCardholderAuthenticationData(externalCardholderAuthenticationData);
+			threeDSecure.setPriorThreeDSecureData(priorThreeDSecureData);
+			threeDSecure.setSdkData(sdkData);
+			threeDSecure.setSkipAuthentication(false);
+
 			CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 			cardPaymentMethodSpecificInput.setCard(card);
 			cardPaymentMethodSpecificInput.setPaymentProductId(1);
-			cardPaymentMethodSpecificInput.setSkipAuthentication(false);
+			cardPaymentMethodSpecificInput.setThreeDSecure(threeDSecure);
 
 			AmountOfMoney amountOfMoney = new AmountOfMoney();
 			amountOfMoney.setAmount(2980L);
@@ -68,6 +111,7 @@ public class CreatePaymentExample {
 
 			CompanyInformation companyInformation = new CompanyInformation();
 			companyInformation.setName("Acme Labs");
+			companyInformation.setVatNumber("1234AB5678CD");
 
 			ContactDetails contactDetails = new ContactDetails();
 			contactDetails.setEmailAddress("wile.e.coyote@acmelabs.com");
@@ -86,21 +130,6 @@ public class CreatePaymentExample {
 			personalInformation.setGender("male");
 			personalInformation.setName(name);
 
-			PersonalName shippingName = new PersonalName();
-			shippingName.setFirstName("Road");
-			shippingName.setSurname("Runner");
-			shippingName.setTitle("Miss");
-
-			AddressPersonal shippingAddress = new AddressPersonal();
-			shippingAddress.setAdditionalInfo("Suite II");
-			shippingAddress.setCity("Monument Valley");
-			shippingAddress.setCountryCode("US");
-			shippingAddress.setHouseNumber("1");
-			shippingAddress.setName(shippingName);
-			shippingAddress.setState("Utah");
-			shippingAddress.setStreet("Desertroad");
-			shippingAddress.setZip("84536");
-
 			Customer customer = new Customer();
 			customer.setBillingAddress(billingAddress);
 			customer.setCompanyInformation(companyInformation);
@@ -108,8 +137,6 @@ public class CreatePaymentExample {
 			customer.setLocale("en_US");
 			customer.setMerchantCustomerId("1234");
 			customer.setPersonalInformation(personalInformation);
-			customer.setShippingAddress(shippingAddress);
-			customer.setVatNumber("1234AB5678CD");
 
 			OrderInvoiceData invoiceData = new OrderInvoiceData();
 			invoiceData.setInvoiceDate("20140306191500");
@@ -120,6 +147,24 @@ public class CreatePaymentExample {
 			references.setInvoiceData(invoiceData);
 			references.setMerchantOrderId(123456L);
 			references.setMerchantReference("AcmeOrder0001");
+
+			PersonalName shippingName = new PersonalName();
+			shippingName.setFirstName("Road");
+			shippingName.setSurname("Runner");
+			shippingName.setTitle("Miss");
+
+			AddressPersonal address = new AddressPersonal();
+			address.setAdditionalInfo("Suite II");
+			address.setCity("Monument Valley");
+			address.setCountryCode("US");
+			address.setHouseNumber("1");
+			address.setName(shippingName);
+			address.setState("Utah");
+			address.setStreet("Desertroad");
+			address.setZip("84536");
+
+			Shipping shipping = new Shipping();
+			shipping.setAddress(address);
 
 			List<LineItem> items = new ArrayList<LineItem>();
 
@@ -160,6 +205,7 @@ public class CreatePaymentExample {
 			order.setAmountOfMoney(amountOfMoney);
 			order.setCustomer(customer);
 			order.setReferences(references);
+			order.setShipping(shipping);
 			order.setShoppingCart(shoppingCart);
 
 			CreatePaymentRequest body = new CreatePaymentRequest();

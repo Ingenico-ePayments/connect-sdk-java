@@ -36,9 +36,9 @@ public class PayoutResult extends AbstractOrderStatus {
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payout is created.
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the paying out of the funds
 	 * <li>REJECTED - The transaction has been rejected
-	 * <li>PAYOUT_REQUESTED - The transaction is in the queue to be payed out to the consumer
-	 * <li>ACCOUNT_CREDITED - We have successfully credited the consumer
-	 * <li>REJECTED_CREDIT - The credit to the account of the consumer was rejected by the bank
+	 * <li>PAYOUT_REQUESTED - The transaction is in the queue to be payed out to the customer
+	 * <li>ACCOUNT_CREDITED - We have successfully credited the customer
+	 * <li>REJECTED_CREDIT - The credit to the account of the customer was rejected by the bank
 	 * <li>CANCELLED - You have cancelled the transaction
 	 * <li>REVERSED - The payout has been reversed and the money is returned to your balance
 	 * </ul><br>
@@ -54,9 +54,9 @@ public class PayoutResult extends AbstractOrderStatus {
 	 * <li>CREATED - The transaction has been created. This is the initial state once a new payout is created.
 	 * <li>PENDING_APPROVAL - The transaction is awaiting approval from you to proceed with the paying out of the funds
 	 * <li>REJECTED - The transaction has been rejected
-	 * <li>PAYOUT_REQUESTED - The transaction is in the queue to be payed out to the consumer
-	 * <li>ACCOUNT_CREDITED - We have successfully credited the consumer
-	 * <li>REJECTED_CREDIT - The credit to the account of the consumer was rejected by the bank
+	 * <li>PAYOUT_REQUESTED - The transaction is in the queue to be payed out to the customer
+	 * <li>ACCOUNT_CREDITED - We have successfully credited the customer
+	 * <li>REJECTED_CREDIT - The credit to the account of the customer was rejected by the bank
 	 * <li>CANCELLED - You have cancelled the transaction
 	 * <li>REVERSED - The payout has been reversed and the money is returned to your balance
 	 * </ul><br>

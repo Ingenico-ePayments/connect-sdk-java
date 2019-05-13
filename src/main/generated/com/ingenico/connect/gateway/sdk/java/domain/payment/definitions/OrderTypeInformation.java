@@ -8,6 +8,8 @@ public class OrderTypeInformation {
 
 	private String purchaseType = null;
 
+	private String transactionType = null;
+
 	private String usageType = null;
 
 	/**
@@ -28,6 +30,34 @@ public class OrderTypeInformation {
 	 */
 	public void setPurchaseType(String value) {
 		this.purchaseType = value;
+	}
+
+	/**
+	 * Identifies the type of transaction being authenticated.
+	 * Possible values are:<ul class="paragraph-width">
+	 * <li>purchase = The purpose of the transaction is to purchase goods or services
+	 * <li>check-acceptance = The purpose of the transaction is to accept a 'check'/'cheque'
+	 * <li>account-funding = The purpose of the transaction is to fund an account
+	 * <li>quasi-cash = The purpose of the transaction is to buy a quasi cash type product that is representative of actual cash such as money orders, traveler's checks, foreign currency, lottery tickets or casino gaming chips
+	 * <li>prepaid-activation-or-load = The purpose of the transaction is to activate or load a prepaid card
+	 * </ul>
+	 */
+	public String getTransactionType() {
+		return transactionType;
+	}
+
+	/**
+	 * Identifies the type of transaction being authenticated.
+	 * Possible values are:<ul class="paragraph-width">
+	 * <li>purchase = The purpose of the transaction is to purchase goods or services
+	 * <li>check-acceptance = The purpose of the transaction is to accept a 'check'/'cheque'
+	 * <li>account-funding = The purpose of the transaction is to fund an account
+	 * <li>quasi-cash = The purpose of the transaction is to buy a quasi cash type product that is representative of actual cash such as money orders, traveler's checks, foreign currency, lottery tickets or casino gaming chips
+	 * <li>prepaid-activation-or-load = The purpose of the transaction is to activate or load a prepaid card
+	 * </ul>
+	 */
+	public void setTransactionType(String value) {
+		this.transactionType = value;
 	}
 
 	/**

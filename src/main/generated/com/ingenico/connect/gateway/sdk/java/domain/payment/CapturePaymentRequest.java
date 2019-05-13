@@ -31,16 +31,16 @@ public class CapturePaymentRequest {
 	}
 
 	/**
-	 * This field indicates whether this will be the final capture of this transaction.
-	 * The default value for this field is false.
+	 * This property indicates whether this will be the final capture of this transaction.
+	 * The default value for this property is false.
 	 */
 	public Boolean getIsFinal() {
 		return isFinal;
 	}
 
 	/**
-	 * This field indicates whether this will be the final capture of this transaction.
-	 * The default value for this field is false.
+	 * This property indicates whether this will be the final capture of this transaction.
+	 * The default value for this property is false.
 	 */
 	public void setIsFinal(Boolean value) {
 		this.isFinal = value;

@@ -25,14 +25,14 @@ public class PaymentProductFieldTooltip {
 	}
 
 	/**
-	 * A text explaining the field in more detail. This is meant to be used for displaying to the consumer.
+	 * A text explaining the field in more detail. This is meant to be used for displaying to the customer.
 	 */
 	public String getLabel() {
 		return label;
 	}
 
 	/**
-	 * A text explaining the field in more detail. This is meant to be used for displaying to the consumer.
+	 * A text explaining the field in more detail. This is meant to be used for displaying to the customer.
 	 */
 	public void setLabel(String value) {
 		this.label = value;

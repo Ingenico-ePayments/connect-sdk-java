@@ -30,14 +30,14 @@ public class SepaDirectDebitPaymentProduct771SpecificInputBase extends AbstractS
 	}
 
 	/**
-	 * Object containing information to create a SEPA Direct Debit mandate. Required for creating HostedCheckouts with SEPA Direct Debit supported.
+	 * Object containing information to create a SEPA Direct Debit mandate.
 	 */
 	public CreateMandateBase getMandate() {
 		return mandate;
 	}
 
 	/**
-	 * Object containing information to create a SEPA Direct Debit mandate. Required for creating HostedCheckouts with SEPA Direct Debit supported.
+	 * Object containing information to create a SEPA Direct Debit mandate.
 	 */
 	public void setMandate(CreateMandateBase value) {
 		this.mandate = value;

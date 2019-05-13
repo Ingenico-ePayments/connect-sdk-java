@@ -5,7 +5,7 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 /**
- * @deprecated Use Order.shoppingCart instead
+ * @deprecated Use ShoppingCart.amountBreakdown instead
  */
 @Deprecated
 public class Level3SummaryData {
@@ -19,7 +19,7 @@ public class Level3SummaryData {
 	/**
 	 * Discount on the entire transaction, with the last 2 digits are implied decimal places
 	 *
-	 * @deprecated Use ShoppingCart.amountbreakdown with type DISCOUNT instead
+	 * @deprecated Use ShoppingCart.amountBreakdown with type DISCOUNT instead
 	 */
 	@Deprecated
 	public Long getDiscountAmount() {
@@ -29,7 +29,7 @@ public class Level3SummaryData {
 	/**
 	 * Discount on the entire transaction, with the last 2 digits are implied decimal places
 	 *
-	 * @deprecated Use ShoppingCart.amountbreakdown with type DISCOUNT instead
+	 * @deprecated Use ShoppingCart.amountBreakdown with type DISCOUNT instead
 	 */
 	@Deprecated
 	public void setDiscountAmount(Long value) {
@@ -39,7 +39,7 @@ public class Level3SummaryData {
 	/**
 	 * Duty on the entire transaction, with the last 2 digits are implied decimal places
 	 *
-	 * @deprecated Use ShoppingCart.amountbreakdown with type DUTY instead
+	 * @deprecated Use ShoppingCart.amountBreakdown with type DUTY instead
 	 */
 	@Deprecated
 	public Long getDutyAmount() {
@@ -49,7 +49,7 @@ public class Level3SummaryData {
 	/**
 	 * Duty on the entire transaction, with the last 2 digits are implied decimal places
 	 *
-	 * @deprecated Use ShoppingCart.amountbreakdown with type DUTY instead
+	 * @deprecated Use ShoppingCart.amountBreakdown with type DUTY instead
 	 */
 	@Deprecated
 	public void setDutyAmount(Long value) {
@@ -59,7 +59,7 @@ public class Level3SummaryData {
 	/**
 	 * Shippingcost on the entire transaction, with the last 2 digits are implied decimal places
 	 *
-	 * @deprecated Use ShoppingCart.amountbreakdown with type SHIPPING instead
+	 * @deprecated Use ShoppingCart.amountBreakdown with type SHIPPING instead
 	 */
 	@Deprecated
 	public Long getShippingAmount() {
@@ -69,7 +69,7 @@ public class Level3SummaryData {
 	/**
 	 * Shippingcost on the entire transaction, with the last 2 digits are implied decimal places
 	 *
-	 * @deprecated Use ShoppingCart.amountbreakdown with type SHIPPING instead
+	 * @deprecated Use ShoppingCart.amountBreakdown with type SHIPPING instead
 	 */
 	@Deprecated
 	public void setShippingAmount(Long value) {

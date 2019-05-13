@@ -28,7 +28,7 @@ public class PaymentProductFieldDisplayHints {
 
 	/**
 	 * <ul class="paragraph-width">
-	 * <li>true - Indicates that this field is advised to be captured to increase the success rates even-though it isn't marked as required. Please note that making the field required could hurt the success rates negatively. This boolean only indicates our advise to always show this field to the consumer.
+	 * <li>true - Indicates that this field is advised to be captured to increase the success rates even though it isn't marked as required. Please note that making the field required could hurt the success rates negatively. This boolean only indicates our advise to always show this field to the customer.
 	 * <li>false - Indicates that this field is not to be shown unless it is a required field.
 	 * </ul>
 	 */
@@ -38,7 +38,7 @@ public class PaymentProductFieldDisplayHints {
 
 	/**
 	 * <ul class="paragraph-width">
-	 * <li>true - Indicates that this field is advised to be captured to increase the success rates even-though it isn't marked as required. Please note that making the field required could hurt the success rates negatively. This boolean only indicates our advise to always show this field to the consumer.
+	 * <li>true - Indicates that this field is advised to be captured to increase the success rates even though it isn't marked as required. Please note that making the field required could hurt the success rates negatively. This boolean only indicates our advise to always show this field to the customer.
 	 * <li>false - Indicates that this field is not to be shown unless it is a required field.
 	 * </ul>
 	 */
@@ -183,14 +183,14 @@ public class PaymentProductFieldDisplayHints {
 	}
 
 	/**
-	 * Object that contains an optional tooltip to assist the consumer
+	 * Object that contains an optional tooltip to assist the customer
 	 */
 	public PaymentProductFieldTooltip getTooltip() {
 		return tooltip;
 	}
 
 	/**
-	 * Object that contains an optional tooltip to assist the consumer
+	 * Object that contains an optional tooltip to assist the customer
 	 */
 	public void setTooltip(PaymentProductFieldTooltip value) {
 		this.tooltip = value;

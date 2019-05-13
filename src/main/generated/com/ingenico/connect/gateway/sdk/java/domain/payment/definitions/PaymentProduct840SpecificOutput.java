@@ -29,14 +29,14 @@ public class PaymentProduct840SpecificOutput {
 	}
 
 	/**
-	 * Object containing the address details of the consumer
+	 * Object containing the address details of the customer
 	 */
 	public Address getCustomerAddress() {
 		return customerAddress;
 	}
 
 	/**
-	 * Object containing the address details of the consumer
+	 * Object containing the address details of the customer
 	 */
 	public void setCustomerAddress(Address value) {
 		this.customerAddress = value;

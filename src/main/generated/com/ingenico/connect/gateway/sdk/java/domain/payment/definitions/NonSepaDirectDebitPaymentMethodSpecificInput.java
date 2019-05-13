@@ -41,14 +41,14 @@ public class NonSepaDirectDebitPaymentMethodSpecificInput extends AbstractPaymen
 	}
 
 	/**
-	 * Descriptor intended to identify the transaction on the consumer's bank statement
+	 * Descriptor intended to identify the transaction on the customer's bank statement
 	 */
 	public String getDirectDebitText() {
 		return directDebitText;
 	}
 
 	/**
-	 * Descriptor intended to identify the transaction on the consumer's bank statement
+	 * Descriptor intended to identify the transaction on the customer's bank statement
 	 */
 	public void setDirectDebitText(String value) {
 		this.directDebitText = value;

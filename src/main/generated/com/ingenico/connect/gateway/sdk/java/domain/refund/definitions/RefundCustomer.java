@@ -61,14 +61,14 @@ public class RefundCustomer {
 	}
 
 	/**
-	 * Fiscal registration number of the consumer (CPF) with a length of 11 or the tax registration number of the company for a business consumer (CNPJ) with a length of 14.
+	 * Fiscal registration number of the customer (CPF) with a length of 11 or the tax registration number of the company for a business customer (CNPJ) with a length of 14.
 	 */
 	public String getFiscalNumber() {
 		return fiscalNumber;
 	}
 
 	/**
-	 * Fiscal registration number of the consumer (CPF) with a length of 11 or the tax registration number of the company for a business consumer (CNPJ) with a length of 14.
+	 * Fiscal registration number of the customer (CPF) with a length of 11 or the tax registration number of the company for a business customer (CNPJ) with a length of 14.
 	 */
 	public void setFiscalNumber(String value) {
 		this.fiscalNumber = value;

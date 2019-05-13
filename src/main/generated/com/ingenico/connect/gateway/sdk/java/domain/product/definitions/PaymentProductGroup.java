@@ -70,14 +70,14 @@ public class PaymentProductGroup {
 	}
 
 	/**
-	 * Object containing all the fields and their details that are associated with this payment product group. If you are not interested in the these fields you can have us filter them our (using hide=fields in the query-string)
+	 * Object containing all the fields and their details that are associated with this payment product group. If you are not interested in the these fields you can have us filter them out (using hide=fields in the query-string)
 	 */
 	public List<PaymentProductField> getFields() {
 		return fields;
 	}
 
 	/**
-	 * Object containing all the fields and their details that are associated with this payment product group. If you are not interested in the these fields you can have us filter them our (using hide=fields in the query-string)
+	 * Object containing all the fields and their details that are associated with this payment product group. If you are not interested in the these fields you can have us filter them out (using hide=fields in the query-string)
 	 */
 	public void setFields(List<PaymentProductField> value) {
 		this.fields = value;

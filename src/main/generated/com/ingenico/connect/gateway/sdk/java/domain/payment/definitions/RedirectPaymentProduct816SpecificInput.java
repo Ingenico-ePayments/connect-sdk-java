@@ -14,14 +14,14 @@ public class RedirectPaymentProduct816SpecificInput {
 	private BankAccountIban bankAccountIban = null;
 
 	/**
-	 * Object containing the bank account details of the consumer
+	 * Object containing the bank account details of the customer
 	 */
 	public BankAccountIban getBankAccountIban() {
 		return bankAccountIban;
 	}
 
 	/**
-	 * Object containing the bank account details of the consumer
+	 * Object containing the bank account details of the customer
 	 */
 	public void setBankAccountIban(BankAccountIban value) {
 		this.bankAccountIban = value;

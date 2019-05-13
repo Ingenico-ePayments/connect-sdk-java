@@ -27,14 +27,14 @@ public class OrderOutput {
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public PaymentReferences getReferences() {
 		return references;
 	}
 
 	/**
-	 * Object that holds all reference fields that are linked to this transaction
+	 * Object that holds all reference properties that are linked to this transaction
 	 */
 	public void setReferences(PaymentReferences value) {
 		this.references = value;

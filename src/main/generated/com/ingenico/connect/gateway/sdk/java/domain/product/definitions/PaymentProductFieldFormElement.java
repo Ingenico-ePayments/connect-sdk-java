@@ -16,10 +16,10 @@ public class PaymentProductFieldFormElement {
 	 * Type of form element to be used. The following types can be returned:
 	 * <ul class="paragraph-width">
 	 * <li>text - A normal text input field
-	 * <li>list - A list of values that the consumer needs to choose from, is detailed in the <span class="property">valueMapping</span> array
+	 * <li>list - A list of values that the customer needs to choose from, is detailed in the valueMapping array
 	 * <li>currency - Currency fields should be split into two fields, with the second one being specifically for the cents
-	 * <li>boolean - Boolean fields should offer the consumer a choice, like accepting the terms and conditions of a product.
-	 * <li>date - let the consumer pick a date.
+	 * <li>boolean - Boolean fields should offer the customer a choice, like accepting the terms and conditions of a product.
+	 * <li>date - let the customer pick a date.
 	 * </ul>
 	 */
 	public String getType() {
@@ -30,10 +30,10 @@ public class PaymentProductFieldFormElement {
 	 * Type of form element to be used. The following types can be returned:
 	 * <ul class="paragraph-width">
 	 * <li>text - A normal text input field
-	 * <li>list - A list of values that the consumer needs to choose from, is detailed in the <span class="property">valueMapping</span> array
+	 * <li>list - A list of values that the customer needs to choose from, is detailed in the valueMapping array
 	 * <li>currency - Currency fields should be split into two fields, with the second one being specifically for the cents
-	 * <li>boolean - Boolean fields should offer the consumer a choice, like accepting the terms and conditions of a product.
-	 * <li>date - let the consumer pick a date.
+	 * <li>boolean - Boolean fields should offer the customer a choice, like accepting the terms and conditions of a product.
+	 * <li>date - let the customer pick a date.
 	 * </ul>
 	 */
 	public void setType(String value) {

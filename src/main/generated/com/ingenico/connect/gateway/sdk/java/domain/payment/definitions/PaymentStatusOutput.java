@@ -56,11 +56,11 @@ public class PaymentStatusOutput extends OrderStatusOutput {
 
 	/**
 	 * The 3D Secure status, with the following possible values:
-	 * <ul class="paragraph-width"><li>ENROLLED: the card is enrolled for 3D Secure authentication. The consumer can be redirected to a 3D Secure access control server (ACS)
+	 * <ul class="paragraph-width"><li>ENROLLED: the card is enrolled for 3D Secure authentication. The customer can be redirected to a 3D Secure access control server (ACS)
 	 * <li>NOT_ENROLLED: the card is not enrolled for 3D Secure authentication
-	 * <li>INVALID_PARES_OR_NOT_COMPLETED: the PARes is invalid, or the consumer did not complete the 3D Secure authentication
-	 * <li>AUTHENTICATED: the consumer has passed the 3D Secure authentication
-	 * <li>NOT_AUTHENTICATED: the consumer failed the 3D Secure authentication
+	 * <li>INVALID_PARES_OR_NOT_COMPLETED: the PARes is invalid, or the customer did not complete the 3D Secure authentication
+	 * <li>AUTHENTICATED: the customer has passed the 3D Secure authentication
+	 * <li>NOT_AUTHENTICATED: the customer failed the 3D Secure authentication
 	 * <li>NOT_PARTICIPATING: the cardholder has not set up their card for 2-step 3D Secure.
 	 * </ul>Note that this status will only be set for payments that make use of 2-step 3D Secure.
 	 */
@@ -70,11 +70,11 @@ public class PaymentStatusOutput extends OrderStatusOutput {
 
 	/**
 	 * The 3D Secure status, with the following possible values:
-	 * <ul class="paragraph-width"><li>ENROLLED: the card is enrolled for 3D Secure authentication. The consumer can be redirected to a 3D Secure access control server (ACS)
+	 * <ul class="paragraph-width"><li>ENROLLED: the card is enrolled for 3D Secure authentication. The customer can be redirected to a 3D Secure access control server (ACS)
 	 * <li>NOT_ENROLLED: the card is not enrolled for 3D Secure authentication
-	 * <li>INVALID_PARES_OR_NOT_COMPLETED: the PARes is invalid, or the consumer did not complete the 3D Secure authentication
-	 * <li>AUTHENTICATED: the consumer has passed the 3D Secure authentication
-	 * <li>NOT_AUTHENTICATED: the consumer failed the 3D Secure authentication
+	 * <li>INVALID_PARES_OR_NOT_COMPLETED: the PARes is invalid, or the customer did not complete the 3D Secure authentication
+	 * <li>AUTHENTICATED: the customer has passed the 3D Secure authentication
+	 * <li>NOT_AUTHENTICATED: the customer failed the 3D Secure authentication
 	 * <li>NOT_PARTICIPATING: the cardholder has not set up their card for 2-step 3D Secure.
 	 * </ul>Note that this status will only be set for payments that make use of 2-step 3D Secure.
 	 */

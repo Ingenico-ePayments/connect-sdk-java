@@ -11,28 +11,28 @@ public class KeyValuePair {
 	private String value = null;
 
 	/**
-	 * Name of the key or field
+	 * Name of the key or property
 	 */
 	public String getKey() {
 		return key;
 	}
 
 	/**
-	 * Name of the key or field
+	 * Name of the key or property
 	 */
 	public void setKey(String value) {
 		this.key = value;
 	}
 
 	/**
-	 * Value of the key or field
+	 * Value of the key or property
 	 */
 	public String getValue() {
 		return value;
 	}
 
 	/**
-	 * Value of the key or field
+	 * Value of the key or property
 	 */
 	public void setValue(String value) {
 		this.value = value;

@@ -122,7 +122,7 @@ public class PaymentProduct840CustomerAccount {
 	}
 
 	/**
-	 * Status of the consumer's shipping address as registered by PayPal<br>
+	 * Status of the customer's shipping address as registered by PayPal<br>
 	 * Possible values are:
 	 * <ul class="paragraph-width"><li>none - Status is unknown at PayPal
 	 * <li>confirmed - The address has been confirmed
@@ -134,7 +134,7 @@ public class PaymentProduct840CustomerAccount {
 	}
 
 	/**
-	 * Status of the consumer's shipping address as registered by PayPal<br>
+	 * Status of the customer's shipping address as registered by PayPal<br>
 	 * Possible values are:
 	 * <ul class="paragraph-width"><li>none - Status is unknown at PayPal
 	 * <li>confirmed - The address has been confirmed

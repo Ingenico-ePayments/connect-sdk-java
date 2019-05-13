@@ -28,14 +28,14 @@ public class CustomerToken extends CustomerBase {
 	}
 
 	/**
-	 * Object containing personal information of the consumer
+	 * Object containing personal information of the customer
 	 */
 	public PersonalInformationToken getPersonalInformation() {
 		return personalInformation;
 	}
 
 	/**
-	 * Object containing personal information of the consumer
+	 * Object containing personal information of the customer
 	 */
 	public void setPersonalInformation(PersonalInformationToken value) {
 		this.personalInformation = value;

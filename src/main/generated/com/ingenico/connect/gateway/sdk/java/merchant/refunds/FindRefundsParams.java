@@ -16,6 +16,8 @@ import com.ingenico.connect.gateway.sdk.java.RequestParam;
  */
 public class FindRefundsParams extends AbstractParamRequest {
 
+	private String hostedCheckoutId;
+
 	private String merchantReference;
 
 	private Long merchantOrderId;
@@ -23,6 +25,20 @@ public class FindRefundsParams extends AbstractParamRequest {
 	private Integer offset;
 
 	private Integer limit;
+
+	/**
+	 * Your hosted checkout identifier to filter on.
+	 */
+	public String getHostedCheckoutId() {
+		return hostedCheckoutId;
+	}
+
+	/**
+	 * Your hosted checkout identifier to filter on.
+	 */
+	public void setHostedCheckoutId(String value) {
+		this.hostedCheckoutId = value;
+	}
 
 	/**
 	 * Your unique transaction reference to filter on.
@@ -83,6 +99,7 @@ public class FindRefundsParams extends AbstractParamRequest {
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
+		addParameter(result, "hostedCheckoutId", hostedCheckoutId);
 		addParameter(result, "merchantReference", merchantReference);
 		addParameter(result, "merchantOrderId", merchantOrderId);
 		addParameter(result, "offset", offset);

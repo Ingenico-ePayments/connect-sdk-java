@@ -20,6 +20,7 @@ public class FindRefundsExample {
 		Client client = getClient();
 		try {
 			FindRefundsParams query = new FindRefundsParams();
+			query.setHostedCheckoutId("15c09dac-bf44-486a-af6b-edfd8680a166");
 			query.setMerchantReference("AcmeOrder0001");
 			query.setMerchantOrderId(123456L);
 			query.setOffset(0);

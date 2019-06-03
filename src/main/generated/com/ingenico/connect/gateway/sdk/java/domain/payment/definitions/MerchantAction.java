@@ -23,6 +23,8 @@ public class MerchantAction {
 
 	private List<KeyValuePair> showData = null;
 
+	private ThirdPartyData thirdPartyData = null;
+
 	/**
 	 * Action merchants needs to take in the online payment process. Possible values are:<br>
 	 * <ul class="paragraph-width"><li>REDIRECT - The customer needs to be redirected using the details found in redirectData
@@ -35,6 +37,7 @@ public class MerchantAction {
 	 * <li>SHOW_INSTRUCTIONS - The customer needs to be shown payment instruction using the details found in showData. Alternatively the instructions can be rendered by us using the instructionsRenderingData
 	 * <li>SHOW_TRANSACTION_RESULTS - The customer needs to be shown the transaction results using the details found in showData. Alternatively the instructions can be rendered by us using the instructionsRenderingData
 	 * <li>MOBILE_THREEDS_CHALLENGE - The customer needs to complete a challenge as part of the 3D Secure authentication inside your mobile app. The details contained in mobileThreeDSecureChallengeParameters need to be provided to the EMVco certified Mobile SDK as a challengeParameters object.
+	 * <li>CALL_THIRD_PARTY - The merchant needs to call a third party using the data found in thirdPartyData
 	 * </ul>
 	 */
 	public String getActionType() {
@@ -53,6 +56,7 @@ public class MerchantAction {
 	 * <li>SHOW_INSTRUCTIONS - The customer needs to be shown payment instruction using the details found in showData. Alternatively the instructions can be rendered by us using the instructionsRenderingData
 	 * <li>SHOW_TRANSACTION_RESULTS - The customer needs to be shown the transaction results using the details found in showData. Alternatively the instructions can be rendered by us using the instructionsRenderingData
 	 * <li>MOBILE_THREEDS_CHALLENGE - The customer needs to complete a challenge as part of the 3D Secure authentication inside your mobile app. The details contained in mobileThreeDSecureChallengeParameters need to be provided to the EMVco certified Mobile SDK as a challengeParameters object.
+	 * <li>CALL_THIRD_PARTY - The merchant needs to call a third party using the data found in thirdPartyData
 	 * </ul>
 	 */
 	public void setActionType(String value) {
@@ -173,5 +177,21 @@ public class MerchantAction {
 	 */
 	public void setShowData(List<KeyValuePair> value) {
 		this.showData = value;
+	}
+
+	/**
+	 * This is returned for the CALL_THIRD_PARTY actionType.<br>
+	 * The payment product specific field of the payment product used for the payment will be populated with the third party data that should be used when calling the third party.
+	 */
+	public ThirdPartyData getThirdPartyData() {
+		return thirdPartyData;
+	}
+
+	/**
+	 * This is returned for the CALL_THIRD_PARTY actionType.<br>
+	 * The payment product specific field of the payment product used for the payment will be populated with the third party data that should be used when calling the third party.
+	 */
+	public void setThirdPartyData(ThirdPartyData value) {
+		this.thirdPartyData = value;
 	}
 }

@@ -14,6 +14,8 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 
 	private RedirectPaymentProduct840SpecificInput paymentProduct840SpecificInput = null;
 
+	private RedirectPaymentProduct861SpecificInput paymentProduct861SpecificInput = null;
+
 	private RedirectPaymentProduct863SpecificInput paymentProduct863SpecificInput = null;
 
 	private RedirectPaymentProduct882SpecificInput paymentProduct882SpecificInput = null;
@@ -80,6 +82,20 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 	 */
 	public void setPaymentProduct840SpecificInput(RedirectPaymentProduct840SpecificInput value) {
 		this.paymentProduct840SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for AliPay payments (Payment product ID 861)
+	 */
+	public RedirectPaymentProduct861SpecificInput getPaymentProduct861SpecificInput() {
+		return paymentProduct861SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for AliPay payments (Payment product ID 861)
+	 */
+	public void setPaymentProduct861SpecificInput(RedirectPaymentProduct861SpecificInput value) {
+		this.paymentProduct861SpecificInput = value;
 	}
 
 	/**

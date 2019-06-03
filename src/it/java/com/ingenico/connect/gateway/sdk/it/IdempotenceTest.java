@@ -17,6 +17,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Customer
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentProduct809SpecificInput;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectionData;
 
 public class IdempotenceTest extends ItTest {
 
@@ -45,8 +46,11 @@ public class IdempotenceTest extends ItTest {
 		order.setCustomer(customer);
 		body.setOrder(order);
 
+		RedirectionData redirectionData = new RedirectionData();
+		redirectionData.setReturnUrl("http://example.com/");
+
 		RedirectPaymentMethodSpecificInput paymentMethodSpecificInput = new RedirectPaymentMethodSpecificInput();
-		paymentMethodSpecificInput.setReturnUrl("http://example.com/");
+		paymentMethodSpecificInput.setRedirectionData(redirectionData);
 		paymentMethodSpecificInput.setPaymentProductId(809);
 
 		RedirectPaymentProduct809SpecificInput paymentProductSpecificInput = new RedirectPaymentProduct809SpecificInput();

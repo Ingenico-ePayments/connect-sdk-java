@@ -38,7 +38,6 @@ public class OrderReferences {
 	 * <li>404 INICIS - 80 characters
 	 * <li>802 Nordea ePayment Finland - 234 characters
 	 * <li>809 iDeal - 32 characters
-	 * <li>819 Aktia - 210 characters
 	 * <li>836 SOFORT - 42 characters
 	 * <li>840 PayPal - 127 characters
 	 * <li>841 WebMoney - 175 characters
@@ -79,7 +78,6 @@ public class OrderReferences {
 	 * <li>404 INICIS - 80 characters
 	 * <li>802 Nordea ePayment Finland - 234 characters
 	 * <li>809 iDeal - 32 characters
-	 * <li>819 Aktia - 210 characters
 	 * <li>836 SOFORT - 42 characters
 	 * <li>840 PayPal - 127 characters
 	 * <li>841 WebMoney - 175 characters

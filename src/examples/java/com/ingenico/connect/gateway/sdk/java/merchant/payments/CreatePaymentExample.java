@@ -27,7 +27,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaym
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ContactDetails;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CreatePaymentResult;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Customer;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.DeviceRenderOptions;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ExternalCardholderAuthenticationData;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.LineItem;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.LineItemInvoiceData;
@@ -36,7 +35,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderInv
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalInformation;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalName;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.SdkDataInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Shipping;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ShoppingCart;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ThreeDSecure;
@@ -68,27 +66,12 @@ public class CreatePaymentExample {
 			priorThreeDSecureData.setMethod("challenged");
 			priorThreeDSecureData.setUtcTimestamp("201901311530");
 
-			DeviceRenderOptions deviceRenderOptions = new DeviceRenderOptions();
-			deviceRenderOptions.setSdkInterface("native");
-			deviceRenderOptions.setSdkUiType("multi-select");
-
-			SdkDataInput sdkData = new SdkDataInput();
-			sdkData.setDeviceInfo("abc123");
-			sdkData.setDeviceRenderOptions(deviceRenderOptions);
-			sdkData.setSdkAppId("xyz");
-			sdkData.setSdkEncryptedData("abc123");
-			sdkData.setSdkEphemeralPublicKey("123xyz");
-			sdkData.setSdkMaxTimeout("30");
-			sdkData.setSdkReferenceNumber("zaq123");
-			sdkData.setSdkTransactionId("xsw321");
-
 			ThreeDSecure threeDSecure = new ThreeDSecure();
 			threeDSecure.setAuthenticationFlow("browser");
 			threeDSecure.setChallengeCanvasSize("600x400");
 			threeDSecure.setChallengeIndicator("challenge-requested");
 			threeDSecure.setExternalCardholderAuthenticationData(externalCardholderAuthenticationData);
 			threeDSecure.setPriorThreeDSecureData(priorThreeDSecureData);
-			threeDSecure.setSdkData(sdkData);
 			threeDSecure.setSkipAuthentication(false);
 
 			CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();

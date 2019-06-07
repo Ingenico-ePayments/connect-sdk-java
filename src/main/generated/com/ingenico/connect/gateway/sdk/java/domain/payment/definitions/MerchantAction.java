@@ -152,7 +152,6 @@ public class MerchantAction {
 	 * <ul class="paragraph-width">
 	 * <li>desktopQRCode - contains a QR code that can be used to complete the payment in the WeChat app. In this case, the key QRCODE contains a base64 encoded PNG image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by a mobile device with the WeChat app).
 	 * <li>urlIntent - contains a URL intent that can be used to complete the payment in the WeChat app. In this case, the key URLINTENT contains a URL intent that can be used as the link of an 'open the app' button on a mobile device.
-	 * <li>nativeInApp - contains a signature of the payment values and a nonce used to generate the signature, that can be used to complete the payment using the WeChat SDK. In this case, the key WECHAT_SIGNATURE contains the signature that should be used for the WeChat SDK property sign. The key SIGNATURE_NONCE contains the nonce that should be used for the WeChat SDK property noncestr.
 	 * </ul>
 	 */
 	public List<KeyValuePair> getShowData() {
@@ -172,7 +171,6 @@ public class MerchantAction {
 	 * <ul class="paragraph-width">
 	 * <li>desktopQRCode - contains a QR code that can be used to complete the payment in the WeChat app. In this case, the key QRCODE contains a base64 encoded PNG image. By prepending 'data:image/png;base64,' this value can be used as the source of an HTML inline image on a desktop or tablet (intended to be scanned by a mobile device with the WeChat app).
 	 * <li>urlIntent - contains a URL intent that can be used to complete the payment in the WeChat app. In this case, the key URLINTENT contains a URL intent that can be used as the link of an 'open the app' button on a mobile device.
-	 * <li>nativeInApp - contains a signature of the payment values and a nonce used to generate the signature, that can be used to complete the payment using the WeChat SDK. In this case, the key WECHAT_SIGNATURE contains the signature that should be used for the WeChat SDK property sign. The key SIGNATURE_NONCE contains the nonce that should be used for the WeChat SDK property noncestr.
 	 * </ul>
 	 */
 	public void setShowData(List<KeyValuePair> value) {

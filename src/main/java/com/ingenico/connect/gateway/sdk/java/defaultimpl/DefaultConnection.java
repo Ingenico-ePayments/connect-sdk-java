@@ -1,11 +1,14 @@
 package com.ingenico.connect.gateway.sdk.java.defaultimpl;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.ProxySelector;
 import java.net.URI;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -47,6 +50,10 @@ import org.apache.http.conn.socket.ConnectionSocketFactory;
 import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.BufferedHttpEntity;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -57,20 +64,22 @@ import org.apache.http.impl.conn.DefaultProxyRoutePlanner;
 import org.apache.http.impl.conn.DefaultSchemePortResolver;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.impl.conn.SystemDefaultRoutePlanner;
+import org.apache.http.impl.io.EmptyInputStream;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.ssl.SSLContexts;
-import org.apache.http.util.EntityUtils;
 
 import com.ingenico.connect.gateway.sdk.java.CommunicationException;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Connection;
+import com.ingenico.connect.gateway.sdk.java.MultipartFormDataObject;
 import com.ingenico.connect.gateway.sdk.java.PooledConnection;
 import com.ingenico.connect.gateway.sdk.java.ProxyConfiguration;
 import com.ingenico.connect.gateway.sdk.java.RequestHeader;
-import com.ingenico.connect.gateway.sdk.java.Response;
+import com.ingenico.connect.gateway.sdk.java.ResponseHandler;
 import com.ingenico.connect.gateway.sdk.java.ResponseHeader;
+import com.ingenico.connect.gateway.sdk.java.UploadableFile;
 import com.ingenico.connect.gateway.sdk.java.logging.CommunicatorLogger;
 import com.ingenico.connect.gateway.sdk.java.logging.LogMessageBuilder;
 import com.ingenico.connect.gateway.sdk.java.logging.RequestLogMessageBuilder;
@@ -242,51 +251,83 @@ public class DefaultConnection implements PooledConnection {
 	}
 
 	@Override
-	public Response get(URI uri, List<RequestHeader> requestHeaders) {
+	public <R> R get(URI uri, List<RequestHeader> requestHeaders, ResponseHandler<R> responseHandler) {
 
 		HttpGet httpGet = new HttpGet(uri);
 		httpGet.setConfig(requestConfig);
 		addHeaders(httpGet, requestHeaders);
-		return executeRequest(httpGet);
+		return executeRequest(httpGet, responseHandler);
 	}
 
 	@Override
-	public Response delete(URI uri, List<RequestHeader> requestHeaders) {
+	public <R> R delete(URI uri, List<RequestHeader> requestHeaders, ResponseHandler<R> responseHandler) {
 
 		HttpDelete httpDelete = new HttpDelete(uri);
 		httpDelete.setConfig(requestConfig);
 		addHeaders(httpDelete, requestHeaders);
-		return executeRequest(httpDelete);
+		return executeRequest(httpDelete, responseHandler);
 	}
 
 	@Override
-	public Response post(URI uri, List<RequestHeader> requestHeaders, String body) {
+	public <R> R post(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler) {
+
+		HttpEntity requestEntity = createRequestEntity(body);
+		return post(uri, requestHeaders, requestEntity, responseHandler);
+	}
+
+	@Override
+	public <R> R post(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler) {
+
+		HttpEntity requestEntity = createRequestEntity(multipart);
+		return post(uri, requestHeaders, requestEntity, responseHandler);
+	}
+
+	private <R> R post(URI uri, List<RequestHeader> requestHeaders, HttpEntity requestEntity, ResponseHandler<R> responseHandler) {
 
 		HttpPost httpPost = new HttpPost(uri);
 		httpPost.setConfig(requestConfig);
 		addHeaders(httpPost, requestHeaders);
-		if (body != null) {
-			HttpEntity requestEntity = new JsonEntity(body, CHARSET);
+		if (requestEntity != null) {
 			httpPost.setEntity(requestEntity);
 		}
-		return executeRequest(httpPost);
+		return executeRequest(httpPost, responseHandler);
 	}
 
 	@Override
-	public Response put(URI uri, List<RequestHeader> requestHeaders, String body) {
+	public <R> R put(URI uri, List<RequestHeader> requestHeaders, String body, ResponseHandler<R> responseHandler) {
+
+		HttpEntity requestEntity = createRequestEntity(body);
+		return put(uri, requestHeaders, requestEntity, responseHandler);
+	}
+
+	@Override
+	public <R> R put(URI uri, List<RequestHeader> requestHeaders, MultipartFormDataObject multipart, ResponseHandler<R> responseHandler) {
+
+		HttpEntity requestEntity = createRequestEntity(multipart);
+		return put(uri, requestHeaders, requestEntity, responseHandler);
+	}
+
+	private <R> R put(URI uri, List<RequestHeader> requestHeaders, HttpEntity requestEntity, ResponseHandler<R> responseHandler) {
 
 		HttpPut httpPut = new HttpPut(uri);
 		httpPut.setConfig(requestConfig);
 		addHeaders(httpPut, requestHeaders);
-		if (body != null) {
-			HttpEntity requestEntity = new JsonEntity(body, CHARSET);
+		if (requestEntity != null) {
 			httpPut.setEntity(requestEntity);
 		}
-		return executeRequest(httpPut);
+		return executeRequest(httpPut, responseHandler);
+	}
+
+	private HttpEntity createRequestEntity(String body) {
+		return body != null ? new JsonEntity(body, CHARSET) : null;
+	}
+
+	private HttpEntity createRequestEntity(MultipartFormDataObject multipart) {
+		return new MultipartFormDataEntity(multipart);
 	}
 
 	@SuppressWarnings("resource")
-	protected Response executeRequest(HttpUriRequest request) {
+	protected <R> R executeRequest(HttpUriRequest request, ResponseHandler<R> responseHandler) {
 
 		final String requestId = UUID.randomUUID().toString();
 		final long startTime = System.currentTimeMillis();
@@ -295,23 +336,35 @@ public class DefaultConnection implements PooledConnection {
 		context.setAttribute(REQUEST_ID_ATTRIBUTE, requestId);
 		context.setAttribute(START_TIMME_ATTRIBUTE, startTime);
 
+		boolean logRuntimeExceptions = true;
+
 		try {
 			CloseableHttpResponse httpResponse = httpClient.execute(request, context);
 			HttpEntity entity = httpResponse.getEntity();
+			InputStream bodyStream = EmptyInputStream.INSTANCE;
 			try {
 				int statusCode = httpResponse.getStatusLine().getStatusCode();
-				String body = entity == null ? null : EntityUtils.toString(entity, CHARSET);
 				List<ResponseHeader> headers = getHeaders(httpResponse);
-				return new Response(statusCode, body, headers);
+
+				bodyStream = entity == null ? null : entity.getContent();
+				if (bodyStream == null) {
+					bodyStream = EmptyInputStream.INSTANCE;
+				}
+
+				// do not log runtime exceptions that originate from the response handler, as those are not communication errors
+				logRuntimeExceptions = false;
+
+				return responseHandler.handleResponse(statusCode, bodyStream, headers);
 
 			} finally {
 				/*
-				 * Ensure that the entity content is fully consumed and the
-				 * content stream, if exists, is closed so the connection can be
-				 * reused. Do not close the httpResponse because that will
-				 * prevent the connection from being reused.
+				 * Ensure that the content stream is closed so the connection can be reused.
+				 * Do not close the httpResponse because that will prevent the connection from being reused.
+				 * Note that the body stream will always be set; closing the EmptyInputStream instance will do nothing.
 				 */
-				EntityUtils.consume(entity);
+				if (bodyStream != null) {
+					bodyStream.close();
+				}
 			}
 		} catch (ClientProtocolException e) {
 			logError(requestId, e, startTime, communicatorLogger);
@@ -319,8 +372,13 @@ public class DefaultConnection implements PooledConnection {
 		} catch (IOException e) {
 			logError(requestId, e, startTime, communicatorLogger);
 			throw new CommunicationException(e);
-		} catch (RuntimeException e) {
+		} catch (CommunicationException e) {
 			logError(requestId, e, startTime, communicatorLogger);
+			throw e;
+		} catch (RuntimeException e) {
+			if (logRuntimeExceptions) {
+				logError(requestId, e, startTime, communicatorLogger);
+			}
 			throw e;
 		}
 	}
@@ -382,12 +440,16 @@ public class DefaultConnection implements PooledConnection {
 				final HttpEntityEnclosingRequest entityEnclosingRequest = (HttpEntityEnclosingRequest) request;
 
 				HttpEntity entity = entityEnclosingRequest.getEntity();
-				if (entity != null && !entity.isRepeatable()) {
+
+				String contentType = getContentType(entity, request.getFirstHeader(HttpHeaders.CONTENT_TYPE));
+				boolean isBinaryContent = isBinaryContent(contentType);
+
+				if (entity != null && !entity.isRepeatable() && !isBinaryContent) {
 					entity = new BufferedHttpEntity(entity);
 					entityEnclosingRequest.setEntity(entity);
 				}
 
-				setBody(logMessageBuilder, entity, request.getFirstHeader(HttpHeaders.CONTENT_TYPE));
+				setBody(logMessageBuilder, entity, contentType, isBinaryContent);
 			}
 
 			logger.log(logMessageBuilder.getMessage());
@@ -411,12 +473,16 @@ public class DefaultConnection implements PooledConnection {
 			addHeaders(logMessageBuilder, response.getAllHeaders());
 
 			HttpEntity entity = response.getEntity();
-			if (entity != null && !entity.isRepeatable()) {
+
+			String contentType = getContentType(entity, response.getFirstHeader(HttpHeaders.CONTENT_TYPE));
+			boolean isBinaryContent = isBinaryContent(contentType);
+
+			if (entity != null && !entity.isRepeatable() && !isBinaryContent) {
 				entity = new BufferedHttpEntity(entity);
 				response.setEntity(entity);
 			}
 
-			setBody(logMessageBuilder, entity, response.getFirstHeader(HttpHeaders.CONTENT_TYPE));
+			setBody(logMessageBuilder, entity, contentType, isBinaryContent);
 
 			logger.log(logMessageBuilder.getMessage());
 
@@ -436,14 +502,17 @@ public class DefaultConnection implements PooledConnection {
 		}
 	}
 
-	private void setBody(LogMessageBuilder logMessageBuilder, HttpEntity entity, Header defaultHeader) throws IOException {
+	private String getContentType(HttpEntity entity, Header defaultHeader) {
 
 		Header contentTypeHeader = entity != null ? entity.getContentType() : null;
 		if (contentTypeHeader == null) {
 			contentTypeHeader = defaultHeader;
 		}
 
-		String contentType = contentTypeHeader != null ? contentTypeHeader.getValue() : null;
+		return contentTypeHeader != null ? contentTypeHeader.getValue() : null;
+	}
+
+	private void setBody(LogMessageBuilder logMessageBuilder, HttpEntity entity, String contentType, boolean isBinaryContent) throws IOException {
 
 		if (entity == null) {
 			logMessageBuilder.setBody("", contentType);
@@ -453,10 +522,21 @@ public class DefaultConnection implements PooledConnection {
 			String body = ((JsonEntity) entity).getString();
 			logMessageBuilder.setBody(body, contentType);
 
+		} else if (isBinaryContent) {
+
+			logMessageBuilder.setBinaryContentBody(contentType);
+
 		} else {
 
 			logMessageBuilder.setBody(entity.getContent(), CHARSET, contentType);
 		}
+	}
+
+	private boolean isBinaryContent(String contentType) {
+		return contentType != null
+				&& !contentType.startsWith("text/")
+				&& !contentType.contains("json")
+				&& !contentType.contains("xml");
 	}
 
 	private void logError(final String requestId, final Exception error, final long startTime, final CommunicatorLogger logger) {
@@ -503,6 +583,132 @@ public class DefaultConnection implements PooledConnection {
 				}
 				// else the context was not sent through executeRequest
 			}
+		}
+	}
+
+	private static final class MultipartFormDataEntity implements HttpEntity {
+
+		private static final ContentType TEXT_PLAIN_UTF8 = ContentType.create("text/plain", CHARSET);
+
+		private final HttpEntity delegate;
+		private final boolean isChunked;
+
+		private MultipartFormDataEntity(MultipartFormDataObject multipart) {
+
+			boolean hasNegativeContentLength = false;
+			MultipartEntityBuilder builder = MultipartEntityBuilder.create()
+					.setBoundary(multipart.getBoundary());
+			for (Map.Entry<String, String> entry : multipart.getValues().entrySet()) {
+				builder = builder.addTextBody(entry.getKey(), entry.getValue(), TEXT_PLAIN_UTF8);
+			}
+			for (Map.Entry<String, UploadableFile> entry : multipart.getFiles().entrySet()) {
+				builder = builder.addPart(entry.getKey(), new UploadableFileBody(entry.getValue()));
+				hasNegativeContentLength |= entry.getValue().getContentLength() < 0;
+			}
+			delegate = builder.build();
+			isChunked = hasNegativeContentLength;
+
+			Header contentType = delegate.getContentType();
+			if (contentType == null || !(multipart.getContentType()).equals(contentType.getValue())) {
+				throw new IllegalStateException("MultipartEntityBuilder did not create the expected content type");
+			}
+		}
+
+		@Override
+		public boolean isRepeatable() {
+			return false;
+		}
+
+		@Override
+		public boolean isChunked() {
+			return isChunked;
+		}
+
+		@Override
+		public long getContentLength() {
+			return delegate.getContentLength();
+		}
+
+		@Override
+		public Header getContentType() {
+			return delegate.getContentType();
+		}
+
+		@Override
+		public Header getContentEncoding() {
+			return delegate.getContentEncoding();
+		}
+
+		@Override
+		public InputStream getContent() throws IOException {
+			return delegate.getContent();
+		}
+
+		@Override
+		public void writeTo(OutputStream outstream) throws IOException {
+			delegate.writeTo(outstream);
+		}
+
+		@Override
+		public boolean isStreaming() {
+			return true;
+		}
+
+		@Override
+		@Deprecated
+		public void consumeContent() throws IOException {
+			delegate.consumeContent();
+		}
+	}
+
+	private static final class UploadableFileBody implements ContentBody {
+
+		private final ContentBody delegate;
+		private final long contentLength;
+
+		private UploadableFileBody(UploadableFile file) {
+			delegate = new InputStreamBody(file.getContent(), ContentType.create(file.getContentType()), file.getFileName());
+			contentLength = Math.max(file.getContentLength(), -1);
+		}
+
+		@Override
+		public String getMimeType() {
+			return delegate.getMimeType();
+		}
+
+		@Override
+		public String getMediaType() {
+			return delegate.getMediaType();
+		}
+
+		@Override
+		public String getSubType() {
+			return delegate.getSubType();
+		}
+
+		@Override
+		public String getCharset() {
+			return delegate.getCharset();
+		}
+
+		@Override
+		public String getTransferEncoding() {
+			return delegate.getTransferEncoding();
+		}
+
+		@Override
+		public long getContentLength() {
+			return contentLength;
+		}
+
+		@Override
+		public String getFilename() {
+			return delegate.getFilename();
+		}
+
+		@Override
+		public void writeTo(OutputStream out) throws IOException {
+			delegate.writeTo(out);
 		}
 	}
 }

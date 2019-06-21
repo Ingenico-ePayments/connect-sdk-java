@@ -72,7 +72,7 @@ public class PayoutsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PayoutResponse create(CreatePayoutRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts", null);
+		String uri = instantiateUri("/v1/{merchantId}/payouts", null);
 		try {
 			return communicator.post(
 					uri,
@@ -125,7 +125,7 @@ public class PayoutsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public FindPayoutsResponse find(FindPayoutsParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts", null);
+		String uri = instantiateUri("/v1/{merchantId}/payouts", null);
 		try {
 			return communicator.get(
 					uri,
@@ -179,7 +179,7 @@ public class PayoutsClient extends ApiResource {
 	public PayoutResponse get(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payouts/{payoutId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -235,7 +235,7 @@ public class PayoutsClient extends ApiResource {
 	public PayoutResponse approve(String payoutId, ApprovePayoutRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}/approve", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payouts/{payoutId}/approve", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -256,7 +256,6 @@ public class PayoutsClient extends ApiResource {
 	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancel.html">Cancel payout</a>
 	 *
 	 * @param payoutId String
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -266,8 +265,8 @@ public class PayoutsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancel(String payoutId) {
-		return cancel(payoutId, null);
+	public void cancel(String payoutId) {
+		cancel(payoutId, null);
 	}
 
 	/**
@@ -276,7 +275,6 @@ public class PayoutsClient extends ApiResource {
 	 *
 	 * @param payoutId String
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -287,17 +285,17 @@ public class PayoutsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancel(String payoutId, CallContext context) {
+	public void cancel(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}/cancel", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payouts/{payoutId}/cancel", pathContext);
 		try {
-			return communicator.post(
+			communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
 					null,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;
@@ -311,7 +309,6 @@ public class PayoutsClient extends ApiResource {
 	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payouts/cancelapproval.html">Undo approve payout</a>
 	 *
 	 * @param payoutId String
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -321,8 +318,8 @@ public class PayoutsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancelapproval(String payoutId) {
-		return cancelapproval(payoutId, null);
+	public void cancelapproval(String payoutId) {
+		cancelapproval(payoutId, null);
 	}
 
 	/**
@@ -331,7 +328,6 @@ public class PayoutsClient extends ApiResource {
 	 *
 	 * @param payoutId String
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -342,17 +338,17 @@ public class PayoutsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancelapproval(String payoutId, CallContext context) {
+	public void cancelapproval(String payoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("payoutId", payoutId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payouts/{payoutId}/cancelapproval", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payouts/{payoutId}/cancelapproval", pathContext);
 		try {
-			return communicator.post(
+			communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
 					null,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

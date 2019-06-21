@@ -7,14 +7,14 @@ package com.ingenico.connect.gateway.sdk.java.merchant.refunds;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
+import com.ingenico.connect.gateway.sdk.java.ParamRequest;
 import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
  * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/find.html">Find refunds</a>
  */
-public class FindRefundsParams extends AbstractParamRequest {
+public class FindRefundsParams implements ParamRequest {
 
 	private String hostedCheckoutId;
 
@@ -99,11 +99,21 @@ public class FindRefundsParams extends AbstractParamRequest {
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "hostedCheckoutId", hostedCheckoutId);
-		addParameter(result, "merchantReference", merchantReference);
-		addParameter(result, "merchantOrderId", merchantOrderId);
-		addParameter(result, "offset", offset);
-		addParameter(result, "limit", limit);
+		if (hostedCheckoutId != null) {
+			result.add(new RequestParam("hostedCheckoutId", hostedCheckoutId));
+		}
+		if (merchantReference != null) {
+			result.add(new RequestParam("merchantReference", merchantReference));
+		}
+		if (merchantOrderId != null) {
+			result.add(new RequestParam("merchantOrderId", merchantOrderId.toString()));
+		}
+		if (offset != null) {
+			result.add(new RequestParam("offset", offset.toString()));
+		}
+		if (limit != null) {
+			result.add(new RequestParam("limit", limit.toString()));
+		}
 		return result;
 	}
 }

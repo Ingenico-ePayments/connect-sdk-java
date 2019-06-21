@@ -41,14 +41,14 @@ public class Seller {
 	}
 
 	/**
-	 * Channel code, refer to
+	 * This property is specific to Visa Argentina. Channelcode according to Prisma. Please contact the acquirer to get the full list you need to use.
 	 */
 	public String getChannelCode() {
 		return channelCode;
 	}
 
 	/**
-	 * Channel code, refer to
+	 * This property is specific to Visa Argentina. Channelcode according to Prisma. Please contact the acquirer to get the full list you need to use.
 	 */
 	public void setChannelCode(String value) {
 		this.channelCode = value;

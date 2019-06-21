@@ -25,7 +25,6 @@ import com.ingenico.connect.gateway.sdk.java.domain.product.GetCustomerDetailsRe
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductNetworksResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProductResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.product.PaymentProducts;
-import com.ingenico.connect.gateway.sdk.java.domain.publickey.PublicKey;
 
 /**
  * Products client. Thread-safe.
@@ -73,7 +72,7 @@ public class ProductsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProducts find(FindProductsParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products", null);
+		String uri = instantiateUri("/v1/{merchantId}/products", null);
 		try {
 			return communicator.get(
 					uri,
@@ -129,7 +128,7 @@ public class ProductsClient extends ApiResource {
 	public PaymentProductResponse get(Integer paymentProductId, GetProductParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/products/{paymentProductId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -185,7 +184,7 @@ public class ProductsClient extends ApiResource {
 	public Directory directory(Integer paymentProductId, DirectoryParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/directory", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/products/{paymentProductId}/directory", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -241,7 +240,7 @@ public class ProductsClient extends ApiResource {
 	public GetCustomerDetailsResponse customerDetails(Integer paymentProductId, GetCustomerDetailsRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/customerDetails", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/products/{paymentProductId}/customerDetails", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -298,7 +297,7 @@ public class ProductsClient extends ApiResource {
 	public DeviceFingerprintResponse deviceFingerprint(Integer paymentProductId, DeviceFingerprintRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/deviceFingerprint", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/products/{paymentProductId}/deviceFingerprint", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -355,67 +354,13 @@ public class ProductsClient extends ApiResource {
 	public PaymentProductNetworksResponse networks(Integer paymentProductId, NetworksParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/networks", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/products/{paymentProductId}/networks", pathContext);
 		try {
 			return communicator.get(
 					uri,
 					getClientHeaders(),
 					query,
 					PaymentProductNetworksResponse.class,
-					context);
-		} catch (ResponseException e) {
-			final Class<?> errorType = ErrorResponse.class;
-			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
-			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
-		}
-	}
-
-	/**
-	 * Resource /{merchantId}/products/{paymentProductId}/publicKey
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
-	 *
-	 * @param paymentProductId Integer
-	 * @return PublicKey
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public PublicKey publicKey(Integer paymentProductId) {
-		return publicKey(paymentProductId, null);
-	}
-
-	/**
-	 * Resource /{merchantId}/products/{paymentProductId}/publicKey
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/publicKey.html">Get payment product specific public key</a>
-	 *
-	 * @param paymentProductId Integer
-	 * @param context CallContext
-	 * @return PublicKey
-	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
-	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
-	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
-	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
-	 *            or there was a conflict (HTTP status code 404, 409 or 410)
-	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
-	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
-	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
-	 * @throws ApiException if the Ingenico ePayments platform returned any other error
-	 */
-	public PublicKey publicKey(Integer paymentProductId, CallContext context) {
-		Map<String, String> pathContext = new TreeMap<String, String>();
-		pathContext.put("paymentProductId", paymentProductId.toString());
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/products/{paymentProductId}/publicKey", pathContext);
-		try {
-			return communicator.get(
-					uri,
-					getClientHeaders(),
-					null,
-					PublicKey.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

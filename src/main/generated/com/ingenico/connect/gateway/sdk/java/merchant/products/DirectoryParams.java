@@ -7,14 +7,14 @@ package com.ingenico.connect.gateway.sdk.java.merchant.products;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
+import com.ingenico.connect.gateway.sdk.java.ParamRequest;
 import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
  * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/products/directory.html">Get payment product directory</a>
  */
-public class DirectoryParams extends AbstractParamRequest {
+public class DirectoryParams implements ParamRequest {
 
 	private String countryCode;
 
@@ -51,8 +51,12 @@ public class DirectoryParams extends AbstractParamRequest {
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "countryCode", countryCode);
-		addParameter(result, "currencyCode", currencyCode);
+		if (countryCode != null) {
+			result.add(new RequestParam("countryCode", countryCode));
+		}
+		if (currencyCode != null) {
+			result.add(new RequestParam("currencyCode", currencyCode));
+		}
 		return result;
 	}
 }

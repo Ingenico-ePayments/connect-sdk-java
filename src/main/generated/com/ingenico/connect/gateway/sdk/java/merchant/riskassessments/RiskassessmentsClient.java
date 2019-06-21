@@ -66,7 +66,7 @@ public class RiskassessmentsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public RiskAssessmentResponse bankaccounts(RiskAssessmentBankAccount body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/riskassessments/bankaccounts", null);
+		String uri = instantiateUri("/v1/{merchantId}/riskassessments/bankaccounts", null);
 		try {
 			return communicator.post(
 					uri,
@@ -119,7 +119,7 @@ public class RiskassessmentsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public RiskAssessmentResponse cards(RiskAssessmentCard body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/riskassessments/cards", null);
+		String uri = instantiateUri("/v1/{merchantId}/riskassessments/cards", null);
 		try {
 			return communicator.post(
 					uri,

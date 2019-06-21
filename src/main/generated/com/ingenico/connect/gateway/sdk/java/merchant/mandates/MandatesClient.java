@@ -67,7 +67,7 @@ public class MandatesClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public CreateMandateResponse create(CreateMandateRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates", null);
+		String uri = instantiateUri("/v1/{merchantId}/mandates", null);
 		try {
 			return communicator.post(
 					uri,
@@ -124,7 +124,7 @@ public class MandatesClient extends ApiResource {
 	public CreateMandateResponse createWithMandateReference(String uniqueMandateReference, CreateMandateRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("uniqueMandateReference", uniqueMandateReference);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates/{uniqueMandateReference}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/mandates/{uniqueMandateReference}", pathContext);
 		try {
 			return communicator.put(
 					uri,
@@ -179,7 +179,7 @@ public class MandatesClient extends ApiResource {
 	public GetMandateResponse get(String uniqueMandateReference, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("uniqueMandateReference", uniqueMandateReference);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates/{uniqueMandateReference}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/mandates/{uniqueMandateReference}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -233,7 +233,7 @@ public class MandatesClient extends ApiResource {
 	public GetMandateResponse block(String uniqueMandateReference, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("uniqueMandateReference", uniqueMandateReference);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates/{uniqueMandateReference}/block", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/mandates/{uniqueMandateReference}/block", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -288,7 +288,7 @@ public class MandatesClient extends ApiResource {
 	public GetMandateResponse unblock(String uniqueMandateReference, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("uniqueMandateReference", uniqueMandateReference);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates/{uniqueMandateReference}/unblock", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/mandates/{uniqueMandateReference}/unblock", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -343,7 +343,7 @@ public class MandatesClient extends ApiResource {
 	public GetMandateResponse revoke(String uniqueMandateReference, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("uniqueMandateReference", uniqueMandateReference);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/mandates/{uniqueMandateReference}/revoke", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/mandates/{uniqueMandateReference}/revoke", pathContext);
 		try {
 			return communicator.post(
 					uri,

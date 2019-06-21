@@ -7,14 +7,14 @@ package com.ingenico.connect.gateway.sdk.java.merchant.services;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
+import com.ingenico.connect.gateway.sdk.java.ParamRequest;
 import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
  * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/convertAmount.html">Convert amount</a>
  */
-public class ConvertAmountParams extends AbstractParamRequest {
+public class ConvertAmountParams implements ParamRequest {
 
 	private String source;
 
@@ -67,9 +67,15 @@ public class ConvertAmountParams extends AbstractParamRequest {
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "source", source);
-		addParameter(result, "target", target);
-		addParameter(result, "amount", amount);
+		if (source != null) {
+			result.add(new RequestParam("source", source));
+		}
+		if (target != null) {
+			result.add(new RequestParam("target", target));
+		}
+		if (amount != null) {
+			result.add(new RequestParam("amount", amount.toString()));
+		}
 		return result;
 	}
 }

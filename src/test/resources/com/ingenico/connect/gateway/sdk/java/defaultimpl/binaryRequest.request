@@ -1,0 +1,6 @@
+\QOutgoing request (requestId='\E([-a-zA-Z0-9]+)\Q'):
+  method:       'POST'
+  uri:          '/binaryRequest'
+  headers:      '\E[^']*\QContent-Type="multipart/form-data; boundary=\E[^']*\Q'
+  content-type: 'multipart/form-data; boundary=\E.*\Q'
+  body:         '<binary content>'\E

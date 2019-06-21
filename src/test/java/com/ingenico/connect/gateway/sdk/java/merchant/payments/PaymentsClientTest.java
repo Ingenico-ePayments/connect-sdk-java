@@ -1,21 +1,31 @@
 package com.ingenico.connect.gateway.sdk.java.merchant.payments;
 
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyListOf;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.when;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.net.URI;
+import java.nio.charset.Charset;
 import java.util.Arrays;
-import java.util.List;
 
+import org.apache.http.impl.io.EmptyInputStream;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.stubbing.OngoingStubbing;
+import org.mockito.stubbing.Answer;
 
 import com.ingenico.connect.gateway.sdk.java.ApiException;
 import com.ingenico.connect.gateway.sdk.java.CallContext;
@@ -30,8 +40,8 @@ import com.ingenico.connect.gateway.sdk.java.MetaDataProvider;
 import com.ingenico.connect.gateway.sdk.java.NotFoundException;
 import com.ingenico.connect.gateway.sdk.java.ReferenceException;
 import com.ingenico.connect.gateway.sdk.java.RequestHeader;
-import com.ingenico.connect.gateway.sdk.java.Response;
 import com.ingenico.connect.gateway.sdk.java.ResponseException;
+import com.ingenico.connect.gateway.sdk.java.ResponseHandler;
 import com.ingenico.connect.gateway.sdk.java.ResponseHeader;
 import com.ingenico.connect.gateway.sdk.java.Session;
 import com.ingenico.connect.gateway.sdk.java.ValidationException;
@@ -68,7 +78,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("pending_approval.json");
-		whenPost().thenReturn(new Response(201, responseBody, null));
+		mockPost(201, responseBody);
 
 		CreatePaymentRequest body = createRequest();
 
@@ -86,7 +96,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("rejected.json");
-		whenPost().thenReturn(new Response(400, responseBody, null));
+		mockPost(400, responseBody);
 
 		CreatePaymentRequest body = createRequest();
 
@@ -112,7 +122,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("invalid_request.json");
-		whenPost().thenReturn(new Response(400, responseBody, null));
+		mockPost(400, responseBody);
 
 		CreatePaymentRequest body = createRequest();
 
@@ -133,7 +143,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("invalid_authorization.json");
-		whenPost().thenReturn(new Response(401, responseBody, null));
+		mockPost(401, responseBody);
 
 		CreatePaymentRequest body = createRequest();
 
@@ -155,7 +165,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("duplicate_request.json");
-		whenPost().thenReturn(new Response(409, responseBody, null));
+		mockPost(409, responseBody);
 
 		CreatePaymentRequest body = createRequest();
 
@@ -176,7 +186,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("duplicate_request.json");
-		whenPost().thenReturn(new Response(409, responseBody, null));
+		mockPost(409, responseBody);
 
 		CreatePaymentRequest body = createRequest();
 
@@ -200,9 +210,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("not_found.html");
-		whenPost().thenReturn(new Response(404, responseBody, Arrays.asList(
-				new ResponseHeader("content-type", "text/html")
-		)));
+		mockPost(404, responseBody, new ResponseHeader("content-type", "text/html"));
 
 		CreatePaymentRequest body = createRequest();
 
@@ -225,9 +233,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = getResource("method_not_allowed.html");
-		whenPost().thenReturn(new Response(405, responseBody, Arrays.asList(
-				new ResponseHeader("content-type", "text/html")
-		)));
+		mockPost(405, responseBody, new ResponseHeader("content-type", "text/html"));
 
 		CreatePaymentRequest body = createRequest();
 
@@ -250,9 +256,7 @@ public class PaymentsClientTest {
 
 		Client client = Factory.createClient(session);
 		String responseBody = null;
-		whenPost().thenReturn(new Response(500, responseBody, Arrays.asList(
-				new ResponseHeader("content-type", "text/html")
-		)));
+		mockPost(500, responseBody, new ResponseHeader("content-type", "text/html"));
 
 		CreatePaymentRequest body = createRequest();
 
@@ -260,20 +264,28 @@ public class PaymentsClientTest {
 			client.merchant("merchantId").payments().create(body);
 			Assert.fail("Expected GlobalCollectException");
 		} catch (GlobalCollectException e) {
-			Assert.assertEquals(responseBody, e.getResponseBody());
+			Assert.assertEquals("", e.getResponseBody());
 			Assert.assertNull(e.getErrorId());
 			Assert.assertEquals(0, e.getErrors().size());
 		}
 	}
 
-	private OngoingStubbing<Response> whenPost() {
-		return Mockito.when(connection.post(Mockito.<URI>any(), Mockito.<List<RequestHeader>>any(), Mockito.anyString()));
+	@SuppressWarnings({ "unchecked", "resource" })
+	private <R> void mockPost(final int statusCode, final String responseBody, final ResponseHeader... headers) {
+		when(connection.post(any(URI.class), anyListOf(RequestHeader.class), anyString(), any(ResponseHandler.class))).thenAnswer(new Answer<R>() {
+			@Override
+			public R answer(InvocationOnMock invocation) throws Throwable {
+				ResponseHandler<R> responseHandler = invocation.getArgumentAt(3, ResponseHandler.class);
+				InputStream bodyStream = responseBody != null ? toInputStream(responseBody) : EmptyInputStream.INSTANCE;
+				return responseHandler.handleResponse(statusCode, bodyStream, Arrays.asList(headers));
+			}
+		});
 	}
 
 	private String getResource(String resource) {
 		StringWriter sw = new StringWriter();
 		try {
-			Reader reader = new InputStreamReader(getClass().getResourceAsStream(resource));
+			Reader reader = new InputStreamReader(getClass().getResourceAsStream(resource), Charset.forName("UTF-8"));
 			try {
 				char[] buffer = new char[1024];
 				int len;
@@ -287,6 +299,23 @@ public class PaymentsClientTest {
 			throw new RuntimeException(e);
 		}
 		return sw.toString();
+	}
+
+	private InputStream toInputStream(String content) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		OutputStreamWriter output = new OutputStreamWriter(baos, Charset.forName("UTF-8"));
+		try {
+			output.write(content);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				output.close();
+			} catch (@SuppressWarnings("unused") IOException e) {
+				// ignore
+			}
+		}
+		return new ByteArrayInputStream(baos.toByteArray());
 	}
 
 	private CreatePaymentRequest createRequest() {

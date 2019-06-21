@@ -7,14 +7,14 @@ package com.ingenico.connect.gateway.sdk.java.merchant.services;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
+import com.ingenico.connect.gateway.sdk.java.ParamRequest;
 import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
  * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/services/privacypolicy.html">Get privacy policy</a>
  */
-public class PrivacypolicyParams extends AbstractParamRequest {
+public class PrivacypolicyParams implements ParamRequest {
 
 	private String locale;
 
@@ -51,8 +51,12 @@ public class PrivacypolicyParams extends AbstractParamRequest {
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "locale", locale);
-		addParameter(result, "paymentProductId", paymentProductId);
+		if (locale != null) {
+			result.add(new RequestParam("locale", locale));
+		}
+		if (paymentProductId != null) {
+			result.add(new RequestParam("paymentProductId", paymentProductId.toString()));
+		}
 		return result;
 	}
 }

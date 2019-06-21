@@ -69,7 +69,7 @@ public class TokensClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public CreateTokenResponse create(CreateTokenRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens", null);
+		String uri = instantiateUri("/v1/{merchantId}/tokens", null);
 		try {
 			return communicator.post(
 					uri,
@@ -124,7 +124,7 @@ public class TokensClient extends ApiResource {
 	public TokenResponse get(String tokenId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -145,7 +145,6 @@ public class TokensClient extends ApiResource {
 	 *
 	 * @param tokenId String
 	 * @param body UpdateTokenRequest
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -155,8 +154,8 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void update(String tokenId, UpdateTokenRequest body) {
-		return update(tokenId, body, null);
+	public void update(String tokenId, UpdateTokenRequest body) {
+		update(tokenId, body, null);
 	}
 
 	/**
@@ -166,7 +165,6 @@ public class TokensClient extends ApiResource {
 	 * @param tokenId String
 	 * @param body UpdateTokenRequest
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -177,17 +175,17 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void update(String tokenId, UpdateTokenRequest body, CallContext context) {
+	public void update(String tokenId, UpdateTokenRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
-			return communicator.put(
+			communicator.put(
 					uri,
 					getClientHeaders(),
 					null,
 					body,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;
@@ -202,7 +200,6 @@ public class TokensClient extends ApiResource {
 	 *
 	 * @param tokenId String
 	 * @param query DeleteTokenParams
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -212,8 +209,8 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void delete(String tokenId, DeleteTokenParams query) {
-		return delete(tokenId, query, null);
+	public void delete(String tokenId, DeleteTokenParams query) {
+		delete(tokenId, query, null);
 	}
 
 	/**
@@ -223,7 +220,6 @@ public class TokensClient extends ApiResource {
 	 * @param tokenId String
 	 * @param query DeleteTokenParams
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -234,16 +230,16 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void delete(String tokenId, DeleteTokenParams query, CallContext context) {
+	public void delete(String tokenId, DeleteTokenParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/tokens/{tokenId}", pathContext);
 		try {
-			return communicator.delete(
+			communicator.delete(
 					uri,
 					getClientHeaders(),
 					query,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;
@@ -258,7 +254,6 @@ public class TokensClient extends ApiResource {
 	 *
 	 * @param tokenId String
 	 * @param body ApproveTokenRequest
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -268,8 +263,8 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body) {
-		return approvesepadirectdebit(tokenId, body, null);
+	public void approvesepadirectdebit(String tokenId, ApproveTokenRequest body) {
+		approvesepadirectdebit(tokenId, body, null);
 	}
 
 	/**
@@ -279,7 +274,6 @@ public class TokensClient extends ApiResource {
 	 * @param tokenId String
 	 * @param body ApproveTokenRequest
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -290,17 +284,17 @@ public class TokensClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void approvesepadirectdebit(String tokenId, ApproveTokenRequest body, CallContext context) {
+	public void approvesepadirectdebit(String tokenId, ApproveTokenRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("tokenId", tokenId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/tokens/{tokenId}/approvesepadirectdebit", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/tokens/{tokenId}/approvesepadirectdebit", pathContext);
 		try {
-			return communicator.post(
+			communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
 					body,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

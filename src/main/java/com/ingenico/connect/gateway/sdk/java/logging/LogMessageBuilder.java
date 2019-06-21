@@ -62,8 +62,23 @@ public abstract class LogMessageBuilder {
 	}
 
 	public final void setBody(InputStream bodyStream, Charset charset, String contentType) throws IOException {
-		this.body = LoggingUtil.obfuscateBody(bodyStream, charset);
+		this.body = isBinaryContent(contentType) ? "<binary content>" : LoggingUtil.obfuscateBody(bodyStream, charset);
 		this.contentType = contentType;
+	}
+
+	public final void setBinaryContentBody(String contentType) {
+		if (!isBinaryContent(contentType)) {
+			throw new IllegalArgumentException("Not a binary content type: " + contentType);
+		}
+		this.body = "<binary content>";
+		this.contentType = contentType;
+	}
+
+	private boolean isBinaryContent(String contentType) {
+		return contentType != null
+				&& !contentType.startsWith("text/")
+				&& !contentType.contains("json")
+				&& !contentType.contains("xml");
 	}
 
 	public final void setBody(Reader bodyStream, String contentType) throws IOException {

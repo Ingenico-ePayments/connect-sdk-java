@@ -67,7 +67,7 @@ public class RefundsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public FindRefundsResponse find(FindRefundsParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds", null);
+		String uri = instantiateUri("/v1/{merchantId}/refunds", null);
 		try {
 			return communicator.get(
 					uri,
@@ -121,7 +121,7 @@ public class RefundsClient extends ApiResource {
 	public RefundResponse get(String refundId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/refunds/{refundId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -142,7 +142,6 @@ public class RefundsClient extends ApiResource {
 	 *
 	 * @param refundId String
 	 * @param body ApproveRefundRequest
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -152,8 +151,8 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void approve(String refundId, ApproveRefundRequest body) {
-		return approve(refundId, body, null);
+	public void approve(String refundId, ApproveRefundRequest body) {
+		approve(refundId, body, null);
 	}
 
 	/**
@@ -163,7 +162,6 @@ public class RefundsClient extends ApiResource {
 	 * @param refundId String
 	 * @param body ApproveRefundRequest
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -174,17 +172,17 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void approve(String refundId, ApproveRefundRequest body, CallContext context) {
+	public void approve(String refundId, ApproveRefundRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/approve", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/refunds/{refundId}/approve", pathContext);
 		try {
-			return communicator.post(
+			communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
 					body,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;
@@ -198,7 +196,6 @@ public class RefundsClient extends ApiResource {
 	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancel.html">Cancel refund</a>
 	 *
 	 * @param refundId String
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -208,8 +205,8 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancel(String refundId) {
-		return cancel(refundId, null);
+	public void cancel(String refundId) {
+		cancel(refundId, null);
 	}
 
 	/**
@@ -218,7 +215,6 @@ public class RefundsClient extends ApiResource {
 	 *
 	 * @param refundId String
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -229,17 +225,17 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancel(String refundId, CallContext context) {
+	public void cancel(String refundId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/cancel", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/refunds/{refundId}/cancel", pathContext);
 		try {
-			return communicator.post(
+			communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
 					null,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;
@@ -253,7 +249,6 @@ public class RefundsClient extends ApiResource {
 	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/refunds/cancelapproval.html">Undo approve refund</a>
 	 *
 	 * @param refundId String
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
@@ -263,8 +258,8 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancelapproval(String refundId) {
-		return cancelapproval(refundId, null);
+	public void cancelapproval(String refundId) {
+		cancelapproval(refundId, null);
 	}
 
 	/**
@@ -273,7 +268,6 @@ public class RefundsClient extends ApiResource {
 	 *
 	 * @param refundId String
 	 * @param context CallContext
-	 * @return Void
 	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
 	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
 	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
@@ -284,17 +278,17 @@ public class RefundsClient extends ApiResource {
 	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
-	public Void cancelapproval(String refundId, CallContext context) {
+	public void cancelapproval(String refundId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("refundId", refundId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/refunds/{refundId}/cancelapproval", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/refunds/{refundId}/cancelapproval", pathContext);
 		try {
-			return communicator.post(
+			communicator.post(
 					uri,
 					getClientHeaders(),
 					null,
 					null,
-					Void.class,
+					void.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

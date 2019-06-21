@@ -7,14 +7,14 @@ package com.ingenico.connect.gateway.sdk.java.merchant.productgroups;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
+import com.ingenico.connect.gateway.sdk.java.ParamRequest;
 import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
  * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/productgroups/get.html">Get payment product group</a>
  */
-public class GetProductgroupParams extends AbstractParamRequest {
+public class GetProductgroupParams implements ParamRequest {
 
 	private String countryCode;
 
@@ -131,17 +131,6 @@ public class GetProductgroupParams extends AbstractParamRequest {
 	}
 
 	/**
-	 * @deprecated Use {@link #setHide(List)} or {@link #addHide(String)} instead.
-	 */
-	@Deprecated
-	public void setHide(String value) {
-		this.hide = null;
-		if (value != null) {
-			addHide(value);
-		}
-	}
-
-	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
@@ -159,12 +148,28 @@ public class GetProductgroupParams extends AbstractParamRequest {
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "countryCode", countryCode);
-		addParameter(result, "currencyCode", currencyCode);
-		addParameter(result, "locale", locale);
-		addParameter(result, "amount", amount);
-		addParameter(result, "isRecurring", isRecurring);
-		addParameter(result, "hide", hide);
+		if (countryCode != null) {
+			result.add(new RequestParam("countryCode", countryCode));
+		}
+		if (currencyCode != null) {
+			result.add(new RequestParam("currencyCode", currencyCode));
+		}
+		if (locale != null) {
+			result.add(new RequestParam("locale", locale));
+		}
+		if (amount != null) {
+			result.add(new RequestParam("amount", amount.toString()));
+		}
+		if (isRecurring != null) {
+			result.add(new RequestParam("isRecurring", isRecurring.toString()));
+		}
+		if (hide != null) {
+			for (String hideElement : hide) {
+				if (hideElement != null) {
+					result.add(new RequestParam("hide", hideElement));
+				}
+			}
+		}
 		return result;
 	}
 }

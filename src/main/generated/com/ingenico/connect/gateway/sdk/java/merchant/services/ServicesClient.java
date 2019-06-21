@@ -70,7 +70,7 @@ public class ServicesClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public ConvertAmount convertAmount(ConvertAmountParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/convert/amount", null);
+		String uri = instantiateUri("/v1/{merchantId}/services/convert/amount", null);
 		try {
 			return communicator.get(
 					uri,
@@ -122,7 +122,7 @@ public class ServicesClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public BankDetailsResponse bankaccount(BankDetailsRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/convert/bankaccount", null);
+		String uri = instantiateUri("/v1/{merchantId}/services/convert/bankaccount", null);
 		try {
 			return communicator.post(
 					uri,
@@ -175,7 +175,7 @@ public class ServicesClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public GetIINDetailsResponse getIINdetails(GetIINDetailsRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/getIINdetails", null);
+		String uri = instantiateUri("/v1/{merchantId}/services/getIINdetails", null);
 		try {
 			return communicator.post(
 					uri,
@@ -228,7 +228,7 @@ public class ServicesClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public GetPrivacyPolicyResponse privacypolicy(PrivacypolicyParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/privacypolicy", null);
+		String uri = instantiateUri("/v1/{merchantId}/services/privacypolicy", null);
 		try {
 			return communicator.get(
 					uri,
@@ -278,7 +278,7 @@ public class ServicesClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public TestConnection testconnection(CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/services/testconnection", null);
+		String uri = instantiateUri("/v1/{merchantId}/services/testconnection", null);
 		try {
 			return communicator.get(
 					uri,

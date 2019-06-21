@@ -24,29 +24,11 @@ public class SessionBuilder {
 	}
 
 	/**
-	 * Sets the Ingenico ePayments platform API endpoint URI to use.
-	 * @deprecated Use {@link #withAPIEndpoint(URI)} instead.
-	 */
-	@Deprecated
-	public SessionBuilder using(URI apiEndpoint) {
-		return withAPIEndpoint(apiEndpoint);
-	}
-
-	/**
 	 * Sets the {@link Connection} to use.
 	 */
 	public SessionBuilder withConnection(Connection connection) {
 		this.connection = connection;
 		return this;
-	}
-
-	/**
-	 * Sets the {@link Connection} to use.
-	 * @deprecated Use {@link #withConnection(Connection)} instead.
-	 */
-	@Deprecated
-	public SessionBuilder using(Connection connection) {
-		return withConnection(connection);
 	}
 
 	/**
@@ -58,29 +40,11 @@ public class SessionBuilder {
 	}
 
 	/**
-	 * Sets the {@link Authenticator} to use.
-	 * @deprecated Use {@link #withAuthenticator(Authenticator)} instead.
-	 */
-	@Deprecated
-	public SessionBuilder using(Authenticator authenticator) {
-		return withAuthenticator(authenticator);
-	}
-
-	/**
 	 * Sets the {@link MetaDataProvider} to use.
 	 */
 	public SessionBuilder withMetaDataProvider(MetaDataProvider metaDataProvider) {
 		this.metaDataProvider = metaDataProvider;
 		return this;
-	}
-
-	/**
-	 * Sets the {@link MetaDataProvider} to use.
-	 * @deprecated Use {@link #withMetaDataProvider(MetaDataProvider)} instead.
-	 */
-	@Deprecated
-	public SessionBuilder using(MetaDataProvider metaDataProvider) {
-		return withMetaDataProvider(metaDataProvider);
 	}
 
 	/**

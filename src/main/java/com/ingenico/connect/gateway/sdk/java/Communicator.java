@@ -2,8 +2,12 @@ package com.ingenico.connect.gateway.sdk.java;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -28,12 +32,14 @@ import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
  */
 public class Communicator implements Closeable, LoggingCapable {
 
+	private static final Charset CHARSET = Charset.forName("UTF-8");
+
 	private final Session session;
 
 	private final Marshaller marshaller;
 
 	public Communicator(Session session, Marshaller marshaller) {
-		if (session ==  null) {
+		if (session == null) {
 			throw new IllegalArgumentException("session is required");
 		}
 		if (marshaller == null) {
@@ -64,8 +70,8 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
-	public <P extends ParamRequest, O> O get(String relativePath, List<RequestHeader> requestHeaders, P requestParameters,
-			Class<O> responseType, CallContext context) {
+	public <O> O get(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
+			final Class<O> responseType, final CallContext context) {
 
 		Connection connection = session.getConnection();
 
@@ -78,8 +84,50 @@ public class Communicator implements Closeable, LoggingCapable {
 
 		addGenericHeaders("GET", uri, requestHeaders, context);
 
-		Response response = connection.get(uri, requestHeaders);
-		return processResponse(response, responseType, relativePath, context);
+		return connection.get(uri, requestHeaders, new ResponseHandler<O>() {
+
+			@Override
+			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
+			}
+		});
+	}
+
+	/**
+	 * Corresponds to the HTTP GET method.
+	 *
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param bodyHandler The handler for the response body.
+	 * @param context The optional call context to use.
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
+	 */
+	@SuppressWarnings("resource")
+	public void get(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
+			final BodyHandler bodyHandler, final CallContext context) {
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		addGenericHeaders("GET", uri, requestHeaders, context);
+
+		connection.get(uri, requestHeaders, new ResponseHandler<Void>() {
+
+			@Override
+			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
+				return null;
+			}
+		});
 	}
 
 	/**
@@ -95,8 +143,8 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
-	public <P extends ParamRequest, O> O delete(String relativePath, List<RequestHeader> requestHeaders, P requestParameters,
-			Class<O> responseType, CallContext context) {
+	public <O> O delete(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
+			final Class<O> responseType, final CallContext context) {
 
 		Connection connection = session.getConnection();
 
@@ -109,8 +157,50 @@ public class Communicator implements Closeable, LoggingCapable {
 
 		addGenericHeaders("DELETE", uri, requestHeaders, context);
 
-		Response response = connection.delete(uri, requestHeaders);
-		return processResponse(response, responseType, relativePath, context);
+		return connection.delete(uri, requestHeaders, new ResponseHandler<O>() {
+
+			@Override
+			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
+			}
+		});
+	}
+
+	/**
+	 * Corresponds to the HTTP DELETE method.
+	 *
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param bodyHandler The handler for the response body.
+	 * @param context The optional call context to use.
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
+	 */
+	@SuppressWarnings("resource")
+	public void delete(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters,
+			final BodyHandler bodyHandler, final CallContext context) {
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		addGenericHeaders("DELETE", uri, requestHeaders, context);
+
+		connection.delete(uri, requestHeaders, new ResponseHandler<Void>() {
+
+			@Override
+			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
+				return null;
+			}
+		});
 	}
 
 	/**
@@ -127,8 +217,16 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
-	public <P extends ParamRequest, O> O post(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody,
-			Class<O> responseType, CallContext context) {
+	public <O> O post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
+			final Class<O> responseType, final CallContext context) {
+
+		if (requestBody instanceof MultipartFormDataObject) {
+			return post(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, responseType, context);
+		}
+		if (requestBody instanceof MultipartFormDataRequest) {
+			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
+			return post(relativePath, requestHeaders, requestParameters, multipart, responseType, context);
+		}
 
 		Connection connection = session.getConnection();
 
@@ -147,8 +245,120 @@ public class Communicator implements Closeable, LoggingCapable {
 
 		addGenericHeaders("POST", uri, requestHeaders, context);
 
-		Response response = connection.post(uri, requestHeaders, requestJson);
-		return processResponse(response, responseType, relativePath, context);
+		return connection.post(uri, requestHeaders, requestJson, new ResponseHandler<O>() {
+
+			@Override
+			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
+			}
+		});
+	}
+
+	@SuppressWarnings("resource")
+	private <O> O post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
+			final Class<O> responseType, final CallContext context) {
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
+
+		addGenericHeaders("POST", uri, requestHeaders, context);
+
+		return connection.post(uri, requestHeaders, multipart, new ResponseHandler<O>() {
+
+			@Override
+			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
+			}
+		});
+	}
+
+	/**
+	 * Corresponds to the HTTP POST method.
+	 *
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param requestBody The optional request body to send.
+	 * @param bodyHandler The handler for the response body.
+	 * @param context The optional call context to use.
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
+	 */
+	@SuppressWarnings("resource")
+	public void post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
+			final BodyHandler bodyHandler, final CallContext context) {
+
+		if (requestBody instanceof MultipartFormDataObject) {
+			post(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, bodyHandler, context);
+			return;
+		}
+		if (requestBody instanceof MultipartFormDataRequest) {
+			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
+			post(relativePath, requestHeaders, requestParameters, multipart, bodyHandler, context);
+			return;
+		}
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		String requestJson = null;
+		if (requestBody != null) {
+			requestHeaders.add(new RequestHeader("Content-Type", "application/json"));
+			requestJson = marshaller.marshal(requestBody);
+		}
+
+		addGenericHeaders("POST", uri, requestHeaders, context);
+
+		connection.post(uri, requestHeaders, requestJson, new ResponseHandler<Void>() {
+
+			@Override
+			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
+				return null;
+			}
+		});
+	}
+
+	@SuppressWarnings("resource")
+	private void post(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
+			final BodyHandler bodyHandler, final CallContext context) {
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
+
+		addGenericHeaders("POST", uri, requestHeaders, context);
+
+		connection.post(uri, requestHeaders, multipart, new ResponseHandler<Void>() {
+
+			@Override
+			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
+				return null;
+			}
+		});
 	}
 
 	/**
@@ -165,8 +375,16 @@ public class Communicator implements Closeable, LoggingCapable {
 	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
 	 */
 	@SuppressWarnings("resource")
-	public <P extends ParamRequest, O> O put(String relativePath, List<RequestHeader> requestHeaders, P requestParameters, Object requestBody,
-			Class<O> responseType, CallContext context) {
+	public <O> O put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
+			final Class<O> responseType, final CallContext context) {
+
+		if (requestBody instanceof MultipartFormDataObject) {
+			return put(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, responseType, context);
+		}
+		if (requestBody instanceof MultipartFormDataRequest) {
+			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
+			return put(relativePath, requestHeaders, requestParameters, multipart, responseType, context);
+		}
 
 		Connection connection = session.getConnection();
 
@@ -185,8 +403,120 @@ public class Communicator implements Closeable, LoggingCapable {
 
 		addGenericHeaders("PUT", uri, requestHeaders, context);
 
-		Response response = connection.put(uri, requestHeaders, requestJson);
-		return processResponse(response, responseType, relativePath, context);
+		return connection.put(uri, requestHeaders, requestJson, new ResponseHandler<O>() {
+
+			@Override
+			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
+			}
+		});
+	}
+
+	@SuppressWarnings("resource")
+	private <O> O put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
+			final Class<O> responseType, final CallContext context) {
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
+
+		addGenericHeaders("PUT", uri, requestHeaders, context);
+
+		return connection.put(uri, requestHeaders, multipart, new ResponseHandler<O>() {
+
+			@Override
+			public O handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				return processResponse(statusCode, bodyStream, headers, responseType, relativePath, context);
+			}
+		});
+	}
+
+	/**
+	 * Corresponds to the HTTP PUT method.
+	 *
+	 * @param relativePath The path to call, relative to the base URI.
+	 * @param requestHeaders An optional list of request headers.
+	 * @param requestParameters An optional set of request parameters.
+	 * @param requestBody The optional request body to send.
+	 * @param bodyHandler The handler for the response body.
+	 * @param context The optional call context to use.
+	 * @throws CommunicationException when an exception occurred communicating with the Ingenico ePayments platform
+	 * @throws ResponseException when an error response was received from the Ingenico ePayments platform
+	 * @throws ApiException when an error response was received from the Ingenico ePayments platform which contained a list of errors
+	 */
+	@SuppressWarnings("resource")
+	public void put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, Object requestBody,
+			final BodyHandler bodyHandler, final CallContext context) {
+
+		if (requestBody instanceof MultipartFormDataObject) {
+			put(relativePath, requestHeaders, requestParameters, (MultipartFormDataObject) requestBody, bodyHandler, context);
+			return;
+		}
+		if (requestBody instanceof MultipartFormDataRequest) {
+			MultipartFormDataObject multipart = ((MultipartFormDataRequest) requestBody).toMultipartFormDataObject();
+			put(relativePath, requestHeaders, requestParameters, multipart, bodyHandler, context);
+			return;
+		}
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		String requestJson = null;
+		if (requestBody != null) {
+			requestHeaders.add(new RequestHeader("Content-Type", "application/json"));
+			requestJson = marshaller.marshal(requestBody);
+		}
+
+		addGenericHeaders("PUT", uri, requestHeaders, context);
+
+		connection.put(uri, requestHeaders, requestJson, new ResponseHandler<Void>() {
+
+			@Override
+			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
+				return null;
+			}
+		});
+	}
+
+	@SuppressWarnings("resource")
+	private void put(final String relativePath, List<RequestHeader> requestHeaders, ParamRequest requestParameters, MultipartFormDataObject multipart,
+			final BodyHandler bodyHandler, final CallContext context) {
+
+		Connection connection = session.getConnection();
+
+		List<RequestParam> requestParameterList = requestParameters == null ? null : requestParameters.toRequestParameters();
+		URI uri = toAbsoluteURI(relativePath, requestParameterList);
+
+		if (requestHeaders == null) {
+			requestHeaders = new ArrayList<RequestHeader>();
+		}
+
+		requestHeaders.add(new RequestHeader("Content-Type", multipart.getContentType()));
+
+		addGenericHeaders("PUT", uri, requestHeaders, context);
+
+		connection.put(uri, requestHeaders, multipart, new ResponseHandler<Void>() {
+
+			@Override
+			public Void handleResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers) {
+				processResponse(statusCode, bodyStream, headers, bodyHandler, relativePath, context);
+				return null;
+			}
+		});
 	}
 
 	/**
@@ -270,21 +600,38 @@ public class Communicator implements Closeable, LoggingCapable {
 		return dateFormat.format(calendar.getTime());
 	}
 
-	protected <O> O processResponse(Response response, Class<O> responseType, String requestPath, CallContext context) {
+	protected <O> O processResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers, Class<O> responseType,
+			String requestPath, CallContext context) {
 
 		if (context != null) {
-			updateContext(response, context);
+			updateContext(headers, context);
 		}
-		throwExceptionIfNecessary(response, requestPath);
-		return marshaller.unmarshal(response.getBody(), responseType);
+		throwExceptionIfNecessary(statusCode, bodyStream, headers, requestPath);
+
+		return marshaller.unmarshal(bodyStream, responseType);
+	}
+
+	protected void processResponse(int statusCode, InputStream bodyStream, List<ResponseHeader> headers, BodyHandler bodyHandler,
+			String requestPath, CallContext context) {
+
+		if (context != null) {
+			updateContext(headers, context);
+		}
+		throwExceptionIfNecessary(statusCode, bodyStream, headers, requestPath);
+
+		try {
+			bodyHandler.handleBody(bodyStream, headers);
+		} catch (IOException e) {
+			throw new BodyHandlerException(e);
+		}
 	}
 
 	/**
 	 * Updates the given call context based on the contents of the given response.
 	 */
-	protected void updateContext(Response response, CallContext context) {
+	protected void updateContext(List<ResponseHeader> headers, CallContext context) {
 
-		String idempotenceRequestTimestampValue = response.getHeaderValue("X-GCS-Idempotence-Request-Timestamp");
+		String idempotenceRequestTimestampValue = ResponseHeader.getHeaderValue(headers, "X-GCS-Idempotence-Request-Timestamp");
 		if (idempotenceRequestTimestampValue != null) {
 			Long idempotenceRequestTimestamp = Long.valueOf(idempotenceRequestTimestampValue);
 			context.setIdempotenceRequestTimestamp(idempotenceRequestTimestamp);
@@ -294,29 +641,44 @@ public class Communicator implements Closeable, LoggingCapable {
 	}
 
 	/**
-	 * Checks the {@link Response} for errors and throws an exception if necessary.
+	 * Checks the status code and headers for errors and throws an exception if necessary.
 	 */
-	protected void throwExceptionIfNecessary(Response response, String requestPath) throws ResponseException, CommunicationException, NotFoundException {
+	protected void throwExceptionIfNecessary(int statusCode, InputStream bodyStream, List<ResponseHeader> headers, String requestPath) {
 
-		int statusCode = response.getStatusCode();
 		// status codes in the 100 or 300 range are not expected
 		if (statusCode < 200 || statusCode >= 300) {
-			String body = response.getBody();
-			if (body != null && !isJson(response)) {
-				ResponseException cause = new ResponseException(response);
+			String body = toString(bodyStream);
+
+			if (body != null && !body.isEmpty() && !isJson(headers)) {
+				ResponseException cause = new ResponseException(statusCode, body, headers);
 				if (statusCode == HttpStatus.SC_NOT_FOUND) {
 					throw new NotFoundException("The requested resource was not found; invalid path: " + requestPath, cause);
 				} else {
 					throw new CommunicationException(cause);
 				}
 			} else {
-				throw new ResponseException(response);
+				throw new ResponseException(statusCode, body, headers);
 			}
 		}
 	}
 
-	private boolean isJson(Response response) {
-		String contentType = response.getHeaderValue("Content-Type");
+	private String toString(InputStream bodyStream) {
+		try {
+			Reader reader = new InputStreamReader(bodyStream, CHARSET);
+			StringBuilder body = new StringBuilder();
+			char[] buffer = new char[4096];
+			int len;
+			while ((len = reader.read(buffer)) != -1) {
+				body.append(buffer, 0, len);
+			}
+			return body.toString();
+		} catch (IOException e) {
+			throw new CommunicationException(e);
+		}
+	}
+
+	private boolean isJson(List<ResponseHeader> headers) {
+		String contentType = ResponseHeader.getHeaderValue(headers, "Content-Type");
 		return contentType == null || "application/json".equalsIgnoreCase(contentType) || contentType.toLowerCase().startsWith("application/json");
 	}
 

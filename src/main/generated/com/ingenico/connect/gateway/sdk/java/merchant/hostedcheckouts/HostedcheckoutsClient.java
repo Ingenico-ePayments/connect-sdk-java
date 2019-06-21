@@ -67,7 +67,7 @@ public class HostedcheckoutsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public CreateHostedCheckoutResponse create(CreateHostedCheckoutRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/hostedcheckouts", null);
+		String uri = instantiateUri("/v1/{merchantId}/hostedcheckouts", null);
 		try {
 			return communicator.post(
 					uri,
@@ -122,7 +122,7 @@ public class HostedcheckoutsClient extends ApiResource {
 	public GetHostedCheckoutResponse get(String hostedCheckoutId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("hostedCheckoutId", hostedCheckoutId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/hostedcheckouts/{hostedCheckoutId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/hostedcheckouts/{hostedCheckoutId}", pathContext);
 		try {
 			return communicator.get(
 					uri,

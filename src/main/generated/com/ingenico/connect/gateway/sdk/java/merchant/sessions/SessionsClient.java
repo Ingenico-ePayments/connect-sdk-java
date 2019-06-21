@@ -65,7 +65,7 @@ public class SessionsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public SessionResponse create(SessionRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/sessions", null);
+		String uri = instantiateUri("/v1/{merchantId}/sessions", null);
 		try {
 			return communicator.post(
 					uri,

@@ -7,14 +7,14 @@ package com.ingenico.connect.gateway.sdk.java.merchant.tokens;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.ingenico.connect.gateway.sdk.java.AbstractParamRequest;
+import com.ingenico.connect.gateway.sdk.java.ParamRequest;
 import com.ingenico.connect.gateway.sdk.java.RequestParam;
 
 /**
  * Query parameters for
  * <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/tokens/delete.html">Delete token</a>
  */
-public class DeleteTokenParams extends AbstractParamRequest {
+public class DeleteTokenParams implements ParamRequest {
 
 	private String mandateCancelDate;
 
@@ -37,7 +37,9 @@ public class DeleteTokenParams extends AbstractParamRequest {
 	@Override
 	public List<RequestParam> toRequestParameters() {
 		List<RequestParam> result = new LinkedList<RequestParam>();
-		addParameter(result, "mandateCancelDate", mandateCancelDate);
+		if (mandateCancelDate != null) {
+			result.add(new RequestParam("mandateCancelDate", mandateCancelDate));
+		}
 		return result;
 	}
 }

@@ -1,5 +1,6 @@
 package com.ingenico.connect.gateway.sdk.java;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -45,5 +46,25 @@ public class RequestHeader {
 	@Override
 	public String toString() {
 		return getName() + ":" + getValue();
+	}
+
+	/**
+	 * @return The header from the given list with the given name, or {@code null} if there was no such header.
+	 */
+	public static RequestHeader getHeader(List<RequestHeader> headers, String headerName) {
+		for (RequestHeader header : headers) {
+			if (header.getName().equalsIgnoreCase(headerName)) {
+				return header;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * @return The value of the header from the given list with the given name, or {@code null} if there was no such header.
+	 */
+	public static String getHeaderValue(List<RequestHeader> headers, String headerName) {
+		RequestHeader header = getHeader(headers, headerName);
+		return header != null ? header.getValue() : null;
 	}
 }

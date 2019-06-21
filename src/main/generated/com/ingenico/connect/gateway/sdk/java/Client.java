@@ -7,7 +7,6 @@ package com.ingenico.connect.gateway.sdk.java;
 import java.io.Closeable;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +36,7 @@ public class Client extends ApiResource implements Closeable, LoggingCapable {
 	}
 
 	private Client(Communicator communicator, String clientMetaInfo) {
-		super(communicator, clientMetaInfo, Collections.singletonMap("apiVersion", API_VERSION));
+		super(communicator, clientMetaInfo, null);
 	}
 
 	/**

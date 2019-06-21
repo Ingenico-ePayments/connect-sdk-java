@@ -1,5 +1,6 @@
 package com.ingenico.connect.gateway.sdk.java;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -8,65 +9,60 @@ import java.util.List;
 @SuppressWarnings("serial")
 public class ResponseException extends RuntimeException {
 
-	private final Response response;
+	private final int statusCode;
+	private final String body;
+	private final List<ResponseHeader> headers;
 
-	public ResponseException(Response response) {
+	public ResponseException(int statusCode, String body, List<ResponseHeader> headers) {
 		super("the Ingenico ePayments platform returned an error response");
-		this.response = response;
-	}
-
-	/**
-	 * @return The response that was returned by the Ingenico ePayments platform.
-	 */
-	public Response getResponse() {
-		return response;
+		this.statusCode = statusCode;
+		this.body = body;
+		this.headers = headers != null ? Collections.unmodifiableList(headers) : Collections.<ResponseHeader>emptyList();
 	}
 
 	/**
 	 * @return The HTTP status code that was returned by the Ingenico ePayments platform.
 	 */
 	public int getStatusCode() {
-		return response.getStatusCode();
+		return statusCode;
 	}
 
 	/**
 	 * @return The raw response body that was returned by the Ingenico ePayments platform.
 	 */
 	public String getBody() {
-		return response.getBody();
+		return body;
 	}
 
 	/**
 	 * @return The headers that were returned by the Ingenico ePayments platform. Never {@code null}.
 	 */
 	public List<ResponseHeader> getHeaders() {
-		return response.getHeaders();
+		return headers;
 	}
 
 	/**
 	 * @return The header with the given name, or {@code null} if there was no such header.
 	 */
 	public ResponseHeader getHeader(String headerName) {
-		return response.getHeader(headerName);
+		return ResponseHeader.getHeader(headers, headerName);
 	}
 
 	/**
 	 * @return The value of the header with the given name, or {@code null} if there was no such header.
 	 */
 	public String getHeaderValue(String headerName) {
-		return response.getHeaderValue(headerName);
+		return ResponseHeader.getHeaderValue(headers, headerName);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder(super.toString());
-		int statusCode = response.getStatusCode();
 		if (statusCode > 0) {
 			sb.append("; statusCode=").append(statusCode);
 		}
-		String responseBody = response.getBody();
-		if (responseBody != null && responseBody.length() > 0) {
-			sb.append("; responseBody='").append(responseBody).append("'");
+		if (body != null && body.length() > 0) {
+			sb.append("; responseBody='").append(body).append("'");
 		}
 		return sb.toString();
 	}

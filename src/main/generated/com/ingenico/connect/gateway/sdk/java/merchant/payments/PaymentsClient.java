@@ -92,7 +92,7 @@ public class PaymentsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public CreatePaymentResponse create(CreatePaymentRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments", null);
+		String uri = instantiateUri("/v1/{merchantId}/payments", null);
 		try {
 			return communicator.post(
 					uri,
@@ -145,7 +145,7 @@ public class PaymentsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public FindPaymentsResponse find(FindPaymentsParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments", null);
+		String uri = instantiateUri("/v1/{merchantId}/payments", null);
 		try {
 			return communicator.get(
 					uri,
@@ -199,7 +199,7 @@ public class PaymentsClient extends ApiResource {
 	public PaymentResponse get(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -255,7 +255,7 @@ public class PaymentsClient extends ApiResource {
 	public CompletePaymentResponse complete(String paymentId, CompletePaymentRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/complete", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/complete", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -310,7 +310,7 @@ public class PaymentsClient extends ApiResource {
 	public ThirdPartyStatusResponse thirdPartyStatus(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/thirdpartystatus", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/thirdpartystatus", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -366,7 +366,7 @@ public class PaymentsClient extends ApiResource {
 	public CreateTokenResponse tokenize(String paymentId, TokenizePaymentRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/tokenize", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/tokenize", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -421,7 +421,7 @@ public class PaymentsClient extends ApiResource {
 	public PaymentResponse processchallenged(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/processchallenged", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/processchallenged", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -478,7 +478,7 @@ public class PaymentsClient extends ApiResource {
 	public PaymentApprovalResponse approve(String paymentId, ApprovePaymentRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/approve", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/approve", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -535,7 +535,7 @@ public class PaymentsClient extends ApiResource {
 	public CaptureResponse capture(String paymentId, CapturePaymentRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/capture", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/capture", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -590,7 +590,7 @@ public class PaymentsClient extends ApiResource {
 	public CancelApprovalPaymentResponse cancelapproval(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/cancelapproval", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/cancelapproval", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -645,7 +645,7 @@ public class PaymentsClient extends ApiResource {
 	public CapturesResponse captures(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/captures", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/captures", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -703,7 +703,7 @@ public class PaymentsClient extends ApiResource {
 	public RefundResponse refund(String paymentId, RefundRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/refund", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/refund", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -758,7 +758,7 @@ public class PaymentsClient extends ApiResource {
 	public RefundsResponse refunds(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/refunds", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/refunds", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -812,7 +812,7 @@ public class PaymentsClient extends ApiResource {
 	public CancelPaymentResponse cancel(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/cancel", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/cancel", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -869,7 +869,7 @@ public class PaymentsClient extends ApiResource {
 	public DisputeResponse dispute(String paymentId, CreateDisputeRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/dispute", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/dispute", pathContext);
 		try {
 			return communicator.post(
 					uri,
@@ -924,7 +924,7 @@ public class PaymentsClient extends ApiResource {
 	public DisputesResponse disputes(String paymentId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentId", paymentId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/payments/{paymentId}/disputes", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/disputes", pathContext);
 		try {
 			return communicator.get(
 					uri,

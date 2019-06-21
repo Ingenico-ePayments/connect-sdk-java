@@ -67,7 +67,7 @@ public class HostedmandatemanagementsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public CreateHostedMandateManagementResponse create(CreateHostedMandateManagementRequest body, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/hostedmandatemanagements", null);
+		String uri = instantiateUri("/v1/{merchantId}/hostedmandatemanagements", null);
 		try {
 			return communicator.post(
 					uri,
@@ -122,7 +122,7 @@ public class HostedmandatemanagementsClient extends ApiResource {
 	public GetHostedMandateManagementResponse get(String hostedMandateManagementId, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("hostedMandateManagementId", hostedMandateManagementId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/hostedmandatemanagements/{hostedMandateManagementId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/hostedmandatemanagements/{hostedMandateManagementId}", pathContext);
 		try {
 			return communicator.get(
 					uri,

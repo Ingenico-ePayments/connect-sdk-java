@@ -68,7 +68,7 @@ public class ProductgroupsClient extends ApiResource {
 	 * @throws ApiException if the Ingenico ePayments platform returned any other error
 	 */
 	public PaymentProductGroups find(FindProductgroupsParams query, CallContext context) {
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/productgroups", null);
+		String uri = instantiateUri("/v1/{merchantId}/productgroups", null);
 		try {
 			return communicator.get(
 					uri,
@@ -124,7 +124,7 @@ public class ProductgroupsClient extends ApiResource {
 	public PaymentProductGroupResponse get(String paymentProductGroupId, GetProductgroupParams query, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductGroupId", paymentProductGroupId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/productgroups/{paymentProductGroupId}", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/productgroups/{paymentProductGroupId}", pathContext);
 		try {
 			return communicator.get(
 					uri,
@@ -180,7 +180,7 @@ public class ProductgroupsClient extends ApiResource {
 	public DeviceFingerprintResponse deviceFingerprint(String paymentProductGroupId, DeviceFingerprintRequest body, CallContext context) {
 		Map<String, String> pathContext = new TreeMap<String, String>();
 		pathContext.put("paymentProductGroupId", paymentProductGroupId);
-		String uri = instantiateUri("/{apiVersion}/{merchantId}/productgroups/{paymentProductGroupId}/deviceFingerprint", pathContext);
+		String uri = instantiateUri("/v1/{merchantId}/productgroups/{paymentProductGroupId}/deviceFingerprint", pathContext);
 		try {
 			return communicator.post(
 					uri,

@@ -13,6 +13,8 @@ public class AdditionalOrderInput {
 	@SuppressWarnings("deprecation")
 	private Level3SummaryData level3SummaryData = null;
 
+	private LoanRecipient loanRecipient = null;
+
 	private Long numberOfInstallments = null;
 
 	private String orderDate = null;
@@ -51,6 +53,20 @@ public class AdditionalOrderInput {
 	@Deprecated
 	public void setLevel3SummaryData(Level3SummaryData value) {
 		this.level3SummaryData = value;
+	}
+
+	/**
+	 * Object containing specific data regarding the recipient of a loan in the UK
+	 */
+	public LoanRecipient getLoanRecipient() {
+		return loanRecipient;
+	}
+
+	/**
+	 * Object containing specific data regarding the recipient of a loan in the UK
+	 */
+	public void setLoanRecipient(LoanRecipient value) {
+		this.loanRecipient = value;
 	}
 
 	/**

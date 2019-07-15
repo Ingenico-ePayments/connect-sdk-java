@@ -19,6 +19,8 @@ public class CaptureOutput extends OrderOutput {
 
 	private Long amountPaid = null;
 
+	private Long amountReversed = null;
+
 	private BankTransferPaymentMethodSpecificOutput bankTransferPaymentMethodSpecificOutput = null;
 
 	private CardPaymentMethodSpecificOutput cardPaymentMethodSpecificOutput = null;
@@ -51,6 +53,20 @@ public class CaptureOutput extends OrderOutput {
 	 */
 	public void setAmountPaid(Long value) {
 		this.amountPaid = value;
+	}
+
+	/**
+	 * Amount that has been reversed
+	 */
+	public Long getAmountReversed() {
+		return amountReversed;
+	}
+
+	/**
+	 * Amount that has been reversed
+	 */
+	public void setAmountReversed(Long value) {
+		this.amountReversed = value;
 	}
 
 	/**

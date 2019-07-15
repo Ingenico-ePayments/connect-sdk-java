@@ -27,7 +27,7 @@ public class CreateMandateWithReferenceExample {
 		Client client = getClient();
 		try {
 			BankAccountIban bankAccountIban = new BankAccountIban();
-			bankAccountIban.setIban("DE46940594210000012345");
+			bankAccountIban.setIban("DE46720200700359736690");
 
 			MandateContactDetails contactDetails = new MandateContactDetails();
 			contactDetails.setEmailAddress("wile.e.coyote@acmelabs.com");

@@ -23,11 +23,12 @@ import com.ingenico.connect.gateway.sdk.java.domain.errors.definitions.APIError;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.AddressPersonal;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.BrowserData;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CardPaymentMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ContactDetails;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CreatePaymentResult;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Customer;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ExternalCardholderAuthenticationData;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CustomerDevice;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.LineItem;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.LineItemInvoiceData;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
@@ -35,10 +36,10 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderInv
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.OrderReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalInformation;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.PersonalName;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectionData;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Shipping;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ShoppingCart;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ThreeDSecure;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.ThreeDSecureData;
 
 public class CreatePaymentExample {
 
@@ -52,32 +53,22 @@ public class CreatePaymentExample {
 			card.setCvv("123");
 			card.setExpiryDate("1220");
 
-			ExternalCardholderAuthenticationData externalCardholderAuthenticationData = new ExternalCardholderAuthenticationData();
-			externalCardholderAuthenticationData.setCavv("AgAAAAAABk4DWZ4C28yUQAAAAAA=");
-			externalCardholderAuthenticationData.setCavvAlgorithm("1");
-			externalCardholderAuthenticationData.setEci(8);
-			externalCardholderAuthenticationData.setThreeDSecureVersion("v2");
-			externalCardholderAuthenticationData.setThreeDServerTransactionId("3DSTID1234");
-			externalCardholderAuthenticationData.setValidationResult("Y");
-			externalCardholderAuthenticationData.setXid("n3h2uOQPUgnmqhCkXNfxl8pOZJA=");
-
-			ThreeDSecureData priorThreeDSecureData = new ThreeDSecureData();
-			priorThreeDSecureData.setAcsTransactionId("empty");
-			priorThreeDSecureData.setMethod("challenged");
-			priorThreeDSecureData.setUtcTimestamp("201901311530");
+			RedirectionData redirectionData = new RedirectionData();
+			redirectionData.setReturnUrl("https://hostname.myownwebsite.url");
 
 			ThreeDSecure threeDSecure = new ThreeDSecure();
 			threeDSecure.setAuthenticationFlow("browser");
 			threeDSecure.setChallengeCanvasSize("600x400");
 			threeDSecure.setChallengeIndicator("challenge-requested");
-			threeDSecure.setExternalCardholderAuthenticationData(externalCardholderAuthenticationData);
-			threeDSecure.setPriorThreeDSecureData(priorThreeDSecureData);
+			threeDSecure.setRedirectionData(redirectionData);
 			threeDSecure.setSkipAuthentication(false);
 
 			CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 			cardPaymentMethodSpecificInput.setCard(card);
+			cardPaymentMethodSpecificInput.setIsRecurring(false);
 			cardPaymentMethodSpecificInput.setPaymentProductId(1);
 			cardPaymentMethodSpecificInput.setThreeDSecure(threeDSecure);
+			cardPaymentMethodSpecificInput.setTransactionChannel("ECOMMERCE");
 
 			AmountOfMoney amountOfMoney = new AmountOfMoney();
 			amountOfMoney.setAmount(2980L);
@@ -98,9 +89,22 @@ public class CreatePaymentExample {
 
 			ContactDetails contactDetails = new ContactDetails();
 			contactDetails.setEmailAddress("wile.e.coyote@acmelabs.com");
-			contactDetails.setEmailMessageType("html");
 			contactDetails.setFaxNumber("+1234567891");
 			contactDetails.setPhoneNumber("+1234567890");
+
+			BrowserData browserData = new BrowserData();
+			browserData.setColorDepth(24);
+			browserData.setJavaEnabled(false);
+			browserData.setScreenHeight("1200");
+			browserData.setScreenWidth("1920");
+
+			CustomerDevice device = new CustomerDevice();
+			device.setAcceptHeader("texthtml,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+			device.setBrowserData(browserData);
+			device.setIpAddress("123.123.123.123");
+			device.setLocale("en-US");
+			device.setTimezoneOffsetUtcMinutes("420");
+			device.setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1 Safari/605.1.15");
 
 			PersonalName name = new PersonalName();
 			name.setFirstName("Wile");
@@ -114,9 +118,11 @@ public class CreatePaymentExample {
 			personalInformation.setName(name);
 
 			Customer customer = new Customer();
+			customer.setAccountType("none");
 			customer.setBillingAddress(billingAddress);
 			customer.setCompanyInformation(companyInformation);
 			customer.setContactDetails(contactDetails);
+			customer.setDevice(device);
 			customer.setLocale("en_US");
 			customer.setMerchantCustomerId("1234");
 			customer.setPersonalInformation(personalInformation);

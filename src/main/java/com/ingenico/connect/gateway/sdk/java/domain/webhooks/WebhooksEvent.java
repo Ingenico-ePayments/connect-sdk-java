@@ -1,5 +1,6 @@
 package com.ingenico.connect.gateway.sdk.java.domain.webhooks;
 
+import com.ingenico.connect.gateway.sdk.java.domain.dispute.DisputeResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.PayoutResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.refund.RefundResponse;
@@ -24,6 +25,8 @@ public class WebhooksEvent {
 	private PayoutResponse payout;
 
 	private TokenResponse token;
+
+	private DisputeResponse dispute;
 
 	public String getApiVersion() {
 		return apiVersion;
@@ -95,5 +98,13 @@ public class WebhooksEvent {
 
 	public void setToken(TokenResponse token) {
 		this.token = token;
+	}
+
+	public DisputeResponse getDispute() {
+		return dispute;
+	}
+
+	public void setDispute(DisputeResponse dispute) {
+		this.dispute = dispute;
 	}
 }

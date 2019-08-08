@@ -12,6 +12,8 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 
 	private String customerReference = null;
 
+	private String initialSchemeTransactionId = null;
+
 	private CardRecurrenceDetails recurring = null;
 
 	private String recurringPaymentSequenceIndicator = null;
@@ -48,6 +50,14 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 
 	public void setCustomerReference(String value) {
 		this.customerReference = value;
+	}
+
+	public String getInitialSchemeTransactionId() {
+		return initialSchemeTransactionId;
+	}
+
+	public void setInitialSchemeTransactionId(String value) {
+		this.initialSchemeTransactionId = value;
 	}
 
 	public CardRecurrenceDetails getRecurring() {

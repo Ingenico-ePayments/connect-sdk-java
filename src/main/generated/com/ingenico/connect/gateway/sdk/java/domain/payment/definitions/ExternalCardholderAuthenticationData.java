@@ -102,6 +102,9 @@ public class ExternalCardholderAuthenticationData {
 	 * <ul class="paragraph-width">
 	 * <li>v1
 	 * <li>v2
+	 * <li>1.0.2
+	 * <li>2.1.0
+	 * <li>2.2.0
 	 * </ul>
 	 */
 	public String getThreeDSecureVersion() {
@@ -113,6 +116,9 @@ public class ExternalCardholderAuthenticationData {
 	 * <ul class="paragraph-width">
 	 * <li>v1
 	 * <li>v2
+	 * <li>1.0.2
+	 * <li>2.1.0
+	 * <li>2.2.0
 	 * </ul>
 	 */
 	public void setThreeDSecureVersion(String value) {

@@ -95,16 +95,16 @@ public class Address {
 	}
 
 	/**
-	 * State code<br>
-	 * Note: For payments with product 1503 the maximum length is not 9 but 2.
+	 * ISO 3166-2 alpha-3 state code<br>
+	 * Notes:<br><ul class="paragraph-width"><li>The maximum length for 3-D Secure version 2 is AN3.<li>The maximum length for paymentProductId 1503 (Boleto) is AN2.</ul>
 	 */
 	public String getStateCode() {
 		return stateCode;
 	}
 
 	/**
-	 * State code<br>
-	 * Note: For payments with product 1503 the maximum length is not 9 but 2.
+	 * ISO 3166-2 alpha-3 state code<br>
+	 * Notes:<br><ul class="paragraph-width"><li>The maximum length for 3-D Secure version 2 is AN3.<li>The maximum length for paymentProductId 1503 (Boleto) is AN2.</ul>
 	 */
 	public void setStateCode(String value) {
 		this.stateCode = value;

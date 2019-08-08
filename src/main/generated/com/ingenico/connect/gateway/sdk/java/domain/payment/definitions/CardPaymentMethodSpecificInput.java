@@ -14,6 +14,8 @@ public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpe
 
 	private Boolean isRecurring = null;
 
+	private String merchantInitiatedReasonIndicator = null;
+
 	private String returnUrl = null;
 
 	private ThreeDSecure threeDSecure = null;
@@ -70,6 +72,26 @@ public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpe
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
+	}
+
+	/**
+	 * Indicates reason behind the merchant initiated transaction. These are industry specific.<br>
+	 * Possible values:
+	 * <ul class="paragraph-width"><li>delayedCharges - Delayed charges are performed to process a supplemental account charge after original services have been rendered and respective payment has been processed. This is typically used in hotel, cruise lines and vehicle rental environments to perform a supplemental payment after the original services are rendered.</li>
+	 * <li>noShow - Cardholders can use their cards to make a guaranteed reservation with certain merchant segments. A guaranteed reservation ensures that the reservation will be honored and allows a merchant to perform a No Show transaction to charge the cardholder a penalty according to the merchant’s cancellation policy. For merchants that accept token-based payment credentials to guarantee a reservation, it is necessary to perform a customer initiated (Account Verification) at the time of reservation to be able perform a No Show transaction later.</li></ul>
+	 */
+	public String getMerchantInitiatedReasonIndicator() {
+		return merchantInitiatedReasonIndicator;
+	}
+
+	/**
+	 * Indicates reason behind the merchant initiated transaction. These are industry specific.<br>
+	 * Possible values:
+	 * <ul class="paragraph-width"><li>delayedCharges - Delayed charges are performed to process a supplemental account charge after original services have been rendered and respective payment has been processed. This is typically used in hotel, cruise lines and vehicle rental environments to perform a supplemental payment after the original services are rendered.</li>
+	 * <li>noShow - Cardholders can use their cards to make a guaranteed reservation with certain merchant segments. A guaranteed reservation ensures that the reservation will be honored and allows a merchant to perform a No Show transaction to charge the cardholder a penalty according to the merchant’s cancellation policy. For merchants that accept token-based payment credentials to guarantee a reservation, it is necessary to perform a customer initiated (Account Verification) at the time of reservation to be able perform a No Show transaction later.</li></ul>
+	 */
+	public void setMerchantInitiatedReasonIndicator(String value) {
+		this.merchantInitiatedReasonIndicator = value;
 	}
 
 	/**

@@ -60,12 +60,14 @@ public class CreatePaymentExample {
 			threeDSecure.setAuthenticationFlow("browser");
 			threeDSecure.setChallengeCanvasSize("600x400");
 			threeDSecure.setChallengeIndicator("challenge-requested");
+			threeDSecure.setExemptionRequest("none");
 			threeDSecure.setRedirectionData(redirectionData);
 			threeDSecure.setSkipAuthentication(false);
 
 			CardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CardPaymentMethodSpecificInput();
 			cardPaymentMethodSpecificInput.setCard(card);
 			cardPaymentMethodSpecificInput.setIsRecurring(false);
+			cardPaymentMethodSpecificInput.setMerchantInitiatedReasonIndicator("delayedCharges");
 			cardPaymentMethodSpecificInput.setPaymentProductId(1);
 			cardPaymentMethodSpecificInput.setThreeDSecure(threeDSecure);
 			cardPaymentMethodSpecificInput.setTransactionChannel("ECOMMERCE");

@@ -18,6 +18,10 @@ public class CardPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecif
 
 	private CardFraudResults fraudResults = null;
 
+	private String initialSchemeTransactionId = null;
+
+	private String schemeTransactionId = null;
+
 	private ThreeDSecureResults threeDSecureResults = null;
 
 	private String token = null;
@@ -62,6 +66,34 @@ public class CardPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecif
 	 */
 	public void setFraudResults(CardFraudResults value) {
 		this.fraudResults = value;
+	}
+
+	/**
+	 * The unique scheme transactionId of the initial transaction that was performed with SCA.<br>Should be stored by the merchant to allow it to be submitted in future transactions.
+	 */
+	public String getInitialSchemeTransactionId() {
+		return initialSchemeTransactionId;
+	}
+
+	/**
+	 * The unique scheme transactionId of the initial transaction that was performed with SCA.<br>Should be stored by the merchant to allow it to be submitted in future transactions.
+	 */
+	public void setInitialSchemeTransactionId(String value) {
+		this.initialSchemeTransactionId = value;
+	}
+
+	/**
+	 * The unique scheme transactionId of this transaction.<br>Should be stored by the merchant to allow it to be submitted in future transactions. Use this value in case the initialSchemeTransactionId property is empty.
+	 */
+	public String getSchemeTransactionId() {
+		return schemeTransactionId;
+	}
+
+	/**
+	 * The unique scheme transactionId of this transaction.<br>Should be stored by the merchant to allow it to be submitted in future transactions. Use this value in case the initialSchemeTransactionId property is empty.
+	 */
+	public void setSchemeTransactionId(String value) {
+		this.schemeTransactionId = value;
 	}
 
 	/**

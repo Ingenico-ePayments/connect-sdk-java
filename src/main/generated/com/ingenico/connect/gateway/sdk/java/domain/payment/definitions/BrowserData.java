@@ -73,7 +73,7 @@ public class BrowserData {
 
 	/**
 	 * true =Java is enabled in the browser
-	 * <p>false = Java is not enabled in the browser (default if left empty)
+	 * <p>false = Java is not enabled in the browser
 	 * <p>Value is returned from the navigator.javaEnabled property.
 	 * <p>If you use the latest version of our JavaScript Client SDK, we will collect this data and include it in the encryptedCustomerInput property. We will then automatically populate this data if available.
 	 * <p>Note: This data can only be collected if JavaScript is enabled in the browser. This means that 3-D Secure version 2.1 requires the use of JavaScript to enabled. In the upcoming version 2.2 of the specification this is no longer a requirement. As we currently support version 2.1 it means that this property is required when cardPaymentMethodSpecifInput.threeDSecure.authenticationFlow is set to "browser".
@@ -84,7 +84,7 @@ public class BrowserData {
 
 	/**
 	 * true =Java is enabled in the browser
-	 * <p>false = Java is not enabled in the browser (default if left empty)
+	 * <p>false = Java is not enabled in the browser
 	 * <p>Value is returned from the navigator.javaEnabled property.
 	 * <p>If you use the latest version of our JavaScript Client SDK, we will collect this data and include it in the encryptedCustomerInput property. We will then automatically populate this data if available.
 	 * <p>Note: This data can only be collected if JavaScript is enabled in the browser. This means that 3-D Secure version 2.1 requires the use of JavaScript to enabled. In the upcoming version 2.2 of the specification this is no longer a requirement. As we currently support version 2.1 it means that this property is required when cardPaymentMethodSpecifInput.threeDSecure.authenticationFlow is set to "browser".
@@ -95,7 +95,7 @@ public class BrowserData {
 
 	/**
 	 * true = JavaScript is enabled in the browser
-	 * <p>false = JavaScript is not enabled in the browser (default if left empty)
+	 * <p>false = JavaScript is not enabled in the browser
 	 * <p>Note: Required in future 3-D Secure version 2.2.
 	 */
 	public Boolean getJavaScriptEnabled() {
@@ -104,7 +104,7 @@ public class BrowserData {
 
 	/**
 	 * true = JavaScript is enabled in the browser
-	 * <p>false = JavaScript is not enabled in the browser (default if left empty)
+	 * <p>false = JavaScript is not enabled in the browser
 	 * <p>Note: Required in future 3-D Secure version 2.2.
 	 */
 	public void setJavaScriptEnabled(Boolean value) {

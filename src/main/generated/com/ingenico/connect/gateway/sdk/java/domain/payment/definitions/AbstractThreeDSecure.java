@@ -12,6 +12,8 @@ public class AbstractThreeDSecure {
 
 	private String challengeIndicator = null;
 
+	private String exemptionRequest = null;
+
 	private ThreeDSecureData priorThreeDSecureData = null;
 
 	private SdkDataInput sdkData = null;
@@ -40,6 +42,14 @@ public class AbstractThreeDSecure {
 
 	public void setChallengeIndicator(String value) {
 		this.challengeIndicator = value;
+	}
+
+	public String getExemptionRequest() {
+		return exemptionRequest;
+	}
+
+	public void setExemptionRequest(String value) {
+		this.exemptionRequest = value;
 	}
 
 	public ThreeDSecureData getPriorThreeDSecureData() {

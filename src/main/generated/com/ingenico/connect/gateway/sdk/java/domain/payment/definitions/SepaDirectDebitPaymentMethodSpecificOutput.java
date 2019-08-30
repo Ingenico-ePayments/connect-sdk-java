@@ -12,6 +12,8 @@ public class SepaDirectDebitPaymentMethodSpecificOutput extends AbstractPaymentM
 
 	private PaymentProduct771SpecificOutput paymentProduct771SpecificOutput = null;
 
+	private String token = null;
+
 	/**
 	 * Object containing the results of the fraud screening
 	 */
@@ -38,5 +40,19 @@ public class SepaDirectDebitPaymentMethodSpecificOutput extends AbstractPaymentM
 	 */
 	public void setPaymentProduct771SpecificOutput(PaymentProduct771SpecificOutput value) {
 		this.paymentProduct771SpecificOutput = value;
+	}
+
+	/**
+	 * ID of the token. This property is populated for the GlobalCollect payment platform when the payment was done with a token or when the payment was tokenized.
+	 */
+	public String getToken() {
+		return token;
+	}
+
+	/**
+	 * ID of the token. This property is populated for the GlobalCollect payment platform when the payment was done with a token or when the payment was tokenized.
+	 */
+	public void setToken(String value) {
+		this.token = value;
 	}
 }

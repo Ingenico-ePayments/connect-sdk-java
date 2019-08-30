@@ -67,14 +67,14 @@ public class CreateMandateBase {
 	}
 
 	/**
-	 * The language of the customer.
+	 * The language code of the customer, one of de, en, es, fr, it, nl, si, sk, sv.
 	 */
 	public String getLanguage() {
 		return language;
 	}
 
 	/**
-	 * The language of the customer.
+	 * The language code of the customer, one of de, en, es, fr, it, nl, si, sk, sv.
 	 */
 	public void setLanguage(String value) {
 		this.language = value;

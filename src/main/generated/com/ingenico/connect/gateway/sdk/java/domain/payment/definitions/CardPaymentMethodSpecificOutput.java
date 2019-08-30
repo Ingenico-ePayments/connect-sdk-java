@@ -111,14 +111,14 @@ public class CardPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecif
 	}
 
 	/**
-	 * If a token was used for or created during the payment, then the ID of that token. This property is only populated for payments on the Ogone payment platform.
+	 * If a token was used for or created during the payment, then the ID of that token.
 	 */
 	public String getToken() {
 		return token;
 	}
 
 	/**
-	 * If a token was used for or created during the payment, then the ID of that token. This property is only populated for payments on the Ogone payment platform.
+	 * If a token was used for or created during the payment, then the ID of that token.
 	 */
 	public void setToken(String value) {
 		this.token = value;

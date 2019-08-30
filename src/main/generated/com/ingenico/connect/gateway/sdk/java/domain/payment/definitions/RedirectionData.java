@@ -36,7 +36,7 @@ public class RedirectionData {
 	 * <ul class="paragraph-width"><li>Redirection page - All redirection using a POST method will load a page in the browser of the customer that performs the actual redirection. This page contains a message to the customer explaining what is happening.
 	 * <li>MethodURL page - Certain Issuers will use a specific flow in case of 3-D Secure version 2 to directly collect information from the customer browser. This page contains a spinner indicating that this process is going on in.
 	 * </ul>
-	 * By specifying a specific variant you can force the use of another variant than the default. This allows you to test out the effect of certain changes to your MyCheckout payment pages in a controlled manner. Please note that you need to specify the ID instead of the name of the variant.
+	 * By specifying a specific variant you can force the use of another variant than the default. This allows you to test out the effect of certain changes to your MyCheckout payment pages in a controlled manner. Please note that you need to specify the ID instead of the name of the variant.<br>Note: In case you have defined a Dynamic 3D Secure rule that takes the variant into account this will only work if you explicitly specify the ID using this property.
 	 */
 	public String getVariant() {
 		return variant;
@@ -47,7 +47,7 @@ public class RedirectionData {
 	 * <ul class="paragraph-width"><li>Redirection page - All redirection using a POST method will load a page in the browser of the customer that performs the actual redirection. This page contains a message to the customer explaining what is happening.
 	 * <li>MethodURL page - Certain Issuers will use a specific flow in case of 3-D Secure version 2 to directly collect information from the customer browser. This page contains a spinner indicating that this process is going on in.
 	 * </ul>
-	 * By specifying a specific variant you can force the use of another variant than the default. This allows you to test out the effect of certain changes to your MyCheckout payment pages in a controlled manner. Please note that you need to specify the ID instead of the name of the variant.
+	 * By specifying a specific variant you can force the use of another variant than the default. This allows you to test out the effect of certain changes to your MyCheckout payment pages in a controlled manner. Please note that you need to specify the ID instead of the name of the variant.<br>Note: In case you have defined a Dynamic 3D Secure rule that takes the variant into account this will only work if you explicitly specify the ID using this property.
 	 */
 	public void setVariant(String value) {
 		this.variant = value;

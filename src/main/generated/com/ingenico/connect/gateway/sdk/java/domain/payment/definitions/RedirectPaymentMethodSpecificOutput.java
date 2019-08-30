@@ -92,14 +92,14 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	}
 
 	/**
-	 * ID of the token. This property is populated for the Ogone payment platform when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
 	 */
 	public String getToken() {
 		return token;
 	}
 
 	/**
-	 * ID of the token. This property is populated for the Ogone payment platform when the payment was done with a token or when the payment was tokenized.
+	 * ID of the token. This property is populated when the payment was done with a token or when the payment was tokenized.
 	 */
 	public void setToken(String value) {
 		this.token = value;

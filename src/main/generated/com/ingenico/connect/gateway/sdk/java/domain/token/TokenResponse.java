@@ -19,6 +19,8 @@ public class TokenResponse {
 
 	private TokenNonSepaDirectDebit nonSepaDirectDebit = null;
 
+	private String originalPaymentId = null;
+
 	private Integer paymentProductId = null;
 
 	private TokenSepaDirectDebit sepaDirectDebit = null;
@@ -77,6 +79,20 @@ public class TokenResponse {
 	 */
 	public void setNonSepaDirectDebit(TokenNonSepaDirectDebit value) {
 		this.nonSepaDirectDebit = value;
+	}
+
+	/**
+	 * The initial Payment ID of the transaction from which the token has been created
+	 */
+	public String getOriginalPaymentId() {
+		return originalPaymentId;
+	}
+
+	/**
+	 * The initial Payment ID of the transaction from which the token has been created
+	 */
+	public void setOriginalPaymentId(String value) {
+		this.originalPaymentId = value;
 	}
 
 	/**

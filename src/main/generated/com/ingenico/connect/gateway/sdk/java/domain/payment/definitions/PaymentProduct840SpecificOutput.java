@@ -8,11 +8,27 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.Address;
 
 public class PaymentProduct840SpecificOutput {
 
+	private Address billingAddress = null;
+
 	private PaymentProduct840CustomerAccount customerAccount = null;
 
 	private Address customerAddress = null;
 
 	private ProtectionEligibility protectionEligibility = null;
+
+	/**
+	 * Object containing the billing address details of the customer
+	 */
+	public Address getBillingAddress() {
+		return billingAddress;
+	}
+
+	/**
+	 * Object containing the billing address details of the customer
+	 */
+	public void setBillingAddress(Address value) {
+		this.billingAddress = value;
+	}
 
 	/**
 	 * Object containing the details of the PayPal account

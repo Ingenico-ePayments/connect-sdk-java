@@ -8,6 +8,8 @@ public class CreateTokenResponse {
 
 	private Boolean isNewToken = null;
 
+	private String originalPaymentId = null;
+
 	private String token = null;
 
 	/**
@@ -30,6 +32,20 @@ public class CreateTokenResponse {
 	 */
 	public void setIsNewToken(Boolean value) {
 		this.isNewToken = value;
+	}
+
+	/**
+	 * The initial Payment ID of the transaction from which the token has been created
+	 */
+	public String getOriginalPaymentId() {
+		return originalPaymentId;
+	}
+
+	/**
+	 * The initial Payment ID of the transaction from which the token has been created
+	 */
+	public void setOriginalPaymentId(String value) {
+		this.originalPaymentId = value;
 	}
 
 	/**

@@ -64,13 +64,13 @@ public class IdempotenceTest extends ItTest {
 
 		Client client = getClient();
 		try {
-			CreatePaymentResponse response = client.merchant("20000").payments().create(body, context);
+			CreatePaymentResponse response = client.merchant(getMerchantId()).payments().create(body, context);
 			String paymentId = response.getPayment().getId();
 
 			Assert.assertEquals(idempotenceKey, context.getIdempotenceKey());
 			Assert.assertNull(context.getIdempotenceRequestTimestamp());
 
-			response = client.merchant("20000").payments().create(body, context);
+			response = client.merchant(getMerchantId()).payments().create(body, context);
 
 			Assert.assertEquals(paymentId, response.getPayment().getId());
 

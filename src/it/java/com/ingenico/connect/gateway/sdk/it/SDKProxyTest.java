@@ -40,7 +40,7 @@ public class SDKProxyTest extends ItTest {
 
 		Client client = getClientWithProxy();
 		try {
-			ServicesClient services = client.merchant("9991").services();
+			ServicesClient services = client.merchant(getMerchantId()).services();
 
 			CommunicatorConfiguration configuration = getCommunicatorConfigurationWithProxy();
 			Assert.assertNotNull(configuration.getProxyConfiguration());

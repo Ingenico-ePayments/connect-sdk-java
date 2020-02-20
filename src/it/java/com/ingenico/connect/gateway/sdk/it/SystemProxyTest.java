@@ -128,7 +128,7 @@ public class SystemProxyTest extends ItTest {
 
 		Client client = Factory.createClient(configuration);
 		try {
-			ConvertAmount response = client.merchant("9991").services().convertAmount(request);
+			ConvertAmount response = client.merchant(getMerchantId()).services().convertAmount(request);
 
 			Assert.assertNotNull(response.getConvertedAmount());
 

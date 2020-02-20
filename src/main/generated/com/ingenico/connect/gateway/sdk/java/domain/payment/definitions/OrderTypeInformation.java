@@ -35,7 +35,7 @@ public class OrderTypeInformation {
 	/**
 	 * Identifies the type of transaction being authenticated.
 	 * Possible values are:<ul class="paragraph-width">
-	 * <li>purchase = The purpose of the transaction is to purchase goods or services
+	 * <li>purchase = The purpose of the transaction is to purchase goods or services (Default)
 	 * <li>check-acceptance = The purpose of the transaction is to accept a 'check'/'cheque'
 	 * <li>account-funding = The purpose of the transaction is to fund an account
 	 * <li>quasi-cash = The purpose of the transaction is to buy a quasi cash type product that is representative of actual cash such as money orders, traveler's checks, foreign currency, lottery tickets or casino gaming chips
@@ -49,7 +49,7 @@ public class OrderTypeInformation {
 	/**
 	 * Identifies the type of transaction being authenticated.
 	 * Possible values are:<ul class="paragraph-width">
-	 * <li>purchase = The purpose of the transaction is to purchase goods or services
+	 * <li>purchase = The purpose of the transaction is to purchase goods or services (Default)
 	 * <li>check-acceptance = The purpose of the transaction is to accept a 'check'/'cheque'
 	 * <li>account-funding = The purpose of the transaction is to fund an account
 	 * <li>quasi-cash = The purpose of the transaction is to buy a quasi cash type product that is representative of actual cash such as money orders, traveler's checks, foreign currency, lottery tickets or casino gaming chips

@@ -70,7 +70,7 @@ public class ConnectionPoolingTest extends ItTest {
 		// actual concurrent use of connections will need to be verified in the server logs
 	}
 
-	private static final class ConvertAmountAction implements Callable<ConvertAmountResult> {
+	private final class ConvertAmountAction implements Callable<ConvertAmountResult> {
 
 		private final CountDownLatch barrier;
 		private final Communicator communicator;
@@ -92,7 +92,7 @@ public class ConnectionPoolingTest extends ItTest {
 			barrier.await();
 
 			long startTime = System.currentTimeMillis();
-			Factory.createClient(communicator).withClientMetaInfo("").merchant("9991").services().convertAmount(request).getConvertedAmount();
+			Factory.createClient(communicator).withClientMetaInfo("").merchant(getMerchantId()).services().convertAmount(request).getConvertedAmount();
 			long endTime = System.currentTimeMillis();
 
 			return new ConvertAmountResult(startTime, endTime);

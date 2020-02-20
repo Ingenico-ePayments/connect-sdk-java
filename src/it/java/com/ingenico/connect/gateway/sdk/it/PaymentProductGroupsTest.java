@@ -24,7 +24,7 @@ public class PaymentProductGroupsTest extends ItTest {
 
 		Client client = getClient();
 		try {
-			PaymentProductGroupResponse response = client.merchant("8500").productgroups().get("cards", params);
+			PaymentProductGroupResponse response = client.merchant(getMerchantId()).productgroups().get("cards", params);
 
 			Assert.assertEquals("cards", response.getId());
 

@@ -52,6 +52,11 @@ public class LoggingUtilTest {
 		testObfuscateBodyWithNoMatches("bodyNoObfuscation.json");
 	}
 
+	@Test
+	public void testObfuscateBodyWithObject() throws IOException {
+		testObfuscateBodyWithMatches("bodyWithObjectOriginal.json", "bodyWithObjectObfuscated.json");
+	}
+
 	private void testObfuscateBodyWithMatches(String originalResource, String obfuscatedResource) throws IOException {
 		String body = readResource(originalResource);
 		String expected = readResource(obfuscatedResource);

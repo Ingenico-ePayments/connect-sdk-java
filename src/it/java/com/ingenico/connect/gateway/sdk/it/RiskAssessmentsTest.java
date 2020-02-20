@@ -45,7 +45,7 @@ public class RiskAssessmentsTest extends ItTest {
 
 		Client client = getClient();
 		try {
-			RiskAssessmentResponse riskAssessmentResponse = client.merchant("8500").riskassessments().bankaccounts(body);
+			RiskAssessmentResponse riskAssessmentResponse = client.merchant(getMerchantId()).riskassessments().bankaccounts(body);
 			Assert.assertTrue(riskAssessmentResponse.getResults().size() > 0);
 
 		} finally {

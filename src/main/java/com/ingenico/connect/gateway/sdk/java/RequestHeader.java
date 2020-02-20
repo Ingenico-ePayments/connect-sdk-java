@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  */
 public class RequestHeader {
 
-	private static final Pattern WHITE_SPACE_NORMALIZER = Pattern.compile("[\\s&&[^\r\n]]*(\r?\n)[\\s&&[^\r\n]]*");
+	private static final Pattern WHITE_SPACE_NORMALIZER = Pattern.compile("\r?\n[\\s&&[^\r\n]]*");
 
 	private final String name;
 	private final String value;
@@ -25,11 +25,10 @@ public class RequestHeader {
 		if (value == null || value.isEmpty()) {
 			return value;
 		}
-		// Replace all sequences of whitespace*-linebreak-whitespace* into a single linebreak-space
-		// This will ensure that:
-		// - no line ends with whitespace, because this causes authentication failures
-		// - each line starts with a single whitespace, so it is a valid header value
-		return WHITE_SPACE_NORMALIZER.matcher(value).replaceAll("$1 ");
+		// Replace all sequences of linebreak-whitespace* with a single space
+		// This matches the normalization done by DefaultAuthenticator, and ensures that multiline headers
+		// will not cause authentication failures
+		return WHITE_SPACE_NORMALIZER.matcher(value).replaceAll(" ").trim();
 	}
 
 	public String getName(){

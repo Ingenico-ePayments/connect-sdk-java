@@ -44,13 +44,13 @@ public class TokenTest extends ItTest {
 
 		Client client = getClient();
 		try {
-			CreateTokenResponse createTokenResponse = client.merchant("9991").tokens().create(createTokenRequest);
+			CreateTokenResponse createTokenResponse = client.merchant(getMerchantId()).tokens().create(createTokenRequest);
 
 			Assert.assertNotNull(createTokenResponse.getToken());
 
 			DeleteTokenParams deleteTokenRequest = new DeleteTokenParams();
 
-			client.merchant("9991").tokens().delete(createTokenResponse.getToken(), deleteTokenRequest);
+			client.merchant(getMerchantId()).tokens().delete(createTokenResponse.getToken(), deleteTokenRequest);
 
 		} finally {
 			client.close();

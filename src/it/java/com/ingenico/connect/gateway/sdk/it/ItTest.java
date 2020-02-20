@@ -14,12 +14,17 @@ abstract class ItTest {
 	private static final String PROPERTIES_URL			= "/itconfiguration.properties";
 	private static final String API_KEY_ID;
 	private static final String SECRET_API_KEY;
+	private static final String MERCHANT_ID;
 
 	static {
 		API_KEY_ID = System.getProperty("connect.api.apiKeyId");
 		SECRET_API_KEY = System.getProperty("connect.api.secretApiKey");
 		if (API_KEY_ID == null || SECRET_API_KEY == null) {
 			throw new IllegalStateException("System properties 'connect.api.apiKeyId' and 'connect.api.secretApiKey' must be set");
+		}
+		MERCHANT_ID = System.getProperty("connect.api.merchantId");
+		if (MERCHANT_ID == null) {
+			throw new IllegalStateException("System property 'connect.api.merchantId' must be set");
 		}
 	}
 
@@ -72,5 +77,9 @@ abstract class ItTest {
 		return Factory
 				.createClient(configuration)
 				.withClientMetaInfo("{\"test\":\"test\"}");
+	}
+
+	protected String getMerchantId() {
+		return MERCHANT_ID;
 	}
 }

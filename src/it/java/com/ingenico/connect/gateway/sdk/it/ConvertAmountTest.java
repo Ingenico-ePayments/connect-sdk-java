@@ -25,7 +25,7 @@ public class ConvertAmountTest extends ItTest {
 
 		Client client = getClient();
 		try {
-			ConvertAmount response = client.merchant("9991").services().convertAmount(request);
+			ConvertAmount response = client.merchant(getMerchantId()).services().convertAmount(request);
 
 			Assert.assertNotNull(response.getConvertedAmount());
 

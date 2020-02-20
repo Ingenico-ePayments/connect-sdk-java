@@ -18,6 +18,8 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 
 	private RedirectPaymentProduct863SpecificInput paymentProduct863SpecificInput = null;
 
+	private RedirectPaymentProduct869SpecificInput paymentProduct869SpecificInput = null;
+
 	private RedirectPaymentProduct882SpecificInput paymentProduct882SpecificInput = null;
 
 	private RedirectionData redirectionData = null;
@@ -110,6 +112,20 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 	 */
 	public void setPaymentProduct863SpecificInput(RedirectPaymentProduct863SpecificInput value) {
 		this.paymentProduct863SpecificInput = value;
+	}
+
+	/**
+	 * Object containing specific input required for China UnionPay payments (Payment product ID 869)
+	 */
+	public RedirectPaymentProduct869SpecificInput getPaymentProduct869SpecificInput() {
+		return paymentProduct869SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for China UnionPay payments (Payment product ID 869)
+	 */
+	public void setPaymentProduct869SpecificInput(RedirectPaymentProduct869SpecificInput value) {
+		this.paymentProduct869SpecificInput = value;
 	}
 
 	/**

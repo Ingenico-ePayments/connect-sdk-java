@@ -24,7 +24,7 @@ public class PaymentProductsTest extends ItTest {
 
 		Client client = getClient();
 		try {
-			Directory response = client.merchant("8500").products().directory(809, params);
+			Directory response = client.merchant(getMerchantId()).products().directory(809, params);
 
 			Assert.assertTrue(response.getEntries().size() > 0);
 

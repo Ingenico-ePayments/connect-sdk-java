@@ -8,6 +8,8 @@ public class FraudResults {
 
 	private String fraudServiceResult = null;
 
+	private InAuth inAuth = null;
+
 	/**
 	 * Results from the fraud prevention check. Possible values are:
 	 * <ul class="paragraph-width">
@@ -34,5 +36,19 @@ public class FraudResults {
 	 */
 	public void setFraudServiceResult(String value) {
 		this.fraudServiceResult = value;
+	}
+
+	/**
+	 * Object containing device fingerprinting details from InAuth
+	 */
+	public InAuth getInAuth() {
+		return inAuth;
+	}
+
+	/**
+	 * Object containing device fingerprinting details from InAuth
+	 */
+	public void setInAuth(InAuth value) {
+		this.inAuth = value;
 	}
 }

@@ -24,6 +24,8 @@ public class PaymentProductFieldValidators {
 
 	private RegularExpressionValidator regularExpression = null;
 
+	private EmptyValidator residentIdNumber = null;
+
 	private EmptyValidator termsAndConditions = null;
 
 	/**
@@ -150,6 +152,20 @@ public class PaymentProductFieldValidators {
 	 */
 	public void setRegularExpression(RegularExpressionValidator value) {
 		this.regularExpression = value;
+	}
+
+	/**
+	 * Indicates that the content needs to be validated as per the Chinese resident identity number format
+	 */
+	public EmptyValidator getResidentIdNumber() {
+		return residentIdNumber;
+	}
+
+	/**
+	 * Indicates that the content needs to be validated as per the Chinese resident identity number format
+	 */
+	public void setResidentIdNumber(EmptyValidator value) {
+		this.residentIdNumber = value;
 	}
 
 	/**

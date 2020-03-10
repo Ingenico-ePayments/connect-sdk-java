@@ -15,6 +15,8 @@ public class CreateTokenRequest {
 
 	private TokenEWallet eWallet = null;
 
+	private String encryptedCustomerInput = null;
+
 	private TokenNonSepaDirectDebit nonSepaDirectDebit = null;
 
 	private Integer paymentProductId = null;
@@ -47,6 +49,22 @@ public class CreateTokenRequest {
 	 */
 	public void setEWallet(TokenEWallet value) {
 		this.eWallet = value;
+	}
+
+	/**
+	 * Data that was encrypted client side containing all customer entered data elements like card data.<br>
+	 * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
+	 */
+	public String getEncryptedCustomerInput() {
+		return encryptedCustomerInput;
+	}
+
+	/**
+	 * Data that was encrypted client side containing all customer entered data elements like card data.<br>
+	 * Note: Because this data can only be submitted once to our system and contains encrypted card data you should not store it. As the data was captured within the context of a client session you also need to submit it to us before the session has expired.
+	 */
+	public void setEncryptedCustomerInput(String value) {
+		this.encryptedCustomerInput = value;
 	}
 
 	/**

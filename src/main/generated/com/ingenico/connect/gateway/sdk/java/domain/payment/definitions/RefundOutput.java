@@ -12,6 +12,8 @@ public class RefundOutput extends OrderOutput {
 
 	private RefundCardMethodSpecificOutput cardRefundMethodSpecificOutput = null;
 
+	private RefundCashMethodSpecificOutput cashRefundMethodSpecificOutput = null;
+
 	private RefundEInvoiceMethodSpecificOutput eInvoiceRefundMethodSpecificOutput = null;
 
 	private RefundEWalletMethodSpecificOutput eWalletRefundMethodSpecificOutput = null;
@@ -60,6 +62,20 @@ public class RefundOutput extends OrderOutput {
 	 */
 	public void setCardRefundMethodSpecificOutput(RefundCardMethodSpecificOutput value) {
 		this.cardRefundMethodSpecificOutput = value;
+	}
+
+	/**
+	 * Object containing specific cash refund details
+	 */
+	public RefundCashMethodSpecificOutput getCashRefundMethodSpecificOutput() {
+		return cashRefundMethodSpecificOutput;
+	}
+
+	/**
+	 * Object containing specific cash refund details
+	 */
+	public void setCashRefundMethodSpecificOutput(RefundCashMethodSpecificOutput value) {
+		this.cashRefundMethodSpecificOutput = value;
 	}
 
 	/**

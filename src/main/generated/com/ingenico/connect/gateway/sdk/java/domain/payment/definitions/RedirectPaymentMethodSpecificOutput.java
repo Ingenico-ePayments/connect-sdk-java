@@ -15,6 +15,8 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 
 	private PaymentProduct3201SpecificOutput paymentProduct3201SpecificOutput = null;
 
+	private PaymentProduct806SpecificOutput paymentProduct806SpecificOutput = null;
+
 	private PaymentProduct836SpecificOutput paymentProduct836SpecificOutput = null;
 
 	private PaymentProduct840SpecificOutput paymentProduct840SpecificOutput = null;
@@ -61,6 +63,14 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	 */
 	public void setPaymentProduct3201SpecificOutput(PaymentProduct3201SpecificOutput value) {
 		this.paymentProduct3201SpecificOutput = value;
+	}
+
+	public PaymentProduct806SpecificOutput getPaymentProduct806SpecificOutput() {
+		return paymentProduct806SpecificOutput;
+	}
+
+	public void setPaymentProduct806SpecificOutput(PaymentProduct806SpecificOutput value) {
+		this.paymentProduct806SpecificOutput = value;
 	}
 
 	/**

@@ -53,7 +53,7 @@ public abstract class LogMessageBuilder {
 			String obfuscatedValue = LoggingUtil.obfuscateHeader(name, value);
 			headers.append(obfuscatedValue);
 		}
-		headers.append("\"");
+		headers.append('"');
 	}
 
 	public final void setBody(String body, String contentType) {

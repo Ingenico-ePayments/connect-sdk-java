@@ -65,10 +65,16 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 		this.paymentProduct3201SpecificOutput = value;
 	}
 
+	/**
+	 * Trustly (payment product 806) specific details
+	 */
 	public PaymentProduct806SpecificOutput getPaymentProduct806SpecificOutput() {
 		return paymentProduct806SpecificOutput;
 	}
 
+	/**
+	 * Trustly (payment product 806) specific details
+	 */
 	public void setPaymentProduct806SpecificOutput(PaymentProduct806SpecificOutput value) {
 		this.paymentProduct806SpecificOutput = value;
 	}

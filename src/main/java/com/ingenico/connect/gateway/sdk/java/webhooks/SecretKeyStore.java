@@ -10,5 +10,5 @@ public interface SecretKeyStore {
 	 * @return The secret key for the given key id. Never {@code null}.
 	 * @throws SecretKeyNotAvailableException If the secret key for the given key id is not available.
 	 */
-	public String getSecretKey(String keyId);
+	String getSecretKey(String keyId);
 }

@@ -6,7 +6,7 @@ public enum AuthorizationType {
 
 	private final String signatureString;
 
-	private AuthorizationType(String signatureString){
+	AuthorizationType(String signatureString){
 		this.signatureString = signatureString;
 	}
 

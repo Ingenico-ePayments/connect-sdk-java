@@ -9,6 +9,10 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
  */
 public class ExternalCardholderAuthenticationData {
 
+	private String acsTransactionId = null;
+
+	private String appliedExemption = null;
+
 	private String cavv = null;
 
 	private String cavvAlgorithm = null;
@@ -17,6 +21,8 @@ public class ExternalCardholderAuthenticationData {
 
 	private Integer eci = null;
 
+	private Integer schemeRiskScore = null;
+
 	private String threeDSecureVersion = null;
 
 	private String threeDServerTransactionId = null;
@@ -24,6 +30,34 @@ public class ExternalCardholderAuthenticationData {
 	private String validationResult = null;
 
 	private String xid = null;
+
+	/**
+	 * Identifier of the authenticated transaction at the ACS/Issuer.
+	 */
+	public String getAcsTransactionId() {
+		return acsTransactionId;
+	}
+
+	/**
+	 * Identifier of the authenticated transaction at the ACS/Issuer.
+	 */
+	public void setAcsTransactionId(String value) {
+		this.acsTransactionId = value;
+	}
+
+	/**
+	 * Exemption code from Carte Bancaire (130) (unknown possible values so far -free format).
+	 */
+	public String getAppliedExemption() {
+		return appliedExemption;
+	}
+
+	/**
+	 * Exemption code from Carte Bancaire (130) (unknown possible values so far -free format).
+	 */
+	public void setAppliedExemption(String value) {
+		this.appliedExemption = value;
+	}
 
 	/**
 	 * The CAVV (cardholder authentication verification value) or AAV (accountholder authentication value) provides an authentication validation value.
@@ -98,6 +132,20 @@ public class ExternalCardholderAuthenticationData {
 	}
 
 	/**
+	 * Global score calculated by the Carte Bancaire (130) Scoring platform. Possible values from 0 to 99.
+	 */
+	public Integer getSchemeRiskScore() {
+		return schemeRiskScore;
+	}
+
+	/**
+	 * Global score calculated by the Carte Bancaire (130) Scoring platform. Possible values from 0 to 99.
+	 */
+	public void setSchemeRiskScore(Integer value) {
+		this.schemeRiskScore = value;
+	}
+
+	/**
 	 * The 3-D Secure version used for the authentication. Possible values:
 	 * <ul class="paragraph-width">
 	 * <li>v1
@@ -127,14 +175,20 @@ public class ExternalCardholderAuthenticationData {
 
 	/**
 	 * The 3-D Secure Server transaction ID that is used for the 3-D Secure version 2 Authentication.
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public String getThreeDServerTransactionId() {
 		return threeDServerTransactionId;
 	}
 
 	/**
 	 * The 3-D Secure Server transaction ID that is used for the 3-D Secure version 2 Authentication.
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public void setThreeDServerTransactionId(String value) {
 		this.threeDServerTransactionId = value;
 	}

@@ -146,7 +146,7 @@ public class DefaultAuthenticator implements Authenticator {
 	}
 
 	private String toCanonicalizeHeaderName(String originalName) {
-		return originalName == null ? null : originalName.toLowerCase(Locale.ENGLISH);
+		return originalName.toLowerCase(Locale.ENGLISH);
 	}
 
 	String toCanonicalizeHeaderValue(String originalValue) {

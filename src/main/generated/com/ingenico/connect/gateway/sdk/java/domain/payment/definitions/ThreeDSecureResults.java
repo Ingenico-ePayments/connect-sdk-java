@@ -4,6 +4,8 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
+
 /**
  * Object containing the 3-D Secure specific results
  */
@@ -12,6 +14,8 @@ public class ThreeDSecureResults {
 	private String acsTransactionId = null;
 
 	private String appliedExemption = null;
+
+	private AmountOfMoney authenticationAmount = null;
 
 	private String cavv = null;
 
@@ -57,6 +61,22 @@ public class ThreeDSecureResults {
 	 */
 	public void setAppliedExemption(String value) {
 		this.appliedExemption = value;
+	}
+
+	/**
+	 * Allows you to send in an authentication amount which can be greater or equal to the order amount. 
+	 * The currency code of the authentication amount  should be the same as the currency code of the order amount.
+	 */
+	public AmountOfMoney getAuthenticationAmount() {
+		return authenticationAmount;
+	}
+
+	/**
+	 * Allows you to send in an authentication amount which can be greater or equal to the order amount. 
+	 * The currency code of the authentication amount  should be the same as the currency code of the order amount.
+	 */
+	public void setAuthenticationAmount(AmountOfMoney value) {
+		this.authenticationAmount = value;
 	}
 
 	/**

@@ -53,10 +53,15 @@ public class CreatePaymentExample {
 			card.setCvv("123");
 			card.setExpiryDate("1220");
 
+			AmountOfMoney authenticationAmount = new AmountOfMoney();
+			authenticationAmount.setAmount(2980L);
+			authenticationAmount.setCurrencyCode("EUR");
+
 			RedirectionData redirectionData = new RedirectionData();
 			redirectionData.setReturnUrl("https://hostname.myownwebsite.url");
 
 			ThreeDSecure threeDSecure = new ThreeDSecure();
+			threeDSecure.setAuthenticationAmount(authenticationAmount);
 			threeDSecure.setAuthenticationFlow("browser");
 			threeDSecure.setChallengeCanvasSize("600x400");
 			threeDSecure.setChallengeIndicator("challenge-requested");

@@ -25,7 +25,7 @@ final class PropertyObfuscator extends Obfuscator {
 		Iterator<String> iterator = propertyNames.iterator();
 
 		/*
-		 * Regex to create: (["'])(X|Y|Z)\1\s*:\s*(?:(["'])(.*?)(?<!\\)\3|([^"'\s\[\{]\S*))
+		 * Regex to create: (["'])(X|Y|Z)\1\s*:\s*(?:(["'])(.*?)(?<!\\)\3|([^"'\s\[\{][\S&&[^,]]*))
 		 * Groups:
 		 * 1: opening " or ' for the property name
 		 * 2: property name
@@ -41,7 +41,7 @@ final class PropertyObfuscator extends Obfuscator {
 		while (iterator.hasNext()) {
 			regex.append('|').append(Pattern.quote(iterator.next()));
 		}
-		regex.append(")\\1\\s*:\\s*(?:([\"'])(.*?)(?<!\\\\)\\3|([^\"'\\s\\[\\{]\\S*))");
+		regex.append(")\\1\\s*:\\s*(?:([\"'])(.*?)(?<!\\\\)\\3|([^\"'\\s\\[\\{][\\S&&[^,]]*))");
 
 		 // not case insensitive
 		final int flags = Pattern.DOTALL;

@@ -4,7 +4,11 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
+
 public class AbstractThreeDSecure {
+
+	private AmountOfMoney authenticationAmount = null;
 
 	private String authenticationFlow = null;
 
@@ -19,6 +23,14 @@ public class AbstractThreeDSecure {
 	private SdkDataInput sdkData = null;
 
 	private Boolean skipAuthentication = null;
+
+	public AmountOfMoney getAuthenticationAmount() {
+		return authenticationAmount;
+	}
+
+	public void setAuthenticationAmount(AmountOfMoney value) {
+		this.authenticationAmount = value;
+	}
 
 	public String getAuthenticationFlow() {
 		return authenticationFlow;

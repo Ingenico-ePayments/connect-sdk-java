@@ -28,6 +28,8 @@ public class PaymentOutput extends OrderOutput {
 
 	private RedirectPaymentMethodSpecificOutput redirectPaymentMethodSpecificOutput = null;
 
+	private String reversalReason = null;
+
 	private SepaDirectDebitPaymentMethodSpecificOutput sepaDirectDebitPaymentMethodSpecificOutput = null;
 
 	/**
@@ -202,6 +204,20 @@ public class PaymentOutput extends OrderOutput {
 	 */
 	public void setRedirectPaymentMethodSpecificOutput(RedirectPaymentMethodSpecificOutput value) {
 		this.redirectPaymentMethodSpecificOutput = value;
+	}
+
+	/**
+	 * The reason description given for the reversedAmount property.
+	 */
+	public String getReversalReason() {
+		return reversalReason;
+	}
+
+	/**
+	 * The reason description given for the reversedAmount property.
+	 */
+	public void setReversalReason(String value) {
+		this.reversalReason = value;
 	}
 
 	/**

@@ -51,6 +51,7 @@ import org.apache.http.conn.socket.PlainConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.BufferedHttpEntity;
 import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.entity.mime.content.InputStreamBody;
@@ -597,7 +598,8 @@ public class DefaultConnection implements PooledConnection {
 
 			boolean hasNegativeContentLength = false;
 			MultipartEntityBuilder builder = MultipartEntityBuilder.create()
-					.setBoundary(multipart.getBoundary());
+					.setBoundary(multipart.getBoundary())
+					.setMode(HttpMultipartMode.RFC6532);
 			for (Map.Entry<String, String> entry : multipart.getValues().entrySet()) {
 				builder = builder.addTextBody(entry.getKey(), entry.getValue(), TEXT_PLAIN_UTF8);
 			}

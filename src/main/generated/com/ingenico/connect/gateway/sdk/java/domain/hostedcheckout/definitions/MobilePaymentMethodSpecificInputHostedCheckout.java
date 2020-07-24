@@ -8,7 +8,23 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractPaymentM
 
 public class MobilePaymentMethodSpecificInputHostedCheckout extends AbstractPaymentMethodSpecificInput {
 
+	private MobilePaymentProduct302SpecificInputHostedCheckout paymentProduct302SpecificInput = null;
+
 	private MobilePaymentProduct320SpecificInputHostedCheckout paymentProduct320SpecificInput = null;
+
+	/**
+	 * Object containing information specific to Apple Pay
+	 */
+	public MobilePaymentProduct302SpecificInputHostedCheckout getPaymentProduct302SpecificInput() {
+		return paymentProduct302SpecificInput;
+	}
+
+	/**
+	 * Object containing information specific to Apple Pay
+	 */
+	public void setPaymentProduct302SpecificInput(MobilePaymentProduct302SpecificInputHostedCheckout value) {
+		this.paymentProduct302SpecificInput = value;
+	}
 
 	/**
 	 * Object containing information specific to Google Pay

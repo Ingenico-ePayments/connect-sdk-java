@@ -48,7 +48,7 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay, maps to the paymentData.onlinePaymentCryptogram property in the encrypted payment data.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsCryptogram property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public String getCryptogram() {
 		return cryptogram;
@@ -60,7 +60,7 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay, maps to the paymentData.onlinePaymentCryptogram property in the encrypted payment data.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsCryptogram property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public void setCryptogram(String value) {
 		this.cryptogram = value;
@@ -72,7 +72,7 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay, maps to the applicationPrimaryAccountNumber property in the encrypted payment data.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.dpan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public String getDpan() {
 		return dpan;
@@ -84,7 +84,7 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay, maps to the applicationPrimaryAccountNumber property in the encrypted payment data.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.dpan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public void setDpan(String value) {
 		this.dpan = value;
@@ -96,7 +96,7 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay, maps to the paymentData.eciIndicator property in the encrypted payment data.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsEciIndicator property in the encryted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public Integer getEci() {
 		return eci;
@@ -108,7 +108,7 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay, maps to the paymentData.eciIndicator property in the encrypted payment data.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.3dsEciIndicator property in the encryted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public void setEci(Integer value) {
 		this.eci = value;
@@ -144,7 +144,7 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.pan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is TOKENIZED_CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is CRYPTOGRAM_3DS.
 	 */
 	public String getPan() {
 		return pan;
@@ -156,29 +156,27 @@ public class DecryptedPaymentData {
 	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
 	 * <li>For Google Pay, maps to the paymentMethodDetails.pan property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the paymentMethod is TOKENIZED_CARD.
+	 * Not allowed for Google Pay if the authMethod in the response of Google is CRYPTOGRAM_3DS.
 	 */
 	public void setPan(String value) {
 		this.pan = value;
 	}
 
 	/**
-	 * The type of the payment credential: either CARD or TOKENIZED_CARD.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
-	 * <li>For Google Pay, maps to the paymentMethod property in the encrypted payment data.
-	 * </ul>
+	 * <li>In case Google provides in the response as authMethod: CRYPTOGRAM_3DS send in as value of this property TOKENIZED_CARD.
+	 * <li>In case Google provides in the response as authMethod: PAN_ONLY send in as value of this property CARD.
+	 * </ul>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
 	 */
 	public String getPaymentMethod() {
 		return paymentMethod;
 	}
 
 	/**
-	 * The type of the payment credential: either CARD or TOKENIZED_CARD.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
-	 * <li>For Google Pay, maps to the paymentMethod property in the encrypted payment data.
-	 * </ul>
+	 * <li>In case Google provides in the response as authMethod: CRYPTOGRAM_3DS send in as value of this property TOKENIZED_CARD.
+	 * <li>In case Google provides in the response as authMethod: PAN_ONLY send in as value of this property CARD.
+	 * </ul>For Apple Pay this is not available in the encrypted payment data, and must be omitted.
 	 */
 	public void setPaymentMethod(String value) {
 		this.paymentMethod = value;

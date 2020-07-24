@@ -64,16 +64,14 @@ public class ThreeDSecureResults {
 	}
 
 	/**
-	 * Allows you to send in an authentication amount which can be greater or equal to the order amount. 
-	 * The currency code of the authentication amount  should be the same as the currency code of the order amount.
+	 * The amount for which this transaction has been authenticated.
 	 */
 	public AmountOfMoney getAuthenticationAmount() {
 		return authenticationAmount;
 	}
 
 	/**
-	 * Allows you to send in an authentication amount which can be greater or equal to the order amount. 
-	 * The currency code of the authentication amount  should be the same as the currency code of the order amount.
+	 * The amount for which this transaction has been authenticated.
 	 */
 	public void setAuthenticationAmount(AmountOfMoney value) {
 		this.authenticationAmount = value;

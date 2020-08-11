@@ -32,6 +32,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payment.CompletePaymentReque
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CompletePaymentResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.DeviceFingerprintDetails;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.FindPaymentsResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentApprovalResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.PaymentErrorResponse;
@@ -931,6 +932,60 @@ public class PaymentsClient extends ApiResource {
 					getClientHeaders(),
 					null,
 					DisputesResponse.class,
+					context);
+		} catch (ResponseException e) {
+			final Class<?> errorType = ErrorResponse.class;
+			final Object errorObject = communicator.getMarshaller().unmarshal(e.getBody(), errorType);
+			throw createException(e.getStatusCode(), e.getBody(), errorObject, context);
+		}
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/devicefingerprint
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/devicefingerprint.html">Get Device Fingerprint details</a>
+	 *
+	 * @param paymentId String
+	 * @return DeviceFingerprintDetails
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public DeviceFingerprintDetails devicefingerprint(String paymentId) {
+		return devicefingerprint(paymentId, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/payments/{paymentId}/devicefingerprint
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/payments/devicefingerprint.html">Get Device Fingerprint details</a>
+	 *
+	 * @param paymentId String
+	 * @param context CallContext
+	 * @return DeviceFingerprintDetails
+	 * @throws ValidationException if the request was not correct and couldn't be processed (HTTP status code 400)
+	 * @throws AuthorizationException if the request was not allowed (HTTP status code 403)
+	 * @throws IdempotenceException if an idempotent request caused a conflict (HTTP status code 409)
+	 * @throws ReferenceException if an object was attempted to be referenced that doesn't exist or has been removed,
+	 *            or there was a conflict (HTTP status code 404, 409 or 410)
+	 * @throws GlobalCollectException if something went wrong at the Ingenico ePayments platform,
+	 *            the Ingenico ePayments platform was unable to process a message from a downstream partner/acquirer,
+	 *            or the service that you're trying to reach is temporary unavailable (HTTP status code 500, 502 or 503)
+	 * @throws ApiException if the Ingenico ePayments platform returned any other error
+	 */
+	public DeviceFingerprintDetails devicefingerprint(String paymentId, CallContext context) {
+		Map<String, String> pathContext = new TreeMap<String, String>();
+		pathContext.put("paymentId", paymentId);
+		String uri = instantiateUri("/v1/{merchantId}/payments/{paymentId}/devicefingerprint", pathContext);
+		try {
+			return communicator.get(
+					uri,
+					getClientHeaders(),
+					null,
+					DeviceFingerprintDetails.class,
 					context);
 		} catch (ResponseException e) {
 			final Class<?> errorType = ErrorResponse.class;

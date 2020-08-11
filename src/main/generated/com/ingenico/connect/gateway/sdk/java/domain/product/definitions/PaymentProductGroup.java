@@ -13,6 +13,8 @@ public class PaymentProductGroup {
 
 	private List<AccountOnFile> accountsOnFile = null;
 
+	private Boolean allowsInstallments = null;
+
 	private Boolean deviceFingerprintEnabled = null;
 
 	private PaymentProductDisplayHints displayHints = null;
@@ -33,6 +35,28 @@ public class PaymentProductGroup {
 	 */
 	public void setAccountsOnFile(List<AccountOnFile> value) {
 		this.accountsOnFile = value;
+	}
+
+	/**
+	 * Indicates if the product supports installments
+	 * <ul class="paragraph-width">
+	 * <li>true - This payment supports installments
+	 * <li>false - This payment does not support installments
+	 * </ul>
+	 */
+	public Boolean getAllowsInstallments() {
+		return allowsInstallments;
+	}
+
+	/**
+	 * Indicates if the product supports installments
+	 * <ul class="paragraph-width">
+	 * <li>true - This payment supports installments
+	 * <li>false - This payment does not support installments
+	 * </ul>
+	 */
+	public void setAllowsInstallments(Boolean value) {
+		this.allowsInstallments = value;
 	}
 
 	/**

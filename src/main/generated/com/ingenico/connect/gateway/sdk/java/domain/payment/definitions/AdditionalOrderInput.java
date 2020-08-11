@@ -10,6 +10,8 @@ public class AdditionalOrderInput {
 
 	private AirlineData airlineData = null;
 
+	private Installments installments = null;
+
 	@SuppressWarnings("deprecation")
 	private Level3SummaryData level3SummaryData = null;
 
@@ -33,6 +35,20 @@ public class AdditionalOrderInput {
 	 */
 	public void setAirlineData(AirlineData value) {
 		this.airlineData = value;
+	}
+
+	/**
+	 * Object containing data related to installments.
+	 */
+	public Installments getInstallments() {
+		return installments;
+	}
+
+	/**
+	 * Object containing data related to installments.
+	 */
+	public void setInstallments(Installments value) {
+		this.installments = value;
 	}
 
 	/**
@@ -71,14 +87,20 @@ public class AdditionalOrderInput {
 
 	/**
 	 * The number of installments
+	 *
+	 * @deprecated Use installments.numberOfInstallments instead
 	 */
+	@Deprecated
 	public Long getNumberOfInstallments() {
 		return numberOfInstallments;
 	}
 
 	/**
 	 * The number of installments
+	 *
+	 * @deprecated Use installments.numberOfInstallments instead
 	 */
+	@Deprecated
 	public void setNumberOfInstallments(Long value) {
 		this.numberOfInstallments = value;
 	}

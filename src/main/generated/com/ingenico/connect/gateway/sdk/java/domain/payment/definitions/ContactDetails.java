@@ -31,14 +31,14 @@ public class ContactDetails extends ContactDetailsBase {
 	}
 
 	/**
-	 * International version of the mobile phone number of the customer including the leading + (i.e. +16127779311)
+	 * International version of the mobile phone number of the customer including the leading + (i.e. +16127779311).
 	 */
 	public String getMobilePhoneNumber() {
 		return mobilePhoneNumber;
 	}
 
 	/**
-	 * International version of the mobile phone number of the customer including the leading + (i.e. +16127779311)
+	 * International version of the mobile phone number of the customer including the leading + (i.e. +16127779311).
 	 */
 	public void setMobilePhoneNumber(String value) {
 		this.mobilePhoneNumber = value;

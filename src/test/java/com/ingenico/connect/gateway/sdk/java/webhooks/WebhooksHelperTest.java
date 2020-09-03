@@ -316,8 +316,20 @@ public class WebhooksHelperTest {
 
 	private byte[] readResource(String resource) throws IOException {
 
-		// the resources may contain \r but the body from which the signature was created doesn't
-		// strip those out while reading
+		/*
+		 * The resources may contain \r on Windows machines, but the body from which the signature was created does not.
+		 * Strip those out while reading.
+		 *
+		 * Note that this should not be done when creating webhooks endpoints. Signatures are created for bodies as they
+		 * are sent. If such bodies contain \r then stripping out any \r will lead to a signature mismatch. Instead,
+		 * it's best to read the body in chunks. For instance:
+		 *
+		 *     byte[] buffer = new byte[1024];
+		 *     int len;
+		 *     while ((len = input.read(buffer)) != -1) {
+		 *         output.write(buffer, 0, len);
+		 *     }
+		 */
 
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		InputStream input = new BufferedInputStream(getClass().getResourceAsStream(resource));

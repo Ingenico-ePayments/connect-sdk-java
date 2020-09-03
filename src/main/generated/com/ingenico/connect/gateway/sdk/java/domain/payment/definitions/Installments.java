@@ -7,7 +7,7 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
 
 /**
- * Object containing data related to installments.
+ * Object containing data related to installments which can be used for card payments and only with some acquirers. In case you send in the details of this object, only the combination of card products and acquirers that do support installments will be shown on the MyCheckout hosted payment pages.
  */
 public class Installments {
 
@@ -76,14 +76,14 @@ public class Installments {
 	}
 
 	/**
-	 * The number of installments in which this transaction will be paid.
+	 * The number of installments in which this transaction will be paid, which can be used for card payments. Only used with some acquirers. In case you send in the details of this object, only the combination of card products and acquirers that do support installments will be shown on the MyCheckout hosted payment pages.
 	 */
 	public Long getNumberOfInstallments() {
 		return numberOfInstallments;
 	}
 
 	/**
-	 * The number of installments in which this transaction will be paid.
+	 * The number of installments in which this transaction will be paid, which can be used for card payments. Only used with some acquirers. In case you send in the details of this object, only the combination of card products and acquirers that do support installments will be shown on the MyCheckout hosted payment pages.
 	 */
 	public void setNumberOfInstallments(Long value) {
 		this.numberOfInstallments = value;

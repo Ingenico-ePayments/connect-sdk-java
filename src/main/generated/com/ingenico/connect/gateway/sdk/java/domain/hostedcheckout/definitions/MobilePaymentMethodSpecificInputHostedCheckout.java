@@ -27,14 +27,14 @@ public class MobilePaymentMethodSpecificInputHostedCheckout extends AbstractPaym
 	}
 
 	/**
-	 * Object containing information specific to Google Pay
+	 * Object containing information specific to Google Pay (paymentProductId 320)
 	 */
 	public MobilePaymentProduct320SpecificInputHostedCheckout getPaymentProduct320SpecificInput() {
 		return paymentProduct320SpecificInput;
 	}
 
 	/**
-	 * Object containing information specific to Google Pay
+	 * Object containing information specific to Google Pay (paymentProductId 320)
 	 */
 	public void setPaymentProduct320SpecificInput(MobilePaymentProduct320SpecificInputHostedCheckout value) {
 		this.paymentProduct320SpecificInput = value;

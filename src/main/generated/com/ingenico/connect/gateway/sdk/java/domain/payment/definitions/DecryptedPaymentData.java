@@ -6,6 +6,8 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class DecryptedPaymentData {
 
+	private String authMethod = null;
+
 	private String cardholderName = null;
 
 	private String cryptogram = null;
@@ -19,6 +21,26 @@ public class DecryptedPaymentData {
 	private String pan = null;
 
 	private String paymentMethod = null;
+
+	/**
+	 * The type of payment credential which the customer used.
+	 * <ul class="paragraph-width">
+	 * <li>For Google Pay, maps to the paymentMethodDetails.authMethod property in the encrypted payment data.
+	 * </ul>.
+	 */
+	public String getAuthMethod() {
+		return authMethod;
+	}
+
+	/**
+	 * The type of payment credential which the customer used.
+	 * <ul class="paragraph-width">
+	 * <li>For Google Pay, maps to the paymentMethodDetails.authMethod property in the encrypted payment data.
+	 * </ul>.
+	 */
+	public void setAuthMethod(String value) {
+		this.authMethod = value;
+	}
 
 	/**
 	 * Card holder's name on the card.

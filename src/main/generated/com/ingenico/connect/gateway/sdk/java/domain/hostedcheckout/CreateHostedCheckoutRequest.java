@@ -139,14 +139,14 @@ public class CreateHostedCheckoutRequest {
 	}
 
 	/**
-	 * Object containing reference data for Google Pay.
+	 * Object containing reference data for Google Pay (paymentProductId 320) and Apple Pay (paymentProductID 302).
 	 */
 	public MobilePaymentMethodSpecificInputHostedCheckout getMobilePaymentMethodSpecificInput() {
 		return mobilePaymentMethodSpecificInput;
 	}
 
 	/**
-	 * Object containing reference data for Google Pay.
+	 * Object containing reference data for Google Pay (paymentProductId 320) and Apple Pay (paymentProductID 302).
 	 */
 	public void setMobilePaymentMethodSpecificInput(MobilePaymentMethodSpecificInputHostedCheckout value) {
 		this.mobilePaymentMethodSpecificInput = value;

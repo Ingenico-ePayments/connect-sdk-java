@@ -24,7 +24,7 @@ public class CreatePaymentProductSessionExample {
 			MobilePaymentProductSession302SpecificInput paymentProductSession302SpecificInput = new MobilePaymentProductSession302SpecificInput();
 			paymentProductSession302SpecificInput.setDisplayName("Ingenico");
 			paymentProductSession302SpecificInput.setDomainName("pay1.secured-by-ingenico.com");
-			paymentProductSession302SpecificInput.setValidationUrl("https://apple-pay-gateway-cert.apple.com/paymentservices/startSession");
+			paymentProductSession302SpecificInput.setValidationUrl("<VALIDATION URL RECEIVED FROM APPLE>");
 
 			CreatePaymentProductSessionRequest body = new CreatePaymentProductSessionRequest();
 			body.setPaymentProductSession302SpecificInput(paymentProductSession302SpecificInput);

@@ -40,7 +40,7 @@ public class TokenTest extends ItTest {
 		cardWithoutCvv.setCardholderName("Jan");
 		cardWithoutCvv.setIssueNumber("12");
 		cardWithoutCvv.setCardNumber("4567350000427977");
-		cardWithoutCvv.setExpiryDate("0820");
+		cardWithoutCvv.setExpiryDate("1225");
 
 		Client client = getClient();
 		try {

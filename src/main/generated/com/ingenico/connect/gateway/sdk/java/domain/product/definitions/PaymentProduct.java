@@ -10,6 +10,8 @@ public class PaymentProduct {
 
 	private List<AccountOnFile> accountsOnFile = null;
 
+	private String acquirerCountry = null;
+
 	private Boolean allowsInstallments = null;
 
 	private Boolean allowsRecurring = null;
@@ -64,6 +66,20 @@ public class PaymentProduct {
 	 */
 	public void setAccountsOnFile(List<AccountOnFile> value) {
 		this.accountsOnFile = value;
+	}
+
+	/**
+	 * ISO 3166-1 alpha-2 country code which indicates the most likely country code of the acquirer that will process the transaction. For Google Pay (paymentProductId 320) transactions this acquirerCountry is should be provided in the <a href="https://developers.google.com/pay/api/web/reference/request-objects#TransactionInfo">transactionInfo.countryCode</a> for merchants that use an acquirer that is based in one of the European Economic Area (EEA) countries to make sure the transaction is compliant with the PSD2 Strong Customer Authentication (SCA) requirements. More information on Strong Customer Authentication compliance for Google Pay can be found at <a href="https://developers.google.com/pay/api/web/guides/resources/sca">https://developers.google.com/pay/api/web/guides/resources/sca</a>
+	 */
+	public String getAcquirerCountry() {
+		return acquirerCountry;
+	}
+
+	/**
+	 * ISO 3166-1 alpha-2 country code which indicates the most likely country code of the acquirer that will process the transaction. For Google Pay (paymentProductId 320) transactions this acquirerCountry is should be provided in the <a href="https://developers.google.com/pay/api/web/reference/request-objects#TransactionInfo">transactionInfo.countryCode</a> for merchants that use an acquirer that is based in one of the European Economic Area (EEA) countries to make sure the transaction is compliant with the PSD2 Strong Customer Authentication (SCA) requirements. More information on Strong Customer Authentication compliance for Google Pay can be found at <a href="https://developers.google.com/pay/api/web/guides/resources/sca">https://developers.google.com/pay/api/web/guides/resources/sca</a>
+	 */
+	public void setAcquirerCountry(String value) {
+		this.acquirerCountry = value;
 	}
 
 	/**

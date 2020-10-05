@@ -10,9 +10,13 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 
 	private String authorizationMode = null;
 
+	private String customerReference = null;
+
 	private DecryptedPaymentData decryptedPaymentData = null;
 
 	private String encryptedPaymentData = null;
+
+	private MobilePaymentProduct320SpecificInput paymentProduct320SpecificInput = null;
 
 	private Boolean requiresApproval = null;
 
@@ -40,6 +44,20 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 */
 	public void setAuthorizationMode(String value) {
 		this.authorizationMode = value;
+	}
+
+	/**
+	 * Reference of the customer for the payment (purchase order #, etc.). Only used with some acquirers.
+	 */
+	public String getCustomerReference() {
+		return customerReference;
+	}
+
+	/**
+	 * Reference of the customer for the payment (purchase order #, etc.). Only used with some acquirers.
+	 */
+	public void setCustomerReference(String value) {
+		this.customerReference = value;
 	}
 
 	/**
@@ -78,6 +96,20 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 */
 	public void setEncryptedPaymentData(String value) {
 		this.encryptedPaymentData = value;
+	}
+
+	/**
+	 * Object containing information specific to Google Pay
+	 */
+	public MobilePaymentProduct320SpecificInput getPaymentProduct320SpecificInput() {
+		return paymentProduct320SpecificInput;
+	}
+
+	/**
+	 * Object containing information specific to Google Pay
+	 */
+	public void setPaymentProduct320SpecificInput(MobilePaymentProduct320SpecificInput value) {
+		this.paymentProduct320SpecificInput = value;
 	}
 
 	/**

@@ -4,11 +4,15 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.hostedcheckout.definitions;
 
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.GPayThreeDSecure;
+
 public class MobilePaymentProduct320SpecificInputHostedCheckout {
 
 	private String merchantName = null;
 
 	private String merchantOrigin = null;
+
+	private GPayThreeDSecure threeDSecure = null;
 
 	/**
 	 * Used as an input for the Google Pay payment sheet. Provide your company name in a human readable form.
@@ -36,5 +40,19 @@ public class MobilePaymentProduct320SpecificInputHostedCheckout {
 	 */
 	public void setMerchantOrigin(String value) {
 		this.merchantOrigin = value;
+	}
+
+	/**
+	 * Object containing specific data regarding 3-D Secure
+	 */
+	public GPayThreeDSecure getThreeDSecure() {
+		return threeDSecure;
+	}
+
+	/**
+	 * Object containing specific data regarding 3-D Secure
+	 */
+	public void setThreeDSecure(GPayThreeDSecure value) {
+		this.threeDSecure = value;
 	}
 }

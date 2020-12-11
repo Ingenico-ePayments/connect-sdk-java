@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
@@ -89,7 +90,7 @@ public class MetaDataProviderTest {
 		for (RequestHeader additionalHeader : additionalHeaders) {
 			Assert.assertTrue(requestHeaderIterator.hasNext());
 			requestHeader = requestHeaderIterator.next();
-			Assert.assertThat(requestHeader, new RequestHeaderMatcher(additionalHeader));
+			MatcherAssert.assertThat(requestHeader, new RequestHeaderMatcher(additionalHeader));
 		}
 	}
 
@@ -108,7 +109,7 @@ public class MetaDataProviderTest {
 				new MetaDataProvider(builder);
 				Assert.fail("expected an IllegalArgumentException");
 			} catch (IllegalArgumentException e) {
-				Assert.assertThat(e.getMessage(), Matchers.containsString(name));
+				MatcherAssert.assertThat(e.getMessage(), Matchers.containsString(name));
 			}
 		}
 	}
@@ -131,7 +132,7 @@ public class MetaDataProviderTest {
 		if (shoppingCartExtension == null) {
 			Assert.assertNull(serverMetaInfo.shoppingCartExtension);
 		} else {
-			Assert.assertThat(serverMetaInfo.shoppingCartExtension, new ShoppingCartExtensionMatcher(shoppingCartExtension));
+			MatcherAssert.assertThat(serverMetaInfo.shoppingCartExtension, new ShoppingCartExtensionMatcher(shoppingCartExtension));
 		}
 	}
 }

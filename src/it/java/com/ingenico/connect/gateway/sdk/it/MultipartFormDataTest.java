@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 
+import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
@@ -40,20 +41,20 @@ public class MultipartFormDataTest extends ItTest {
 				@SuppressWarnings("unchecked")
 				Map<String, Object> response = communicator.post("/post", null, null, multipart, Map.class, null);
 
-				Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> files = (Map<String, Object>) response.get("files");
 				Assert.assertEquals(1, files.size());
 				Assert.assertNotNull(files.get("file"));
-				Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-				Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+				MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-				Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> form = (Map<String, Object>) response.get("form");
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
-				Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 				Assert.assertEquals(form.get("value"), "Hello World");
 			} finally {
 				content.close();
@@ -80,20 +81,20 @@ public class MultipartFormDataTest extends ItTest {
 				@SuppressWarnings("unchecked")
 				Map<String, Object> response = communicator.post("/post", null, null, new MultipartFormDataObjectWrapper(multipart), Map.class, null);
 
-				Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> files = (Map<String, Object>) response.get("files");
 				Assert.assertEquals(1, files.size());
 				Assert.assertNotNull(files.get("file"));
-				Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-				Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+				MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-				Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> form = (Map<String, Object>) response.get("form");
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
-				Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 				Assert.assertEquals(form.get("value"), "Hello World");
 			} finally {
 				content.close();
@@ -124,20 +125,20 @@ public class MultipartFormDataTest extends ItTest {
 						@SuppressWarnings("unchecked")
 						Map<String, Object> response = DefaultMarshaller.INSTANCE.unmarshal(bodyStream, Map.class);
 
-						Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> files = (Map<String, Object>) response.get("files");
 						Assert.assertEquals(1, files.size());
 						Assert.assertNotNull(files.get("file"));
-						Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-						Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+						MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-						Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> form = (Map<String, Object>) response.get("form");
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
-						Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 						Assert.assertEquals(form.get("value"), "Hello World");
 					}
 				}, null);
@@ -170,20 +171,20 @@ public class MultipartFormDataTest extends ItTest {
 						@SuppressWarnings("unchecked")
 						Map<String, Object> response = DefaultMarshaller.INSTANCE.unmarshal(bodyStream, Map.class);
 
-						Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> files = (Map<String, Object>) response.get("files");
 						Assert.assertEquals(1, files.size());
 						Assert.assertNotNull(files.get("file"));
-						Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-						Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+						MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-						Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> form = (Map<String, Object>) response.get("form");
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
-						Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 						Assert.assertEquals(form.get("value"), "Hello World");
 					}
 				}, null);
@@ -212,20 +213,20 @@ public class MultipartFormDataTest extends ItTest {
 				@SuppressWarnings("unchecked")
 				Map<String, Object> response = communicator.put("/put", null, null, multipart, Map.class, null);
 
-				Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> files = (Map<String, Object>) response.get("files");
 				Assert.assertEquals(1, files.size());
 				Assert.assertNotNull(files.get("file"));
-				Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-				Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+				MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-				Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> form = (Map<String, Object>) response.get("form");
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
-				Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 				Assert.assertEquals(form.get("value"), "Hello World");
 			} finally {
 				content.close();
@@ -252,20 +253,20 @@ public class MultipartFormDataTest extends ItTest {
 				@SuppressWarnings("unchecked")
 				Map<String, Object> response = communicator.put("/put", null, null, new MultipartFormDataObjectWrapper(multipart), Map.class, null);
 
-				Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> files = (Map<String, Object>) response.get("files");
 				Assert.assertEquals(1, files.size());
 				Assert.assertNotNull(files.get("file"));
-				Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-				Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+				MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-				Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+				MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 				@SuppressWarnings("unchecked")
 				Map<String, Object> form = (Map<String, Object>) response.get("form");
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
-				Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 				Assert.assertEquals(form.get("value"), "Hello World");
 			} finally {
 				content.close();
@@ -296,20 +297,20 @@ public class MultipartFormDataTest extends ItTest {
 						@SuppressWarnings("unchecked")
 						Map<String, Object> response = DefaultMarshaller.INSTANCE.unmarshal(bodyStream, Map.class);
 
-						Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> files = (Map<String, Object>) response.get("files");
 						Assert.assertEquals(1, files.size());
 						Assert.assertNotNull(files.get("file"));
-						Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-						Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+						MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-						Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> form = (Map<String, Object>) response.get("form");
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
-						Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 						Assert.assertEquals(form.get("value"), "Hello World");
 					}
 				}, null);
@@ -342,20 +343,20 @@ public class MultipartFormDataTest extends ItTest {
 						@SuppressWarnings("unchecked")
 						Map<String, Object> response = DefaultMarshaller.INSTANCE.unmarshal(bodyStream, Map.class);
 
-						Assert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("files"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> files = (Map<String, Object>) response.get("files");
 						Assert.assertEquals(1, files.size());
 						Assert.assertNotNull(files.get("file"));
-						Assert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
-						Assert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
+						MatcherAssert.assertThat(files.get("file"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat((String) files.get("file"), Matchers.containsString("\nconnect.api.endpoint.host"));
 
-						Assert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
+						MatcherAssert.assertThat(response.get("form"), Matchers.instanceOf(Map.class));
 						@SuppressWarnings("unchecked")
 						Map<String, Object> form = (Map<String, Object>) response.get("form");
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
-						Assert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
+						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
 						Assert.assertEquals(form.get("value"), "Hello World");
 					}
 				}, null);

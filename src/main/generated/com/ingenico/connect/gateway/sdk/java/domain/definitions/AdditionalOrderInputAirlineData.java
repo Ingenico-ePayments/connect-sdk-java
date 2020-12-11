@@ -8,6 +8,8 @@ public class AdditionalOrderInputAirlineData {
 
 	private AirlineData airlineData = null;
 
+	private LodgingData lodgingData = null;
+
 	/**
 	 * Object that holds airline specific data
 	 */
@@ -20,5 +22,19 @@ public class AdditionalOrderInputAirlineData {
 	 */
 	public void setAirlineData(AirlineData value) {
 		this.airlineData = value;
+	}
+
+	/**
+	 * Object that holds lodging specific data
+	 */
+	public LodgingData getLodgingData() {
+		return lodgingData;
+	}
+
+	/**
+	 * Object that holds lodging specific data
+	 */
+	public void setLodgingData(LodgingData value) {
+		this.lodgingData = value;
 	}
 }

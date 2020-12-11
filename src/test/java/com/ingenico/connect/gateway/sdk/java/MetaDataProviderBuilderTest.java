@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
@@ -54,13 +55,13 @@ public class MetaDataProviderBuilderTest {
 			Assert.assertEquals("X-GCS-ServerMetaInfo", requestHeader.getName());
 
 			requestHeader = requestHeaderIterator.next();
-			Assert.assertThat(requestHeader, new RequestHeaderMatcher(additionalRequestHeader));
+			MatcherAssert.assertThat(requestHeader, new RequestHeaderMatcher(additionalRequestHeader));
 		} else {
 			try {
 				builder.withAdditionalRequestHeader(additionalRequestHeader);
 				Assert.fail("expected IllegalArgumentException");
 			} catch (IllegalArgumentException e) {
-				Assert.assertThat(e.getMessage(), Matchers.containsString(additionalHeaderName));
+				MatcherAssert.assertThat(e.getMessage(), Matchers.containsString(additionalHeaderName));
 			}
 		}
 	}

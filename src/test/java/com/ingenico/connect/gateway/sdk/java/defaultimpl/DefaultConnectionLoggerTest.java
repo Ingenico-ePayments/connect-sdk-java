@@ -27,6 +27,7 @@ import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.localserver.LocalServerTestBase;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestHandler;
+import org.hamcrest.MatcherAssert;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -435,8 +436,8 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 		assertRequestAndResponse(requestEntry.message, responseEntry.message, "binaryRequest");
 
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.containsString("Content-Length="));
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Transfer-Encoding=\"chunked\"")));
+		MatcherAssert.assertThat(requestEntry.message, org.hamcrest.Matchers.containsString("Content-Length="));
+		MatcherAssert.assertThat(requestEntry.message, org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Transfer-Encoding=\"chunked\"")));
 	}
 
 	@Test
@@ -479,8 +480,8 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 		assertRequestAndResponse(requestEntry.message, responseEntry.message, "binaryRequest");
 
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Content-Length=")));
-		Assert.assertThat(requestEntry.message, org.hamcrest.Matchers.containsString("Transfer-Encoding=\"chunked\""));
+		MatcherAssert.assertThat(requestEntry.message, org.hamcrest.Matchers.not(org.hamcrest.Matchers.containsString("Content-Length=")));
+		MatcherAssert.assertThat(requestEntry.message, org.hamcrest.Matchers.containsString("Transfer-Encoding=\"chunked\""));
 	}
 
 	@Test
@@ -519,7 +520,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
 				Assert.assertEquals(200, statusCode);
 				Assert.assertArrayEquals(data, output.toByteArray());
-				Assert.assertThat(headers, org.hamcrest.Matchers.hasItems(
+				MatcherAssert.assertThat(headers, org.hamcrest.Matchers.hasItems(
 						new ResponseHeaderMatcher("Dummy", ""),
 						new ResponseHeaderMatcher("Content-Type", "application/octet-stream"),
 						new ResponseHeaderMatcher("Content-Length", "1024")

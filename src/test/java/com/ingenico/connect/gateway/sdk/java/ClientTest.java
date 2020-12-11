@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.codec.binary.Base64;
 import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
@@ -66,7 +67,7 @@ public class ClientTest {
 		List<Matcher<? super RequestHeader>> matchers = new ArrayList<Matcher<? super RequestHeader>>();
 		matchers.add(new RequestHeaderMatcher("X-GCS-ClientMetaInfo", headerValue));
 
-		Assert.assertThat(headers, Matchers.containsInAnyOrder(matchers));
+		MatcherAssert.assertThat(headers, Matchers.containsInAnyOrder(matchers));
 	}
 
 	@SuppressWarnings("unchecked")

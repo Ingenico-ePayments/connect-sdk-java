@@ -23,6 +23,8 @@ public class ThreeDSecureResults {
 
 	private String eci = null;
 
+	private ExemptionOutput exemptionOutput = null;
+
 	private Integer schemeRiskScore = null;
 
 	private SdkDataOutput sdkData = null;
@@ -117,6 +119,20 @@ public class ThreeDSecureResults {
 	 */
 	public void setEci(String value) {
 		this.eci = value;
+	}
+
+	/**
+	 * Object containing exemption output
+	 */
+	public ExemptionOutput getExemptionOutput() {
+		return exemptionOutput;
+	}
+
+	/**
+	 * Object containing exemption output
+	 */
+	public void setExemptionOutput(ExemptionOutput value) {
+		this.exemptionOutput = value;
 	}
 
 	/**

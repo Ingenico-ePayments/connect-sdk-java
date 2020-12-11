@@ -5,6 +5,7 @@
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AirlineData;
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.LodgingData;
 
 public class AdditionalOrderInput {
 
@@ -16,6 +17,8 @@ public class AdditionalOrderInput {
 	private Level3SummaryData level3SummaryData = null;
 
 	private LoanRecipient loanRecipient = null;
+
+	private LodgingData lodgingData = null;
 
 	private Long numberOfInstallments = null;
 
@@ -83,6 +86,20 @@ public class AdditionalOrderInput {
 	 */
 	public void setLoanRecipient(LoanRecipient value) {
 		this.loanRecipient = value;
+	}
+
+	/**
+	 * Object that holds lodging specific data
+	 */
+	public LodgingData getLodgingData() {
+		return lodgingData;
+	}
+
+	/**
+	 * Object that holds lodging specific data
+	 */
+	public void setLodgingData(LodgingData value) {
+		this.lodgingData = value;
 	}
 
 	/**

@@ -27,7 +27,10 @@ public class DecryptedPaymentData {
 	 * <ul class="paragraph-width">
 	 * <li>For Google Pay, maps to the paymentMethodDetails.authMethod property in the encrypted payment data.
 	 * </ul>.
+	 *
+	 * @deprecated Use decryptedPaymentData.paymentMethod instead
 	 */
+	@Deprecated
 	public String getAuthMethod() {
 		return authMethod;
 	}
@@ -37,7 +40,10 @@ public class DecryptedPaymentData {
 	 * <ul class="paragraph-width">
 	 * <li>For Google Pay, maps to the paymentMethodDetails.authMethod property in the encrypted payment data.
 	 * </ul>.
+	 *
+	 * @deprecated Use decryptedPaymentData.paymentMethod instead
 	 */
+	@Deprecated
 	public void setAuthMethod(String value) {
 		this.authMethod = value;
 	}

@@ -51,7 +51,7 @@ public class CreatePaymentExample {
 			card.setCardNumber("4567350000427977");
 			card.setCardholderName("Wile E. Coyote");
 			card.setCvv("123");
-			card.setExpiryDate("1220");
+			card.setExpiryDate("1299");
 
 			AmountOfMoney authenticationAmount = new AmountOfMoney();
 			authenticationAmount.setAmount(2980L);

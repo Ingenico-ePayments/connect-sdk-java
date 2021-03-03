@@ -25,7 +25,7 @@ public class CompletePaymentExample {
 			CardWithoutCvv card = new CardWithoutCvv();
 			card.setCardNumber("67030000000000003");
 			card.setCardholderName("Wile E. Coyote");
-			card.setExpiryDate("1220");
+			card.setExpiryDate("1299");
 
 			CompletePaymentCardPaymentMethodSpecificInput cardPaymentMethodSpecificInput = new CompletePaymentCardPaymentMethodSpecificInput();
 			cardPaymentMethodSpecificInput.setCard(card);

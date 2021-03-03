@@ -33,7 +33,7 @@ public class RiskAssessmentCardsExample {
 			Card card = new Card();
 			card.setCardNumber("4567350000427977");
 			card.setCvv("123");
-			card.setExpiryDate("0820");
+			card.setExpiryDate("1299");
 
 			List<AirlineFlightLeg> flightLegs = new ArrayList<AirlineFlightLeg>();
 

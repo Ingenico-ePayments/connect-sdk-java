@@ -16,6 +16,8 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 
 	private String recurringPaymentSequenceIndicator = null;
 
+	private Boolean requiresApproval = null;
+
 	private String token = null;
 
 	private Boolean tokenize = null;
@@ -102,6 +104,24 @@ public class SepaDirectDebitPaymentMethodSpecificInput extends AbstractSepaDirec
 	 */
 	public void setRecurringPaymentSequenceIndicator(String value) {
 		this.recurringPaymentSequenceIndicator = value;
+	}
+
+	/**
+	 * <ul class="paragraph-width"><li>true - The payment requires approval before the funds will be captured using the Approve payment or Capture payment API.
+	 * <li>false - The payment does not require approval, and the funds will be captured automatically.
+	 * </ul>
+	 */
+	public Boolean getRequiresApproval() {
+		return requiresApproval;
+	}
+
+	/**
+	 * <ul class="paragraph-width"><li>true - The payment requires approval before the funds will be captured using the Approve payment or Capture payment API.
+	 * <li>false - The payment does not require approval, and the funds will be captured automatically.
+	 * </ul>
+	 */
+	public void setRequiresApproval(Boolean value) {
+		this.requiresApproval = value;
 	}
 
 	/**

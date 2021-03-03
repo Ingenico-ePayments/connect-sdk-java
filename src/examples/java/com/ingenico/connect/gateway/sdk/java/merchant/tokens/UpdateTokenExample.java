@@ -55,7 +55,7 @@ public class UpdateTokenExample {
 			CardWithoutCvv cardWithoutCvv = new CardWithoutCvv();
 			cardWithoutCvv.setCardNumber("4567350000427977");
 			cardWithoutCvv.setCardholderName("Wile E. Coyote");
-			cardWithoutCvv.setExpiryDate("0820");
+			cardWithoutCvv.setExpiryDate("1299");
 			cardWithoutCvv.setIssueNumber("12");
 
 			TokenCardData data = new TokenCardData();

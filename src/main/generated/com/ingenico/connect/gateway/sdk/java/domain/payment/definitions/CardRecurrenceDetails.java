@@ -13,28 +13,28 @@ public class CardRecurrenceDetails {
 	private String recurringPaymentSequenceIndicator = null;
 
 	/**
-	 * Date in YYYYMMDD after which there will be no further charges.
+	 * Date in YYYYMMDD after which there will be no further charges. If no value is provided we will set a default value of five years after we processed the first recurring transaction.
 	 */
 	public String getEndDate() {
 		return endDate;
 	}
 
 	/**
-	 * Date in YYYYMMDD after which there will be no further charges.
+	 * Date in YYYYMMDD after which there will be no further charges. If no value is provided we will set a default value of five years after we processed the first recurring transaction.
 	 */
 	public void setEndDate(String value) {
 		this.endDate = value;
 	}
 
 	/**
-	 * Minimum number of days between authorizations.
+	 * Minimum number of days between authorizations. If no value is provided we will set a default value of 30 days.
 	 */
 	public Integer getMinFrequency() {
 		return minFrequency;
 	}
 
 	/**
-	 * Minimum number of days between authorizations.
+	 * Minimum number of days between authorizations. If no value is provided we will set a default value of 30 days.
 	 */
 	public void setMinFrequency(Integer value) {
 		this.minFrequency = value;

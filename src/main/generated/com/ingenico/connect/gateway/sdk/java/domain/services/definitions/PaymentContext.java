@@ -15,6 +15,8 @@ public class PaymentContext {
 
 	private String countryCode = null;
 
+	private Boolean isInstallments = null;
+
 	private Boolean isRecurring = null;
 
 	/**
@@ -43,6 +45,20 @@ public class PaymentContext {
 	 */
 	public void setCountryCode(String value) {
 		this.countryCode = value;
+	}
+
+	/**
+	 * True if the payment is to be paid in multiple installments (numberOfInstallments &gt; 1 for the payment). When true only payment products that support installments will be allowed in context.
+	 */
+	public Boolean getIsInstallments() {
+		return isInstallments;
+	}
+
+	/**
+	 * True if the payment is to be paid in multiple installments (numberOfInstallments &gt; 1 for the payment). When true only payment products that support installments will be allowed in context.
+	 */
+	public void setIsInstallments(Boolean value) {
+		this.isInstallments = value;
 	}
 
 	/**

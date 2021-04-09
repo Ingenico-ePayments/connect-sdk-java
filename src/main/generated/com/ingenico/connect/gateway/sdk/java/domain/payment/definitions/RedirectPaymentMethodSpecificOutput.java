@@ -4,12 +4,17 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountBban;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountIban;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.FraudResults;
 
 public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSpecificOutput {
 
+	private BankAccountBban bankAccountBban = null;
+
 	private BankAccountIban bankAccountIban = null;
+
+	private String bic = null;
 
 	private FraudResults fraudResults = null;
 
@@ -24,6 +29,20 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	private String token = null;
 
 	/**
+	 * Object that holds the Basic Bank Account Number (BBAN) data
+	 */
+	public BankAccountBban getBankAccountBban() {
+		return bankAccountBban;
+	}
+
+	/**
+	 * Object that holds the Basic Bank Account Number (BBAN) data
+	 */
+	public void setBankAccountBban(BankAccountBban value) {
+		this.bankAccountBban = value;
+	}
+
+	/**
 	 * Object containing account holder name and IBAN information
 	 */
 	public BankAccountIban getBankAccountIban() {
@@ -35,6 +54,20 @@ public class RedirectPaymentMethodSpecificOutput extends AbstractPaymentMethodSp
 	 */
 	public void setBankAccountIban(BankAccountIban value) {
 		this.bankAccountIban = value;
+	}
+
+	/**
+	 * The BIC is the Business Identifier Code, also known as SWIFT or Bank Identifier code. It is a code with an internationally agreed format to Identify a specific bank or even branch. The BIC contains 8 or 11 positions: the first 4 contain the bank code, followed by the country code and location code.
+	 */
+	public String getBic() {
+		return bic;
+	}
+
+	/**
+	 * The BIC is the Business Identifier Code, also known as SWIFT or Bank Identifier code. It is a code with an internationally agreed format to Identify a specific bank or even branch. The BIC contains 8 or 11 positions: the first 4 contain the bank code, followed by the country code and location code.
+	 */
+	public void setBic(String value) {
+		this.bic = value;
 	}
 
 	/**

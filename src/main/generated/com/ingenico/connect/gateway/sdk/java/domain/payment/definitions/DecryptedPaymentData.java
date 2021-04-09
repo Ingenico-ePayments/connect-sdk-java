@@ -119,24 +119,22 @@ public class DecryptedPaymentData {
 	}
 
 	/**
-	 * Electronic Commerce Indicator.
+	 * The eci is Electronic Commerce Indicator.
 	 * <ul class="paragraph-width">
 	 * <li>For Apple Pay, maps to the paymentData.eciIndicator property in the encrypted payment data.
-	 * <li>For Google Pay, maps to the paymentMethodDetails.eciIndicator property in the encryted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.eciIndicator property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public Integer getEci() {
 		return eci;
 	}
 
 	/**
-	 * Electronic Commerce Indicator.
+	 * The eci is Electronic Commerce Indicator.
 	 * <ul class="paragraph-width">
 	 * <li>For Apple Pay, maps to the paymentData.eciIndicator property in the encrypted payment data.
-	 * <li>For Google Pay, maps to the paymentMethodDetails.eciIndicator property in the encryted payment data.
+	 * <li>For Google Pay, maps to the paymentMethodDetails.eciIndicator property in the encrypted payment data.
 	 * </ul>
-	 * Not allowed for Google Pay if the authMethod in the response of Google is PAN_ONLY.
 	 */
 	public void setEci(Integer value) {
 		this.eci = value;

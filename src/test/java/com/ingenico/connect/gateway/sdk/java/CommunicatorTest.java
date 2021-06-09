@@ -17,7 +17,7 @@ import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultMarshaller;
 @RunWith(MockitoJUnitRunner.class)
 public class CommunicatorTest {
 
-	private static final URI BASE_URI = URI.create("https://api-sandbox.globalcollect.com");
+	private static final URI BASE_URI = URI.create("https://eu.sandbox.api-ingenico.com");
 
 	@Mock Session session;
 
@@ -30,10 +30,10 @@ public class CommunicatorTest {
 		Communicator communicator = new Communicator(session, DefaultMarshaller.INSTANCE);
 
 		URI uri = communicator.toAbsoluteURI("v1/merchant/20000/convertamount", Collections.<RequestParam>emptyList());
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount"), uri);
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com/v1/merchant/20000/convertamount"), uri);
 
 		uri = communicator.toAbsoluteURI("/v1/merchant/20000/convertamount", Collections.<RequestParam>emptyList());
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount"), uri);
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com/v1/merchant/20000/convertamount"), uri);
 	}
 
 	@Test
@@ -52,9 +52,9 @@ public class CommunicatorTest {
 		Communicator communicator = new Communicator(session, DefaultMarshaller.INSTANCE);
 
 		URI uri = communicator.toAbsoluteURI("v1/merchant/20000/convertamount", requestParams);
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount?amount=123&source=USD&target=EUR&dummy=%C3%A9%26%25%3D"), uri);
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com/v1/merchant/20000/convertamount?amount=123&source=USD&target=EUR&dummy=%C3%A9%26%25%3D"), uri);
 
 		uri = communicator.toAbsoluteURI("/v1/merchant/20000/convertamount", requestParams);
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com/v1/merchant/20000/convertamount?amount=123&source=USD&target=EUR&dummy=%C3%A9%26%25%3D"), uri);
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com/v1/merchant/20000/convertamount?amount=123&source=USD&target=EUR&dummy=%C3%A9%26%25%3D"), uri);
 	}
 }

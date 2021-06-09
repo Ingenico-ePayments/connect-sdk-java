@@ -24,14 +24,20 @@ public class SdkDataInput {
 
 	/**
 	 * Device information gathered by the 3DS SDK on a customer device. This is JSON name/value pairs that as a whole is Base64url encoded.
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public String getDeviceInfo() {
 		return deviceInfo;
 	}
 
 	/**
 	 * Device information gathered by the 3DS SDK on a customer device. This is JSON name/value pairs that as a whole is Base64url encoded.
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public void setDeviceInfo(String value) {
 		this.deviceInfo = value;
 	}

@@ -9,7 +9,6 @@ import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -345,48 +344,6 @@ public class WebhooksHelperTest {
 		} finally {
 			input.close();
 		}
-	}
-
-	@Test
-	public void testAreEqualSignaturesEqual() {
-
-		final String signature = UUID.randomUUID().toString();
-		final String large = repeat(signature, 100);
-
-		Assert.assertTrue(WebhooksHelper.areEqualSignatures(signature, signature));
-		Assert.assertTrue(WebhooksHelper.areEqualSignatures(large, large));
-	}
-
-	@Test
-	public void testAreEqualSignaturesNotEqual() {
-
-		final String signature = UUID.randomUUID().toString();
-		final String large = repeat(signature, 100);
-
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures("abc", signature));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(signature, "abc"));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(signature + "1", signature));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(signature, signature + "1"));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(signature.toLowerCase(), signature.toUpperCase()));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(signature.toUpperCase(), signature.toLowerCase()));
-
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures("abc", large));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(large, "abc"));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(large + "1", large));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(large, large + "1"));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(large.toLowerCase(), large.toUpperCase()));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(large.toUpperCase(), large.toLowerCase()));
-
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(signature, large));
-		Assert.assertFalse(WebhooksHelper.areEqualSignatures(large, signature));
-	}
-
-	private String repeat(String s, int times) {
-		StringBuilder sb = new StringBuilder(times * s.length());
-		for (int i = 0; i < times; i++) {
-			sb.append(s);
-		}
-		return sb.toString();
 	}
 
 	private WebhooksHelper createHelper() {

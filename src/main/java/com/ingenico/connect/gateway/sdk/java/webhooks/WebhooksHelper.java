@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.security.GeneralSecurityException;
+import java.security.MessageDigest;
 import java.util.List;
 
 import javax.crypto.Mac;
@@ -130,41 +131,12 @@ public class WebhooksHelper {
 		hmac.init(key);
 
 		byte[] unencodedResult = hmac.doFinal(body);
-		String expectedSignature = Base64.encodeBase64String(unencodedResult);
+		byte[] expectedSignature = Base64.encodeBase64(unencodedResult);
 
-		boolean isValid = areEqualSignatures(signature, expectedSignature);
+		boolean isValid = MessageDigest.isEqual(signature.getBytes(CHARSET), expectedSignature);
 		if (!isValid) {
 			throw new SignatureValidationException("failed to validate signature '" + signature + "'");
 		}
-	}
-
-	static boolean areEqualSignatures(String signature, String expectedSignature) {
-		// don't use a simple equals call, as that may leak timing information (it fails fast)
-
-		final int length = signature.length();
-		final int expectedLength = expectedSignature.length();
-
-		// always check at least 256 characters, to also not leak timing information about the length of the expected signature
-		int limit = Math.max(Math.max(length, expectedLength), 256);
-
-		boolean result = true;
-
-		// the loop below uses result &= false instead of result = false and result &= true instead of nothing
-		// because those might leak timing information
-		for (int i = 0; i < limit; i++) {
-			if (i < length && i < expectedLength) {
-				// both within string boundaries
-				result &= signature.charAt(i) == expectedSignature.charAt(i);
-			} else if (i >= length && i >= expectedLength) {
-				// past both string boundaries
-				result &= true;
-			} else {
-				// i >= length || i >= expectedLength but not both
-				result &= false;
-			}
-		}
-
-		return result;
 	}
 
 	// general utility methods

@@ -16,14 +16,14 @@ public class CommunicatorConfigurationTest {
 	public void testConstructFromPropertiesWithoutProxy() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
@@ -40,7 +40,7 @@ public class CommunicatorConfigurationTest {
 	public void testConstructFromPropertiesWithProxyWithoutAuthentication() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
@@ -48,7 +48,7 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
@@ -69,7 +69,7 @@ public class CommunicatorConfigurationTest {
 	public void testConstructFromPropertiesWithProxyWithAuthentication() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
@@ -79,7 +79,7 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
@@ -100,7 +100,7 @@ public class CommunicatorConfigurationTest {
 	public void testConstructFromPropertiesWithMaxConnections() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
@@ -108,7 +108,7 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
@@ -122,21 +122,21 @@ public class CommunicatorConfigurationTest {
 	public void testConstructFromPropertiesWithHost() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 	}
 
 	@Test
 	public void testConstructFromPropertiesWithHostAndScheme() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.endpoint.scheme", "http");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
@@ -144,14 +144,14 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("http://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("http://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 	}
 
 	@Test
 	public void testConstructFromPropertiesWithHostAndPort() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.endpoint.port", "8443");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
@@ -159,14 +159,14 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com:8443"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com:8443"), configuration.getApiEndpoint());
 	}
 
 	@Test
 	public void testConstructFromPropertiesWithHostSchemeAndPort() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.endpoint.scheme", "http");
 		properties.setProperty("connect.api.endpoint.port", "8080");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
@@ -175,7 +175,7 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("http://api-sandbox.globalcollect.com:8080"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("http://eu.sandbox.api-ingenico.com:8080"), configuration.getApiEndpoint());
 	}
 
 	@Test
@@ -196,7 +196,7 @@ public class CommunicatorConfigurationTest {
 	public void testConstructFromPropertiesWithHttpsProtocols() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
@@ -204,7 +204,7 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
@@ -221,7 +221,7 @@ public class CommunicatorConfigurationTest {
 	public void testConstructFromPropertiesWithMetaData() {
 
 		Properties properties = new Properties();
-		properties.setProperty("connect.api.endpoint.host", "api-sandbox.globalcollect.com");
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
 		properties.setProperty("connect.api.authorizationType", "V1HMAC");
 		properties.setProperty("connect.api.connectTimeout", "20000");
 		properties.setProperty("connect.api.socketTimeout", "10000");
@@ -232,7 +232,7 @@ public class CommunicatorConfigurationTest {
 
 		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
 
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());

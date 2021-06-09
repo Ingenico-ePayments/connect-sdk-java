@@ -152,7 +152,7 @@ public class DefaultConnectionTest {
 		Assert.assertEquals(maxConnections, connectionManager.getDefaultMaxPerRoute());
 		Assert.assertTrue(maxConnections <= connectionManager.getMaxTotal());
 
-		HttpHost target = new HttpHost("api-sandbox.globalcollect.com", -1, "https");
+		HttpHost target = new HttpHost("eu.sandbox.api-ingenico.com", -1, "https");
 		HttpHost proxy = proxyConfiguration != null ? new HttpHost(proxyConfiguration.getHost(), proxyConfiguration.getPort(), proxyConfiguration.getScheme()) : null;
 		HttpRoute route = proxy != null ? new HttpRoute(target, proxy) : new HttpRoute(target);
 		Assert.assertEquals(maxConnections, connectionManager.getMaxPerRoute(route));

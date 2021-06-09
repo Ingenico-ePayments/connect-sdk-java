@@ -10,8 +10,6 @@ import java.io.StringWriter;
 
 import org.junit.Test;
 
-import com.ingenico.connect.gateway.sdk.java.logging.LoggingUtil;
-
 public class LoggingUtilTest {
 
 	@Test

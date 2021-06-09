@@ -13,8 +13,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ingenico.connect.gateway.sdk.java.logging.SysOutCommunicatorLogger;
-
 public class SysOutCommunicatorLoggerTest {
 
 	private static final Pattern MESSAGE_PATTERN = Pattern.compile("\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2} (.*)", Pattern.DOTALL);

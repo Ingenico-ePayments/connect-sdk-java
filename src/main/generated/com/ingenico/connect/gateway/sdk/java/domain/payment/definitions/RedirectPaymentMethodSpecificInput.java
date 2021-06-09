@@ -8,6 +8,8 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 
 	private Boolean isRecurring = null;
 
+	private RedirectPaymentProduct4101SpecificInput paymentProduct4101SpecificInput = null;
+
 	private RedirectPaymentProduct809SpecificInput paymentProduct809SpecificInput = null;
 
 	private RedirectPaymentProduct816SpecificInput paymentProduct816SpecificInput = null;
@@ -42,6 +44,20 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 	 */
 	public void setIsRecurring(Boolean value) {
 		this.isRecurring = value;
+	}
+
+	/**
+	 * Object containing specific input required for UPI payments.
+	 */
+	public RedirectPaymentProduct4101SpecificInput getPaymentProduct4101SpecificInput() {
+		return paymentProduct4101SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for UPI payments.
+	 */
+	public void setPaymentProduct4101SpecificInput(RedirectPaymentProduct4101SpecificInput value) {
+		this.paymentProduct4101SpecificInput = value;
 	}
 
 	/**

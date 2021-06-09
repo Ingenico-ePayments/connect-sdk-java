@@ -33,7 +33,7 @@ public class FactoryTest {
 	@Test
 	public void testCreateConfiguration() {
 		CommunicatorConfiguration configuration = Factory.createConfiguration(PROPERTIES_URI, API_KEY_ID, SECRET_API_KEY);
-		Assert.assertEquals(URI.create("https://api-sandbox.globalcollect.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
 		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
 		Assert.assertEquals(-1, configuration.getConnectTimeout());
 		Assert.assertEquals(-1, configuration.getSocketTimeout());

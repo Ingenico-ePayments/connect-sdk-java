@@ -47,14 +47,14 @@ public class RedirectPaymentMethodSpecificInput extends AbstractRedirectPaymentM
 	}
 
 	/**
-	 * Object containing specific input required for UPI payments.
+	 * Object containing specific input required for UPI (Payment product ID 4101)
 	 */
 	public RedirectPaymentProduct4101SpecificInput getPaymentProduct4101SpecificInput() {
 		return paymentProduct4101SpecificInput;
 	}
 
 	/**
-	 * Object containing specific input required for UPI payments.
+	 * Object containing specific input required for UPI (Payment product ID 4101)
 	 */
 	public void setPaymentProduct4101SpecificInput(RedirectPaymentProduct4101SpecificInput value) {
 		this.paymentProduct4101SpecificInput = value;

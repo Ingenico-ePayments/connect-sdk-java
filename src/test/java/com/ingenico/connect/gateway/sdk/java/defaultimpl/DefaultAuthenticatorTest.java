@@ -80,4 +80,58 @@ public class DefaultAuthenticatorTest {
 
 		Assert.assertEquals("9ond5EIN05dBXJGCLRK5om9pxHsyrh/12pZJ7bvmwNM=", authenticationSignature);
 	}
+
+	@Test
+	public void testCreateAuthenticationSignatureFromApiReference1() {
+
+		DefaultAuthenticator authenticator = new DefaultAuthenticator(AuthorizationType.V1HMAC, "5e45c937b9db33ae", "I42Zf4pVnRdroHfuHnRiJjJ2B6+22h0yQt/R3nZR8Xg=");
+
+		String dataToSign = "GET\n"
+				+ "\n"
+				+ "Fri, 06 Jun 2014 13:39:43 GMT\n"
+				+ "/v1/9991/tokens/123456789\n";
+
+		String authenticationSignature = authenticator.createAuthenticationSignature(dataToSign);
+
+		Assert.assertEquals("J5LjfSBvrQNhu7gG0gvifZt+IWNDReGCmHmBmth6ueI=", authenticationSignature);
+	}
+
+	@Test
+	public void testCreateAuthenticationSignatureFromApiReference2() {
+
+		DefaultAuthenticator authenticator = new DefaultAuthenticator(AuthorizationType.V1HMAC, "5e45c937b9db33ae", "I42Zf4pVnRdroHfuHnRiJjJ2B6+22h0yQt/R3nZR8Xg=");
+
+		String dataToSign = "GET\n"
+				+ "\n"
+				+ "Fri, 06 Jun 2014 13:39:43 GMT\n"
+				+ "/v1/consumer/ANDR%C3%89E/?q=na%20me\n";
+
+		String authenticationSignature = authenticator.createAuthenticationSignature(dataToSign);
+
+		Assert.assertEquals("3XV7LMYus9q7fp87/D4Qih2bKNtz20iqsttdrgJ09AU=", authenticationSignature);
+
+		dataToSign = dataToSign.replace("%20", " ");
+
+		authenticationSignature = authenticator.createAuthenticationSignature(dataToSign);
+
+		Assert.assertEquals("x9S2hQmLhLTbpK0YdTuYCD8TB4D+Kf60tNW0Xw5Xls0=", authenticationSignature);
+	}
+
+	@Test
+	public void testCreateAuthenticationSignatureFromApiReference3() {
+
+		DefaultAuthenticator authenticator = new DefaultAuthenticator(AuthorizationType.V1HMAC, "5e45c937b9db33ae", "I42Zf4pVnRdroHfuHnRiJjJ2B6+22h0yQt/R3nZR8Xg=");
+
+		String dataToSign = "DELETE\n"
+				+ "application/json\n"
+				+ "Fri, 06 Jun 2014 13:39:43 GMT\n"
+				+ "x-gcs-clientmetainfo:processed header value\n"
+				+ "x-gcs-customerheader:processed header value\n"
+				+ "x-gcs-servermetainfo:processed header value\n"
+				+ "/v1/9991/tokens/123456789\n";
+
+		String authenticationSignature = authenticator.createAuthenticationSignature(dataToSign);
+
+		Assert.assertEquals("jGWLz3ouN4klE+SkqO5gO+KkbQNM06Rric7E3dcfmqw=", authenticationSignature);
+	}
 }

@@ -10,6 +10,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.BankAccountIban;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.BankTransferPayoutMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.CardPayoutMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutCustomer;
+import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutDetails;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutReferences;
 
 public class CreatePayoutRequest {
@@ -28,6 +29,8 @@ public class CreatePayoutRequest {
 
 	private String payoutDate = null;
 
+	private PayoutDetails payoutDetails = null;
+
 	private String payoutText = null;
 
 	private PayoutReferences references = null;
@@ -36,14 +39,20 @@ public class CreatePayoutRequest {
 
 	/**
 	 * Object containing amount and ISO currency code attributes
+	 *
+	 * @deprecated Moved to PayoutDetails
 	 */
+	@Deprecated
 	public AmountOfMoney getAmountOfMoney() {
 		return amountOfMoney;
 	}
 
 	/**
 	 * Object containing amount and ISO currency code attributes
+	 *
+	 * @deprecated Moved to PayoutDetails
 	 */
+	@Deprecated
 	public void setAmountOfMoney(AmountOfMoney value) {
 		this.amountOfMoney = value;
 	}
@@ -119,7 +128,7 @@ public class CreatePayoutRequest {
 	/**
 	 * Object containing the details of the customer.
 	 *
-	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
+	 * @deprecated Moved to PayoutDetails
 	 */
 	@Deprecated
 	public PayoutCustomer getCustomer() {
@@ -129,7 +138,7 @@ public class CreatePayoutRequest {
 	/**
 	 * Object containing the details of the customer.
 	 *
-	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
+	 * @deprecated Moved to PayoutDetails
 	 */
 	@Deprecated
 	public void setCustomer(PayoutCustomer value) {
@@ -159,6 +168,20 @@ public class CreatePayoutRequest {
 	}
 
 	/**
+	 * Object containing the details for Create Payout Request
+	 */
+	public PayoutDetails getPayoutDetails() {
+		return payoutDetails;
+	}
+
+	/**
+	 * Object containing the details for Create Payout Request
+	 */
+	public void setPayoutDetails(PayoutDetails value) {
+		this.payoutDetails = value;
+	}
+
+	/**
 	 * Text to be printed on the bank account statement of the beneficiary. The maximum allowed length might differ per country. The data will be automatically truncated to the maximum allowed length.
 	 *
 	 * @deprecated Moved to BankTransferPayoutMethodSpecificInput
@@ -180,14 +203,20 @@ public class CreatePayoutRequest {
 
 	/**
 	 * Object that holds all reference properties that are linked to this transaction
+	 *
+	 * @deprecated Moved to PayoutDetails
 	 */
+	@Deprecated
 	public PayoutReferences getReferences() {
 		return references;
 	}
 
 	/**
 	 * Object that holds all reference properties that are linked to this transaction
+	 *
+	 * @deprecated Moved to PayoutDetails
 	 */
+	@Deprecated
 	public void setReferences(PayoutReferences value) {
 		this.references = value;
 	}

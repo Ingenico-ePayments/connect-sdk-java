@@ -9,14 +9,14 @@ public class TestConnection {
 	private String result = null;
 
 	/**
-	 * OK result on the connection to GC
+	 * OK result on the connection to the payment engine.
 	 */
 	public String getResult() {
 		return result;
 	}
 
 	/**
-	 * OK result on the connection to GC
+	 * OK result on the connection to the payment engine.
 	 */
 	public void setResult(String value) {
 		this.result = value;

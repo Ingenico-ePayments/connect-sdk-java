@@ -115,6 +115,7 @@ public class Customer extends CustomerBase {
 	 * <li>Brazil - Company (CNPJ) with a length of 14 digits
 	 * <li>Denmark - Consumer (CPR-nummer or personnummer) with a length of 10 digits
 	 * <li>Finland - Consumer (Finnish: henkilötunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters
+	 * <li>India - Consumer (PAN) with a length of 10 characters
 	 * <li>Norway - Consumer (fødselsnummer) with a length of 11 digits
 	 * <li>Sweden - Consumer (personnummer) with a length of 10 or 12 digits
 	 * </ul>
@@ -130,6 +131,7 @@ public class Customer extends CustomerBase {
 	 * <li>Brazil - Company (CNPJ) with a length of 14 digits
 	 * <li>Denmark - Consumer (CPR-nummer or personnummer) with a length of 10 digits
 	 * <li>Finland - Consumer (Finnish: henkilötunnus (abbreviated as HETU), Swedish: personbeteckning) with a length of 11 characters
+	 * <li>India - Consumer (PAN) with a length of 10 characters
 	 * <li>Norway - Consumer (fødselsnummer) with a length of 11 digits
 	 * <li>Sweden - Consumer (personnummer) with a length of 10 or 12 digits
 	 * </ul>

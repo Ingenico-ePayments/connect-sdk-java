@@ -25,6 +25,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payout.CreatePayoutRequest;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.PayoutResponse;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.BankTransferPayoutMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutCustomer;
+import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutDetails;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutReferences;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutResult;
 
@@ -34,13 +35,19 @@ public class CreatePayoutExample {
 	public void example() throws URISyntaxException, IOException {
 		Client client = getClient();
 		try {
-			AmountOfMoney amountOfMoney = new AmountOfMoney();
-			amountOfMoney.setAmount(2345L);
-			amountOfMoney.setCurrencyCode("EUR");
-
 			BankAccountIban bankAccountIban = new BankAccountIban();
 			bankAccountIban.setAccountHolderName("Wile E. Coyote");
 			bankAccountIban.setIban("IT60X0542811101000000123456");
+
+			BankTransferPayoutMethodSpecificInput bankTransferPayoutMethodSpecificInput = new BankTransferPayoutMethodSpecificInput();
+			bankTransferPayoutMethodSpecificInput.setBankAccountIban(bankAccountIban);
+			bankTransferPayoutMethodSpecificInput.setPayoutDate("20150102");
+			bankTransferPayoutMethodSpecificInput.setPayoutText("Payout Acme");
+			bankTransferPayoutMethodSpecificInput.setSwiftCode("swift");
+
+			AmountOfMoney amountOfMoney = new AmountOfMoney();
+			amountOfMoney.setAmount(2345L);
+			amountOfMoney.setCurrencyCode("EUR");
 
 			Address address = new Address();
 			address.setCity("Burbank");
@@ -68,20 +75,17 @@ public class CreatePayoutExample {
 			customer.setContactDetails(contactDetails);
 			customer.setName(name);
 
-			BankTransferPayoutMethodSpecificInput bankTransferPayoutMethodSpecificInput = new BankTransferPayoutMethodSpecificInput();
-			bankTransferPayoutMethodSpecificInput.setBankAccountIban(bankAccountIban);
-			bankTransferPayoutMethodSpecificInput.setCustomer(customer);
-			bankTransferPayoutMethodSpecificInput.setPayoutDate("20150102");
-			bankTransferPayoutMethodSpecificInput.setPayoutText("Payout Acme");
-			bankTransferPayoutMethodSpecificInput.setSwiftCode("swift");
-
 			PayoutReferences references = new PayoutReferences();
 			references.setMerchantReference("AcmeOrder001");
 
+			PayoutDetails payoutDetails = new PayoutDetails();
+			payoutDetails.setAmountOfMoney(amountOfMoney);
+			payoutDetails.setCustomer(customer);
+			payoutDetails.setReferences(references);
+
 			CreatePayoutRequest body = new CreatePayoutRequest();
-			body.setAmountOfMoney(amountOfMoney);
 			body.setBankTransferPayoutMethodSpecificInput(bankTransferPayoutMethodSpecificInput);
-			body.setReferences(references);
+			body.setPayoutDetails(payoutDetails);
 
 			try {
 				PayoutResponse response = client.merchant("merchantId").payouts().create(body);

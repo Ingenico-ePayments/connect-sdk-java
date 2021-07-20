@@ -12,6 +12,8 @@ public class CardPayoutMethodSpecificInput extends AbstractPayoutMethodSpecificI
 
 	private Integer paymentProductId = null;
 
+	private PayoutRecipient recipient = null;
+
 	private String token = null;
 
 	/**
@@ -42,6 +44,20 @@ public class CardPayoutMethodSpecificInput extends AbstractPayoutMethodSpecificI
 	 */
 	public void setPaymentProductId(Integer value) {
 		this.paymentProductId = value;
+	}
+
+	/**
+	 * Object containing the details of the recipient of the payout
+	 */
+	public PayoutRecipient getRecipient() {
+		return recipient;
+	}
+
+	/**
+	 * Object containing the details of the recipient of the payout
+	 */
+	public void setRecipient(PayoutRecipient value) {
+		this.recipient = value;
 	}
 
 	/**

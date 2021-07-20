@@ -51,14 +51,20 @@ public class BankTransferPayoutMethodSpecificInput extends AbstractPayoutMethodS
 
 	/**
 	 * Object containing the details of the customer.
+	 *
+	 * @deprecated Moved to PayoutDetails
 	 */
+	@Deprecated
 	public PayoutCustomer getCustomer() {
 		return customer;
 	}
 
 	/**
 	 * Object containing the details of the customer.
+	 *
+	 * @deprecated Moved to PayoutDetails
 	 */
+	@Deprecated
 	public void setCustomer(PayoutCustomer value) {
 		this.customer = value;
 	}

@@ -9,13 +9,25 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
  */
 public class RedirectPaymentProduct4101SpecificInput {
 
+	private String displayName = null;
+
 	private String integrationType = null;
 
-	private String merchantName = null;
+	private String virtualPaymentAddress = null;
 
-	private String transactionNote = null;
+	/**
+	 * The merchant name as shown to the customer in some payment applications.
+	 */
+	public String getDisplayName() {
+		return displayName;
+	}
 
-	private String vpa = null;
+	/**
+	 * The merchant name as shown to the customer in some payment applications.
+	 */
+	public void setDisplayName(String value) {
+		this.displayName = value;
+	}
 
 	/**
 	 * The value of this property must be either or 'vpa', 'QRCode', or 'urlIntent'.
@@ -32,44 +44,16 @@ public class RedirectPaymentProduct4101SpecificInput {
 	}
 
 	/**
-	 * The merchant name as shown to the customer in some payment applications.
+	 * The Virtual Payment Address (VPA) of the customer.
 	 */
-	public String getMerchantName() {
-		return merchantName;
-	}
-
-	/**
-	 * The merchant name as shown to the customer in some payment applications.
-	 */
-	public void setMerchantName(String value) {
-		this.merchantName = value;
-	}
-
-	/**
-	 * Some additional transaction information as shown to the customer in some payment applications.
-	 */
-	public String getTransactionNote() {
-		return transactionNote;
-	}
-
-	/**
-	 * Some additional transaction information as shown to the customer in some payment applications.
-	 */
-	public void setTransactionNote(String value) {
-		this.transactionNote = value;
+	public String getVirtualPaymentAddress() {
+		return virtualPaymentAddress;
 	}
 
 	/**
 	 * The Virtual Payment Address (VPA) of the customer.
 	 */
-	public String getVpa() {
-		return vpa;
-	}
-
-	/**
-	 * The Virtual Payment Address (VPA) of the customer.
-	 */
-	public void setVpa(String value) {
-		this.vpa = value;
+	public void setVirtualPaymentAddress(String value) {
+		this.virtualPaymentAddress = value;
 	}
 }

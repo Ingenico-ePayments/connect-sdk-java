@@ -34,16 +34,16 @@ public class RedirectPaymentProduct840SpecificInput extends AbstractRedirectPaym
 	}
 
 	/**
-	 * <div class="deprecated-wrapper depends-wrapper">Deprecated: If your PayPal payments are processed by Ingenico's Ogone Payment Platform, please use the property addressSelectionAtPayPal instead.</div><br>Indicates whether to use PayPal Express Checkout for payments processed by Ingenico's GlobalCollect Payment Platform. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
-	 * For payments processed by Ingenico's Ogone Payment Platform, please see the addressSelectionAtPayPal property for more information.
+	 * <div class="deprecated-wrapper depends-wrapper">Deprecated: If your PayPal payments are processed by Worldline's Ogone Payment Platform, please use the property addressSelectionAtPayPal instead.</div><br>Indicates whether to use PayPal Express Checkout for payments processed by Worldline's GlobalCollect Payment Platform. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
+	 * For payments processed by Worldline's Ogone Payment Platform, please see the addressSelectionAtPayPal property for more information.
 	 */
 	public Boolean getIsShortcut() {
 		return isShortcut;
 	}
 
 	/**
-	 * <div class="deprecated-wrapper depends-wrapper">Deprecated: If your PayPal payments are processed by Ingenico's Ogone Payment Platform, please use the property addressSelectionAtPayPal instead.</div><br>Indicates whether to use PayPal Express Checkout for payments processed by Ingenico's GlobalCollect Payment Platform. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
-	 * For payments processed by Ingenico's Ogone Payment Platform, please see the addressSelectionAtPayPal property for more information.
+	 * <div class="deprecated-wrapper depends-wrapper">Deprecated: If your PayPal payments are processed by Worldline's Ogone Payment Platform, please use the property addressSelectionAtPayPal instead.</div><br>Indicates whether to use PayPal Express Checkout for payments processed by Worldline's GlobalCollect Payment Platform. <ul class="paragraph-width"><li>true = PayPal Express Checkout <li>false = Regular PayPal payment </ul>
+	 * For payments processed by Worldline's Ogone Payment Platform, please see the addressSelectionAtPayPal property for more information.
 	 */
 	public void setIsShortcut(Boolean value) {
 		this.isShortcut = value;

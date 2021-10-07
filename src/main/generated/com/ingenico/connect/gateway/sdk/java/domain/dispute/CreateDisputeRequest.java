@@ -75,14 +75,14 @@ public class CreateDisputeRequest {
 	}
 
 	/**
-	 * The message sent from you to Ingenico ePayments.
+	 * The message sent from you to Worldline.
 	 */
 	public String getRequestMessage() {
 		return requestMessage;
 	}
 
 	/**
-	 * The message sent from you to Ingenico ePayments.
+	 * The message sent from you to Worldline.
 	 */
 	public void setRequestMessage(String value) {
 		this.requestMessage = value;

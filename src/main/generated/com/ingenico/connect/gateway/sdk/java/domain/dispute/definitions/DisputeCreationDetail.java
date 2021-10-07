@@ -27,14 +27,14 @@ public class DisputeCreationDetail {
 	}
 
 	/**
-	 * The originator of this dispute, which is either Ingenico ePayments or you as our client.
+	 * The originator of this dispute, which is either Worldline or you as our client.
 	 */
 	public String getDisputeOriginator() {
 		return disputeOriginator;
 	}
 
 	/**
-	 * The originator of this dispute, which is either Ingenico ePayments or you as our client.
+	 * The originator of this dispute, which is either Worldline or you as our client.
 	 */
 	public void setDisputeOriginator(String value) {
 		this.disputeOriginator = value;

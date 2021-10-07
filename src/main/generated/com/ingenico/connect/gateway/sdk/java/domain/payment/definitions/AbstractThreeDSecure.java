@@ -24,6 +24,8 @@ public class AbstractThreeDSecure {
 
 	private Boolean skipAuthentication = null;
 
+	private String transactionRiskLevel = null;
+
 	public AmountOfMoney getAuthenticationAmount() {
 		return authenticationAmount;
 	}
@@ -86,5 +88,13 @@ public class AbstractThreeDSecure {
 
 	public void setSkipAuthentication(Boolean value) {
 		this.skipAuthentication = value;
+	}
+
+	public String getTransactionRiskLevel() {
+		return transactionRiskLevel;
+	}
+
+	public void setTransactionRiskLevel(String value) {
+		this.transactionRiskLevel = value;
 	}
 }

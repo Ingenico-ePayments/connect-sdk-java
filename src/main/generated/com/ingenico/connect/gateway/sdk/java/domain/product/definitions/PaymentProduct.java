@@ -305,28 +305,28 @@ public class PaymentProduct {
 	}
 
 	/**
-	 * Maximum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
+	 * Maximum amount in cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
 	 */
 	public Long getMaxAmount() {
 		return maxAmount;
 	}
 
 	/**
-	 * Maximum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
+	 * Maximum amount in cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
 	 */
 	public void setMaxAmount(Long value) {
 		this.maxAmount = value;
 	}
 
 	/**
-	 * Minimum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
+	 * Minimum amount in cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
 	 */
 	public Long getMinAmount() {
 		return minAmount;
 	}
 
 	/**
-	 * Minimum amount in EUR cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
+	 * Minimum amount in cents (using 2 decimals, so 1 EUR becomes 100 cents) for transactions done with this payment product
 	 */
 	public void setMinAmount(Long value) {
 		this.minAmount = value;

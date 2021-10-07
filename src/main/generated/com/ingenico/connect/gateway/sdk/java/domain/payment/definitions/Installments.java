@@ -41,7 +41,7 @@ public class Installments {
 	 * <li>weekly
 	 * <li>monthly (default)
 	 * <li>quarterly
-	 * </ul> 
+	 * </ul>
 	 */
 	public String getFrequencyOfInstallments() {
 		return frequencyOfInstallments;
@@ -55,7 +55,7 @@ public class Installments {
 	 * <li>weekly
 	 * <li>monthly (default)
 	 * <li>quarterly
-	 * </ul> 
+	 * </ul>
 	 */
 	public void setFrequencyOfInstallments(String value) {
 		this.frequencyOfInstallments = value;

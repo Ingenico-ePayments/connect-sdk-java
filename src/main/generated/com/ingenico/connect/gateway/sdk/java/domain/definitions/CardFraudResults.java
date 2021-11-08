@@ -15,6 +15,8 @@ public class CardFraudResults extends FraudResults {
 
 	private FraugsterResults fraugster = null;
 
+	private MicrosoftFraudResults microsoftFraudProtection = null;
+
 	private FraudResultsRetailDecisions retailDecisions = null;
 
 	/**
@@ -127,6 +129,20 @@ public class CardFraudResults extends FraudResults {
 	 */
 	public void setFraugster(FraugsterResults value) {
 		this.fraugster = value;
+	}
+
+	/**
+	 * Results of Microsoft Fraud Protection risk assessment. Microsoft collects transaction data points and uses Adaptive AI that continuously learns to protect you against payment fraud.
+	 */
+	public MicrosoftFraudResults getMicrosoftFraudProtection() {
+		return microsoftFraudProtection;
+	}
+
+	/**
+	 * Results of Microsoft Fraud Protection risk assessment. Microsoft collects transaction data points and uses Adaptive AI that continuously learns to protect you against payment fraud.
+	 */
+	public void setMicrosoftFraudProtection(MicrosoftFraudResults value) {
+		this.microsoftFraudProtection = value;
 	}
 
 	/**

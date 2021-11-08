@@ -5,7 +5,7 @@
 
 	<groupId>com.ingenico.connect.gateway</groupId>
 	<artifactId>connect-sdk-java</artifactId>
-	<version>6.25.0</version>
+	<version>6.26.0</version>
 	<packaging>jar</packaging>
 
 	<name>connect-sdk-java</name>

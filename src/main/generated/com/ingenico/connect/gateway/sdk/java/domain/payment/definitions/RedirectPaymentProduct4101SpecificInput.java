@@ -30,14 +30,14 @@ public class RedirectPaymentProduct4101SpecificInput {
 	}
 
 	/**
-	 * The value of this property must be either or 'vpa', 'QRCode', or 'urlIntent'.
+	 * The value of this property must be either or 'vpa', or 'mobile'.
 	 */
 	public String getIntegrationType() {
 		return integrationType;
 	}
 
 	/**
-	 * The value of this property must be either or 'vpa', 'QRCode', or 'urlIntent'.
+	 * The value of this property must be either or 'vpa', or 'mobile'.
 	 */
 	public void setIntegrationType(String value) {
 		this.integrationType = value;

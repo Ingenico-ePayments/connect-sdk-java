@@ -20,6 +20,8 @@ public class OrderLineDetails {
 
 	private Long productPrice = null;
 
+	private String productSku = null;
+
 	private String productType = null;
 
 	private Long quantity = null;
@@ -126,6 +128,20 @@ public class OrderLineDetails {
 	 */
 	public void setProductPrice(Long value) {
 		this.productPrice = value;
+	}
+
+	/**
+	 * Product SKU number
+	 */
+	public String getProductSku() {
+		return productSku;
+	}
+
+	/**
+	 * Product SKU number
+	 */
+	public void setProductSku(String value) {
+		this.productSku = value;
 	}
 
 	/**

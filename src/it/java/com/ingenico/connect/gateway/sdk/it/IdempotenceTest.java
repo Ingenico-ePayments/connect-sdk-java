@@ -9,10 +9,11 @@ import org.junit.Test;
 
 import com.ingenico.connect.gateway.sdk.java.CallContext;
 import com.ingenico.connect.gateway.sdk.java.Client;
+import com.ingenico.connect.gateway.sdk.java.DeclinedPaymentException;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.Address;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AmountOfMoney;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentRequest;
-import com.ingenico.connect.gateway.sdk.java.domain.payment.CreatePaymentResponse;
+import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.CreatePaymentResult;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Customer;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.Order;
 import com.ingenico.connect.gateway.sdk.java.domain.payment.definitions.RedirectPaymentMethodSpecificInput;
@@ -64,21 +65,33 @@ public class IdempotenceTest extends ItTest {
 
 		Client client = getClient();
 		try {
-			CreatePaymentResponse response = client.merchant(getMerchantId()).payments().create(body, context);
-			String paymentId = response.getPayment().getId();
+			CreatePaymentResult result = doCreatePayment(client, body, context);
+			String paymentId = result.getPayment().getId();
+			String status = result.getPayment().getStatus();
 
 			Assert.assertEquals(idempotenceKey, context.getIdempotenceKey());
 			Assert.assertNull(context.getIdempotenceRequestTimestamp());
 
-			response = client.merchant(getMerchantId()).payments().create(body, context);
+			result = doCreatePayment(client, body, context);
 
-			Assert.assertEquals(paymentId, response.getPayment().getId());
+			Assert.assertEquals(paymentId, result.getPayment().getId());
+			Assert.assertEquals(status, result.getPayment().getStatus());
 
 			Assert.assertEquals(idempotenceKey, context.getIdempotenceKey());
 			Assert.assertNotNull(context.getIdempotenceRequestTimestamp());
 
 		} finally {
 			client.close();
+		}
+	}
+
+	private CreatePaymentResult doCreatePayment(Client client, CreatePaymentRequest body, CallContext context) {
+		// For this test it doesn't matter if the response is successful or declined,
+		// as long as idempotence is handled correctly
+		try {
+			return client.merchant(getMerchantId()).payments().create(body, context);
+		} catch (DeclinedPaymentException e) {
+			return e.getCreatePaymentResult();
 		}
 	}
 }

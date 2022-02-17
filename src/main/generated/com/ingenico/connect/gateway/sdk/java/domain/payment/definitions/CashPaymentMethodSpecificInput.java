@@ -11,12 +11,6 @@ public class CashPaymentMethodSpecificInput extends AbstractCashPaymentMethodSpe
 
 	private CashPaymentProduct1504SpecificInput paymentProduct1504SpecificInput = null;
 
-	private CashPaymentProduct1506SpecificInput paymentProduct1506SpecificInput = null;
-
-	private CashPaymentProduct1508SpecificInput paymentProduct1508SpecificInput = null;
-
-	private CashPaymentProduct1511SpecificInput paymentProduct1511SpecificInput = null;
-
 	private CashPaymentProduct1521SpecificInput paymentProduct1521SpecificInput = null;
 
 	private CashPaymentProduct1522SpecificInput paymentProduct1522SpecificInput = null;
@@ -59,48 +53,6 @@ public class CashPaymentMethodSpecificInput extends AbstractCashPaymentMethodSpe
 	 */
 	public void setPaymentProduct1504SpecificInput(CashPaymentProduct1504SpecificInput value) {
 		this.paymentProduct1504SpecificInput = value;
-	}
-
-	/**
-	 * Object that holds the specific data for Pago Facil in Argentina (payment product 1506)
-	 */
-	public CashPaymentProduct1506SpecificInput getPaymentProduct1506SpecificInput() {
-		return paymentProduct1506SpecificInput;
-	}
-
-	/**
-	 * Object that holds the specific data for Pago Facil in Argentina (payment product 1506)
-	 */
-	public void setPaymentProduct1506SpecificInput(CashPaymentProduct1506SpecificInput value) {
-		this.paymentProduct1506SpecificInput = value;
-	}
-
-	/**
-	 * Object that holds the specific data for RapiPago in Argentina (payment product 1508)
-	 */
-	public CashPaymentProduct1508SpecificInput getPaymentProduct1508SpecificInput() {
-		return paymentProduct1508SpecificInput;
-	}
-
-	/**
-	 * Object that holds the specific data for RapiPago in Argentina (payment product 1508)
-	 */
-	public void setPaymentProduct1508SpecificInput(CashPaymentProduct1508SpecificInput value) {
-		this.paymentProduct1508SpecificInput = value;
-	}
-
-	/**
-	 * Object that holds the specific data for Cobro Express in Argentina (payment product 1511)
-	 */
-	public CashPaymentProduct1511SpecificInput getPaymentProduct1511SpecificInput() {
-		return paymentProduct1511SpecificInput;
-	}
-
-	/**
-	 * Object that holds the specific data for Cobro Express in Argentina (payment product 1511)
-	 */
-	public void setPaymentProduct1511SpecificInput(CashPaymentProduct1511SpecificInput value) {
-		this.paymentProduct1511SpecificInput = value;
 	}
 
 	/**

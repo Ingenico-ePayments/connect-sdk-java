@@ -96,7 +96,7 @@ public class Address {
 
 	/**
 	 * ISO 3166-2 alpha-3 state code<br>
-	 * Notes:<br><ul class="paragraph-width"><li>The maximum length for 3-D Secure version 2 is AN3.<li>The maximum length for paymentProductId 1503 (Boleto) is AN2.</ul>
+	 * Notes:<br><ul class="paragraph-width"><li>The maximum length for 3-D Secure version 2 is AN3 for payments that are processed by the GlobalCollect platform</li><li>The maximum length for paymentProductId 1503 (Boleto) is AN2 for payments that are processed by the GlobalCollect platform</li><li>The maximum length is 3 for payments that are processed by the WL Online Payment Acceptance platform</li></ul>
 	 */
 	public String getStateCode() {
 		return stateCode;
@@ -104,7 +104,7 @@ public class Address {
 
 	/**
 	 * ISO 3166-2 alpha-3 state code<br>
-	 * Notes:<br><ul class="paragraph-width"><li>The maximum length for 3-D Secure version 2 is AN3.<li>The maximum length for paymentProductId 1503 (Boleto) is AN2.</ul>
+	 * Notes:<br><ul class="paragraph-width"><li>The maximum length for 3-D Secure version 2 is AN3 for payments that are processed by the GlobalCollect platform</li><li>The maximum length for paymentProductId 1503 (Boleto) is AN2 for payments that are processed by the GlobalCollect platform</li><li>The maximum length is 3 for payments that are processed by the WL Online Payment Acceptance platform</li></ul>
 	 */
 	public void setStateCode(String value) {
 		this.stateCode = value;

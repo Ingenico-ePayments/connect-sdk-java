@@ -2,7 +2,7 @@ package com.ingenico.connect.gateway.sdk.java.logging;
 
 import java.util.Arrays;
 
-final class ValueObfuscator {
+final class ValueObfuscator implements ObfuscationRule {
 
 	static final ValueObfuscator ALL = new ValueObfuscator(0, 0, 0);
 
@@ -30,7 +30,8 @@ final class ValueObfuscator {
 		return new ValueObfuscator(0, 0, count);
 	}
 
-	String obfuscateValue(String value) {
+	@Override
+	public String obfuscateValue(String value) {
 		if (value == null || value.isEmpty()) {
 			return value;
 		}

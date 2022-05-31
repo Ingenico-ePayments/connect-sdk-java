@@ -19,8 +19,11 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.utils.URIBuilder;
 
+import com.ingenico.connect.gateway.sdk.java.logging.BodyObfuscator;
 import com.ingenico.connect.gateway.sdk.java.logging.CommunicatorLogger;
+import com.ingenico.connect.gateway.sdk.java.logging.HeaderObfuscator;
 import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
+import com.ingenico.connect.gateway.sdk.java.logging.ObfuscationCapable;
 
 /**
  * Used to communicate with the Ingenico ePayments platform web services.
@@ -30,7 +33,7 @@ import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
  * <p>
  * Thread-safe.
  */
-public class Communicator implements Closeable, LoggingCapable {
+public class Communicator implements Closeable, LoggingCapable, ObfuscationCapable {
 
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
@@ -709,14 +712,36 @@ public class Communicator implements Closeable, LoggingCapable {
 	}
 
 	@Override
+	public void setBodyObfuscator(BodyObfuscator bodyObfuscator) {
+		@SuppressWarnings("resource")
+		Connection connection = session.getConnection();
+		if (connection instanceof ObfuscationCapable) {
+			((ObfuscationCapable) connection).setBodyObfuscator(bodyObfuscator);
+		}
+	}
+
+	@Override
+	public void setHeaderObfuscator(HeaderObfuscator headerObfuscator) {
+		@SuppressWarnings("resource")
+		Connection connection = session.getConnection();
+		if (connection instanceof ObfuscationCapable) {
+			((ObfuscationCapable) connection).setHeaderObfuscator(headerObfuscator);
+		}
+	}
+
+	@Override
 	public void enableLogging(CommunicatorLogger communicatorLogger) {
 		// delegate to the connection
-		session.getConnection().enableLogging(communicatorLogger);
+		@SuppressWarnings("resource")
+		Connection connection = session.getConnection();
+		connection.enableLogging(communicatorLogger);
 	}
 
 	@Override
 	public void disableLogging() {
 		// delegate to the connection
-		session.getConnection().disableLogging();
+		@SuppressWarnings("resource")
+		Connection connection = session.getConnection();
+		connection.disableLogging();
 	}
 }

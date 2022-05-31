@@ -8,8 +8,20 @@ public class RequestLogMessageBuilder extends LogMessageBuilder {
 	private final String method;
 	private final String uri;
 
+	/**
+	 * @deprecated Use {@link #RequestLogMessageBuilder(String, String, String, BodyObfuscator, HeaderObfuscator)} instead.
+	 */
+	@Deprecated
 	public RequestLogMessageBuilder(String requestId, String method, String uri) {
 		super(requestId);
+
+		this.method = method;
+		this.uri = uri;
+	}
+
+	public RequestLogMessageBuilder(String requestId, String method, String uri,
+			BodyObfuscator bodyObfuscator, HeaderObfuscator headerObfuscator) {
+		super(requestId, bodyObfuscator, headerObfuscator);
 
 		this.method = method;
 		this.uri = uri;

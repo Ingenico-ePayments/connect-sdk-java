@@ -10,14 +10,13 @@ import java.io.StringWriter;
 
 import org.junit.Test;
 
-@SuppressWarnings("deprecation")
-public class LoggingUtilTest {
+public class BodyObfuscatorTest {
 
 	@Test
 	public void testObfuscateBodyWithNullBody() {
 		String body = null;
 
-		String obfuscatedBody = LoggingUtil.obfuscateBody(body);
+		String obfuscatedBody = BodyObfuscator.defaultObfuscator().obfuscateBody(body);
 
 		assertNull(obfuscatedBody);
 	}
@@ -26,7 +25,7 @@ public class LoggingUtilTest {
 	public void testObfuscateBodyWithEmptyBody() {
 		String body = "";
 
-		String obfuscatedBody = LoggingUtil.obfuscateBody(body);
+		String obfuscatedBody = BodyObfuscator.defaultObfuscator().obfuscateBody(body);
 
 		assertEquals(body, obfuscatedBody);
 	}
@@ -34,6 +33,27 @@ public class LoggingUtilTest {
 	@Test
 	public void testObfuscateBodyWithCard() throws IOException {
 		testObfuscateBodyWithMatches("bodyWithCardOriginal.json", "bodyWithCardObfuscated.json");
+	}
+
+	@Test
+	public void testObfuscateBodyWithCustomCardRule() throws IOException {
+		ObfuscationRule obfuscationRule = new ObfuscationRule() {
+
+			@Override
+			public String obfuscateValue(String value) {
+				char[] chars = value.toCharArray();
+				for (int i = 6;  i < chars.length - 4; i++) {
+					chars[i] = '*';
+				}
+				return new String(chars);
+			}
+		};
+
+		BodyObfuscator bodyObfuscator = BodyObfuscator.custom()
+				.obfuscateCustom("cardNumber", obfuscationRule)
+				.build();
+
+		testObfuscateBodyWithMatches(bodyObfuscator, "bodyWithCardOriginal.json", "bodyWithCardCustomObfuscated.json");
 	}
 
 	@Test
@@ -57,10 +77,14 @@ public class LoggingUtilTest {
 	}
 
 	private void testObfuscateBodyWithMatches(String originalResource, String obfuscatedResource) throws IOException {
+		testObfuscateBodyWithMatches(BodyObfuscator.defaultObfuscator(), originalResource, obfuscatedResource);
+	}
+
+	private void testObfuscateBodyWithMatches(BodyObfuscator bodyObfuscator, String originalResource, String obfuscatedResource) throws IOException {
 		String body = readResource(originalResource);
 		String expected = readResource(obfuscatedResource);
 
-		String obfuscatedBody = LoggingUtil.obfuscateBody(body);
+		String obfuscatedBody = bodyObfuscator.obfuscateBody(body);
 
 		assertEquals(expected, obfuscatedBody);
 	}
@@ -68,7 +92,7 @@ public class LoggingUtilTest {
 	private void testObfuscateBodyWithNoMatches(String resource) throws IOException {
 		String body = readResource(resource);
 
-		String obfuscatedBody = LoggingUtil.obfuscateBody(body);
+		String obfuscatedBody = BodyObfuscator.defaultObfuscator().obfuscateBody(body);
 
 		assertEquals(body, obfuscatedBody);
 	}
@@ -88,36 +112,5 @@ public class LoggingUtilTest {
 		}
 
 		return writer.toString();
-	}
-
-	@Test
-	public void testObfuscateHeader() {
-		testObfuscateHeaderWithMatch("Authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********");
-		testObfuscateHeaderWithMatch("authorization", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********");
-		testObfuscateHeaderWithMatch("AUTHORIZATION", "Basic QWxhZGRpbjpPcGVuU2VzYW1l", "********");
-
-		testObfuscateHeaderWithMatch("X-GCS-Authentication-Token", "foobar", "********");
-		testObfuscateHeaderWithMatch("x-gcs-authentication-token", "foobar", "********");
-		testObfuscateHeaderWithMatch("X-GCS-AUTHENTICATION-TOKEN", "foobar", "********");
-
-		testObfuscateHeaderWithMatch("X-GCS-CallerPassword", "foobar", "********");
-		testObfuscateHeaderWithMatch("x-gcs-callerpassword", "foobar", "********");
-		testObfuscateHeaderWithMatch("X-GCS-CALLERPASSWORD", "foobar", "********");
-
-		testObfuscateHeaderWithNoMatch("Content-Type", "application/json");
-		testObfuscateHeaderWithNoMatch("content-type", "application/json");
-		testObfuscateHeaderWithNoMatch("CONTENT-TYPE", "application/json");
-	}
-
-	private void testObfuscateHeaderWithMatch(String name, String originalValue, String expectedObfuscatedValue) {
-		String obfuscatedValue = LoggingUtil.obfuscateHeader(name, originalValue);
-
-		assertEquals(expectedObfuscatedValue, obfuscatedValue);
-	}
-
-	private void testObfuscateHeaderWithNoMatch(String name, String originalValue) {
-		String obfuscatedValue = LoggingUtil.obfuscateHeader(name, originalValue);
-
-		assertEquals(originalValue, obfuscatedValue);
 	}
 }

@@ -13,8 +13,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.codec.binary.Base64;
 
+import com.ingenico.connect.gateway.sdk.java.logging.BodyObfuscator;
 import com.ingenico.connect.gateway.sdk.java.logging.CommunicatorLogger;
+import com.ingenico.connect.gateway.sdk.java.logging.HeaderObfuscator;
 import com.ingenico.connect.gateway.sdk.java.logging.LoggingCapable;
+import com.ingenico.connect.gateway.sdk.java.logging.ObfuscationCapable;
 import com.ingenico.connect.gateway.sdk.java.merchant.MerchantClient;
 
 /**
@@ -25,7 +28,7 @@ import com.ingenico.connect.gateway.sdk.java.merchant.MerchantClient;
  * <p>
  * Thread-safe.
  */
-public class Client extends ApiResource implements Closeable, LoggingCapable {
+public class Client extends ApiResource implements Closeable, LoggingCapable, ObfuscationCapable {
 
 	public static final String API_VERSION = "v1";
 
@@ -84,6 +87,18 @@ public class Client extends ApiResource implements Closeable, LoggingCapable {
 	 */
 	public void closeExpiredConnections() {
 		communicator.closeExpiredConnections();
+	}
+
+	@Override
+	public void setBodyObfuscator(BodyObfuscator bodyObfuscator) {
+		// delegate to the communicator
+		communicator.setBodyObfuscator(bodyObfuscator);
+	}
+
+	@Override
+	public void setHeaderObfuscator(HeaderObfuscator headerObfuscator) {
+		// delegate to the communicator
+		communicator.setHeaderObfuscator(headerObfuscator);
 	}
 
 	@Override

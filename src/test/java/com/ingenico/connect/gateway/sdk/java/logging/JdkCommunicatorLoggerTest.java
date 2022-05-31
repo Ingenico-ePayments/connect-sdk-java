@@ -10,8 +10,6 @@ import java.util.logging.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.ingenico.connect.gateway.sdk.java.logging.JdkCommunicatorLogger;
-
 public class JdkCommunicatorLoggerTest {
 
 	@Test

@@ -81,15 +81,18 @@ import com.ingenico.connect.gateway.sdk.java.RequestHeader;
 import com.ingenico.connect.gateway.sdk.java.ResponseHandler;
 import com.ingenico.connect.gateway.sdk.java.ResponseHeader;
 import com.ingenico.connect.gateway.sdk.java.UploadableFile;
+import com.ingenico.connect.gateway.sdk.java.logging.BodyObfuscator;
 import com.ingenico.connect.gateway.sdk.java.logging.CommunicatorLogger;
+import com.ingenico.connect.gateway.sdk.java.logging.HeaderObfuscator;
 import com.ingenico.connect.gateway.sdk.java.logging.LogMessageBuilder;
+import com.ingenico.connect.gateway.sdk.java.logging.ObfuscationCapable;
 import com.ingenico.connect.gateway.sdk.java.logging.RequestLogMessageBuilder;
 import com.ingenico.connect.gateway.sdk.java.logging.ResponseLogMessageBuilder;
 
 /**
  * {@link Connection} implementation based on {@link HttpClient}.
  */
-public class DefaultConnection implements PooledConnection {
+public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 
 	private static final Charset CHARSET = Charset.forName("UTF-8");
 
@@ -104,6 +107,9 @@ public class DefaultConnection implements PooledConnection {
 
 	// RequestConfig is marked to be immutable
 	protected final RequestConfig requestConfig;
+
+	private volatile BodyObfuscator bodyObfuscator = BodyObfuscator.defaultObfuscator();
+	private volatile HeaderObfuscator headerObfuscator = HeaderObfuscator.defaultObfuscator();
 
 	private volatile CommunicatorLogger communicatorLogger;
 
@@ -412,6 +418,22 @@ public class DefaultConnection implements PooledConnection {
 	}
 
 	@Override
+	public void setBodyObfuscator(BodyObfuscator bodyObfuscator) {
+		if (bodyObfuscator == null) {
+			throw new IllegalArgumentException("bodyObfuscator is required");
+		}
+		this.bodyObfuscator = bodyObfuscator;
+	}
+
+	@Override
+	public void setHeaderObfuscator(HeaderObfuscator headerObfuscator) {
+		if (headerObfuscator == null) {
+			throw new IllegalArgumentException("headerObfuscator is required");
+		}
+		this.headerObfuscator = headerObfuscator;
+	}
+
+	@Override
 	public void enableLogging(CommunicatorLogger communicatorLogger) {
 		if (communicatorLogger == null) {
 			throw new IllegalArgumentException("communicatorLogger is required");
@@ -433,7 +455,8 @@ public class DefaultConnection implements PooledConnection {
 			String method = requestLine.getMethod();
 			String uri = requestLine.getUri();
 
-			final RequestLogMessageBuilder logMessageBuilder = new RequestLogMessageBuilder(requestId, method, uri);
+			final RequestLogMessageBuilder logMessageBuilder = new RequestLogMessageBuilder(requestId, method, uri,
+					bodyObfuscator, headerObfuscator);
 			addHeaders(logMessageBuilder, request.getAllHeaders());
 
 			if (request instanceof HttpEntityEnclosingRequest) {
@@ -470,7 +493,8 @@ public class DefaultConnection implements PooledConnection {
 		try {
 			final int statusCode = response.getStatusLine().getStatusCode();
 
-			final ResponseLogMessageBuilder logMessageBuilder = new ResponseLogMessageBuilder(requestId, statusCode, duration);
+			final ResponseLogMessageBuilder logMessageBuilder = new ResponseLogMessageBuilder(requestId, statusCode, duration,
+					bodyObfuscator, headerObfuscator);
 			addHeaders(logMessageBuilder, response.getAllHeaders());
 
 			HttpEntity entity = response.getEntity();

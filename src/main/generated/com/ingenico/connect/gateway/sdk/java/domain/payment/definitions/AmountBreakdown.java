@@ -36,7 +36,7 @@ public class AmountBreakdown {
 	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.</li>
 	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.</li>
 	 * <li>BASE_AMOUNT - Order amount excluding all taxes, discount &amp; shipping costs, with the last 2 digits implied as decimal places.
-	 * Note: BASE_AMOUNT is only supported by the Ogone Payment Platform.</li>
+	 * Note: BASE_AMOUNT is only supported by the GlobalCollect and Ogone Payment Platforms.</li>
 	 * </ul>
 	 */
 	public String getType() {
@@ -55,7 +55,7 @@ public class AmountBreakdown {
 	 * <li>TAX - Total tax paid on the entire transaction, with the last 2 digits implied as decimal places.</li>
 	 * <li>VAT - Total amount of VAT paid on the transaction, with the last 2 digits implied as decimal places.</li>
 	 * <li>BASE_AMOUNT - Order amount excluding all taxes, discount &amp; shipping costs, with the last 2 digits implied as decimal places.
-	 * Note: BASE_AMOUNT is only supported by the Ogone Payment Platform.</li>
+	 * Note: BASE_AMOUNT is only supported by the GlobalCollect and Ogone Payment Platforms.</li>
 	 * </ul>
 	 */
 	public void setType(String value) {

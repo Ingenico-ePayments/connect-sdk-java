@@ -52,6 +52,8 @@ public class PaymentProduct {
 
 	private String paymentProductGroup = null;
 
+	private Boolean supportsMandates = null;
+
 	private Boolean usesRedirectionTo3rdParty = null;
 
 	/**
@@ -448,6 +450,20 @@ public class PaymentProduct {
 	 */
 	public void setPaymentProductGroup(String value) {
 		this.paymentProductGroup = value;
+	}
+
+	/**
+	 * Indicates whether the payment product supports mandates.
+	 */
+	public Boolean getSupportsMandates() {
+		return supportsMandates;
+	}
+
+	/**
+	 * Indicates whether the payment product supports mandates.
+	 */
+	public void setSupportsMandates(Boolean value) {
+		this.supportsMandates = value;
 	}
 
 	/**

@@ -5,7 +5,7 @@
 
 	<groupId>com.ingenico.connect.gateway</groupId>
 	<artifactId>connect-sdk-java</artifactId>
-	<version>6.31.0</version>
+	<version>6.32.0</version>
 	<packaging>jar</packaging>
 
 	<name>connect-sdk-java</name>
@@ -334,7 +334,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 

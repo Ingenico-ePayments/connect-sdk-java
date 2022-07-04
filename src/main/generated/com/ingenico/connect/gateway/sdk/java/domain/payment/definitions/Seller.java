@@ -14,6 +14,8 @@ public class Seller {
 
 	private String description = null;
 
+	private String externalReferenceId = null;
+
 	private String geocode = null;
 
 	private String id = null;
@@ -23,6 +25,8 @@ public class Seller {
 	private String mcc = null;
 
 	private String name = null;
+
+	private String phoneNumber = null;
 
 	private String type = null;
 
@@ -66,6 +70,20 @@ public class Seller {
 	 */
 	public void setDescription(String value) {
 		this.description = value;
+	}
+
+	/**
+	 * Seller ID assigned by the Merchant Aggregator
+	 */
+	public String getExternalReferenceId() {
+		return externalReferenceId;
+	}
+
+	/**
+	 * Seller ID assigned by the Merchant Aggregator
+	 */
+	public void setExternalReferenceId(String value) {
+		this.externalReferenceId = value;
 	}
 
 	/**
@@ -136,6 +154,20 @@ public class Seller {
 	 */
 	public void setName(String value) {
 		this.name = value;
+	}
+
+	/**
+	 * Main Phone Number
+	 */
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	/**
+	 * Main Phone Number
+	 */
+	public void setPhoneNumber(String value) {
+		this.phoneNumber = value;
 	}
 
 	/**

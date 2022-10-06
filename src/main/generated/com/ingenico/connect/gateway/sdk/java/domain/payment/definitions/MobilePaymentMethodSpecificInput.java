@@ -78,7 +78,7 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 * The payment data if we will do the decryption of the encrypted payment data.<br>
 	 * <p>Typically you'd use encryptedCustomerInput in the root of the create payment request to provide the encrypted payment data instead.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Apple Pay, the encrypted payment data is the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData object passed as a string (with all quotation marks escaped).
 	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */
@@ -90,7 +90,7 @@ public class MobilePaymentMethodSpecificInput extends AbstractPaymentMethodSpeci
 	 * The payment data if we will do the decryption of the encrypted payment data.<br>
 	 * <p>Typically you'd use encryptedCustomerInput in the root of the create payment request to provide the encrypted payment data instead.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Apple Pay, the encrypted payment data is the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData object passed as a string (with all quotation marks escaped).
 	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */

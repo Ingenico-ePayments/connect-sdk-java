@@ -177,7 +177,7 @@ public class CreatePaymentRequest {
 	 * Object containing the specific input details for mobile payments.
 	 * <p>Mobile payments produce the required payment data in encrypted form.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Apple Pay, the encrypted payment data is the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData object passed as a string (with all quotation marks escaped).
 	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */
@@ -189,7 +189,7 @@ public class CreatePaymentRequest {
 	 * Object containing the specific input details for mobile payments.
 	 * <p>Mobile payments produce the required payment data in encrypted form.
 	 * <ul class="paragraph-width">
-	 * <li>For Apple Pay, the encrypted payment data can be found in property data of the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData property.
+	 * <li>For Apple Pay, the encrypted payment data is the <a href="https://developer.apple.com/documentation/passkit/pkpayment" target="_blank">PKPayment</a>.token.paymentData object passed as a string (with all quotation marks escaped).
 	 * <li>For Google Pay, the encrypted payment data can be found in property paymentMethodData.tokenizationData.token of the <a href="https://developers.google.com/android/reference/com/google/android/gms/wallet/PaymentData" target="_blank">PaymentData</a>.toJson() result.
 	 * </ul>
 	 */

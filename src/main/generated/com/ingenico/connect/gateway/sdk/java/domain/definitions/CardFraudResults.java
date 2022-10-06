@@ -132,14 +132,14 @@ public class CardFraudResults extends FraudResults {
 	}
 
 	/**
-	 * Results of Microsoft Fraud Protection risk assessment. Microsoft collects transaction data points and uses Adaptive AI that continuously learns to protect you against payment fraud.
+	 * This object contains the results of Microsoft Fraud Protection risk assessment. Microsoft collects transaction data points and uses Adaptive AI that continuously learns to protect you against payment fraud, and the device fingerprinting details from the Microsoft Device Fingerprinting service.
 	 */
 	public MicrosoftFraudResults getMicrosoftFraudProtection() {
 		return microsoftFraudProtection;
 	}
 
 	/**
-	 * Results of Microsoft Fraud Protection risk assessment. Microsoft collects transaction data points and uses Adaptive AI that continuously learns to protect you against payment fraud.
+	 * This object contains the results of Microsoft Fraud Protection risk assessment. Microsoft collects transaction data points and uses Adaptive AI that continuously learns to protect you against payment fraud, and the device fingerprinting details from the Microsoft Device Fingerprinting service.
 	 */
 	public void setMicrosoftFraudProtection(MicrosoftFraudResults value) {
 		this.microsoftFraudProtection = value;

@@ -143,10 +143,15 @@ public class Shipping {
 
 	/**
 	 * Indicates the merchandise delivery timeframe. Possible values:
-	 * <ul class="paragraph-width"><li>electronic = For electronic delivery (services or digital goods
-	 * <li>same-day = For same day deliveries
-	 * <li>overnight = For overnight deliveries
-	 * <li>2-day-or-more = For two day or more delivery time</ul>
+	 * <ul class="paragraph-width"><li>electronic = For electronic delivery (services or digital goods)</li>
+	 * <li>same-day = For same day deliveries</li>
+	 * <li>overnight = For overnight deliveries</li>
+	 * <li>2-day-or-more = For two day or more delivery time for payments that are processed by the GlobalCollect platform</li>
+	 * <li>2-day-or-more = For two day or more delivery time for payments that are processed by the Ogone platform</li>
+	 * <li>priority = For prioritized deliveries for payments that are processed by the WL Online Payment Acceptance platform</li>
+	 * <li>ground = For deliveries via ground for payments that are processed by the WL Online Payment Acceptance platform</li>
+	 * <li>to-store = For deliveries to a store for payments that are processed by the WL Online Payment Acceptance platform</li>
+	 * </ul>
 	 */
 	public String getType() {
 		return type;
@@ -154,10 +159,15 @@ public class Shipping {
 
 	/**
 	 * Indicates the merchandise delivery timeframe. Possible values:
-	 * <ul class="paragraph-width"><li>electronic = For electronic delivery (services or digital goods
-	 * <li>same-day = For same day deliveries
-	 * <li>overnight = For overnight deliveries
-	 * <li>2-day-or-more = For two day or more delivery time</ul>
+	 * <ul class="paragraph-width"><li>electronic = For electronic delivery (services or digital goods)</li>
+	 * <li>same-day = For same day deliveries</li>
+	 * <li>overnight = For overnight deliveries</li>
+	 * <li>2-day-or-more = For two day or more delivery time for payments that are processed by the GlobalCollect platform</li>
+	 * <li>2-day-or-more = For two day or more delivery time for payments that are processed by the Ogone platform</li>
+	 * <li>priority = For prioritized deliveries for payments that are processed by the WL Online Payment Acceptance platform</li>
+	 * <li>ground = For deliveries via ground for payments that are processed by the WL Online Payment Acceptance platform</li>
+	 * <li>to-store = For deliveries to a store for payments that are processed by the WL Online Payment Acceptance platform</li>
+	 * </ul>
 	 */
 	public void setType(String value) {
 		this.type = value;

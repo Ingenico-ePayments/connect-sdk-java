@@ -6,23 +6,7 @@ package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
 public class CardWithoutCvv extends CardEssentials {
 
-	private String cardholderName = null;
-
 	private String issueNumber = null;
-
-	/**
-	 * Card holder's name on the card
-	 */
-	public String getCardholderName() {
-		return cardholderName;
-	}
-
-	/**
-	 * Card holder's name on the card
-	 */
-	public void setCardholderName(String value) {
-		this.cardholderName = value;
-	}
 
 	/**
 	 * Issue number on the card (if applicable)

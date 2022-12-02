@@ -8,6 +8,8 @@ public class CardEssentials {
 
 	private String cardNumber = null;
 
+	private String cardholderName = null;
+
 	private String expiryDate = null;
 
 	/**
@@ -22,6 +24,20 @@ public class CardEssentials {
 	 */
 	public void setCardNumber(String value) {
 		this.cardNumber = value;
+	}
+
+	/**
+	 * The card holder's name on the card.
+	 */
+	public String getCardholderName() {
+		return cardholderName;
+	}
+
+	/**
+	 * The card holder's name on the card.
+	 */
+	public void setCardholderName(String value) {
+		this.cardholderName = value;
 	}
 
 	/**

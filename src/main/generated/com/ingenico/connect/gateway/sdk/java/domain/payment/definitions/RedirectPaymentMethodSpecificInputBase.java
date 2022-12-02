@@ -6,7 +6,23 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class RedirectPaymentMethodSpecificInputBase extends AbstractRedirectPaymentMethodSpecificInput {
 
+	private RedirectPaymentProduct4101SpecificInputBase paymentProduct4101SpecificInput = null;
+
 	private RedirectPaymentProduct840SpecificInputBase paymentProduct840SpecificInput = null;
+
+	/**
+	 * Object containing specific input required for payment product 4101 (UPI)
+	 */
+	public RedirectPaymentProduct4101SpecificInputBase getPaymentProduct4101SpecificInput() {
+		return paymentProduct4101SpecificInput;
+	}
+
+	/**
+	 * Object containing specific input required for payment product 4101 (UPI)
+	 */
+	public void setPaymentProduct4101SpecificInput(RedirectPaymentProduct4101SpecificInputBase value) {
+		this.paymentProduct4101SpecificInput = value;
+	}
 
 	/**
 	 * Object containing specific input required for PayPal payments (Payment product ID 840)

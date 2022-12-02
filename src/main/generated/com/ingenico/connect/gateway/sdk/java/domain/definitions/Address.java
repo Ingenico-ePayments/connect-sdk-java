@@ -23,14 +23,14 @@ public class Address {
 	private String zip = null;
 
 	/**
-	 * Additional address information
+	 * Additional address information. The additionalInfo is truncated after 10 characters for payments, refunds or payouts that are processed by the WL Online Payment Acceptance platform
 	 */
 	public String getAdditionalInfo() {
 		return additionalInfo;
 	}
 
 	/**
-	 * Additional address information
+	 * Additional address information. The additionalInfo is truncated after 10 characters for payments, refunds or payouts that are processed by the WL Online Payment Acceptance platform
 	 */
 	public void setAdditionalInfo(String value) {
 		this.additionalInfo = value;
@@ -67,14 +67,14 @@ public class Address {
 	}
 
 	/**
-	 * House number
+	 * House number. The houseNumber is truncated after 10 characters for payments, refunds or payouts that are processed by the WL Online Payment Acceptance platform
 	 */
 	public String getHouseNumber() {
 		return houseNumber;
 	}
 
 	/**
-	 * House number
+	 * House number. The houseNumber is truncated after 10 characters for payments, refunds or payouts that are processed by the WL Online Payment Acceptance platform
 	 */
 	public void setHouseNumber(String value) {
 		this.houseNumber = value;

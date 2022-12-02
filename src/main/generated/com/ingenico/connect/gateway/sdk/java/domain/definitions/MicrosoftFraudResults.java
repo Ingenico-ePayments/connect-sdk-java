@@ -6,15 +6,33 @@ package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
 public class MicrosoftFraudResults {
 
+	private String clauseName = null;
+
 	private String deviceCountryCode = null;
 
 	private String deviceId = null;
 
 	private Integer fraudScore = null;
 
+	private String policyApplied = null;
+
 	private String trueIpAddress = null;
 
 	private String userDeviceType = null;
+
+	/**
+	 * Name of the clause within the applied policy that was triggered during the evaluation of this transaction.
+	 */
+	public String getClauseName() {
+		return clauseName;
+	}
+
+	/**
+	 * Name of the clause within the applied policy that was triggered during the evaluation of this transaction.
+	 */
+	public void setClauseName(String value) {
+		this.clauseName = value;
+	}
 
 	/**
 	 * The country of the customer determined by Microsoft Device Fingerprinting.
@@ -56,6 +74,20 @@ public class MicrosoftFraudResults {
 	 */
 	public void setFraudScore(Integer value) {
 		this.fraudScore = value;
+	}
+
+	/**
+	 * Name of the policy that was applied on during the evaluation of this transaction.
+	 */
+	public String getPolicyApplied() {
+		return policyApplied;
+	}
+
+	/**
+	 * Name of the policy that was applied on during the evaluation of this transaction.
+	 */
+	public void setPolicyApplied(String value) {
+		this.policyApplied = value;
 	}
 
 	/**

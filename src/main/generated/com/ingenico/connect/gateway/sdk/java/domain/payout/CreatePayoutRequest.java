@@ -11,6 +11,7 @@ import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.BankTrans
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.CardPayoutMethodSpecificInput;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutCustomer;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutDetails;
+import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutMerchant;
 import com.ingenico.connect.gateway.sdk.java.domain.payout.definitions.PayoutReferences;
 
 public class CreatePayoutRequest {
@@ -26,6 +27,8 @@ public class CreatePayoutRequest {
 	private CardPayoutMethodSpecificInput cardPayoutMethodSpecificInput = null;
 
 	private PayoutCustomer customer = null;
+
+	private PayoutMerchant merchant = null;
 
 	private String payoutDate = null;
 
@@ -143,6 +146,20 @@ public class CreatePayoutRequest {
 	@Deprecated
 	public void setCustomer(PayoutCustomer value) {
 		this.customer = value;
+	}
+
+	/**
+	 * Object containing information on you, the merchant
+	 */
+	public PayoutMerchant getMerchant() {
+		return merchant;
+	}
+
+	/**
+	 * Object containing information on you, the merchant
+	 */
+	public void setMerchant(PayoutMerchant value) {
+		this.merchant = value;
 	}
 
 	/**

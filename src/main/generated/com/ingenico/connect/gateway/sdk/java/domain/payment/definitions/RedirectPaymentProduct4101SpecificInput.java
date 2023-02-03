@@ -44,14 +44,14 @@ public class RedirectPaymentProduct4101SpecificInput {
 	}
 
 	/**
-	 * The Virtual Payment Address (VPA) of the customer.
+	 * The Virtual Payment Address (VPA) of the customer. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public String getVirtualPaymentAddress() {
 		return virtualPaymentAddress;
 	}
 
 	/**
-	 * The Virtual Payment Address (VPA) of the customer.
+	 * The Virtual Payment Address (VPA) of the customer. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public void setVirtualPaymentAddress(String value) {
 		this.virtualPaymentAddress = value;

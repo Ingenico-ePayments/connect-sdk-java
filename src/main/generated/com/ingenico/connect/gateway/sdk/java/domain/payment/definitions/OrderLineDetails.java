@@ -103,14 +103,14 @@ public class OrderLineDetails {
 	}
 
 	/**
-	 * The name of the product.
+	 * The name of the product. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public String getProductName() {
 		return productName;
 	}
 
 	/**
-	 * The name of the product.
+	 * The name of the product. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public void setProductName(String value) {
 		this.productName = value;

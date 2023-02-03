@@ -33,14 +33,14 @@ public class LineItem {
 	}
 
 	/**
-	 * Object containing the line items of the invoice or shopping cart
+	 * Object containing the line items of the invoice or shopping cart. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public LineItemInvoiceData getInvoiceData() {
 		return invoiceData;
 	}
 
 	/**
-	 * Object containing the line items of the invoice or shopping cart
+	 * Object containing the line items of the invoice or shopping cart. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public void setInvoiceData(LineItemInvoiceData value) {
 		this.invoiceData = value;

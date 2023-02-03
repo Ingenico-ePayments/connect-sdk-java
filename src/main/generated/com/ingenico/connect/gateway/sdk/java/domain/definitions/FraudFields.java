@@ -100,14 +100,14 @@ public class FraudFields {
 	}
 
 	/**
-	 * The IP Address of the customer that is making the payment
+	 * The IP Address of the customer that is making the payment. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public String getCustomerIpAddress() {
 		return customerIpAddress;
 	}
 
 	/**
-	 * The IP Address of the customer that is making the payment
+	 * The IP Address of the customer that is making the payment. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public void setCustomerIpAddress(String value) {
 		this.customerIpAddress = value;
@@ -358,14 +358,14 @@ public class FraudFields {
 	}
 
 	/**
-	 * Timezone in which the order was placed
+	 * Timezone in which the order was placed. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public String getOrderTimezone() {
 		return orderTimezone;
 	}
 
 	/**
-	 * Timezone in which the order was placed
+	 * Timezone in which the order was placed. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public void setOrderTimezone(String value) {
 		this.orderTimezone = value;

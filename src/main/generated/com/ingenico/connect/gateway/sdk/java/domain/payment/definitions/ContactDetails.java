@@ -45,14 +45,14 @@ public class ContactDetails extends ContactDetailsBase {
 	}
 
 	/**
-	 * Phone number of the customer
+	 * Phone number of the customer. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
 
 	/**
-	 * Phone number of the customer
+	 * Phone number of the customer. The '+' character is not allowed in this property for transactions that are processed by TechProcess Payment Platform.
 	 */
 	public void setPhoneNumber(String value) {
 		this.phoneNumber = value;

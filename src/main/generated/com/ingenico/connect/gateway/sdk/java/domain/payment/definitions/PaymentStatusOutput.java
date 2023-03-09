@@ -12,6 +12,8 @@ public class PaymentStatusOutput extends OrderStatusOutput {
 
 	private Boolean isRefundable = null;
 
+	private Boolean isRetriable = null;
+
 	private String threeDSecureStatus = null;
 
 	/**
@@ -52,6 +54,26 @@ public class PaymentStatusOutput extends OrderStatusOutput {
 	 */
 	public void setIsRefundable(Boolean value) {
 		this.isRefundable = value;
+	}
+
+	/**
+	 * Flag indicating whether a rejected payment may be retried by the merchant without incurring a fee 
+	 * <ul class="paragraph-width"><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public Boolean getIsRetriable() {
+		return isRetriable;
+	}
+
+	/**
+	 * Flag indicating whether a rejected payment may be retried by the merchant without incurring a fee 
+	 * <ul class="paragraph-width"><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public void setIsRetriable(Boolean value) {
+		this.isRetriable = value;
 	}
 
 	/**

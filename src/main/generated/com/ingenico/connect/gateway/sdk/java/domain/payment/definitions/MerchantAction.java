@@ -113,6 +113,7 @@ public class MerchantAction {
 	 * <ul class="paragraph-width"><li>instructionsRenderingData (required, the content of this property)
 	 * <li>locale (optional, if present overrides default locale, e.g. "en_GB")
 	 * <li>variant (optional, code of a variant, if present overrides default variant, e.g. "100")
+	 * <li>customerId (required for Pix, otherwise optional, the customerId from a client session)
 	 * </ul>
 	 * You can offer a link to a customer to see an instructions page for a payment done earlier. Because of the size of the instructionsRenderingData this will need to be set in a web form as a value of a hidden field. Before presenting the link you need to obtain a clientSessionId by creating a session using the S2S API. You will need to use the MyCheckout hosted payment pages domain hosted in the same region as the API domain used for the createClientSession call.
 	 * <p>The instructionsRenderingData is a String blob that is presented to you via the Server API as part of the merchantAction (if available, and non-redirect) in the JSON return values for the createPayment call or the getHostedCheckoutStatus call (merchantAction inside createdPaymentOutput when available).
@@ -130,6 +131,7 @@ public class MerchantAction {
 	 * <ul class="paragraph-width"><li>instructionsRenderingData (required, the content of this property)
 	 * <li>locale (optional, if present overrides default locale, e.g. "en_GB")
 	 * <li>variant (optional, code of a variant, if present overrides default variant, e.g. "100")
+	 * <li>customerId (required for Pix, otherwise optional, the customerId from a client session)
 	 * </ul>
 	 * You can offer a link to a customer to see an instructions page for a payment done earlier. Because of the size of the instructionsRenderingData this will need to be set in a web form as a value of a hidden field. Before presenting the link you need to obtain a clientSessionId by creating a session using the S2S API. You will need to use the MyCheckout hosted payment pages domain hosted in the same region as the API domain used for the createClientSession call.
 	 * <p>The instructionsRenderingData is a String blob that is presented to you via the Server API as part of the merchantAction (if available, and non-redirect) in the JSON return values for the createPayment call or the getHostedCheckoutStatus call (merchantAction inside createdPaymentOutput when available).

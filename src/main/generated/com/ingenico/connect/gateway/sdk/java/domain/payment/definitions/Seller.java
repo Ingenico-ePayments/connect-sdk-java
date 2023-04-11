@@ -22,6 +22,8 @@ public class Seller {
 
 	private String invoiceNumber = null;
 
+	private Boolean isForeignRetailer = null;
+
 	private String mcc = null;
 
 	private String name = null;
@@ -126,6 +128,24 @@ public class Seller {
 	 */
 	public void setInvoiceNumber(String value) {
 		this.invoiceNumber = value;
+	}
+
+	/**
+	 * Indicates if the retailer is considered foreign or domestic when compared to the location of the marketplace. Possible values:
+	 * <ul class="paragraph-width"><li>true - The retailer is considered foreign because they are located in a different country than the marketplace. For marketplaces located in the European Economic Area (EEA) and UK (and Gibraltar), this includes transactions where the marketplace is within the EEA and UK (and Gibraltar), but the retailer is located outside of the EEA and UK (and Gibraltar)
+	 * <li>false - The retailer is considered domestic because they are located in the same country as the marketplace. For marketplaces located in the European Economic Area (EEA) and UK (and Gibraltar), this includes transactions where the retailer is also located within the EEA and UK (and Gibraltar).</ul>
+	 */
+	public Boolean getIsForeignRetailer() {
+		return isForeignRetailer;
+	}
+
+	/**
+	 * Indicates if the retailer is considered foreign or domestic when compared to the location of the marketplace. Possible values:
+	 * <ul class="paragraph-width"><li>true - The retailer is considered foreign because they are located in a different country than the marketplace. For marketplaces located in the European Economic Area (EEA) and UK (and Gibraltar), this includes transactions where the marketplace is within the EEA and UK (and Gibraltar), but the retailer is located outside of the EEA and UK (and Gibraltar)
+	 * <li>false - The retailer is considered domestic because they are located in the same country as the marketplace. For marketplaces located in the European Economic Area (EEA) and UK (and Gibraltar), this includes transactions where the retailer is also located within the EEA and UK (and Gibraltar).</ul>
+	 */
+	public void setIsForeignRetailer(Boolean value) {
+		this.isForeignRetailer = value;
 	}
 
 	/**

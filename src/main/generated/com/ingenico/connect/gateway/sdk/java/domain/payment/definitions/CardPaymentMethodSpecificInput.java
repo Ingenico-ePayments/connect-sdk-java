@@ -16,6 +16,8 @@ public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpe
 
 	private String merchantInitiatedReasonIndicator = null;
 
+	private SchemeTokenData networkTokenData = null;
+
 	private String returnUrl = null;
 
 	private ThreeDSecure threeDSecure = null;
@@ -92,6 +94,20 @@ public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpe
 	 */
 	public void setMerchantInitiatedReasonIndicator(String value) {
 		this.merchantInitiatedReasonIndicator = value;
+	}
+
+	/**
+	 * Object holding data that describes a network token
+	 */
+	public SchemeTokenData getNetworkTokenData() {
+		return networkTokenData;
+	}
+
+	/**
+	 * Object holding data that describes a network token
+	 */
+	public void setNetworkTokenData(SchemeTokenData value) {
+		this.networkTokenData = value;
 	}
 
 	/**

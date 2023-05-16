@@ -24,11 +24,13 @@ import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultMarshaller;
 
 public class MultipartFormDataTest extends ItTest {
 
+	private static final String HTTPBIN_URL = System.getProperty("httpbin.url", "http://httpbin.org");
+
 	@Test
 	public void testMultipartFormDataUploadPostMultipartFormDataObjectWithResponse() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -55,7 +57,7 @@ public class MultipartFormDataTest extends ItTest {
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
 				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-				Assert.assertEquals(form.get("value"), "Hello World");
+				Assert.assertEquals("Hello World", form.get("value"));
 			} finally {
 				content.close();
 			}
@@ -68,7 +70,7 @@ public class MultipartFormDataTest extends ItTest {
 	public void testMultipartFormDataUploadPostMultipartFormDataRequestWithResponse() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -95,7 +97,7 @@ public class MultipartFormDataTest extends ItTest {
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
 				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-				Assert.assertEquals(form.get("value"), "Hello World");
+				Assert.assertEquals("Hello World", form.get("value"));
 			} finally {
 				content.close();
 			}
@@ -108,7 +110,7 @@ public class MultipartFormDataTest extends ItTest {
 	public void testMultipartFormDataUploadPostMultipartFormDataObjectWithBodyHandler() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -139,7 +141,7 @@ public class MultipartFormDataTest extends ItTest {
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
 						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-						Assert.assertEquals(form.get("value"), "Hello World");
+						Assert.assertEquals("Hello World", form.get("value"));
 					}
 				}, null);
 			} finally {
@@ -154,7 +156,7 @@ public class MultipartFormDataTest extends ItTest {
 	public void testMultipartFormDataUploadPostMultipartFormDataRequestWithBodyHandler() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -185,7 +187,7 @@ public class MultipartFormDataTest extends ItTest {
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
 						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-						Assert.assertEquals(form.get("value"), "Hello World");
+						Assert.assertEquals("Hello World", form.get("value"));
 					}
 				}, null);
 			} finally {
@@ -200,7 +202,7 @@ public class MultipartFormDataTest extends ItTest {
 	public void testMultipartFormDataUploadPutMultipartFormDataObjectWithResponse() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -227,7 +229,7 @@ public class MultipartFormDataTest extends ItTest {
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
 				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-				Assert.assertEquals(form.get("value"), "Hello World");
+				Assert.assertEquals("Hello World", form.get("value"));
 			} finally {
 				content.close();
 			}
@@ -240,7 +242,7 @@ public class MultipartFormDataTest extends ItTest {
 	public void testMultipartFormDataUploadPutMultipartFormDataRequestWithResponse() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -267,7 +269,7 @@ public class MultipartFormDataTest extends ItTest {
 				Assert.assertEquals(1, form.size());
 				Assert.assertNotNull(form.get("value"));
 				MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-				Assert.assertEquals(form.get("value"), "Hello World");
+				Assert.assertEquals("Hello World", form.get("value"));
 			} finally {
 				content.close();
 			}
@@ -280,7 +282,7 @@ public class MultipartFormDataTest extends ItTest {
 	public void testMultipartFormDataUploadPutMultipartFormDataObjectWithBodyHandler() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -311,7 +313,7 @@ public class MultipartFormDataTest extends ItTest {
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
 						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-						Assert.assertEquals(form.get("value"), "Hello World");
+						Assert.assertEquals("Hello World", form.get("value"));
 					}
 				}, null);
 			} finally {
@@ -326,7 +328,7 @@ public class MultipartFormDataTest extends ItTest {
 	public void testMultipartFormDataUploadPutMultipartFormDataRequestWithBodyHandler() throws URISyntaxException, IOException {
 
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration();
-		configuration.setApiEndpoint(URI.create("http://httpbin.org"));
+		configuration.setApiEndpoint(URI.create(HTTPBIN_URL));
 
 		Communicator communicator = Factory.createCommunicator(configuration);
 		try {
@@ -357,7 +359,7 @@ public class MultipartFormDataTest extends ItTest {
 						Assert.assertEquals(1, form.size());
 						Assert.assertNotNull(form.get("value"));
 						MatcherAssert.assertThat(form.get("value"), Matchers.instanceOf(String.class));
-						Assert.assertEquals(form.get("value"), "Hello World");
+						Assert.assertEquals("Hello World", form.get("value"));
 					}
 				}, null);
 			} finally {

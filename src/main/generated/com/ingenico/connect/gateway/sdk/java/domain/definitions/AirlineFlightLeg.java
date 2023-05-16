@@ -235,7 +235,7 @@ public class AirlineFlightLeg {
 	}
 
 	/**
-	 * The flight number assigned by the airline carrier with no leading spaces<br>
+	 * The flight number assigned by the airline carrier with no leading spaces <br>
 	 * Should be a numeric string
 	 */
 	public String getFlightNumber() {
@@ -243,7 +243,7 @@ public class AirlineFlightLeg {
 	}
 
 	/**
-	 * The flight number assigned by the airline carrier with no leading spaces<br>
+	 * The flight number assigned by the airline carrier with no leading spaces <br>
 	 * Should be a numeric string
 	 */
 	public void setFlightNumber(String value) {

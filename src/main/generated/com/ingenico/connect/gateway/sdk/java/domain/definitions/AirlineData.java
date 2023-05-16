@@ -32,6 +32,8 @@ public class AirlineData {
 
 	private String name = null;
 
+	private Integer numberInParty = null;
+
 	private String passengerName = null;
 
 	private List<AirlinePassenger> passengers = null;
@@ -253,6 +255,20 @@ public class AirlineData {
 	}
 
 	/**
+	 * Total number of passengers in the party. If the the property <span class="property">numberInParty is not present, then the number of passengers will be used</span> on the WL Online Payment Acceptance Platform.
+	 */
+	public Integer getNumberInParty() {
+		return numberInParty;
+	}
+
+	/**
+	 * Total number of passengers in the party. If the the property <span class="property">numberInParty is not present, then the number of passengers will be used</span> on the WL Online Payment Acceptance Platform.
+	 */
+	public void setNumberInParty(Integer value) {
+		this.numberInParty = value;
+	}
+
+	/**
 	 * Name of passenger
 	 */
 	public String getPassengerName() {
@@ -365,8 +381,8 @@ public class AirlineData {
 	}
 
 	/**
-	 * The ticket or document number contains:<br>
-	 * <ul class="paragraph-width"><li>Airline code: 3-digit airline code number
+	 * The ticket or document number. On the <span>Ogone Payment Platform <span> and the </span>GlobalCollect Payment Platform it contains:<br>
+	 * </span><ul class="paragraph-width"><li>Airline code: 3-digit airline code number
 	 * <li>Form code: A maximum of 3 digits indicating the type of document, the source of issue and the number of coupons it contains
 	 * <li>Serial number: A maximum of 8 digits allocated on a sequential basis, provided that the total number of digits allocated to the form code and serial number shall not exceed ten
 	 * <li>TICKETNUMBER can be replaced with PNR if the ticket number is unavailable
@@ -377,8 +393,8 @@ public class AirlineData {
 	}
 
 	/**
-	 * The ticket or document number contains:<br>
-	 * <ul class="paragraph-width"><li>Airline code: 3-digit airline code number
+	 * The ticket or document number. On the <span>Ogone Payment Platform <span> and the </span>GlobalCollect Payment Platform it contains:<br>
+	 * </span><ul class="paragraph-width"><li>Airline code: 3-digit airline code number
 	 * <li>Form code: A maximum of 3 digits indicating the type of document, the source of issue and the number of coupons it contains
 	 * <li>Serial number: A maximum of 8 digits allocated on a sequential basis, provided that the total number of digits allocated to the form code and serial number shall not exceed ten
 	 * <li>TICKETNUMBER can be replaced with PNR if the ticket number is unavailable
@@ -431,14 +447,14 @@ public class AirlineData {
 	}
 
 	/**
-	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank
+	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank on the Ogone Payment Platform.
 	 */
 	public String getTravelAgencyName() {
 		return travelAgencyName;
 	}
 
 	/**
-	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank
+	 * Name of the travel agency issuing the ticket. For direct airline integration, leave this property blank on the Ogone Payment Platform.
 	 */
 	public void setTravelAgencyName(String value) {
 		this.travelAgencyName = value;

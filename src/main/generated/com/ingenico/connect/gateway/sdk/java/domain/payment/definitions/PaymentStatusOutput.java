@@ -4,6 +4,9 @@
  */
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
+import java.util.List;
+
+import com.ingenico.connect.gateway.sdk.java.domain.definitions.KeyValuePair;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.OrderStatusOutput;
 
 public class PaymentStatusOutput extends OrderStatusOutput {
@@ -13,6 +16,8 @@ public class PaymentStatusOutput extends OrderStatusOutput {
 	private Boolean isRefundable = null;
 
 	private Boolean isRetriable = null;
+
+	private List<KeyValuePair> providerRawOutput = null;
 
 	private String threeDSecureStatus = null;
 
@@ -74,6 +79,20 @@ public class PaymentStatusOutput extends OrderStatusOutput {
 	 */
 	public void setIsRetriable(Boolean value) {
 		this.isRetriable = value;
+	}
+
+	/**
+	 * This is the raw response returned by the acquirer. This property contains unprocessed data directly returned by the acquirer. It's recommended for data analysis only due to its dynamic nature, which may undergo future changes.
+	 */
+	public List<KeyValuePair> getProviderRawOutput() {
+		return providerRawOutput;
+	}
+
+	/**
+	 * This is the raw response returned by the acquirer. This property contains unprocessed data directly returned by the acquirer. It's recommended for data analysis only due to its dynamic nature, which may undergo future changes.
+	 */
+	public void setProviderRawOutput(List<KeyValuePair> value) {
+		this.providerRawOutput = value;
 	}
 
 	/**

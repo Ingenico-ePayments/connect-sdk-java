@@ -14,6 +14,8 @@ public class CreatedPaymentOutput {
 
 	private DisplayedData displayedData = null;
 
+	private Boolean isCheckedRememberMe = null;
+
 	private Payment payment = null;
 
 	private PaymentCreationReferences paymentCreationReferences = null;
@@ -36,6 +38,20 @@ public class CreatedPaymentOutput {
 	 */
 	public void setDisplayedData(DisplayedData value) {
 		this.displayedData = value;
+	}
+
+	/**
+	 * Indicates whether the customer ticked the "Remember my details for future purchases" checkbox on the MyCheckout hosted payment pages
+	 */
+	public Boolean getIsCheckedRememberMe() {
+		return isCheckedRememberMe;
+	}
+
+	/**
+	 * Indicates whether the customer ticked the "Remember my details for future purchases" checkbox on the MyCheckout hosted payment pages
+	 */
+	public void setIsCheckedRememberMe(Boolean value) {
+		this.isCheckedRememberMe = value;
 	}
 
 	/**

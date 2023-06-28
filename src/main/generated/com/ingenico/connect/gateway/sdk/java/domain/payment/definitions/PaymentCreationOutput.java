@@ -6,11 +6,27 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class PaymentCreationOutput extends PaymentCreationReferences {
 
+	private Boolean isCheckedRememberMe = null;
+
 	private Boolean isNewToken = null;
 
 	private String token = null;
 
 	private Boolean tokenizationSucceeded = null;
+
+	/**
+	 * Indicates whether the customer ticked the "Remember my details for future purchases" checkbox on the MyCheckout hosted payment pages
+	 */
+	public Boolean getIsCheckedRememberMe() {
+		return isCheckedRememberMe;
+	}
+
+	/**
+	 * Indicates whether the customer ticked the "Remember my details for future purchases" checkbox on the MyCheckout hosted payment pages
+	 */
+	public void setIsCheckedRememberMe(Boolean value) {
+		this.isCheckedRememberMe = value;
+	}
 
 	/**
 	 * Indicates if a new token was created

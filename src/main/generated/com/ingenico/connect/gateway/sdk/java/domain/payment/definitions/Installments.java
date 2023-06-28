@@ -23,7 +23,7 @@ public class Installments {
 
 	/**
 	 * The amount that will be paid per installment. The total amount of amountOfMoneyPerInstallment x numberOfInstallments can not be higher than the total amount of this transaction, although we will not validate that.<br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), this property is not used as the value is decided by the issuer.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), this property is not used as the value is decided by the issuer.
 	 */
 	public AmountOfMoney getAmountOfMoneyPerInstallment() {
 		return amountOfMoneyPerInstallment;
@@ -31,7 +31,7 @@ public class Installments {
 
 	/**
 	 * The amount that will be paid per installment. The total amount of amountOfMoneyPerInstallment x numberOfInstallments can not be higher than the total amount of this transaction, although we will not validate that.<br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), this property is not used as the value is decided by the issuer.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), this property is not used as the value is decided by the issuer.
 	 */
 	public void setAmountOfMoneyPerInstallment(AmountOfMoney value) {
 		this.amountOfMoneyPerInstallment = value;
@@ -46,7 +46,7 @@ public class Installments {
 	 * <li>monthly (default)
 	 * <li>quarterly
 	 * </ul><br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), only the value monthly is valid.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), only the value monthly is valid.
 	 */
 	public String getFrequencyOfInstallments() {
 		return frequencyOfInstallments;
@@ -61,7 +61,7 @@ public class Installments {
 	 * <li>monthly (default)
 	 * <li>quarterly
 	 * </ul><br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), only the value monthly is valid.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), only the value monthly is valid.
 	 */
 	public void setFrequencyOfInstallments(String value) {
 		this.frequencyOfInstallments = value;
@@ -95,7 +95,7 @@ public class Installments {
 
 	/**
 	 * The interest rate paid for installments expressed in percentage. So for example 5.75 means 5.75%<br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), this property is not used as the value is decided by the issuer.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), this property is not used as the value is decided by the issuer.
 	 */
 	public String getInterestRate() {
 		return interestRate;
@@ -103,7 +103,7 @@ public class Installments {
 
 	/**
 	 * The interest rate paid for installments expressed in percentage. So for example 5.75 means 5.75%<br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), this property is not used as the value is decided by the issuer.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), this property is not used as the value is decided by the issuer.
 	 */
 	public void setInterestRate(String value) {
 		this.interestRate = value;
@@ -111,7 +111,7 @@ public class Installments {
 
 	/**
 	 * The number of installments in which this transaction will be paid, which can be used for card payments at supported acquirers, or with specific payment products. Only used with some acquirers. In case you send in the details of this object, only the payment products (or  combination of card products and acquirers) that support installments will be shown on the MyCheckout hosted payment pages. If this property is not provided the customer will not see details on the installment plan in a HostedCheckout.<br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), there is a maximum of 12 installments.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), there is a maximum of 12 installments.
 	 */
 	public Long getNumberOfInstallments() {
 		return numberOfInstallments;
@@ -119,7 +119,7 @@ public class Installments {
 
 	/**
 	 * The number of installments in which this transaction will be paid, which can be used for card payments at supported acquirers, or with specific payment products. Only used with some acquirers. In case you send in the details of this object, only the payment products (or  combination of card products and acquirers) that support installments will be shown on the MyCheckout hosted payment pages. If this property is not provided the customer will not see details on the installment plan in a HostedCheckout.<br>
-	 * For the payment product IDs 8590 (BC Card), 8591 (KEB Hana Card), 8592 (Hyundai Card), 8593 (KB Kookmin Card), 8594 (Lotte Card), 8595 (NH Card), 8596 (Samsung Card) or 8597 (Shinhan Card), there is a maximum of 12 installments.
+	 * For the payment product IDs BC Card (paymentProductId 8590), Hana Card (paymentProductId 8591), Hyundai Card (paymentProductId 8592), KB Card (paymentProductId 8593), Lotte Card (paymentProductId 8594), NH Card (paymentProductId 8595), Samsung Card (paymentProductId 8596) and Shinhan Card (paymentProductId 8597), there is a maximum of 12 installments.
 	 */
 	public void setNumberOfInstallments(Long value) {
 		this.numberOfInstallments = value;

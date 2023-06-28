@@ -6,6 +6,8 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class SchemeTokenData {
 
+	private String cardholderName = null;
+
 	private String cryptogram = null;
 
 	private String eci = null;
@@ -13,6 +15,20 @@ public class SchemeTokenData {
 	private String networkToken = null;
 
 	private String tokenExpiryDate = null;
+
+	/**
+	 * The cardholder's name on the card
+	 */
+	public String getCardholderName() {
+		return cardholderName;
+	}
+
+	/**
+	 * The cardholder's name on the card
+	 */
+	public void setCardholderName(String value) {
+		this.cardholderName = value;
+	}
 
 	/**
 	 * The Token Cryptogram is a dynamic one-time use value that is used to verify the authenticity of the transaction and the integrity of the data used in the generation of the Token Cryptogram. Visa calls this the Token Authentication Verification Value (TAVV) cryptogram.

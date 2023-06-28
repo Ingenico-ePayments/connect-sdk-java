@@ -14,6 +14,8 @@ public class PaymentReferences {
 
 	private String providerId = null;
 
+	private String providerMerchantId = null;
+
 	private String providerReference = null;
 
 	private String referenceOrigPayment = null;
@@ -72,6 +74,20 @@ public class PaymentReferences {
 	 */
 	public void setProviderId(String value) {
 		this.providerId = value;
+	}
+
+	/**
+	 * Provides an additional means of reconciliation, this is the MerchantId used at the provider
+	 */
+	public String getProviderMerchantId() {
+		return providerMerchantId;
+	}
+
+	/**
+	 * Provides an additional means of reconciliation, this is the MerchantId used at the provider
+	 */
+	public void setProviderMerchantId(String value) {
+		this.providerMerchantId = value;
 	}
 
 	/**

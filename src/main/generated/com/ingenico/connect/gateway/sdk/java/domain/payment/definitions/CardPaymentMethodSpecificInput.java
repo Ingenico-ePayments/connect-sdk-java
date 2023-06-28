@@ -23,14 +23,14 @@ public class CardPaymentMethodSpecificInput extends AbstractCardPaymentMethodSpe
 	private ThreeDSecure threeDSecure = null;
 
 	/**
-	 * Object containing card details
+	 * Object containing card details. The card details will be ignored in case the property <span class="property">networkTokenData is present.</span>
 	 */
 	public Card getCard() {
 		return card;
 	}
 
 	/**
-	 * Object containing card details
+	 * Object containing card details. The card details will be ignored in case the property <span class="property">networkTokenData is present.</span>
 	 */
 	public void setCard(Card value) {
 		this.card = value;

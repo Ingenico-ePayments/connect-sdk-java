@@ -12,7 +12,7 @@ class JsonEntity extends StringEntity {
 
 	private final String string;
 
-	public JsonEntity(String string, Charset charset) {
+	JsonEntity(String string, Charset charset) {
 		super(string, ContentType.create(ContentType.APPLICATION_JSON.getMimeType(), charset));
 		this.string = string;
 	}

@@ -5,7 +5,7 @@
 
 	<groupId>com.ingenico.connect.gateway</groupId>
 	<artifactId>connect-sdk-java</artifactId>
-	<version>6.40.0</version>
+	<version>6.41.0</version>
 	<packaging>jar</packaging>
 
 	<name>connect-sdk-java</name>
@@ -300,6 +300,46 @@
 						<exclude>/com/ingenico/connect/gateway/sdk/it/**/*</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.2.1</version>
+				<configuration>
+					<configLocation>${project.basedir}/checkstyle.xml</configLocation>
+					<includeResources>true</includeResources>
+					<includeTestResources>true</includeTestResources>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
+					<sourceDirectories>
+						<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+						<sourceDirectory>${project.basedir}/src/main/generated</sourceDirectory>
+					</sourceDirectories>
+					<testSourceDirectories>
+						<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+						<testSourceDirectory>${project.basedir}/src/it/java</testSourceDirectory>
+                        <testSourceDirectory>${project.basedir}/src/examples/java</testSourceDirectory>
+					</testSourceDirectories>
+					<excludes>**/module-info.java</excludes>
+					<violationSeverity>warning</violationSeverity>
+					<failOnViolation>true</failOnViolation>
+					<consoleOutput>true</consoleOutput>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>com.puppycrawl.tools</groupId>
+						<artifactId>checkstyle</artifactId>
+						<version>9.3</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

@@ -20,6 +20,7 @@ public class CallContext {
 
 	/**
 	 * Sets the idempotence key to use for the next request for which this call context is used.
+	 *
 	 * @return This call context object.
 	 */
 	public CallContext withIdempotenceKey(String idempotenceKey) {

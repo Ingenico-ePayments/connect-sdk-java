@@ -7,6 +7,7 @@ public interface LoggingCapable {
 
 	/**
 	 * Turns on logging using the given communicator logger.
+	 *
 	 * @throws IllegalArgumentException If the given communicator logger is {@code null}.
 	 */
 	void enableLogging(CommunicatorLogger communicatorLogger);

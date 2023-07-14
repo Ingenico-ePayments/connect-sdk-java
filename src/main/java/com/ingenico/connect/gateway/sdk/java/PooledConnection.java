@@ -12,6 +12,7 @@ public interface PooledConnection extends Connection {
 	/**
 	 * Closes all HTTP connections that have been idle for the specified time.
 	 * This should also include all expired HTTP connections.
+	 *
 	 * @see #closeExpiredConnections()
 	 */
 	void closeIdleConnections(long idleTime, TimeUnit timeUnit);

@@ -7,12 +7,14 @@ import java.nio.charset.Charset;
 
 /**
  * A utility class to support logging.
+ *
  * @deprecated Use {@link BodyObfuscator} and {@link HeaderObfuscator} instead.
  */
 @Deprecated
 public final class LoggingUtil {
 
-	private LoggingUtil() {}
+	private LoggingUtil() {
+	}
 
 	/**
 	 * Obfuscates the given body as necessary.
@@ -23,6 +25,7 @@ public final class LoggingUtil {
 
 	/**
 	 * Obfuscates the body from the given stream as necessary.
+	 *
 	 * @param charset The charset to use to read the body input stream.
 	 */
 	public static String obfuscateBody(InputStream bodyStream, Charset charset) throws IOException {

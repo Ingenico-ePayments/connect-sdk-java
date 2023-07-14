@@ -98,7 +98,7 @@ public class DefaultAuthenticator implements Authenticator {
 
 		if (httpHeaders != null) {
 
-			for (RequestHeader httpHeader: httpHeaders) {
+			for (RequestHeader httpHeader : httpHeaders) {
 				if ("Content-Type".equalsIgnoreCase(httpHeader.getName())) {
 					contentType = httpHeader.getValue();
 				} else if ("Date".equalsIgnoreCase(httpHeader.getName())) {
@@ -124,7 +124,7 @@ public class DefaultAuthenticator implements Authenticator {
 			sb.append('\n');
 		}
 		sb.append(date).append('\n');
-		for (RequestHeader xgcsHttpHeader: xgcsHttpHeaders) {
+		for (RequestHeader xgcsHttpHeader : xgcsHttpHeaders) {
 			sb.append(xgcsHttpHeader.getName()).append(':').append(xgcsHttpHeader.getValue()).append('\n');
 		}
 		sb.append(canonicalizedResource).append('\n');

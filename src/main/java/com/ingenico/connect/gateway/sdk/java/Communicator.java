@@ -557,7 +557,7 @@ public class Communicator implements Closeable, LoggingCapable, ObfuscationCapab
 				.setPath(absolutePath);
 
 		if (requestParameters != null) {
-			for (RequestParam nvp: requestParameters) {
+			for (RequestParam nvp : requestParameters) {
 				uriBuilder.addParameter(nvp.getName(), nvp.getValue());
 			}
 		}
@@ -688,6 +688,7 @@ public class Communicator implements Closeable, LoggingCapable, ObfuscationCapab
 	/**
 	 * Utility method that delegates the call to this communicator's session's connection if that's an instance of
 	 * {@link PooledConnection}. If not this method does nothing.
+	 *
 	 * @see PooledConnection#closeIdleConnections(long, TimeUnit)
 	 */
 	public void closeIdleConnections(long idleTime, TimeUnit timeUnit) {
@@ -701,6 +702,7 @@ public class Communicator implements Closeable, LoggingCapable, ObfuscationCapab
 	/**
 	 * Utility method that delegates the call to this communicator's session's connection if that's an instance of
 	 * {@link PooledConnection}. If not this method does nothing.
+	 *
 	 * @see PooledConnection#closeExpiredConnections()
 	 */
 	public void closeExpiredConnections() {

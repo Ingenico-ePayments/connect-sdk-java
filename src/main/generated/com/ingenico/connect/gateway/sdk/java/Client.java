@@ -2,6 +2,7 @@
  * This class was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
+
 package com.ingenico.connect.gateway.sdk.java;
 
 import java.io.Closeable;
@@ -73,6 +74,7 @@ public class Client extends ApiResource implements Closeable, LoggingCapable, Ob
 
 	/**
 	 * Utility method that delegates the call to this client's communicator.
+	 *
 	 * @see Communicator#closeIdleConnections(long, TimeUnit)
 	 * @see PooledConnection#closeIdleConnections(long, TimeUnit)
 	 */
@@ -82,6 +84,7 @@ public class Client extends ApiResource implements Closeable, LoggingCapable, Ob
 
 	/**
 	 * Utility method that delegates the call to this client's communicator.
+	 *
 	 * @see Communicator#closeExpiredConnections()
 	 * @see PooledConnection#closeExpiredConnections()
 	 */

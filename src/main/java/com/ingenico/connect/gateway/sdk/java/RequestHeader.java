@@ -31,7 +31,7 @@ public class RequestHeader {
 		return WHITE_SPACE_NORMALIZER.matcher(value).replaceAll(" ").trim();
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 

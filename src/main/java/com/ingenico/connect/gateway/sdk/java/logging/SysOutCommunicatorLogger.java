@@ -11,7 +11,8 @@ public final class SysOutCommunicatorLogger implements CommunicatorLogger {
 
 	public static final SysOutCommunicatorLogger INSTANCE = new SysOutCommunicatorLogger();
 
-	private SysOutCommunicatorLogger() {}
+	private SysOutCommunicatorLogger() {
+	}
 
 	@Override
 	public void log(String message) {

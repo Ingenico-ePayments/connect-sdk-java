@@ -14,6 +14,7 @@ public class JdkCommunicatorLogger implements CommunicatorLogger {
 
 	/**
 	 * Creates a new communicator logger.
+	 *
 	 * @param logger The backing logger.
 	 * @param level The level to use when logging through both {@link #log(String)} and {@link #log(String, Throwable)}.
 	 */
@@ -23,6 +24,7 @@ public class JdkCommunicatorLogger implements CommunicatorLogger {
 
 	/**
 	 * Creates a new communicator logger.
+	 *
 	 * @param logger The backing logger.
 	 * @param logLevel The level to use when logging through {@link #log(String)}.
 	 * @param errorLogLevel The level to use when logging through {@link #log(String, Throwable)}.

@@ -2,6 +2,7 @@
  * This class was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
+
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class OrderReferences {
@@ -13,6 +14,10 @@ public class OrderReferences {
 	private Long merchantOrderId = null;
 
 	private String merchantReference = null;
+
+	private String providerId = null;
+
+	private String providerMerchantId = null;
 
 	/**
 	 * Descriptive text that is used towards to customer, either during an online checkout at a third party and/or on the statement of the customer. For card transactions this is usually referred to as a Soft Descriptor. The maximum allowed length varies per card acquirer:
@@ -136,5 +141,33 @@ public class OrderReferences {
 	 */
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;
+	}
+
+	/**
+	 * Provides an additional means of reconciliation for Gateway merchants
+	 */
+	public String getProviderId() {
+		return providerId;
+	}
+
+	/**
+	 * Provides an additional means of reconciliation for Gateway merchants
+	 */
+	public void setProviderId(String value) {
+		this.providerId = value;
+	}
+
+	/**
+	 * Provides an additional means of reconciliation, this is the MerchantId used at the provider
+	 */
+	public String getProviderMerchantId() {
+		return providerMerchantId;
+	}
+
+	/**
+	 * Provides an additional means of reconciliation, this is the MerchantId used at the provider
+	 */
+	public void setProviderMerchantId(String value) {
+		this.providerMerchantId = value;
 	}
 }

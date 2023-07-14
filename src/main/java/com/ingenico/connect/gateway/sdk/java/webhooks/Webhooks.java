@@ -7,7 +7,8 @@ import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultMarshaller;
  */
 public final class Webhooks {
 
-	private Webhooks() {}
+	private Webhooks() {
+	}
 
 	/**
 	 * Creates a {@link WebhooksHelperBuilder} that will use the given {@link SecretKeyStore}.

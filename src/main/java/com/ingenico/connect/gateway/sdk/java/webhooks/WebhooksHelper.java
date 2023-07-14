@@ -45,6 +45,7 @@ public class WebhooksHelper {
 	/**
 	 * Unmarshals the given input stream that contains the body,
 	 * while also validating its contents using the given request headers.
+	 *
 	 * @return The input stream unmarshalled as a {@link WebhooksEvent}
 	 * @throws IOException If the input stream could not be read.
 	 * @throws SignatureValidationException If the input stream could not be validated successfully.
@@ -70,6 +71,7 @@ public class WebhooksHelper {
 
 	/**
 	 * Unmarshals the given body, while also validating it using the given request headers.
+	 *
 	 * @return The body unmarshalled as a {@link WebhooksEvent}
 	 * @throws SignatureValidationException If the body could not be validated successfully.
 	 * @throws ApiVersionMismatchException If the resulting event has an API version that this version of the SDK does not support.
@@ -84,6 +86,7 @@ public class WebhooksHelper {
 
 	/**
 	 * Validates the given body using the given request headers.
+	 *
 	 * @throws SignatureValidationException If the body could not be validated successfully.
 	 */
 	protected void validate(byte[] body, List<RequestHeader> requestHeaders) {
@@ -99,6 +102,7 @@ public class WebhooksHelper {
 
 	/**
 	 * Unmarshals the given body, while also validating it using the given request headers.
+	 *
 	 * @return The body unmarshalled as a {@link WebhooksEvent}
 	 * @throws SignatureValidationException If the body could not be validated successfully.
 	 * @throws ApiVersionMismatchException If the resulting event has an API version that this version of the SDK does not support.
@@ -113,6 +117,7 @@ public class WebhooksHelper {
 
 	/**
 	 * Validates the given body using the given request headers.
+	 *
 	 * @throws SignatureValidationException If the body could not be validated successfully.
 	 */
 	protected void validate(String body, List<RequestHeader> requestHeaders) {

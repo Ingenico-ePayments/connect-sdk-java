@@ -73,6 +73,9 @@ import com.ingenico.connect.gateway.sdk.java.util.ResponseHeaderMatcher;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 
+	private static final int DEFAULT_CONNECT_TIMEOUT = 1000;
+	private static final int DEFAULT_SOCKET_TIMEOUT = 1000;
+
 	@Mock HttpRequestHandler requestHandler;
 
 	@Test
@@ -1048,9 +1051,6 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 	}
 
 	// general utility methods
-
-	private static final int DEFAULT_CONNECT_TIMEOUT = 1000;
-	private static final int DEFAULT_SOCKET_TIMEOUT = 1000;
 
 	private URI toURI(HttpHost host, String path) throws URISyntaxException {
 		return new URI(host.getSchemeName(), null, host.getHostName(), host.getPort(), path, null, null);

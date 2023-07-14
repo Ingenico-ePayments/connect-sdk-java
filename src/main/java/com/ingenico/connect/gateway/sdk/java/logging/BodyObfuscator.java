@@ -56,7 +56,7 @@ public final class BodyObfuscator {
 		}
 		regex.append(")\\1\\s*:\\s*(?:([\"'])(.*?)(?<!\\\\)\\3|([^\"'\\s\\[\\{][\\S&&[^,]]*))");
 
-		 // not case insensitive
+		// not case insensitive
 		final int flags = Pattern.DOTALL;
 
 		return Pattern.compile(regex.toString(), flags);
@@ -105,6 +105,7 @@ public final class BodyObfuscator {
 
 	/**
 	 * Obfuscates the body from the given stream as necessary.
+	 *
 	 * @param charset The charset to use to read the body input stream.
 	 */
 	public String obfuscateBody(InputStream bodyStream, Charset charset) throws IOException {
@@ -161,7 +162,7 @@ public final class BodyObfuscator {
 		return DEFAULT_OBFUSCATOR;
 	}
 
-	public static class Builder {
+	public static final class Builder {
 
 		private final Map<String, ObfuscationRule> obfuscationRules;
 

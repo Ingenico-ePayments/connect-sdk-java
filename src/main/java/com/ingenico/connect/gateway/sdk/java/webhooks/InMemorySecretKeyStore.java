@@ -14,7 +14,8 @@ public final class InMemorySecretKeyStore implements SecretKeyStore {
 
 	private final Map<String, String> store = new ConcurrentHashMap<String, String>();
 
-	private InMemorySecretKeyStore() {}
+	private InMemorySecretKeyStore() {
+	}
 
 	@Override
 	public String getSecretKey(String keyId) {

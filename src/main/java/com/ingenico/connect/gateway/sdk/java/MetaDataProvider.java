@@ -19,10 +19,11 @@ import com.ingenico.connect.gateway.sdk.java.domain.metadata.ShoppingCartExtensi
  */
 public class MetaDataProvider {
 
-	private static final String SDK_VERSION = "6.40.0";
+	private static final String SDK_VERSION = "6.41.0";
 
 	private static final String SERVER_META_INFO_HEADER = "X-GCS-ServerMetaInfo";
 	static final Set<String> PROHIBITED_HEADERS;
+
 	static {
 		Set<String> prohibitedHeaders = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
 		prohibitedHeaders.add(SERVER_META_INFO_HEADER);

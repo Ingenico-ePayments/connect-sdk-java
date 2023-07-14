@@ -115,6 +115,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 
 	/**
 	 * Creates a new connection with the given timeouts, the default number of maximum connections, no proxy and the default HTTPS protocols.
+	 *
 	 * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
 	 */
@@ -124,6 +125,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 
 	/**
 	 * Creates a new connection with the given timeouts and number of maximum connections, no proxy and the default HTTPS protocols.
+	 *
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
 	 */
 	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections) {
@@ -132,6 +134,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 
 	/**
 	 * Creates a new connection with the given timeouts and proxy configuration, the default number of maximum connections and the default HTTPS protocols.
+	 *
 	 * @see CommunicatorConfiguration#DEFAULT_MAX_CONNECTIONS
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
 	 */
@@ -141,6 +144,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 
 	/**
 	 * Creates a new connection with the given timeouts, number of maximum connections and proxy configuration, and the default HTTPS protocols.
+	 *
 	 * @see CommunicatorConfiguration#DEFAULT_HTTPS_PROTOCOLS
 	 */
 	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration) {
@@ -392,7 +396,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 
 	protected void addHeaders(HttpRequestBase httpRequestBase, List<RequestHeader> requestHeaders) {
 		if (requestHeaders != null) {
-			for (RequestHeader requestHeader: requestHeaders) {
+			for (RequestHeader requestHeader : requestHeaders) {
 				httpRequestBase.addHeader(new BasicHeader(requestHeader.getName(), requestHeader.getValue()));
 			}
 		}

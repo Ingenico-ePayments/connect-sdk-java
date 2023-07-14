@@ -14,7 +14,8 @@ import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultMarshaller;
  */
 public final class Factory {
 
-	private Factory() {}
+	private Factory() {
+	}
 
 	/**
 	 * Creates a {@link CommunicatorConfiguration} based on the configuration

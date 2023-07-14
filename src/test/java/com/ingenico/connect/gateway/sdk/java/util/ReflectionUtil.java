@@ -6,7 +6,8 @@ import org.junit.Assert;
 
 public final class ReflectionUtil {
 
-	private ReflectionUtil() {}
+	private ReflectionUtil() {
+	}
 
 	public static <T> T getField(Object object, String fieldName, Class<T> fieldType) {
 		Class<?> clazz = object.getClass();

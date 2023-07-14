@@ -48,6 +48,7 @@ public class DefaultMarshallerTest {
 		public String getExtraField() {
 			return extraField;
 		}
+
 		public void setExtraField(String extraField) {
 			this.extraField = extraField;
 		}

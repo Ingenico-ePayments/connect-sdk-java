@@ -2,6 +2,7 @@
  * This class was auto-generated from the API references found at
  * https://epayments-api.developer-ingenico.com/s2sapi/v1/
  */
+
 package com.ingenico.connect.gateway.sdk.java.domain.definitions;
 
 import java.util.List;
@@ -13,6 +14,10 @@ public class OrderStatusOutput {
 	private List<APIError> errors = null;
 
 	private Boolean isCancellable = null;
+
+	private Boolean isRetriable = null;
+
+	private List<KeyValuePair> providerRawOutput = null;
 
 	private String statusCategory = null;
 
@@ -52,6 +57,40 @@ public class OrderStatusOutput {
 	 */
 	public void setIsCancellable(Boolean value) {
 		this.isCancellable = value;
+	}
+
+	/**
+	 * Flag indicating whether a rejected payment may be retried by the merchant without incurring a fee 
+	 * <ul class="paragraph-width"><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public Boolean getIsRetriable() {
+		return isRetriable;
+	}
+
+	/**
+	 * Flag indicating whether a rejected payment may be retried by the merchant without incurring a fee 
+	 * <ul class="paragraph-width"><li>true
+	 * <li>false
+	 * </ul>
+	 */
+	public void setIsRetriable(Boolean value) {
+		this.isRetriable = value;
+	}
+
+	/**
+	 * This is the raw response returned by the acquirer. This property contains unprocessed data directly returned by the acquirer. It's recommended for data analysis only due to its dynamic nature, which may undergo future changes.
+	 */
+	public List<KeyValuePair> getProviderRawOutput() {
+		return providerRawOutput;
+	}
+
+	/**
+	 * This is the raw response returned by the acquirer. This property contains unprocessed data directly returned by the acquirer. It's recommended for data analysis only due to its dynamic nature, which may undergo future changes.
+	 */
+	public void setProviderRawOutput(List<KeyValuePair> value) {
+		this.providerRawOutput = value;
 	}
 
 	/**

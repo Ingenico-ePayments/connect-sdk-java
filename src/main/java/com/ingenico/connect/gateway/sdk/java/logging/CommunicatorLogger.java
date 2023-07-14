@@ -7,12 +7,14 @@ public interface CommunicatorLogger {
 
 	/**
 	 * Logs a message.
+	 *
 	 * @param message The message to log.
 	 */
 	void log(String message);
 
 	/**
 	 * Logs a throwable with an accompanying message.
+	 *
 	 * @param message The message accompanying the throwable.
 	 * @param thrown The throwable to log.
 	 */

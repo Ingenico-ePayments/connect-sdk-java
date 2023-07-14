@@ -16,7 +16,7 @@ public class RequestParam {
 		this.value = value;
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 

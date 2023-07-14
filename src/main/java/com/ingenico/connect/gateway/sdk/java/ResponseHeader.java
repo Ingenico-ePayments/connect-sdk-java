@@ -22,7 +22,7 @@ public class ResponseHeader {
 		this.value = value;
 	}
 
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 
@@ -79,8 +79,8 @@ public class ResponseHeader {
 		if (filename.length() < 2) {
 			return filename;
 		}
-		if ((filename.startsWith("\"") && filename.endsWith("\""))
-				|| (filename.startsWith("'") && filename.endsWith("'"))) {
+		if (filename.startsWith("\"") && filename.endsWith("\"")
+				|| filename.startsWith("'") && filename.endsWith("'")) {
 			return filename.substring(1, filename.length() - 1);
 		}
 		return filename;

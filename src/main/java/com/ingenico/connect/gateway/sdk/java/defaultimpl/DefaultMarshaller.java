@@ -21,7 +21,8 @@ public class DefaultMarshaller implements Marshaller {
 
 	public static final DefaultMarshaller INSTANCE = new DefaultMarshaller();
 
-	protected DefaultMarshaller() {}
+	protected DefaultMarshaller() {
+	}
 
 	@Override
 	public String marshal(Object requestObject) {

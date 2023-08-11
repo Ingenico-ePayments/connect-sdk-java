@@ -665,7 +665,7 @@ public class Communicator implements Closeable, LoggingCapable, ObfuscationCapab
 		}
 	}
 
-	private String toString(InputStream bodyStream) {
+	private static String toString(InputStream bodyStream) {
 		try {
 			Reader reader = new InputStreamReader(bodyStream, CHARSET);
 			StringBuilder body = new StringBuilder();
@@ -680,7 +680,7 @@ public class Communicator implements Closeable, LoggingCapable, ObfuscationCapab
 		}
 	}
 
-	private boolean isJson(List<ResponseHeader> headers) {
+	private static boolean isJson(List<ResponseHeader> headers) {
 		String contentType = ResponseHeader.getHeaderValue(headers, "Content-Type");
 		return contentType == null || "application/json".equalsIgnoreCase(contentType) || contentType.toLowerCase().startsWith("application/json");
 	}

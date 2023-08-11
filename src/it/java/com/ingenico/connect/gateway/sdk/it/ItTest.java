@@ -64,6 +64,7 @@ abstract class ItTest {
 				.withProxyConfiguration(new ProxyConfiguration(new URI(proxyURI), proxyUsername, proxyPassword));
 	}
 
+	@SuppressWarnings("resource")
 	protected Client getClient() throws URISyntaxException {
 		URL propertiesUrl = getClass().getResource(PROPERTIES_URL);
 		CommunicatorConfiguration configuration = getCommunicatorConfiguration(propertiesUrl);
@@ -72,8 +73,19 @@ abstract class ItTest {
 				.withClientMetaInfo("{\"test\":\"test\"}");
 	}
 
+	@SuppressWarnings("resource")
 	protected Client getClientWithProxy() throws URISyntaxException {
 		CommunicatorConfiguration configuration = getCommunicatorConfigurationWithProxy();
+		return Factory
+				.createClient(configuration)
+				.withClientMetaInfo("{\"test\":\"test\"}");
+	}
+
+	@SuppressWarnings("resource")
+	protected Client getClientWithoutConnectionReuse() throws URISyntaxException {
+		URL propertiesUrl = getClass().getResource(PROPERTIES_URL);
+		CommunicatorConfiguration configuration = getCommunicatorConfiguration(propertiesUrl);
+		configuration.setConnectionReuse(false);
 		return Factory
 				.createClient(configuration)
 				.withClientMetaInfo("{\"test\":\"test\"}");

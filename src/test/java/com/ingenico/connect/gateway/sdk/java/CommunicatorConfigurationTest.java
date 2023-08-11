@@ -28,6 +28,7 @@ public class CommunicatorConfigurationTest {
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
 		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, configuration.getMaxConnections());
+		Assert.assertTrue(configuration.isConnectionReuse());
 		Assert.assertNull(configuration.getApiKeyId());
 		Assert.assertNull(configuration.getSecretApiKey());
 		Assert.assertNull(configuration.getProxyConfiguration());
@@ -53,6 +54,7 @@ public class CommunicatorConfigurationTest {
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
 		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, configuration.getMaxConnections());
+		Assert.assertTrue(configuration.isConnectionReuse());
 		Assert.assertNull(configuration.getApiKeyId());
 		Assert.assertNull(configuration.getSecretApiKey());
 
@@ -84,6 +86,7 @@ public class CommunicatorConfigurationTest {
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
 		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, configuration.getMaxConnections());
+		Assert.assertTrue(configuration.isConnectionReuse());
 		Assert.assertNull(configuration.getApiKeyId());
 		Assert.assertNull(configuration.getSecretApiKey());
 
@@ -113,6 +116,30 @@ public class CommunicatorConfigurationTest {
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
 		Assert.assertEquals(100, configuration.getMaxConnections());
+		Assert.assertTrue(configuration.isConnectionReuse());
+		Assert.assertNull(configuration.getApiKeyId());
+		Assert.assertNull(configuration.getSecretApiKey());
+		Assert.assertNull(configuration.getProxyConfiguration());
+	}
+
+	@Test
+	public void testConstructFromPropertiesWithConnectionReuse() {
+
+		Properties properties = new Properties();
+		properties.setProperty("connect.api.endpoint.host", "eu.sandbox.api-ingenico.com");
+		properties.setProperty("connect.api.authorizationType", "V1HMAC");
+		properties.setProperty("connect.api.connectTimeout", "20000");
+		properties.setProperty("connect.api.socketTimeout", "10000");
+		properties.setProperty("connect.api.connectionReuse", "false");
+
+		CommunicatorConfiguration configuration = new CommunicatorConfiguration(properties);
+
+		Assert.assertEquals(URI.create("https://eu.sandbox.api-ingenico.com"), configuration.getApiEndpoint());
+		Assert.assertEquals(AuthorizationType.V1HMAC, configuration.getAuthorizationType());
+		Assert.assertEquals(20000, configuration.getConnectTimeout());
+		Assert.assertEquals(10000, configuration.getSocketTimeout());
+		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, configuration.getMaxConnections());
+		Assert.assertFalse(configuration.isConnectionReuse());
 		Assert.assertNull(configuration.getApiKeyId());
 		Assert.assertNull(configuration.getSecretApiKey());
 		Assert.assertNull(configuration.getProxyConfiguration());
@@ -209,6 +236,7 @@ public class CommunicatorConfigurationTest {
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
 		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, configuration.getMaxConnections());
+		Assert.assertTrue(configuration.isConnectionReuse());
 		Assert.assertNull(configuration.getApiKeyId());
 		Assert.assertNull(configuration.getSecretApiKey());
 		Assert.assertNull(configuration.getProxyConfiguration());
@@ -237,6 +265,7 @@ public class CommunicatorConfigurationTest {
 		Assert.assertEquals(20000, configuration.getConnectTimeout());
 		Assert.assertEquals(10000, configuration.getSocketTimeout());
 		Assert.assertEquals(CommunicatorConfiguration.DEFAULT_MAX_CONNECTIONS, configuration.getMaxConnections());
+		Assert.assertTrue(configuration.isConnectionReuse());
 		Assert.assertNull(configuration.getApiKeyId());
 		Assert.assertNull(configuration.getSecretApiKey());
 		Assert.assertNull(configuration.getProxyConfiguration());

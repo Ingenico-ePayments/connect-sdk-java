@@ -35,7 +35,7 @@ public final class SysOutCommunicatorLogger implements CommunicatorLogger {
 		}
 	}
 
-	private void printMessage(PrintStream sysOut, String message) {
+	private static void printMessage(PrintStream sysOut, String message) {
 		sysOut.printf("%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS %2$s%n", new Date(), message);
 	}
 }

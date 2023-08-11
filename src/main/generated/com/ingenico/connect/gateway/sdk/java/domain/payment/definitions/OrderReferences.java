@@ -130,14 +130,14 @@ public class OrderReferences {
 	}
 
 	/**
-	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the WL Online Payment Acceptance Platform platform is 50.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
 	 */
 	public String getMerchantReference() {
 		return merchantReference;
 	}
 
 	/**
-	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
+	 * <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the GlobalCollect platform is 30.</div> <div class="alert alert-info">Note that the maximum length of this field for transactions processed on the WL Online Payment Acceptance Platform platform is 50.</div> Your unique reference of the transaction that is also returned in our report files. This is almost always used for your reconciliation of our report files.
 	 */
 	public void setMerchantReference(String value) {
 		this.merchantReference = value;

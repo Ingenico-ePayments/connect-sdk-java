@@ -34,6 +34,8 @@ public class CommunicatorConfiguration {
 
 	private int maxConnections = DEFAULT_MAX_CONNECTIONS;
 
+	private boolean connectionReuse = true;
+
 	private AuthorizationType authorizationType;
 
 	private String apiKeyId;
@@ -72,17 +74,19 @@ public class CommunicatorConfiguration {
 				httpsProtocols.addAll(Arrays.asList(COMMA_SEPARATOR_PATTERN.split(httpsProtocolString.trim())));
 			}
 
+			connectionReuse = Boolean.parseBoolean(properties.getProperty("connect.api.connectionReuse", "true"));
+
 			integrator				= properties.getProperty("connect.api.integrator");
 			shoppingCartExtension	= getShoppingCartExtension(properties);
 		}
 	}
 
-	private int getProperty(Properties properties, String key, int defaultValue) {
+	private static int getProperty(Properties properties, String key, int defaultValue) {
 		String propertyValue = properties.getProperty(key, null);
 		return propertyValue != null ? Integer.parseInt(propertyValue) : defaultValue;
 	}
 
-	private URI getApiEndpoint(Properties properties) {
+	private static URI getApiEndpoint(Properties properties) {
 		String host		= properties.getProperty("connect.api.endpoint.host");
 		String scheme	= properties.getProperty("connect.api.endpoint.scheme");
 		String port		= properties.getProperty("connect.api.endpoint.port");
@@ -90,7 +94,7 @@ public class CommunicatorConfiguration {
 		return createURI(scheme != null ? scheme : "https", host, port != null ? Integer.parseInt(port) : -1);
 	}
 
-	private URI createURI(String scheme, String host, int port) {
+	private static URI createURI(String scheme, String host, int port) {
 		try {
 			return new URI(scheme, null, host, port, null, null, null);
 		} catch (URISyntaxException e) {
@@ -98,7 +102,7 @@ public class CommunicatorConfiguration {
 		}
 	}
 
-	private ShoppingCartExtension getShoppingCartExtension(Properties properties) {
+	private static ShoppingCartExtension getShoppingCartExtension(Properties properties) {
 		String creator		= properties.getProperty("connect.api.shoppingCartExtension.creator");
 		String name			= properties.getProperty("connect.api.shoppingCartExtension.name");
 		String version		= properties.getProperty("connect.api.shoppingCartExtension.version");
@@ -226,6 +230,19 @@ public class CommunicatorConfiguration {
 
 	public CommunicatorConfiguration withMaxConnections(int maxConnections) {
 		setMaxConnections(maxConnections);
+		return this;
+	}
+
+	public boolean isConnectionReuse() {
+		return connectionReuse;
+	}
+
+	public void setConnectionReuse(boolean connectionReuse) {
+		this.connectionReuse = connectionReuse;
+	}
+
+	public CommunicatorConfiguration withConnectionReuse(boolean connectionReuse) {
+		this.connectionReuse = connectionReuse;
 		return this;
 	}
 

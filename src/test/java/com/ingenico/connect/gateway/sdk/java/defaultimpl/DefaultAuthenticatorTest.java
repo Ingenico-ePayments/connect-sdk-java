@@ -14,9 +14,8 @@ public class DefaultAuthenticatorTest {
 	@Test
 	public void testToCanonicalizeHeaderValue() {
 
-		DefaultAuthenticator authenticator = new DefaultAuthenticator(AuthorizationType.V1HMAC, "apiKeyId", "secretApiKey");
-		Assert.assertEquals("aap noot", authenticator.toCanonicalizeHeaderValue("aap\nnoot  "));
-		Assert.assertEquals("aap noot", authenticator.toCanonicalizeHeaderValue(" aap\r\n  noot"));
+		Assert.assertEquals("aap noot", DefaultAuthenticator.toCanonicalizeHeaderValue("aap\nnoot  "));
+		Assert.assertEquals("aap noot", DefaultAuthenticator.toCanonicalizeHeaderValue(" aap\r\n  noot"));
 	}
 
 	@Test

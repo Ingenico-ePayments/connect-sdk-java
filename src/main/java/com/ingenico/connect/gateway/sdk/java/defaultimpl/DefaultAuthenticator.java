@@ -136,7 +136,7 @@ public class DefaultAuthenticator implements Authenticator {
 	 * Returns the encoded URI path without the HTTP method and including all
 	 * decoded query parameters.
 	 */
-	private String toCanonicalizedResource(URI resourceUri) {
+	private static String toCanonicalizedResource(URI resourceUri) {
 		String rawPath = resourceUri.getRawPath();
 		if (resourceUri.getQuery() == null) {
 			return rawPath;
@@ -145,11 +145,11 @@ public class DefaultAuthenticator implements Authenticator {
 		return rawPath + '?' + resourceUri.getQuery();
 	}
 
-	private String toCanonicalizeHeaderName(String originalName) {
+	private static String toCanonicalizeHeaderName(String originalName) {
 		return originalName.toLowerCase(Locale.ENGLISH);
 	}
 
-	String toCanonicalizeHeaderValue(String originalValue) {
+	static String toCanonicalizeHeaderValue(String originalValue) {
 
 		if (originalValue == null) {
 			return "";

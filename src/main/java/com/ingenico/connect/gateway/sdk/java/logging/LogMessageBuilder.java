@@ -93,7 +93,7 @@ public abstract class LogMessageBuilder {
 		this.contentType = contentType;
 	}
 
-	private boolean isBinaryContent(String contentType) {
+	private static boolean isBinaryContent(String contentType) {
 		return contentType != null
 				&& !contentType.startsWith("text/")
 				&& !contentType.contains("json")

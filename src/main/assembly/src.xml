@@ -17,6 +17,7 @@
 				<include>pom.xml</include>
 				<include>README.md</include>
 				<include>LICENSE.txt</include>
+				<include>checkstyle.xml</include>
 			</includes>
 		</fileSet>
 		<fileSet>

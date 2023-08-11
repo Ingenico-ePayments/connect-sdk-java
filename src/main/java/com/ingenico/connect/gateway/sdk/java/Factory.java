@@ -6,7 +6,7 @@ import java.net.URI;
 import java.util.Properties;
 
 import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultAuthenticator;
-import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultConnection;
+import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultConnectionBuilder;
 import com.ingenico.connect.gateway.sdk.java.defaultimpl.DefaultMarshaller;
 
 /**
@@ -60,13 +60,13 @@ public final class Factory {
 
 		return new SessionBuilder()
 				.withAPIEndpoint(configuration.getApiEndpoint())
-				.withConnection(new DefaultConnection(
-						configuration.getConnectTimeout(),
-						configuration.getSocketTimeout(),
-						configuration.getMaxConnections(),
-						configuration.getProxyConfiguration(),
-						configuration.getHttpsProtocols()
-				))
+				.withConnection(new DefaultConnectionBuilder(configuration.getConnectTimeout(), configuration.getSocketTimeout())
+						.withMaxConnections(configuration.getMaxConnections())
+						.withConnectionReuse(configuration.isConnectionReuse())
+						.withProxyConfiguration(configuration.getProxyConfiguration())
+						.withHttpsProtocols(configuration.getHttpsProtocols())
+						.build()
+				)
 				.withMetaDataProvider(metaDataProvider)
 				.withAuthenticator(new DefaultAuthenticator(
 						configuration.getAuthorizationType(),
@@ -103,6 +103,7 @@ public final class Factory {
 	 * Creates a {@link Client} based on the configuration values in
 	 * {@code configurationFileUri}, {@code apiKeyId} and {@code secretApiKey}.
 	 */
+	@SuppressWarnings("resource")
 	public static Client createClient(URI configurationFileUri, String apiKeyId, String secretApiKey) {
 		return createClient(createCommunicator(configurationFileUri, apiKeyId, secretApiKey));
 	}
@@ -110,6 +111,7 @@ public final class Factory {
 	/**
 	 * Creates a {@link Client} based on the passed configuration.
 	 */
+	@SuppressWarnings("resource")
 	public static Client createClient(CommunicatorConfiguration configuration) {
 		return createClient(createCommunicator(configuration));
 	}
@@ -117,6 +119,7 @@ public final class Factory {
 	/**
 	 * Creates a {@link Client} based on the passed {@link Session}.
 	 */
+	@SuppressWarnings("resource")
 	public static Client createClient(Session session) {
 		return createClient(createCommunicator(session));
 	}

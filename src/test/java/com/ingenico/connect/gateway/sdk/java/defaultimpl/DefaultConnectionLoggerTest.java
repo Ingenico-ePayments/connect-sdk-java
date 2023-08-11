@@ -961,7 +961,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 					response.setHeader(entry.getKey(), entry.getValue());
 				}
 
-				response.setEntity(new InputStreamEntity(DefaultConnectionLoggerTest.class.getResourceAsStream(resource)));
+				response.setEntity(createEntity(resource));
 
 				return null;
 			}
@@ -987,7 +987,7 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 					response.setHeader(entry.getKey(), entry.getValue());
 				}
 
-				response.setEntity(new InputStreamEntity(DefaultConnectionLoggerTest.class.getResourceAsStream(resource)));
+				response.setEntity(createEntity(resource));
 
 				return null;
 			}
@@ -1048,6 +1048,11 @@ public class DefaultConnectionLoggerTest extends LocalServerTestBase {
 				return answer.answer(invocation);
 			}
 		};
+	}
+
+	@SuppressWarnings("resource")
+	private InputStreamEntity createEntity(final String resource) {
+		return new InputStreamEntity(DefaultConnectionLoggerTest.class.getResourceAsStream(resource));
 	}
 
 	// general utility methods

@@ -14,6 +14,7 @@ import com.ingenico.connect.gateway.sdk.java.Communicator;
 import com.ingenico.connect.gateway.sdk.java.CommunicatorConfiguration;
 import com.ingenico.connect.gateway.sdk.java.Factory;
 import com.ingenico.connect.gateway.sdk.java.merchant.services.ConvertAmountParams;
+import com.ingenico.connect.gateway.sdk.java.merchant.services.ServicesClient;
 
 public class ConnectionPoolingTest extends ItTest {
 
@@ -73,12 +74,16 @@ public class ConnectionPoolingTest extends ItTest {
 	private final class ConvertAmountAction implements Callable<ConvertAmountResult> {
 
 		private final CountDownLatch barrier;
-		private final Communicator communicator;
+		private final ServicesClient servicesClient;
 		private final ConvertAmountParams request;
 
+		@SuppressWarnings("resource")
 		private ConvertAmountAction(CountDownLatch barrier, int index, Communicator communicator) {
 			this.barrier = barrier;
-			this.communicator = communicator;
+			this.servicesClient = Factory.createClient(communicator)
+					.withClientMetaInfo("")
+					.merchant(getMerchantId())
+					.services();
 
 			request = new ConvertAmountParams();
 			request.setSource("USD");
@@ -88,11 +93,10 @@ public class ConnectionPoolingTest extends ItTest {
 
 		@Override
 		public ConvertAmountResult call() throws Exception {
-
 			barrier.await();
 
 			long startTime = System.currentTimeMillis();
-			Factory.createClient(communicator).withClientMetaInfo("").merchant(getMerchantId()).services().convertAmount(request).getConvertedAmount();
+			servicesClient.convertAmount(request).getConvertedAmount();
 			long endTime = System.currentTimeMillis();
 
 			return new ConvertAmountResult(startTime, endTime);

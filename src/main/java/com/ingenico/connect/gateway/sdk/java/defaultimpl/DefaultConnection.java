@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -55,6 +56,7 @@ import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.entity.mime.content.InputStreamBody;
+import org.apache.http.impl.NoConnectionReuseStrategy;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.CloseableHttpClient;
@@ -108,10 +110,10 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 	// RequestConfig is marked to be immutable
 	protected final RequestConfig requestConfig;
 
-	private volatile BodyObfuscator bodyObfuscator = BodyObfuscator.defaultObfuscator();
-	private volatile HeaderObfuscator headerObfuscator = HeaderObfuscator.defaultObfuscator();
+	private final AtomicReference<BodyObfuscator> bodyObfuscator = new AtomicReference<BodyObfuscator>(BodyObfuscator.defaultObfuscator());
+	private final AtomicReference<HeaderObfuscator> headerObfuscator = new AtomicReference<HeaderObfuscator>(HeaderObfuscator.defaultObfuscator());
 
-	private volatile CommunicatorLogger communicatorLogger;
+	private final AtomicReference<CommunicatorLogger> communicatorLogger = new AtomicReference<CommunicatorLogger>();
 
 	/**
 	 * Creates a new connection with the given timeouts, the default number of maximum connections, no proxy and the default HTTPS protocols.
@@ -166,15 +168,32 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 	public DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, ProxyConfiguration proxyConfiguration,
 			SSLConnectionSocketFactory sslConnectionSocketFactory) {
 
+		this(connectTimeout, socketTimeout, maxConnections, true, proxyConfiguration, sslConnectionSocketFactory);
+	}
+
+	protected DefaultConnection(DefaultConnectionBuilder builder) {
+		this(
+				builder.connectTimeout,
+				builder.socketTimeout,
+				builder.maxConnections,
+				builder.connectionReuse,
+				builder.proxyConfiguration,
+				builder.sslConnectionSocketFactory
+		);
+	}
+
+	private DefaultConnection(int connectTimeout, int socketTimeout, int maxConnections, boolean connectionReuse,
+			ProxyConfiguration proxyConfiguration, SSLConnectionSocketFactory sslConnectionSocketFactory) {
+
 		if (sslConnectionSocketFactory == null) {
 			throw new IllegalArgumentException("sslConnectionSocketFactory is required");
 		}
 		requestConfig = createRequestConfig(connectTimeout, socketTimeout);
 		connectionManager = createHttpClientConnectionManager(maxConnections, sslConnectionSocketFactory);
-		httpClient = createHttpClient(proxyConfiguration);
+		httpClient = createHttpClient(proxyConfiguration, connectionReuse);
 	}
 
-	private static SSLConnectionSocketFactory createSSLConnectionSocketFactory(Set<String> httpsProtocols) {
+	static SSLConnectionSocketFactory createSSLConnectionSocketFactory(Set<String> httpsProtocols) {
 		SSLContext sslContext = SSLContexts.createDefault();
 		HostnameVerifier hostnameVerifier = SSLConnectionSocketFactory.getDefaultHostnameVerifier();
 
@@ -183,14 +202,14 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		return new SSLConnectionSocketFactory(sslContext, supportedProtocols.toArray(new String[0]), null, hostnameVerifier);
 	}
 
-	private RequestConfig createRequestConfig(int connectTimeout, int socketTimeout) {
+	private static RequestConfig createRequestConfig(int connectTimeout, int socketTimeout) {
 		return RequestConfig.custom()
 				.setSocketTimeout(socketTimeout)
 				.setConnectTimeout(connectTimeout)
 				.build();
 	}
 
-	private HttpClientConnectionManager createHttpClientConnectionManager(int maxConnections, SSLConnectionSocketFactory sslConnectionSocketFactory) {
+	private static HttpClientConnectionManager createHttpClientConnectionManager(int maxConnections, SSLConnectionSocketFactory sslConnectionSocketFactory) {
 		Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory>create()
 				.register("http", PlainConnectionSocketFactory.getSocketFactory())
 				.register("https", sslConnectionSocketFactory)
@@ -202,7 +221,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		return connectionManager;
 	}
 
-	private CloseableHttpClient createHttpClient(ProxyConfiguration proxyConfiguration) {
+	private CloseableHttpClient createHttpClient(ProxyConfiguration proxyConfiguration, boolean connectionReuse) {
 
 		HttpClientBuilder builder = HttpClients.custom()
 				.setConnectionManager(connectionManager);
@@ -249,6 +268,10 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		LoggingInterceptor loggingInterceptor = new LoggingInterceptor();
 		builder = builder.addInterceptorLast((HttpRequestInterceptor) loggingInterceptor);
 		builder = builder.addInterceptorFirst((HttpResponseInterceptor) loggingInterceptor);
+
+		if (!connectionReuse) {
+			builder = builder.setConnectionReuseStrategy(NoConnectionReuseStrategy.INSTANCE);
+		}
 
 		return builder
 				.setRoutePlanner(routePlanner)
@@ -329,11 +352,11 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		return executeRequest(httpPut, responseHandler);
 	}
 
-	private HttpEntity createRequestEntity(String body) {
+	private static HttpEntity createRequestEntity(String body) {
 		return body != null ? new JsonEntity(body, CHARSET) : null;
 	}
 
-	private HttpEntity createRequestEntity(MultipartFormDataObject multipart) {
+	private static HttpEntity createRequestEntity(MultipartFormDataObject multipart) {
 		return new MultipartFormDataEntity(multipart);
 	}
 
@@ -378,17 +401,17 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 				}
 			}
 		} catch (ClientProtocolException e) {
-			logError(requestId, e, startTime, communicatorLogger);
+			logError(requestId, e, startTime, communicatorLogger.get());
 			throw new CommunicationException(e);
 		} catch (IOException e) {
-			logError(requestId, e, startTime, communicatorLogger);
+			logError(requestId, e, startTime, communicatorLogger.get());
 			throw new CommunicationException(e);
 		} catch (CommunicationException e) {
-			logError(requestId, e, startTime, communicatorLogger);
+			logError(requestId, e, startTime, communicatorLogger.get());
 			throw e;
 		} catch (RuntimeException e) {
 			if (logRuntimeExceptions) {
-				logError(requestId, e, startTime, communicatorLogger);
+				logError(requestId, e, startTime, communicatorLogger.get());
 			}
 			throw e;
 		}
@@ -426,7 +449,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		if (bodyObfuscator == null) {
 			throw new IllegalArgumentException("bodyObfuscator is required");
 		}
-		this.bodyObfuscator = bodyObfuscator;
+		this.bodyObfuscator.set(bodyObfuscator);
 	}
 
 	@Override
@@ -434,7 +457,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		if (headerObfuscator == null) {
 			throw new IllegalArgumentException("headerObfuscator is required");
 		}
-		this.headerObfuscator = headerObfuscator;
+		this.headerObfuscator.set(headerObfuscator);
 	}
 
 	@Override
@@ -442,12 +465,12 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		if (communicatorLogger == null) {
 			throw new IllegalArgumentException("communicatorLogger is required");
 		}
-		this.communicatorLogger = communicatorLogger;
+		this.communicatorLogger.set(communicatorLogger);
 	}
 
 	@Override
 	public void disableLogging() {
-		this.communicatorLogger = null;
+		this.communicatorLogger.set(null);
 	}
 
 	// logging code
@@ -460,7 +483,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 			String uri = requestLine.getUri();
 
 			final RequestLogMessageBuilder logMessageBuilder = new RequestLogMessageBuilder(requestId, method, uri,
-					bodyObfuscator, headerObfuscator);
+					bodyObfuscator.get(), headerObfuscator.get());
 			addHeaders(logMessageBuilder, request.getAllHeaders());
 
 			if (request instanceof HttpEntityEnclosingRequest) {
@@ -485,7 +508,6 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		} catch (Exception e) {
 
 			logger.log(String.format("An error occurred trying to log request '%s'", requestId), e);
-			return;
 		}
 	}
 
@@ -498,7 +520,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 			final int statusCode = response.getStatusLine().getStatusCode();
 
 			final ResponseLogMessageBuilder logMessageBuilder = new ResponseLogMessageBuilder(requestId, statusCode, duration,
-					bodyObfuscator, headerObfuscator);
+					bodyObfuscator.get(), headerObfuscator.get());
 			addHeaders(logMessageBuilder, response.getAllHeaders());
 
 			HttpEntity entity = response.getEntity();
@@ -518,11 +540,10 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		} catch (Exception e) {
 
 			logger.log(String.format("An error occurred trying to log response '%s'", requestId), e);
-			return;
 		}
 	}
 
-	private void addHeaders(LogMessageBuilder logMessageBuilder, Header[] headers) {
+	private static void addHeaders(LogMessageBuilder logMessageBuilder, Header[] headers) {
 
 		if (headers != null) {
 			for (Header header : headers) {
@@ -531,7 +552,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		}
 	}
 
-	private String getContentType(HttpEntity entity, Header defaultHeader) {
+	private static String getContentType(HttpEntity entity, Header defaultHeader) {
 
 		Header contentTypeHeader = entity != null ? entity.getContentType() : null;
 		if (contentTypeHeader == null) {
@@ -541,7 +562,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		return contentTypeHeader != null ? contentTypeHeader.getValue() : null;
 	}
 
-	private void setBody(LogMessageBuilder logMessageBuilder, HttpEntity entity, String contentType, boolean isBinaryContent) throws IOException {
+	private static void setBody(LogMessageBuilder logMessageBuilder, HttpEntity entity, String contentType, boolean isBinaryContent) throws IOException {
 
 		if (entity == null) {
 			logMessageBuilder.setBody("", contentType);
@@ -557,18 +578,20 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 
 		} else {
 
-			logMessageBuilder.setBody(entity.getContent(), CHARSET, contentType);
+			@SuppressWarnings("resource")
+			InputStream body = entity.getContent();
+			logMessageBuilder.setBody(body, CHARSET, contentType);
 		}
 	}
 
-	private boolean isBinaryContent(String contentType) {
+	private static boolean isBinaryContent(String contentType) {
 		return contentType != null
 				&& !contentType.startsWith("text/")
 				&& !contentType.contains("json")
 				&& !contentType.contains("xml");
 	}
 
-	private void logError(final String requestId, final Exception error, final long startTime, final CommunicatorLogger logger) {
+	private static void logError(final String requestId, final Exception error, final long startTime, final CommunicatorLogger logger) {
 
 		if (logger != null) {
 
@@ -588,7 +611,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		@Override
 		public void process(HttpRequest request, HttpContext context) throws HttpException, IOException {
 
-			final CommunicatorLogger logger = communicatorLogger;
+			final CommunicatorLogger logger = communicatorLogger.get();
 			if (logger != null) {
 
 				final String requestId = (String) context.getAttribute(REQUEST_ID_ATTRIBUTE);
@@ -602,7 +625,7 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		@Override
 		public void process(HttpResponse response, HttpContext context) throws HttpException, IOException {
 
-			final CommunicatorLogger logger = communicatorLogger;
+			final CommunicatorLogger logger = communicatorLogger.get();
 			if (logger != null) {
 
 				final String requestId = (String) context.getAttribute(REQUEST_ID_ATTRIBUTE);
@@ -697,7 +720,9 @@ public class DefaultConnection implements PooledConnection, ObfuscationCapable {
 		private final long contentLength;
 
 		private UploadableFileBody(UploadableFile file) {
-			delegate = new InputStreamBody(file.getContent(), ContentType.create(file.getContentType()), file.getFileName());
+			@SuppressWarnings("resource")
+			InputStream content = file.getContent();
+			delegate = new InputStreamBody(content, ContentType.create(file.getContentType()), file.getFileName());
 			contentLength = Math.max(file.getContentLength(), -1);
 		}
 

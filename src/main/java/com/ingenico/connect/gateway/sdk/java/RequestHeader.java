@@ -21,7 +21,7 @@ public class RequestHeader {
 		this.value = normalizeValue(value);
 	}
 
-	private String normalizeValue(String value) {
+	private static String normalizeValue(String value) {
 		if (value == null || value.isEmpty()) {
 			return value;
 		}

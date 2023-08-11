@@ -67,7 +67,7 @@ public abstract class ApiResource {
 		return uri;
 	}
 
-	private String replaceAll(String uri, Map<String, String> pathContext) {
+	private static String replaceAll(String uri, Map<String, String> pathContext) {
 		if (pathContext != null) {
 			for (Map.Entry<String, String> entry : pathContext.entrySet()) {
 				uri = uri.replace(String.format("{%s}", entry.getKey()), entry.getValue());
@@ -138,7 +138,7 @@ public abstract class ApiResource {
 		}
 	}
 
-	private boolean isIdempotenceError(List<APIError> errors, CallContext context) {
+	private static boolean isIdempotenceError(List<APIError> errors, CallContext context) {
 		return context != null
 				&& context.getIdempotenceKey() != null
 				&& errors.size() == 1

@@ -56,7 +56,7 @@ public class WebhooksHelper {
 		return unmarshal(bodyBytes, requestHeaders);
 	}
 
-	private byte[] getContent(InputStream bodyStream) throws IOException {
+	private static byte[] getContent(InputStream bodyStream) throws IOException {
 		ByteArrayOutputStream output = new ByteArrayOutputStream(4096);
 
 		byte[] buffer = new byte[4096];
@@ -146,13 +146,13 @@ public class WebhooksHelper {
 
 	// general utility methods
 
-	private void validateApiVersion(WebhooksEvent event) {
+	private static void validateApiVersion(WebhooksEvent event) {
 		if (!Client.API_VERSION.equals(event.getApiVersion())) {
 			throw new ApiVersionMismatchException(event.getApiVersion(), Client.API_VERSION);
 		}
 	}
 
-	private String getHeaderValue(List<RequestHeader> requestHeaders, String headerName) {
+	private static String getHeaderValue(List<RequestHeader> requestHeaders, String headerName) {
 		String value = null;
 		for (RequestHeader header : requestHeaders) {
 			if (headerName.equalsIgnoreCase(header.getName())) {

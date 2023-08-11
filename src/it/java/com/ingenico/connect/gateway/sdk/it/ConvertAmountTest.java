@@ -33,4 +33,30 @@ public class ConvertAmountTest extends ItTest {
 			client.close();
 		}
 	}
+
+	/**
+	 * Smoke test for convert amount service with connection reuse turned off.
+	 */
+	@Test
+	public void testWithoutConnectionReuse() throws URISyntaxException, IOException {
+
+		ConvertAmountParams request = new ConvertAmountParams();
+		request.setAmount(123L);
+		request.setSource("USD");
+		request.setTarget("EUR");
+
+		Client client = getClientWithoutConnectionReuse();
+		try {
+			ConvertAmount response = client.merchant(getMerchantId()).services().convertAmount(request);
+
+			Assert.assertNotNull(response.getConvertedAmount());
+
+			response = client.merchant(getMerchantId()).services().convertAmount(request);
+
+			Assert.assertNotNull(response.getConvertedAmount());
+
+		} finally {
+			client.close();
+		}
+	}
 }

@@ -29,7 +29,7 @@ public final class BodyObfuscator {
 		this.propertyPattern = buildPropertyPattern(obfuscationRules.keySet());
 	}
 
-	private Pattern buildPropertyPattern(Set<String> propertyNames) {
+	private static Pattern buildPropertyPattern(Set<String> propertyNames) {
 		if (propertyNames.isEmpty()) {
 			// no matches possible
 			return Pattern.compile("$^");

@@ -13,6 +13,8 @@ public class HostedCheckoutSpecificInput {
 
 	private PaymentProductFiltersHostedCheckout paymentProductFilters = null;
 
+	private RecurringPaymentsData recurringPaymentsData = null;
+
 	private Boolean returnCancelState = null;
 
 	private String returnUrl = null;
@@ -71,6 +73,20 @@ public class HostedCheckoutSpecificInput {
 	 */
 	public void setPaymentProductFilters(PaymentProductFiltersHostedCheckout value) {
 		this.paymentProductFilters = value;
+	}
+
+	/**
+	 * The object containing reference data for the text that can be displayed on MyCheckout hosted payment page with subscription information.<br><br>Note:<br><br>The data in this object is only meant for displaying recurring payments-related data on your checkout page.<br>You still need to submit all the recurring payment-related data in the corresponding payment product-specific input. (example: cardPaymentMethodSpecificInput.recurring and cardPaymentMethodSpecificInput.isRecurring)
+	 */
+	public RecurringPaymentsData getRecurringPaymentsData() {
+		return recurringPaymentsData;
+	}
+
+	/**
+	 * The object containing reference data for the text that can be displayed on MyCheckout hosted payment page with subscription information.<br><br>Note:<br><br>The data in this object is only meant for displaying recurring payments-related data on your checkout page.<br>You still need to submit all the recurring payment-related data in the corresponding payment product-specific input. (example: cardPaymentMethodSpecificInput.recurring and cardPaymentMethodSpecificInput.isRecurring)
+	 */
+	public void setRecurringPaymentsData(RecurringPaymentsData value) {
+		this.recurringPaymentsData = value;
 	}
 
 	/**

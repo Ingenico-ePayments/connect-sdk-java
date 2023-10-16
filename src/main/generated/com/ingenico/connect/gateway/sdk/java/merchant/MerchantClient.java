@@ -13,6 +13,7 @@ import com.ingenico.connect.gateway.sdk.java.merchant.disputes.DisputesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.files.FilesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.hostedcheckouts.HostedcheckoutsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.hostedmandatemanagements.HostedmandatemanagementsClient;
+import com.ingenico.connect.gateway.sdk.java.merchant.installments.InstallmentsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.mandates.MandatesClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.payments.PaymentsClient;
 import com.ingenico.connect.gateway.sdk.java.merchant.payouts.PayoutsClient;
@@ -157,6 +158,15 @@ public class MerchantClient extends ApiResource {
 	 */
 	public SessionsClient sessions() {
 		return new SessionsClient(this, null);
+	}
+
+	/**
+	 * Resource /{merchantId}/installments
+	 *
+	 * @return InstallmentsClient
+	 */
+	public InstallmentsClient installments() {
+		return new InstallmentsClient(this, null);
 	}
 
 	/**

@@ -14,6 +14,8 @@ public class Installments {
 
 	private AmountOfMoney amountOfMoneyPerInstallment = null;
 
+	private AmountOfMoney amountOfMoneyTotal = null;
+
 	private String frequencyOfInstallments = null;
 
 	private Integer installmentPlanCode = null;
@@ -36,6 +38,20 @@ public class Installments {
 	 */
 	public void setAmountOfMoneyPerInstallment(AmountOfMoney value) {
 		this.amountOfMoneyPerInstallment = value;
+	}
+
+	/**
+	 * Object containing the total amount and ISO currency code attributes
+	 */
+	public AmountOfMoney getAmountOfMoneyTotal() {
+		return amountOfMoneyTotal;
+	}
+
+	/**
+	 * Object containing the total amount and ISO currency code attributes
+	 */
+	public void setAmountOfMoneyTotal(AmountOfMoney value) {
+		this.amountOfMoneyTotal = value;
 	}
 
 	/**

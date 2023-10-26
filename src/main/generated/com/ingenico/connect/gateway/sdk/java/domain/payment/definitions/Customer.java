@@ -25,6 +25,8 @@ public class Customer extends CustomerBase {
 
 	private String fiscalNumber = null;
 
+	private Boolean isCompany = null;
+
 	private Boolean isPreviousCustomer = null;
 
 	private String locale = null;
@@ -161,6 +163,28 @@ public class Customer extends CustomerBase {
 	 */
 	public void setFiscalNumber(String value) {
 		this.fiscalNumber = value;
+	}
+
+	/**
+	 * Indicates if the payer is a company or an individual
+	 * <ul class="paragraph-width">
+	 * <li>true =  This is a company
+	 * <li>false = This is an individual
+	 * </ul>
+	 */
+	public Boolean getIsCompany() {
+		return isCompany;
+	}
+
+	/**
+	 * Indicates if the payer is a company or an individual
+	 * <ul class="paragraph-width">
+	 * <li>true =  This is a company
+	 * <li>false = This is an individual
+	 * </ul>
+	 */
+	public void setIsCompany(Boolean value) {
+		this.isCompany = value;
 	}
 
 	/**

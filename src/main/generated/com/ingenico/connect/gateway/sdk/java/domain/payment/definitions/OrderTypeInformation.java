@@ -7,11 +7,37 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class OrderTypeInformation {
 
+	private String fundingType = null;
+
 	private String purchaseType = null;
 
 	private String transactionType = null;
 
 	private String usageType = null;
+
+	/**
+	 * Identifies the funding type being authenticated. Possible values are:<ul class="paragraph-width">
+	 * <li>personToPerson = When it is person to person funding (P2P)
+	 * <li>agentCashOut = When fund is being paid out to final recipient in Cash by company's agent.
+	 * <li>businessToConsumer = When fund is being transferred from business to consumer (B2C)
+	 * <li>businessToBusiness = When fund is being transferred from business to business (B2B)
+	 * <li>prefundingStagedWallet = When funding is being used to load the funds into the wallet account.</ul>
+	 */
+	public String getFundingType() {
+		return fundingType;
+	}
+
+	/**
+	 * Identifies the funding type being authenticated. Possible values are:<ul class="paragraph-width">
+	 * <li>personToPerson = When it is person to person funding (P2P)
+	 * <li>agentCashOut = When fund is being paid out to final recipient in Cash by company's agent.
+	 * <li>businessToConsumer = When fund is being transferred from business to consumer (B2C)
+	 * <li>businessToBusiness = When fund is being transferred from business to business (B2B)
+	 * <li>prefundingStagedWallet = When funding is being used to load the funds into the wallet account.</ul>
+	 */
+	public void setFundingType(String value) {
+		this.fundingType = value;
+	}
 
 	/**
 	 * Possible values are:<ul class="paragraph-width">

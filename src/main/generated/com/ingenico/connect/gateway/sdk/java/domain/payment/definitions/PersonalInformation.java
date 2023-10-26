@@ -11,6 +11,8 @@ public class PersonalInformation {
 
 	private String gender = null;
 
+	private PersonalIdentification identification = null;
+
 	private PersonalName name = null;
 
 	/**
@@ -51,6 +53,20 @@ public class PersonalInformation {
 	 */
 	public void setGender(String value) {
 		this.gender = value;
+	}
+
+	/**
+	 * Object containing identification documents information
+	 */
+	public PersonalIdentification getIdentification() {
+		return identification;
+	}
+
+	/**
+	 * Object containing identification documents information
+	 */
+	public void setIdentification(PersonalIdentification value) {
+		this.identification = value;
 	}
 
 	/**

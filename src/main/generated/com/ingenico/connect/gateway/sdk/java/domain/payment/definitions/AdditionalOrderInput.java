@@ -10,6 +10,8 @@ import com.ingenico.connect.gateway.sdk.java.domain.definitions.LodgingData;
 
 public class AdditionalOrderInput {
 
+	private AccountFundingRecipient accountFundingRecipient = null;
+
 	private AirlineData airlineData = null;
 
 	private Installments installments = null;
@@ -17,6 +19,7 @@ public class AdditionalOrderInput {
 	@SuppressWarnings("deprecation")
 	private Level3SummaryData level3SummaryData = null;
 
+	@SuppressWarnings("deprecation")
 	private LoanRecipient loanRecipient = null;
 
 	private LodgingData lodgingData = null;
@@ -26,6 +29,20 @@ public class AdditionalOrderInput {
 	private String orderDate = null;
 
 	private OrderTypeInformation typeInformation = null;
+
+	/**
+	 * Object containing specific data regarding the recipient of an account funding transaction
+	 */
+	public AccountFundingRecipient getAccountFundingRecipient() {
+		return accountFundingRecipient;
+	}
+
+	/**
+	 * Object containing specific data regarding the recipient of an account funding transaction
+	 */
+	public void setAccountFundingRecipient(AccountFundingRecipient value) {
+		this.accountFundingRecipient = value;
+	}
 
 	/**
 	 * Object that holds airline specific data
@@ -77,14 +94,20 @@ public class AdditionalOrderInput {
 
 	/**
 	 * Object containing specific data regarding the recipient of a loan in the UK
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public LoanRecipient getLoanRecipient() {
 		return loanRecipient;
 	}
 
 	/**
 	 * Object containing specific data regarding the recipient of a loan in the UK
+	 *
+	 * @deprecated No replacement
 	 */
+	@Deprecated
 	public void setLoanRecipient(LoanRecipient value) {
 		this.loanRecipient = value;
 	}

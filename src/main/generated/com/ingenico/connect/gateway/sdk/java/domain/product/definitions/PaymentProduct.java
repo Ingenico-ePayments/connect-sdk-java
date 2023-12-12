@@ -35,6 +35,8 @@ public class PaymentProduct {
 
 	private Integer id = null;
 
+	private Boolean isAuthenticationSupported = null;
+
 	private Boolean isJavaScriptRequired = null;
 
 	private Long maxAmount = null;
@@ -283,6 +285,20 @@ public class PaymentProduct {
 	 */
 	public void setId(Integer value) {
 		this.id = value;
+	}
+
+	/**
+	 * Indicates if the payment product supports 3D-Secure.
+	 */
+	public Boolean getIsAuthenticationSupported() {
+		return isAuthenticationSupported;
+	}
+
+	/**
+	 * Indicates if the payment product supports 3D-Secure.
+	 */
+	public void setIsAuthenticationSupported(Boolean value) {
+		this.isAuthenticationSupported = value;
 	}
 
 	/**

@@ -7,8 +7,6 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 
 public class SdkDataInput {
 
-	private String deviceInfo = null;
-
 	private DeviceRenderOptions deviceRenderOptions = null;
 
 	private String sdkAppId = null;
@@ -22,26 +20,6 @@ public class SdkDataInput {
 	private String sdkReferenceNumber = null;
 
 	private String sdkTransactionId = null;
-
-	/**
-	 * Device information gathered by the 3DS SDK on a customer device. This is JSON name/value pairs that as a whole is Base64url encoded.
-	 *
-	 * @deprecated No replacement
-	 */
-	@Deprecated
-	public String getDeviceInfo() {
-		return deviceInfo;
-	}
-
-	/**
-	 * Device information gathered by the 3DS SDK on a customer device. This is JSON name/value pairs that as a whole is Base64url encoded.
-	 *
-	 * @deprecated No replacement
-	 */
-	@Deprecated
-	public void setDeviceInfo(String value) {
-		this.deviceInfo = value;
-	}
 
 	/**
 	 * Object containing rendering options of the device.

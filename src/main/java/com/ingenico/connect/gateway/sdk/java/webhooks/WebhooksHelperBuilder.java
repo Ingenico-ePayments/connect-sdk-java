@@ -33,9 +33,6 @@ public class WebhooksHelperBuilder {
 	 * @throws IllegalArgumentException if not all required components are set
 	 */
 	public WebhooksHelper build() {
-		return new WebhooksHelper(
-				marshaller,
-				secretKeyStore
-		);
+		return new WebhooksHelper(marshaller, secretKeyStore);
 	}
 }

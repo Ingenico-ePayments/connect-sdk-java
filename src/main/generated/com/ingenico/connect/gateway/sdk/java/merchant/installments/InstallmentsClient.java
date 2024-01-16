@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://epayments-api.developer-ingenico.com/s2sapi/v1/
+ * https://epayments-api.developer-ingenico.com/
  */
 
 package com.ingenico.connect.gateway.sdk.java.merchant.installments;
@@ -31,7 +31,7 @@ public class InstallmentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/installments/getInstallmentsInfo
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/installments/getInstallmentsInfo.html">Get Installment Info</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/installments/getInstallmentsInfo.html">Get installment information</a>
 	 *
 	 * @param body GetInstallmentRequest
 	 * @return InstallmentOptionsResponse
@@ -50,7 +50,7 @@ public class InstallmentsClient extends ApiResource {
 
 	/**
 	 * Resource /{merchantId}/installments/getInstallmentsInfo
-	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/installments/getInstallmentsInfo.html">Get Installment Info</a>
+	 * - <a href="https://epayments-api.developer-ingenico.com/s2sapi/v1/en_US/java/installments/getInstallmentsInfo.html">Get installment information</a>
 	 *
 	 * @param body GetInstallmentRequest
 	 * @param context CallContext

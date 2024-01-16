@@ -13,7 +13,9 @@ public class WebhooksTest {
 	public void testCreateHelper() {
 		WebhooksHelper helper = Webhooks.createHelper(InMemorySecretKeyStore.INSTANCE);
 
+		SignatureValidator signatureValidator = ReflectionUtil.getField(helper, "signatureValidator", SignatureValidator.class);
+
 		Assert.assertSame(DefaultMarshaller.INSTANCE, ReflectionUtil.getField(helper, "marshaller", Marshaller.class));
-		Assert.assertSame(InMemorySecretKeyStore.INSTANCE, ReflectionUtil.getField(helper, "secretKeyStore", SecretKeyStore.class));
+		Assert.assertSame(InMemorySecretKeyStore.INSTANCE, ReflectionUtil.getField(signatureValidator, "secretKeyStore", SecretKeyStore.class));
 	}
 }

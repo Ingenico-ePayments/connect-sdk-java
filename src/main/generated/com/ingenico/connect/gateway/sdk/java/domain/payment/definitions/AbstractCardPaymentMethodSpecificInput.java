@@ -1,6 +1,6 @@
 /*
  * This class was auto-generated from the API references found at
- * https://epayments-api.developer-ingenico.com/s2sapi/v1/
+ * https://epayments-api.developer-ingenico.com/
  */
 
 package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
@@ -8,6 +8,8 @@ package com.ingenico.connect.gateway.sdk.java.domain.payment.definitions;
 import com.ingenico.connect.gateway.sdk.java.domain.definitions.AbstractPaymentMethodSpecificInput;
 
 public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMethodSpecificInput {
+
+	private String acquirerPromotionCode = null;
 
 	private String authorizationMode = null;
 
@@ -36,6 +38,14 @@ public class AbstractCardPaymentMethodSpecificInput extends AbstractPaymentMetho
 	private String unscheduledCardOnFileRequestor = null;
 
 	private String unscheduledCardOnFileSequenceIndicator = null;
+
+	public String getAcquirerPromotionCode() {
+		return acquirerPromotionCode;
+	}
+
+	public void setAcquirerPromotionCode(String value) {
+		this.acquirerPromotionCode = value;
+	}
 
 	public String getAuthorizationMode() {
 		return authorizationMode;

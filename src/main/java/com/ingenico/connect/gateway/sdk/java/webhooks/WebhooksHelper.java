@@ -1,17 +1,10 @@
 package com.ingenico.connect.gateway.sdk.java.webhooks;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.security.GeneralSecurityException;
-import java.security.MessageDigest;
 import java.util.List;
-
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
-
-import org.apache.commons.codec.binary.Base64;
 
 import com.ingenico.connect.gateway.sdk.java.Client;
 import com.ingenico.connect.gateway.sdk.java.Marshaller;
@@ -23,21 +16,16 @@ import com.ingenico.connect.gateway.sdk.java.domain.webhooks.WebhooksEvent;
  */
 public class WebhooksHelper {
 
-	private static final Charset CHARSET = Charset.forName("UTF-8");
-
 	private final Marshaller marshaller;
 
-	private final SecretKeyStore secretKeyStore;
+	private final SignatureValidator signatureValidator;
 
 	public WebhooksHelper(Marshaller marshaller, SecretKeyStore secretKeyStore) {
 		if (marshaller == null) {
 			throw new IllegalArgumentException("marshaller is required");
 		}
-		if (secretKeyStore == null) {
-			throw new IllegalArgumentException("secretKeyStore is required");
-		}
 		this.marshaller = marshaller;
-		this.secretKeyStore = secretKeyStore;
+		this.signatureValidator = new SignatureValidator(secretKeyStore);
 	}
 
 	// body as InputStream
@@ -79,7 +67,7 @@ public class WebhooksHelper {
 	public WebhooksEvent unmarshal(byte[] body, List<RequestHeader> requestHeaders) {
 		validate(body, requestHeaders);
 
-		WebhooksEvent event = marshaller.unmarshal(new String(body, CHARSET), WebhooksEvent.class);
+		WebhooksEvent event = marshaller.unmarshal(new ByteArrayInputStream(body), WebhooksEvent.class);
 		validateApiVersion(event);
 		return event;
 	}
@@ -90,12 +78,7 @@ public class WebhooksHelper {
 	 * @throws SignatureValidationException If the body could not be validated successfully.
 	 */
 	protected void validate(byte[] body, List<RequestHeader> requestHeaders) {
-		try {
-			validateBody(body, requestHeaders);
-
-		} catch (GeneralSecurityException e) {
-			throw new SignatureValidationException(e);
-		}
+		signatureValidator.validate(body, requestHeaders);
 	}
 
 	// body as String
@@ -121,27 +104,7 @@ public class WebhooksHelper {
 	 * @throws SignatureValidationException If the body could not be validated successfully.
 	 */
 	protected void validate(String body, List<RequestHeader> requestHeaders) {
-		validate(body.getBytes(CHARSET), requestHeaders);
-	}
-
-	// validation utility methods
-
-	private void validateBody(byte[] body, List<RequestHeader> requestHeaders) throws GeneralSecurityException {
-		String signature = getHeaderValue(requestHeaders, "X-GCS-Signature");
-		String keyId = getHeaderValue(requestHeaders, "X-GCS-KeyId");
-		String secretKey = secretKeyStore.getSecretKey(keyId);
-
-		Mac hmac = Mac.getInstance("HmacSHA256");
-		SecretKeySpec key = new SecretKeySpec(secretKey.getBytes(CHARSET), "HmacSHA256");
-		hmac.init(key);
-
-		byte[] unencodedResult = hmac.doFinal(body);
-		byte[] expectedSignature = Base64.encodeBase64(unencodedResult);
-
-		boolean isValid = MessageDigest.isEqual(signature.getBytes(CHARSET), expectedSignature);
-		if (!isValid) {
-			throw new SignatureValidationException("failed to validate signature '" + signature + "'");
-		}
+		signatureValidator.validate(body, requestHeaders);
 	}
 
 	// general utility methods
@@ -150,22 +113,5 @@ public class WebhooksHelper {
 		if (!Client.API_VERSION.equals(event.getApiVersion())) {
 			throw new ApiVersionMismatchException(event.getApiVersion(), Client.API_VERSION);
 		}
-	}
-
-	private static String getHeaderValue(List<RequestHeader> requestHeaders, String headerName) {
-		String value = null;
-		for (RequestHeader header : requestHeaders) {
-			if (headerName.equalsIgnoreCase(header.getName())) {
-				if (value == null) {
-					value = header.getValue();
-				} else {
-					throw new SignatureValidationException("enocuntered multiple occurrences of header '" + headerName + "'");
-				}
-			}
-		}
-		if (value == null) {
-			throw new SignatureValidationException("could not find header '" + headerName + "'");
-		}
-		return value;
 	}
 }

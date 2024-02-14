@@ -21,7 +21,10 @@ public class OrderTypeInformation {
 	 * <li>agentCashOut = When fund is being paid out to final recipient in Cash by company's agent.
 	 * <li>businessToConsumer = When fund is being transferred from business to consumer (B2C)
 	 * <li>businessToBusiness = When fund is being transferred from business to business (B2B)
-	 * <li>prefundingStagedWallet = When funding is being used to load the funds into the wallet account.</ul>
+	 * <li>prefundingStagedWallet = When funding is being used to load the funds into the wallet account.
+	 * <li>storedValueDigitalWallet = When funding is being used to load the funds into a stored value digital wallet.
+	 * <li>fundingGiftCardForPersonalUse = When funding a gift card for personal use.
+	 * <li>fundingGiftCardForSomeoneElse = When funding a gift card for someone else.</ul>
 	 */
 	public String getFundingType() {
 		return fundingType;
@@ -33,7 +36,10 @@ public class OrderTypeInformation {
 	 * <li>agentCashOut = When fund is being paid out to final recipient in Cash by company's agent.
 	 * <li>businessToConsumer = When fund is being transferred from business to consumer (B2C)
 	 * <li>businessToBusiness = When fund is being transferred from business to business (B2B)
-	 * <li>prefundingStagedWallet = When funding is being used to load the funds into the wallet account.</ul>
+	 * <li>prefundingStagedWallet = When funding is being used to load the funds into the wallet account.
+	 * <li>storedValueDigitalWallet = When funding is being used to load the funds into a stored value digital wallet.
+	 * <li>fundingGiftCardForPersonalUse = When funding a gift card for personal use.
+	 * <li>fundingGiftCardForSomeoneElse = When funding a gift card for someone else.</ul>
 	 */
 	public void setFundingType(String value) {
 		this.fundingType = value;

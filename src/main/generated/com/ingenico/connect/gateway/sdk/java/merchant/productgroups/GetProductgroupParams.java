@@ -27,6 +27,8 @@ public class GetProductgroupParams implements ParamRequest {
 
 	private Boolean isRecurring;
 
+	private Boolean isInstallments;
+
 	private List<String> hide;
 
 	/**
@@ -108,6 +110,28 @@ public class GetProductgroupParams implements ParamRequest {
 	}
 
 	/**
+	 * This allows you to filter payment products based on their support for installments or not
+	 * <ul class="paragraph-width"><li>true
+	 * <li>false
+	 * </ul>
+	 * If this is omitted all payment products are returned.
+	 */
+	public Boolean getIsInstallments() {
+		return isInstallments;
+	}
+
+	/**
+	 * This allows you to filter payment products based on their support for installments or not
+	 * <ul class="paragraph-width"><li>true
+	 * <li>false
+	 * </ul>
+	 * If this is omitted all payment products are returned.
+	 */
+	public void setIsInstallments(Boolean value) {
+		this.isInstallments = value;
+	}
+
+	/**
 	 * Allows you to hide elements from the response, reducing the amount of data that needs to be returned to your client. Possible options are:
 	 * <ul class="paragraph-width">
 	 * <li>fields - Don't return any data on fields of the payment product
@@ -163,6 +187,9 @@ public class GetProductgroupParams implements ParamRequest {
 		}
 		if (isRecurring != null) {
 			result.add(new RequestParam("isRecurring", isRecurring.toString()));
+		}
+		if (isInstallments != null) {
+			result.add(new RequestParam("isInstallments", isInstallments.toString()));
 		}
 		if (hide != null) {
 			for (String hideElement : hide) {

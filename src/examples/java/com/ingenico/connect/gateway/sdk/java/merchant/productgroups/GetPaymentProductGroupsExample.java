@@ -26,6 +26,7 @@ public class GetPaymentProductGroupsExample {
 			query.setLocale("en_US");
 			query.setAmount(1000L);
 			query.setIsRecurring(true);
+			query.setIsInstallments(true);
 			query.addHide("fields");
 
 			PaymentProductGroups response = client.merchant("merchantId").productgroups().find(query);

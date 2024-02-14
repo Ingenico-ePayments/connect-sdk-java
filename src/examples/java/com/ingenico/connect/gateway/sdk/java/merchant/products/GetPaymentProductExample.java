@@ -26,6 +26,7 @@ public class GetPaymentProductExample {
 			query.setLocale("en_US");
 			query.setAmount(1000L);
 			query.setIsRecurring(true);
+			query.setIsInstallments(true);
 			query.setForceBasicFlow(false);
 			query.addHide("fields");
 
